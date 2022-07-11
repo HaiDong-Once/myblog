@@ -1,1 +1,1 @@
-export const siteData = JSON.parse("{\"base\":\"/\",\"lang\":\"zh-CN\",\"title\":\"咚咚咚\",\"description\":\"咚咚咚的blog站点\",\"head\":[[\"link\",{\"rel\":\"icon\",\"href\":\"https://vuejs.org/images/logo.png\"}]],\"locales\":{}}")
+export const siteData = JSON.parse("{\"base\":\"/myblog/\",\"lang\":\"zh-CN\",\"title\":\"咚咚咚\",\"description\":\"咚咚咚的blog站点\",\"head\":[[\"link\",{\"rel\":\"icon\",\"href\":\"https://vuejs.org/images/logo.png\"}]],\"locales\":{}}")

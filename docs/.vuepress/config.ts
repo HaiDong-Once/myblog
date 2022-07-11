@@ -2,7 +2,7 @@ const { defaultTheme } = require('vuepress')
 const { searchPlugin } = require('@vuepress/plugin-search')
 
 module.exports = {
-    base: '/',
+    base: '/myblog/',
     lang: 'zh-CN',
     title: '咚咚咚',
     description: '咚咚咚的blog站点',
