@@ -21,6 +21,21 @@ module.exports = {
                 activeMatch: '^/foo',
             },
             {
+                text: '前端周边',
+                children: [
+                    {
+                        text: '博客搭建',
+                        link: '/frontEnd/other/blog.md',
+                        activeMatch: '^/foo/',
+                    },
+                    {
+                        text: 'git工作流',
+                        link: '/frontEnd/other/git.md',
+                        activeMatch: '^/foo/',
+                    },
+                ],
+            },
+            {
                 text: '前端基础',
                 children: [
                     {
