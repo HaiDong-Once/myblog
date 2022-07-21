@@ -33,6 +33,11 @@ module.exports = {
                         link: '/frontEnd/other/git.md',
                         activeMatch: '^/foo/',
                     },
+                    {
+                        text: '代码规范',
+                        link: '/frontEnd/other/codeStandard.md',
+                        activeMatch: '^/foo/',
+                    },
                 ],
             },
             {
@@ -45,7 +50,7 @@ module.exports = {
                     },
                     {
                         text: 'css',
-                        link: '/not-foo/',
+                        link: '/frontEnd/css/css.md',
                         activeMatch: '^/foo/',
                     },
                     {
