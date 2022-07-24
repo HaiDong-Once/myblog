@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="VuePress 2.0.0-beta.48">
+    <style>
+      :root {
+        --c-bg: #fff;
+      }
+      html.dark {
+        --c-bg: #22272e;
+      }
+      html, body {
+        background-color: var(--c-bg);
+      }
+    </style>
+    <script>
+      const userMode = localStorage.getItem('vuepress-color-scheme');
+			const systemDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+			if (userMode === 'dark' || (userMode !== 'light' && systemDarkMode)) {
+				document.documentElement.classList.toggle('dark', true);
+			}
+    </script>
+    <link rel="icon" href="https://vuejs.org/images/logo.png"><title>git工作流 | 咚咚咚</title><meta name="description" content="咚咚咚的blog站点">
+    <link rel="modulepreload" href="/myblog/assets/app.34716fdc.js"><link rel="modulepreload" href="/myblog/assets/git.html.bd2561f1.js"><link rel="modulepreload" href="/myblog/assets/git.html.947bf3c7.js"><link rel="prefetch" href="/myblog/assets/index.html.ae7fb42f.js"><link rel="prefetch" href="/myblog/assets/css.html.0398ce8d.js"><link rel="prefetch" href="/myblog/assets/blog.html.a9507b26.js"><link rel="prefetch" href="/myblog/assets/codeStandard.html.73b65593.js"><link rel="prefetch" href="/myblog/assets/tools.html.5e2ffc7e.js"><link rel="prefetch" href="/myblog/assets/workApply.html.95bc585d.js"><link rel="prefetch" href="/myblog/assets/workApply.html.530131f0.js"><link rel="prefetch" href="/myblog/assets/404.html.265028f6.js"><link rel="prefetch" href="/myblog/assets/index.html.0c6b4079.js"><link rel="prefetch" href="/myblog/assets/css.html.02695039.js"><link rel="prefetch" href="/myblog/assets/blog.html.98e4898a.js"><link rel="prefetch" href="/myblog/assets/codeStandard.html.16f8795b.js"><link rel="prefetch" href="/myblog/assets/tools.html.0a5a133d.js"><link rel="prefetch" href="/myblog/assets/workApply.html.e2a63db9.js"><link rel="prefetch" href="/myblog/assets/workApply.html.39855546.js"><link rel="prefetch" href="/myblog/assets/404.html.9050a952.js"><link rel="prefetch" href="/myblog/assets/404.81e972b1.js"><link rel="prefetch" href="/myblog/assets/Layout.1a07c65c.js">
+    <link rel="stylesheet" href="/myblog/assets/style.6cdd0d1a.css">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme-container"><!--[--><header class="navbar"><div class="toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a href="/myblog/" class=""><!----><span class="site-name">咚咚咚</span></a></span><div class="navbar-items-wrapper" style=""><!--[--><!--]--><nav class="navbar-items can-hide"><!--[--><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="前端基础"><span class="title">前端基础</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="前端基础"><span class="title">前端基础</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="javaScript"><!--[--><!--]--> javaScript <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/css/css.md" class="" aria-label="css"><!--[--><!--]--> css <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="html"><!--[--><!--]--> html <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="前端框架"><span class="title">前端框架</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="前端框架"><span class="title">前端框架</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/vue/workApply.md" class="" aria-label="vue开发"><!--[--><!--]--> vue开发 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/wechatMini/workApply.md" class="" aria-label="小程序"><!--[--><!--]--> 小程序 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="php原生"><!--[--><!--]--> php原生 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="前端周边"><span class="title">前端周边</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="前端周边"><span class="title">前端周边</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/blog.md" class="" aria-label="博客搭建"><!--[--><!--]--> 博客搭建 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/git.md" class="" aria-label="git工作流"><!--[--><!--]--> git工作流 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/tools.md" class="" aria-label="开发工具"><!--[--><!--]--> 开发工具 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/codeStandard.md" class="" aria-label="代码规范"><!--[--><!--]--> 代码规范 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="个人摄影"><span class="title">个人摄影</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="个人摄影"><span class="title">个人摄影</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="摄影分享"><!--[--><!--]--> 摄影分享 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="摄像学习"><!--[--><!--]--> 摄像学习 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="摄影后期"><!--[--><!--]--> 摄影后期 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><a href="/myblog/" class="" aria-label="其他"><!--[--><!--]--> 其他 <!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button class="toggle-color-mode-button" title="toggle color mode"><svg style="" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg style="display:none;" class="icon" focusable="false" viewBox="0 0 32 32"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><form class="search-box" role="search"><input type="search" autocomplete="off" spellcheck="false" value><!----></form></div></header><!--]--><div class="sidebar-mask"></div><!--[--><aside class="sidebar"><nav class="navbar-items"><!--[--><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="前端基础"><span class="title">前端基础</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="前端基础"><span class="title">前端基础</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="javaScript"><!--[--><!--]--> javaScript <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/css/css.md" class="" aria-label="css"><!--[--><!--]--> css <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="html"><!--[--><!--]--> html <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="前端框架"><span class="title">前端框架</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="前端框架"><span class="title">前端框架</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/vue/workApply.md" class="" aria-label="vue开发"><!--[--><!--]--> vue开发 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/wechatMini/workApply.md" class="" aria-label="小程序"><!--[--><!--]--> 小程序 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="php原生"><!--[--><!--]--> php原生 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="前端周边"><span class="title">前端周边</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="前端周边"><span class="title">前端周边</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/blog.md" class="" aria-label="博客搭建"><!--[--><!--]--> 博客搭建 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/git.md" class="" aria-label="git工作流"><!--[--><!--]--> git工作流 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/tools.md" class="" aria-label="开发工具"><!--[--><!--]--> 开发工具 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/frontEnd/other/codeStandard.md" class="" aria-label="代码规范"><!--[--><!--]--> 代码规范 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><div class="navbar-dropdown-wrapper"><button class="navbar-dropdown-title" type="button" aria-label="个人摄影"><span class="title">个人摄影</span><span class="arrow down"></span></button><button class="navbar-dropdown-title-mobile" type="button" aria-label="个人摄影"><span class="title">个人摄影</span><span class="right arrow"></span></button><ul style="display:none;" class="navbar-dropdown"><!--[--><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="摄影分享"><!--[--><!--]--> 摄影分享 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="摄像学习"><!--[--><!--]--> 摄像学习 <!--[--><!--]--></a></li><li class="navbar-dropdown-item"><a href="/myblog/" class="" aria-label="摄影后期"><!--[--><!--]--> 摄影后期 <!--[--><!--]--></a></li><!--]--></ul></div></div><div class="navbar-item"><a href="/myblog/" class="" aria-label="其他"><!--[--><!--]--> 其他 <!--[--><!--]--></a></div><!--]--></nav><!--[--><!--]--><ul class="sidebar-items"><!--[--><li><p tabindex="0" class="sidebar-item sidebar-heading">git工作流 <!----></p><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#一、git常用办公操作流程" class="router-link-active router-link-exact-active sidebar-item" aria-label="一、git常用办公操作流程"><!--[--><!--]--> 一、git常用办公操作流程 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#二、git与svn详解" class="router-link-active router-link-exact-active sidebar-item" aria-label="二、git与svn详解"><!--[--><!--]--> 二、git与svn详解 <!--[--><!--]--></a><ul style="" class="sidebar-item-children"><!--[--><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#git-vs-svn" class="router-link-active router-link-exact-active sidebar-item" aria-label="Git vs Svn"><!--[--><!--]--> Git vs Svn <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#git核心思想" class="router-link-active router-link-exact-active sidebar-item" aria-label="Git核心思想"><!--[--><!--]--> Git核心思想 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#git-svn常用命令" class="router-link-active router-link-exact-active sidebar-item" aria-label="Git-SVN常用命令"><!--[--><!--]--> Git-SVN常用命令 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#初始化" class="router-link-active router-link-exact-active sidebar-item" aria-label="初始化"><!--[--><!--]--> 初始化 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#配置" class="router-link-active router-link-exact-active sidebar-item" aria-label="配置"><!--[--><!--]--> 配置 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#增删文件" class="router-link-active router-link-exact-active sidebar-item" aria-label="增删文件"><!--[--><!--]--> 增删文件 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#分支" class="router-link-active router-link-exact-active sidebar-item" aria-label="分支"><!--[--><!--]--> 分支 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#提交" class="router-link-active router-link-exact-active sidebar-item" aria-label="提交"><!--[--><!--]--> 提交 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#拉取" class="router-link-active router-link-exact-active sidebar-item" aria-label="拉取"><!--[--><!--]--> 拉取 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#撤销" class="router-link-active router-link-exact-active sidebar-item" aria-label="撤销"><!--[--><!--]--> 撤销 <!--[--><!--]--></a><!----></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#查询" class="router-link-active router-link-exact-active sidebar-item" aria-label="查询"><!--[--><!--]--> 查询 <!--[--><!--]--></a><!----></li><!--]--></ul></li><!--]--></ul></li><!--]--></ul><!--[--><!--]--></aside><!--]--><!--[--><main class="page"><!--[--><!--]--><div class="theme-default-content"><!--[--><!--]--><div><h1 id="git工作流" tabindex="-1"><a class="header-anchor" href="#git工作流" aria-hidden="true">#</a> git工作流</h1><nav class="table-of-contents"><ul><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#一、git常用办公操作流程" class="router-link-active router-link-exact-active">一、git常用办公操作流程</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#二、git与svn详解" class="router-link-active router-link-exact-active">二、git与svn详解</a><ul><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#git-vs-svn" class="router-link-active router-link-exact-active">Git vs Svn</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#git核心思想" class="router-link-active router-link-exact-active">Git核心思想</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#git-svn常用命令" class="router-link-active router-link-exact-active">Git-SVN常用命令</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#初始化" class="router-link-active router-link-exact-active">初始化</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#配置" class="router-link-active router-link-exact-active">配置</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#增删文件" class="router-link-active router-link-exact-active">增删文件</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#分支" class="router-link-active router-link-exact-active">分支</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#提交" class="router-link-active router-link-exact-active">提交</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#拉取" class="router-link-active router-link-exact-active">拉取</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#撤销" class="router-link-active router-link-exact-active">撤销</a></li><li><a aria-current="page" href="/myblog/frontEnd/other/git.html#查询" class="router-link-active router-link-exact-active">查询</a></li></ul></li></ul></nav><p><img src="/myblog/images/frontEnd/img_25.png" alt="图片"></p><h2 id="一、git常用办公操作流程" tabindex="-1"><a class="header-anchor" href="#一、git常用办公操作流程" aria-hidden="true">#</a> 一、git常用办公操作流程</h2><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code>拉取远程代码：git clone （远程地址）
+git更新代码 ： <span class="token function">git</span> pull --rebase origin master
+创建分支：git branch issues999
+切换分支：git checkout issue999
+提交分支到远程：git push
+git检查要提交的内容:git status 
+添加代码： <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+再次检查：git status 
+提交代码到分支:git commit -m <span class="token string">&quot;dev_test&quot;</span>
+推送分支到远程：git push
+修改代码后，提交再次git commit -m <span class="token string">&quot;&quot;</span>
+撤销，回退，撤回上一次add,commit:  <span class="token function">git</span> reset --soft HEAD~
+再次推送到远程：git push
+撤销：git push方法：
+本地reset到无问题commit：git reset --hard <span class="token operator">&lt;</span>版本号<span class="token operator">&gt;</span>
+push到相应分支并覆盖：git push origin <span class="token operator">&lt;</span>分支名<span class="token operator">&gt;</span>  --force
+发送修改好的分支地址给测试人员 
+分支代码合并到本地主干在gitLab操作
+提交本地主干代码到远程主干git commit -m、git push
+切换到主干 <span class="token function">git</span> checkout <span class="token string">&quot;分支名&quot;</span>
+更新主干代码 <span class="token function">git</span> pull
+bulid到主干代码 <span class="token function">npm</span> run bulid
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="二、git与svn详解" tabindex="-1"><a class="header-anchor" href="#二、git与svn详解" aria-hidden="true">#</a> 二、git与svn详解</h2><h3 id="git-vs-svn" tabindex="-1"><a class="header-anchor" href="#git-vs-svn" aria-hidden="true">#</a> Git vs Svn</h3><h4 id="git是分布式的-svn是集中式的" tabindex="-1"><a class="header-anchor" href="#git是分布式的-svn是集中式的" aria-hidden="true">#</a> Git是分布式的，SVN是集中式的：</h4><ul><li>这是 Git 和 SVN 最大的区别。</li><li>因为 Git 是分布式的，所以 Git 支持离线工作，在本地可以进行很多操作，包括分支功能。</li><li>而 SVN 必须联网才能正常工作。</li></ul><h3 id="git核心思想" tabindex="-1"><a class="header-anchor" href="#git核心思想" aria-hidden="true">#</a> Git核心思想</h3><h4 id="git-最核心的一个概念就是工作流。" tabindex="-1"><a class="header-anchor" href="#git-最核心的一个概念就是工作流。" aria-hidden="true">#</a> Git 最核心的一个概念就是工作流。</h4><ul><li>工作区(Workspace)是电脑中实际的目录。</li><li>暂存区(Index)类似于缓存区域，临时保存你的改动。</li><li>仓库区(Repository)，分为本地仓库和远程仓库。</li></ul><h4 id="git-最核心的一个概念就是工作流。-1" tabindex="-1"><a class="header-anchor" href="#git-最核心的一个概念就是工作流。-1" aria-hidden="true">#</a> Git 最核心的一个概念就是工作流。</h4><ul><li><code>git add</code>从工作区提交到暂存区</li><li><code>git commit</code>从暂存区提交到本地仓库</li><li><code>git push</code>或<code>git svn commit</code>从本地仓库提交到远程仓库</li><li><img src="/myblog/images/frontEnd/img_26.png" alt="图片"></li></ul><h3 id="git-svn常用命令" tabindex="-1"><a class="header-anchor" href="#git-svn常用命令" aria-hidden="true">#</a> Git-SVN常用命令</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 下载一个 SVN 项目和它的整个代码历史，并初始化为 Git 代码库</span>
+$ <span class="token function">git</span> svn clone -s <span class="token punctuation">[</span>repository<span class="token punctuation">]</span>
+
+<span class="token comment"># 查看当前版本库情况</span>
+$ <span class="token function">git</span> svn info
+
+<span class="token comment"># 取回远程仓库所有分支的变化</span>
+$ <span class="token function">git</span> svn fetch
+
+<span class="token comment"># 取回远程仓库当前分支的变化，并与本地分支变基合并</span>
+$ <span class="token function">git</span> svn rebase 
+
+<span class="token comment"># 上传当前分支的本地仓库到远程仓库</span>
+$ <span class="token function">git</span> svn dcommit
+
+<span class="token comment"># 拉取新分支，并提交到远程仓库</span>
+$ svn copy <span class="token punctuation">[</span>remote_branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>new_remote_branch<span class="token punctuation">]</span> -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
+
+<span class="token comment"># 创建远程分支对应的本地分支</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>local_branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote_branch<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="初始化" tabindex="-1"><a class="header-anchor" href="#初始化" aria-hidden="true">#</a> 初始化</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 在当前目录新建一个Git代码库</span>
+$ <span class="token function">git</span> init
+
+<span class="token comment"># 下载一个项目和它的整个代码历史 [Git only]</span>
+$ <span class="token function">git</span> clone <span class="token punctuation">[</span>url<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="配置" tabindex="-1"><a class="header-anchor" href="#配置" aria-hidden="true">#</a> 配置</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 列举所有配置</span>
+$ <span class="token function">git</span> config -l
+
+<span class="token comment"># 为命令配置别名</span>
+$ <span class="token function">git</span> config --global alias.co checkout
+$ <span class="token function">git</span> config --global alias.ci commit
+$ <span class="token function">git</span> config --global alias.st status
+$ <span class="token function">git</span> config --global alias.br branch
+
+<span class="token comment"># 设置提交代码时的用户信息</span>
+$ <span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> user.name <span class="token string">&quot;[name]&quot;</span>
+$ <span class="token function">git</span> config <span class="token punctuation">[</span>--global<span class="token punctuation">]</span> user.email <span class="token string">&quot;[email address]&quot;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="增删文件" tabindex="-1"><a class="header-anchor" href="#增删文件" aria-hidden="true">#</a> 增删文件</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 添加当前目录的所有文件到暂存区</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 添加指定文件到暂存区</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>file<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> <span class="token operator">&lt;</span>file<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> <span class="token punctuation">..</span>.
+
+<span class="token comment"># 添加指定目录到暂存区，包括其子目录</span>
+$ <span class="token function">git</span> <span class="token function">add</span> <span class="token operator">&lt;</span>dir<span class="token operator">&gt;</span>
+
+<span class="token comment"># 删除工作区文件，并且将这次删除放入暂存区</span>
+$ <span class="token function">git</span> <span class="token function">rm</span> <span class="token punctuation">[</span>file1<span class="token punctuation">]</span> <span class="token punctuation">[</span>file2<span class="token punctuation">]</span> <span class="token punctuation">..</span>.
+
+<span class="token comment"># 停止追踪指定文件，但该文件会保留在工作区</span>
+$ <span class="token function">git</span> <span class="token function">rm</span> --cached <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 改名文件，并且将这个改名放入暂存区</span>
+$ <span class="token function">git</span> <span class="token function">mv</span> <span class="token punctuation">[</span>file-original<span class="token punctuation">]</span> <span class="token punctuation">[</span>file-renamed<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="分支" tabindex="-1"><a class="header-anchor" href="#分支" aria-hidden="true">#</a> 分支</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 列出所有本地分支</span>
+$ <span class="token function">git</span> branch
+
+<span class="token comment"># 列出所有本地分支和远程分支</span>
+$ <span class="token function">git</span> branch -a
+
+<span class="token comment"># 新建一个分支，但依然停留在当前分支</span>
+$ <span class="token function">git</span> branch <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
+
+<span class="token comment"># 新建一个分支，并切换到该分支</span>
+$ <span class="token function">git</span> checkout -b <span class="token punctuation">[</span>new_branch<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 切换到指定分支，并更新工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
+
+<span class="token comment"># 合并指定分支到当前分支</span>
+$ <span class="token function">git</span> merge <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 选择一个 commit，合并进当前分支</span>
+$ <span class="token function">git</span> cherry-pick <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 删除本地分支，-D 参数强制删除分支</span>
+$ <span class="token function">git</span> branch -d <span class="token punctuation">[</span>branch-name<span class="token punctuation">]</span>
+
+<span class="token comment"># 删除远程分支</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> :<span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="提交" tabindex="-1"><a class="header-anchor" href="#提交" aria-hidden="true">#</a> 提交</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 提交暂存区到仓库区</span>
+$ <span class="token function">git</span> commit -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
+
+<span class="token comment"># 提交工作区与暂存区的变化直接到仓库区</span>
+$ <span class="token function">git</span> commit -a
+
+<span class="token comment"># 提交时显示所有 diff 信息</span>
+$ <span class="token function">git</span> commit -v
+
+<span class="token comment"># 提交暂存区修改到仓库区，合并到上次修改，并修改上次的提交信息</span>
+$ <span class="token function">git</span> commit --amend -m <span class="token punctuation">[</span>message<span class="token punctuation">]</span>
+
+<span class="token comment"># 上传本地指定分支到远程仓库</span>
+$ <span class="token function">git</span> push <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>remote-branch<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="拉取" tabindex="-1"><a class="header-anchor" href="#拉取" aria-hidden="true">#</a> 拉取</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 下载远程仓库的所有变动 (Git only)</span>
+$ <span class="token function">git</span> fetch <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
+
+<span class="token comment"># 显示所有远程仓库 (Git only)</span>
+$ <span class="token function">git</span> remote -v
+
+<span class="token comment"># 显示某个远程仓库的信息 (Git only)</span>
+$ <span class="token function">git</span> remote show <span class="token punctuation">[</span>remote<span class="token punctuation">]</span>
+
+<span class="token comment"># 增加一个新的远程仓库，并命名 (Git only)</span>
+$ <span class="token function">git</span> remote <span class="token function">add</span> <span class="token punctuation">[</span>remote-name<span class="token punctuation">]</span> <span class="token punctuation">[</span>url<span class="token punctuation">]</span>
+
+<span class="token comment"># 取回远程仓库的变化，并与本地分支合并，(Git only), 若使用 Git-SVN，请查看第三节</span>
+$ <span class="token function">git</span> pull <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+
+<span class="token comment"># 取回远程仓库的变化，并与本地分支变基合并，(Git only), 若使用 Git-SVN，请查看第三节</span>
+$ <span class="token function">git</span> pull --rebase <span class="token punctuation">[</span>remote<span class="token punctuation">]</span> <span class="token punctuation">[</span>branch<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="撤销" tabindex="-1"><a class="header-anchor" href="#撤销" aria-hidden="true">#</a> 撤销</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 恢复暂存区的指定文件到工作区</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 恢复暂存区当前目录的所有文件到工作区</span>
+$ <span class="token function">git</span> checkout <span class="token builtin class-name">.</span>
+
+<span class="token comment"># 恢复工作区到指定 commit</span>
+$ <span class="token function">git</span> checkout <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 重置暂存区的指定文件，与上一次 commit 保持一致，但工作区不变</span>
+$ <span class="token function">git</span> reset <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 重置暂存区与工作区，与上一次 commit 保持一致</span>
+$ <span class="token function">git</span> reset --hard
+
+<span class="token comment"># 重置当前分支的指针为指定 commit，同时重置暂存区，但工作区不变</span>
+$ <span class="token function">git</span> reset <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 重置当前分支的HEAD为指定 commit，同时重置暂存区和工作区，与指定 commit 一致</span>
+$ <span class="token function">git</span> reset --hard <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 新建一个 commit，用于撤销指定 commit</span>
+$ <span class="token function">git</span> revert <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+
+<span class="token comment"># 将未提交的变化放在储藏区</span>
+$ <span class="token function">git</span> stash
+
+<span class="token comment"># 将储藏区的内容恢复到当前工作区</span>
+$ <span class="token function">git</span> stash pop
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="查询" tabindex="-1"><a class="header-anchor" href="#查询" aria-hidden="true">#</a> 查询</h3><div class="language-bash ext-sh line-numbers-mode"><pre class="language-bash"><code><span class="token comment"># 查看工作区文件修改状态</span>
+$ <span class="token function">git</span> status               
+
+<span class="token comment"># 查看工作区文件修改具体内容   </span>
+$ <span class="token function">git</span> <span class="token function">diff</span> <span class="token punctuation">[</span>file<span class="token punctuation">]</span>
+
+<span class="token comment"># 查看暂存区文件修改内容</span>
+$ <span class="token function">git</span> <span class="token function">diff</span> --cached <span class="token punctuation">[</span>file<span class="token punctuation">]</span> 
+
+<span class="token comment"># 查看版本库修改记录</span>
+$ <span class="token function">git</span> log                  
+
+<span class="token comment"># 查看某人提交记录</span>
+$ <span class="token function">git</span> log --author<span class="token operator">=</span>someone 
+
+<span class="token comment"># 查看某个文件的历史具体修改内容</span>
+$ <span class="token function">git</span> log -p <span class="token punctuation">[</span>file<span class="token punctuation">]</span>        
+
+<span class="token comment"># 查看某次提交具体修改内容</span>
+$ <span class="token function">git</span> show <span class="token punctuation">[</span>commit<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="page-meta"><!----><div class="meta-item last-updated"><span class="meta-item-label">Last Updated: </span><!----></div><div class="meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: haohaidong@pingansec.com">hhd</span><!----><!--]--><!--]--></span></div></footer><!----><!--[--><!--]--></main><!--]--></div><!----><!--]--></div>
+    <script type="module" src="/myblog/assets/app.34716fdc.js" defer></script>
+  </body>
+</html>
