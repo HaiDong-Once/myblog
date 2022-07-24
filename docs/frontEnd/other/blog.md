@@ -69,7 +69,7 @@ yarn run dev
 
 - 新建`.vuepress `-> `config.js`
 
-  ![图片](/images/frontEnd/img_18.png)
+![图片](/images/frontEnd/img_18.png)
 
 ### 在config.js中添加配置
 
