@@ -11,14 +11,24 @@ module.exports = {
         // 默认主题配置
         navbar: [
             {
-                text: 'vue开发',
-                link: '/frontEnd/vue/workApply.md',
-                activeMatch: '^/foo',
-            },
-            {
-                text: '小程序开发',
-                link: '/frontEnd/wechatMini/workApply.md',
-                activeMatch: '^/foo',
+                text: '前端框架',
+                children: [
+                    {
+                        text: 'vue开发',
+                        link: '/frontEnd/vue/workApply.md',
+                        activeMatch: '^/foo',
+                    },
+                    {
+                        text: '小程序开发',
+                        link: '/frontEnd/wechatMini/workApply.md',
+                        activeMatch: '^/foo/',
+                    },
+                    {
+                        text: 'jquery开发',
+                        link: '/not-foo/',
+                        activeMatch: '^/foo/',
+                    },
+                ],
             },
             {
                 text: '前端周边',
@@ -50,26 +60,6 @@ module.exports = {
                     },
                     {
                         text: 'html',
-                        link: '/not-foo/',
-                        activeMatch: '^/foo/',
-                    },
-                ],
-            },
-            {
-                text: '前端框架',
-                children: [
-                    {
-                        text: 'vue开发',
-                        link: '/frontEnd/vue/workApply.md',
-                        activeMatch: '^/foo',
-                    },
-                    {
-                        text: '小程序',
-                        link: '/not-foo/',
-                        activeMatch: '^/foo/',
-                    },
-                    {
-                        text: 'php原生',
                         link: '/not-foo/',
                         activeMatch: '^/foo/',
                     },

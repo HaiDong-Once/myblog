@@ -69,7 +69,7 @@ yarn run dev
 
 - 新建`.vuepress `-> `config.js`
 
-  ![图片](/images/frontEnd/img_18.png)
+![图片](/images/frontEnd/img_18.png)
 
 ### 在config.js中添加配置
 
@@ -124,7 +124,7 @@ module.exports = {
 ### 配置首页样式
 - `docs`——>`md` 为博客首页
 
-  ![图片](/images/frontEnd/img_19.png)
+![图片](/images/frontEnd/img_19.png)
 
 ```markdown
 ---
@@ -150,7 +150,7 @@ features:
 ### 配置自动部署脚本
 - 在根目录下新建`scripts`——>`deploy-gh.sh`
 
-  ![图片](/images/frontEnd/img_20.png)
+![图片](/images/frontEnd/img_20.png)
 
 ```shell
 # 项目部署脚本配置
@@ -201,11 +201,11 @@ yarn run deploy
 ### 配置github page
 - 需要开放github项目
 
-  ![图片](/images/frontEnd/img_21.png)
+![图片](/images/frontEnd/img_21.png)
 
-  ![图片](/images/frontEnd/img_22.png)
+![图片](/images/frontEnd/img_22.png)
 
-  ![图片](/images/frontEnd/img_23.png)
+![图片](/images/frontEnd/img_23.png)
 
 ### 最终效果
-  ![图片](/images/frontEnd/img_24.png)
+![图片](/images/frontEnd/img_24.png)

@@ -491,3 +491,205 @@ const router = new VueRouter({
     }
 })
 ```
+
+
+
+## 九、动态列表自动滚动实现
+
+### 自定义方案
+
+- 效果预览
+
+![图片](/images/frontEnd/img_25.png)
+
+- 实现：自动向下滚动，可设定滚动速度，触摸暂停，松开继续滚动
+- 问题：滚动真机会有些卡顿，不能循环滚动
+- 代码：
+```html
+<div class="list-box">
+    <div class="title-box"><div>检测类型 共63类</div><div>检测时间</div><div>检测结果</div></div>
+    <div class="scroll"  id="review_box" @touchstart="rollStop()" @touchend="rollStart(30)">
+        <ul id="comment1">
+            <div class="list" v-for="item in titleList">
+                <div>{{item}}</div>
+                <div>{{getTimeNow2}}</div>
+                <div>未发现相关纠纷</div>
+            </div>
+        </ul>
+    </div>
+</div>
+```
+
+```ts
+/**
+ * 列表滚动初始化
+ * @param time: 滚动速度
+ */
+roll(time) {
+  const review_box = document.getElementById("review_box");
+  review_box.scrollTop = 0;
+  this.rollStart(time);
+},
+
+/**
+ * 开始滚动
+ * @param time
+ */
+rollStart(time) {
+  const comment1 = document.getElementById("comment1");
+  const review_box = document.getElementById("review_box");
+  this.rollStop();
+  this.timer = setInterval(()=>{
+    // 当滚动高度大于列表内容高度时恢复为0
+    if (review_box.scrollTop >= comment1.scrollHeight) {
+      review_box.scrollTop = 0;
+    } else {
+      review_box.scrollTop++;
+    }
+  }, time);
+},
+
+/**
+ * 停止滚动
+ */
+rollStop(){
+  const review_box = document.getElementById("review_box");
+  review_box.scrollTop = 0;
+  clearInterval(this.timer);
+},
+
+mounted() {
+  // 初始化触发滚动
+  this.roll(30);
+},
+
+
+beforeDestroy() {
+  // 销毁清掉滚动
+  if (this.timer) clearInterval(this.timer);
+},
+```
+
+```sass
+.list-box{
+  width: 940px;
+  height: 364px;
+  background-color: #f8f6ee;
+  border-radius: 15px;
+  margin: 40px auto;
+  color: #999999;
+  box-sizing: border-box;
+
+  .title-box{
+    height: 88px;
+    font-size: 36px;
+    line-height: 88px;
+    color: #999999;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid #d8d7d3;
+    padding: 0 20px;
+    div{
+      width: 317px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    div:nth-child(1){
+      width: 430px;
+    }
+    div:nth-child(2){
+      width: 265px;
+    }
+  }
+  .scroll{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 240px;
+    .list{
+      color: #333333;
+      height: 88px;
+      font-size: 36px;
+      line-height: 88px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #d8d7d3;
+      padding: 0 20px;
+      div{
+        width: 317px;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+      div:nth-child(1){
+        width: 430px;
+      }
+      div:nth-child(2){
+        width: 265px;
+      }
+    }
+  }
+}
+```
+
+### vue-seamless-scroll组件
+- 文档地址：[vue-seamless-scroll组件文档地址](https://chenxuan1993.gitee.io/component-document/index_prod#/component/seamless-default)
+- 依赖安装：
+```shell
+npm install vue-seamless-scroll --save
+```
+
+- 组件引入
+```ts
+import vueSeamlessScroll from 'vue-seamless-scroll'  // vue2引入方式
+import scroll from "vue-seamless-scroll/src"  // vue3引入方式
+ 
+components: {
+        vueSeamlessScroll
+},
+```
+
+- 示例：
+![图片](/images/frontEnd/img_26.png)
+```vue
+<template>
+    <vue-seamless-scroll :data="listData" :class-option="classOption" class="seamless-warp">
+        <ul class="item">
+            <li v-for="item in listData">
+                <span class="title" v-text="item.title"></span><span class="date" v-text="item.date"></span>
+            </li>
+        </ul>
+    </vue-seamless-scroll>
+</template>
+<style lang="scss" scoped>
+    .seamless-warp {
+        height: 229px;
+        overflow: hidden;
+    }
+</style>
+<script>
+    export default {
+        data () {
+            return {
+                listData: [{
+                   'title': '无缝滚动第一行无缝滚动第一行',
+                   'date': '2017-12-16'
+                 }, {
+                    'title': '无缝滚动第二行无缝滚动第二行',
+                    'date': '2017-12-16'
+                    }
+                 ]
+                }
+            },
+            computed: {
+                classOption () {
+                    return {
+                            direction: 0
+                        }
+                }
+             }
+       }
+</script>
+
+}
+```
