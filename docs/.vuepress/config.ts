@@ -11,6 +11,26 @@ module.exports = {
         // 默认主题配置
         navbar: [
             {
+                text: '前端基础',
+                children: [
+                    {
+                        text: 'javaScript',
+                        link: '/',
+                        activeMatch: '^/foo/',
+                    },
+                    {
+                        text: 'css',
+                        link: '/frontEnd/css/css.md',
+                        activeMatch: '^/foo/',
+                    },
+                    {
+                        text: 'html',
+                        link: '/',
+                        activeMatch: '^/foo/',
+                    },
+                ],
+            },
+            {
                 text: '前端框架',
                 children: [
                     {
@@ -19,13 +39,13 @@ module.exports = {
                         activeMatch: '^/foo',
                     },
                     {
-                        text: '小程序开发',
+                        text: '小程序',
                         link: '/frontEnd/wechatMini/workApply.md',
                         activeMatch: '^/foo/',
                     },
                     {
-                        text: 'jquery开发',
-                        link: '/not-foo/',
+                        text: 'php原生',
+                        link: '/',
                         activeMatch: '^/foo/',
                     },
                 ],
@@ -43,24 +63,14 @@ module.exports = {
                         link: '/frontEnd/other/git.md',
                         activeMatch: '^/foo/',
                     },
-                ],
-            },
-            {
-                text: '前端基础',
-                children: [
                     {
-                        text: 'javaScript',
-                        link: '/',
+                        text: '开发工具',
+                        link: '/frontEnd/other/tools.md',
                         activeMatch: '^/foo/',
                     },
                     {
-                        text: 'css',
-                        link: '/not-foo/',
-                        activeMatch: '^/foo/',
-                    },
-                    {
-                        text: 'html',
-                        link: '/not-foo/',
+                        text: '代码规范',
+                        link: '/frontEnd/other/codeStandard.md',
                         activeMatch: '^/foo/',
                     },
                 ],
@@ -75,19 +85,19 @@ module.exports = {
                     },
                     {
                         text: '摄像学习',
-                        link: '/not-foo/',
+                        link: '/',
                         activeMatch: '^/foo/',
                     },
                     {
                         text: '摄影后期',
-                        link: '/not-foo/',
+                        link: '/',
                         activeMatch: '^/foo/',
                     },
                 ],
             },
             {
                 text: '其他',
-                link: '^/foo/',
+                link: '/',
             },
         ],
     }),
