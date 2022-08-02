@@ -15,7 +15,7 @@ module.exports = {
                 children: [
                     {
                         text: 'javaScript',
-                        link: '/',
+                        link: '/frontEnd/javaScript/js.md',
                         activeMatch: '^/foo/',
                     },
                     {
@@ -28,6 +28,11 @@ module.exports = {
                         link: '/',
                         activeMatch: '^/foo/',
                     },
+                    {
+                        text: '浏览器',
+                        link: '/frontEnd/browser/bom.md',
+                        activeMatch: '^/foo/',
+                    }
                 ],
             },
             {

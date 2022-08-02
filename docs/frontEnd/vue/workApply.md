@@ -500,7 +500,7 @@ const router = new VueRouter({
 
 - 效果预览
 
-![图片](/images/frontEnd/img_25.png)
+![图片](/images/frontEnd/vue/img.png)
 
 - 实现：自动向下滚动，可设定滚动速度，触摸暂停，松开继续滚动
 - 问题：滚动真机会有些卡顿，不能循环滚动
@@ -650,7 +650,7 @@ components: {
 ```
 
 - 示例：
-![图片](/images/frontEnd/img_26.png)
+![图片](/images/frontEnd/vue/img_1.png)
 ```vue
 <template>
     <vue-seamless-scroll :data="listData" :class-option="classOption" class="seamless-warp">
@@ -690,6 +690,68 @@ components: {
              }
        }
 </script>
+```
 
+
+
+
+## 十、vue项目引用字体包和压缩
+
+### 字体包引用
+- 下载字体包
+- 字体包放到静态文件中`src/assets/font`下
+- 在项目中新增字体包css文件`@/public/style.css`
+```css
+@font-face{
+  font-family:'Adorable';
+  src:url('@/assets/font/Adorable.TTF')
 }
+```
+- 字体包使用
+```css
+import  '@/public/style.css'
+.demo{
+  font-family:'Adorable'
+}
+```
+
+### 字体包压缩
+::: tip 原因
+字体包太大，导致服务器压力太大
+:::
+
+- `font-spider`：手动命令提取字体包（适用静态文字）
+- `Fontmin`工具，打包配置生成压缩字体包（使用静态文字）
+- 常用基础汉字2500-3000，导出字体包（体积相对较小，部分适用于动态文字）
+
+
+
+
+
+## 十一、style中spcoed的问题
+
+### 侵入组件问题
+- 加入scoped, 入侵组件class时会失败；
+- 解决方法：新增一个style无scoped标签控制组件样式
+```scss
+<style lang="scss" scoped>
+
+</style>
+
+/*样式入侵*/
+<style>
+.tabs .van-sticky{
+  overflow: hidden;
+  border-radius: 22px;
+}
+</style>
+```
+
+### 样式继承问题
+- vue路由跳转新页面样式继承了上一页
+- 解决方法： style新增scoped属性
+```scss
+<style lang="scss" scoped>
+
+</style>
 ```
