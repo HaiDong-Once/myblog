@@ -755,3 +755,766 @@ import  '@/public/style.css'
 
 </style>
 ```
+
+
+
+## 十二、Vue中transition过渡动画组件
+
+### 概述
+- Vue 提供了 `transition` 的封装组件，可以给任何元素和组件添加进入/离开过渡。
+主要用于 `v-show, v-if` 或 `router-view` 的过渡动画；
+
+### 过度类名
+**在进入/离开的过渡中，会有 6 个 class 切换。**
+- `v-enter`：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
+- `v-enter-active`：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。
+- `v-enter-to`：2.1.8 版及以上定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 v-enter 被移除)，在过渡/动画完成之后移除。
+- `v-leave`：定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。
+- `v-leave-active`：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
+- `v-leave-to`：2.1.8 版及以上定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。
+
+![图片](/images/frontEnd/vue/img_2.png)
+
+### name属性
+- 给transition组件设置不同的name， name名及class类名的前缀
+```html
+<transition name="plus-icon">
+      <div class="icon-plus"
+           v-if="flag">
+           <img />
+      </div>
+</transition>
+```
+```css
+/*过度后效果以本身class样式决定,*/
+  .icon-plus {
+      opacity: 1;
+  }
+  .plus-icon-enter-active{
+    transition: all.5s;
+  }
+  .plus-icon-enter{
+     opacity: 0;
+  }
+  .plus-icon-leave-active{
+    transition: all.5s;
+  }
+  .plus-icon-leave-to{
+    opacity: 0;
+  }
+```
+
+### css的transition属性
+- **transition简介：** css属性transition能让页面元素不是立即的、而是慢慢的从一种状态变成另外一种状态，
+从而表现出一种动画过程。根据开始状态和结束状态的具体数值，计算出中间状态。
+- **transition属性语法：** css属性transition能让页面元素不是立即的、而是慢慢的从一种状态变成另外一种状态，
+从而表现出一种动画过程。根据开始状态和结束状态的具体数值，计算出中间状态。
+
+
+| 属性                         | 介绍                                                                                  |
+|----------------------------|-------------------------------------------------------------------------------------|
+| transition-property        | 规定设置过渡效果的 CSS 属性的名称。例如, opacity,color。默认值是all。                                      |
+| transition-duration        | 规定完成过渡效果需要多少秒或毫秒。例如，1s。默认值是0s。                                                      |
+| transition-timing-function | 规定速度效果的速度曲线。例如, linear、 ease-in、steps动画分段函数或自定义的 cubic-bezier 函数)。默认值是ease，中间快，两头慢。 |
+| transition-delay           | 定义过渡效果何时开始。例如，1s。默认值是0s。                                                            |
+
+- **过度速度曲线：**
+![图片](/images/frontEnd/vue/img_3.png)
+
+- **简写语法：**
+```css
+transition: property duration timing-function delay;
+transition: opacity 1s linear 2s;
+```
+
+### 浏览器支持
+- `Internet Explorer 10+`
+- `Firefox`
+- `Opera`
+- `Chrome`
+- `Internet Explorer 9` 以及更早版本的浏览器不支持 `transition` 属性。
+
+参考文章： [https://juejin.cn/post/7038404182516187173](https://juejin.cn/post/7038404182516187173)
+
+
+
+## 十三、vue手写签名插件vue-esign
+
+- 生成base64图片文件，自定义base64图片旋转函数
+- github地址 [https://github.com/JaimeCheng/vue-esign](https://github.com/JaimeCheng/vue-esign)
+
+![图片](/images/frontEnd/vue/img_4.png)
+
+### 安装
+```shell
+npm install vue-esign --save
+```
+
+### 注入组件
+```ts
+import vueEsign from 'vue-esign'
+components: { vueEsign }
+```
+
+### 组件封装
+```vue
+<!--
+  @description: 手写签名弹窗组件
+  @author: hhd (2022-08-16)
+  @说明：
+      @getImgBase64： 获取签名base64文件；
+      @closePop：关闭弹窗回调；
+      imgEdg: 生成签名图片旋转角度（必须是90的倍数）
+  @使用方式：
+      import autographPop from "@guanjia/components/autographPop/index.vue"
+      components: {autographPop,},
+
+     <autographPop
+          v-if="autographPopFlag"
+          @getImgBase64="getImgBase64"
+          @closePop="autographPopFlag=false"
+          imgEdg="-90">
+      </autographPop>
+
+      /**
+       * 获取手写img
+       * @param url
+       */
+      getImgBase64(url) {
+        this.autographImg = url;
+      },
+-->
+
+
+<template>
+  <div class="pop-page">
+    <div class="pop-box">
+      <div class="close" @click="closePop">
+        <img src="@guanjia/assets/imgs/plaque/afterPay/close-icon.png" alt="">
+      </div>
+      <div class="title">手写签名</div>
+      <div class="button1" @click="handleReset">重写</div>
+      <div class="button2" @click="handleGenerate">使用</div>
+      <div class="graph-box">
+        <vueEsign
+            ref="esign"
+            :width="500"
+            :height="1120"
+            :isCrop="isCrop"
+            :lineWidth="lineWidth"
+            :lineColor="lineColor"
+            :bgColor.sync="bgColor">
+        </vueEsign>
+      </div>
+    </div>
+  </div>
+</template>
+
+
+<script>
+import vueEsign from 'vue-esign'
+
+
+export default {
+  name: "index",
+  components: {vueEsign},
+  props:{
+    imgEdg:{ // 生成签名图片旋转角度
+      type: String,
+      required: ''
+    },
+  },
+
+  data(){
+    return{
+      lineWidth: 6, // 画笔边框宽度
+      lineColor: '#000', // 画笔颜色
+      bgColor: '', // 背景颜色
+      resultImg: '', // 生成签名图片文件
+      isCrop: true, // 是否裁切
+    }
+  },
+
+
+  computed: {
+
+  },
+
+
+  methods: {
+    /**
+     * 清空签名画板
+     */
+    handleReset () {
+      this.$refs.esign.reset()
+    },
+
+
+    /**
+     * 创建签名base64 img文件
+     */
+    handleGenerate () {
+      this.$refs.esign.generate().then(res => {
+        this.resultImg = res;
+        if(this.imgEdg){
+          this.rotateBase64Img(this.resultImg, +this.imgEdg)
+        }else{
+          this.$emit("getImgBase64", this.resultImg);
+          this.closePop()
+        }
+      }).catch(err => {
+        alert(err) // 画布没有签字时会执行这里 'Not Signned'
+      })
+    },
+
+
+    /**
+     * 关闭签名弹窗回调
+     */
+    closePop(){
+      this.$emit('closePop', false)
+    },
+
+
+    /**
+     * base64图片旋转
+     * @param src base64图片文件
+     * @param edg 图片旋转角度：必须是90的倍数
+     */
+    rotateBase64Img(src, edg) {
+      let that = this;
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      let imgW;//图片宽度
+      let imgH;//图片高度
+      let size;//canvas初始大小
+      if (edg % 90 !== 0) {
+        console.error("旋转角度必须是90的倍数!");
+      }
+      (edg < 0) && (edg = (edg % 360) + 360)
+      const quadrant = (edg / 90) % 4; //旋转象限
+      const cutCoor = {sx: 0, sy: 0, ex: 0, ey: 0}; //裁剪坐标
+      const image = new Image();
+      image.crossOrigin = "anonymous"
+      image.src = src;
+      image.onload = function () {
+        imgW = image.width;
+        imgH = image.height;
+        size = imgW > imgH ? imgW : imgH;
+        canvas.width = size * 2;
+        canvas.height = size * 2;
+        switch (quadrant) {
+          case 0:
+            cutCoor.sx = size;
+            cutCoor.sy = size;
+            cutCoor.ex = size + imgW;
+            cutCoor.ey = size + imgH;
+            break;
+          case 1:
+            cutCoor.sx = size - imgH;
+            cutCoor.sy = size;
+            cutCoor.ex = size;
+            cutCoor.ey = size + imgW;
+            break;
+          case 2:
+            cutCoor.sx = size - imgW;
+            cutCoor.sy = size - imgH;
+            cutCoor.ex = size;
+            cutCoor.ey = size;
+            break;
+          case 3:
+            cutCoor.sx = size;
+            cutCoor.sy = size - imgW;
+            cutCoor.ex = size + imgH;
+            cutCoor.ey = size + imgW;
+            break;
+        }
+        ctx.translate(size, size);
+        ctx.rotate(edg * Math.PI / 180);
+        ctx.drawImage(image, 0, 0);
+        const imgData = ctx.getImageData(cutCoor.sx, cutCoor.sy, cutCoor.ex, cutCoor.ey);
+        if (quadrant % 2 === 0) {
+          canvas.width = imgW;
+          canvas.height = imgH;
+        } else {
+          canvas.width = imgH;
+          canvas.height = imgW;
+        }
+        ctx.putImageData(imgData, 0, 0);
+        that.resultImg = canvas.toDataURL();
+        that.$emit("getImgBase64", canvas.toDataURL());
+        that.closePop()
+      };
+    }
+  },
+
+}
+</script>
+
+
+<style lang="scss" scoped>
+.pop-page{
+  width: 100%;
+  overflow: hidden;
+  background: rgba(0,0,0, 0.6);
+  min-height: calc(100vh + 1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .pop-box{
+    width: 966px;
+    height: 1858px;
+    background-color: #ffffff;
+    border-radius: 22px;
+    position: relative;
+    .close{
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120px;
+      width: 120px;
+      img{
+        width: 34px;
+        height: 34px;
+      }
+    }
+    .title{
+      position: absolute;
+      right: -20px;
+      top: 840px;
+      transform: rotate(90deg);
+      font-size: 46px;
+      line-height: 44px;
+      color: #333333;
+    }
+    .button1{
+      position: absolute;
+      right: -40px;
+      bottom: 360px;
+      transform: rotate(90deg);
+      height: 79px;
+      width: 202px;
+      background-color: #ffffff;
+      border: solid 3px #1f81f8;
+      font-size: 40px;
+      line-height: 79px;
+      text-align: center;
+      color: #1f81f8;
+      border-radius: 16px;
+      box-sizing: border-box;
+
+    }
+    .button1:active{
+      opacity: 0.6;
+    }
+    .button2{
+      position: absolute;
+      right: -40px;
+      bottom: 120px;
+      transform: rotate(90deg);
+      height: 79px;
+      width: 202px;
+      background-color: #1f81f8;
+      border: solid 3px #1f81f8;
+      font-size: 40px;
+      line-height: 79px;
+      text-align: center;
+      color: #ffffff;
+      border-radius: 16px;
+      box-sizing: border-box;
+    }
+    .button2:active{
+      opacity: 0.6;
+    }
+    .graph-box{
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      width: 787px;
+      height: 1758px;
+      background-color: #ffffff;
+      border: dashed 3px #999999;
+      box-sizing: border-box;
+      border-radius: 8px;
+    }
+  }
+}
+
+</style>
+```
+
+
+## 十四、vuex数据持久化实现
+
+### vuex状态管理设计和实现
+#### 安装引用
+```shell
+yarn add vuex@next --save
+```
+
+#### 构建
+```ts
+import { createApp } from 'vue'
+import { createStore } from 'vuex'
+
+
+// 创建一个新的 store 实例
+const store = createStore({
+    
+  state () {
+    return {
+      id: '', // 批次id
+      uid: '', // 用户id
+      token: '', // 登录token 
+      digest: '', // 企业digest
+      phone: '', // 电话号码
+      kp_signature: '', // 批次id签名认证
+      product_type: '', // 产品类型
+    }
+  },
+  
+  // 使用set+驼峰命名设置状态，未使用官网推荐的大写方案
+  mutations: {
+    // 设置批次id
+    setId (state, value) {
+        state.id = value;
+    },
+    
+    // 设置用户id
+    setUid (state, value) {
+        state.uid = value;
+    },
+    
+    // 设置用户id
+    setToken (state, value) {
+        state.token = value;
+    },
+    
+    // 设置企业digest
+    setDigest (state, value) {
+        state.digest = value;
+    },
+    
+    // 设置电话号码
+    setPhone (state, value) {
+        state.phone = value;
+    },
+    
+    // 设置批次id签名认证
+    setKp_signature (state, value) {
+        state.kp_signature = value;
+    },
+    
+    // 设置产品类型
+    setProduct_type (state, value) {
+        state.product_type = value;
+    },
+  }
+})
+
+const app = createApp({ /* 根组件 */ })
+
+// 将 store 实例作为插件安装
+app.use(store)
+```
+
+#### vuex绑定data数据同步方案
+- **问题**：vuex和data数据都是响应式的，状态同步，但是vuex数据赋值到data中，vuex数据更新，data中的数据不会响应；
+- **解决方法**：使用watch监听vuex状态，然后赋值给data，从而data做出响应
+- **新的问题**：watch监听有延迟，修改vuex状态，data状态不会同步更新，获取data状态的任务需要排列到队列最后，才能取到数据更新后的状态，体验不佳；
+
+```ts
+data() {
+    return {
+      id: this.$store.state.id, // 默认id=""
+    }
+}
+
+created() {
+    console.log(this.id) // id = ""
+    this.$store.commit('setId', this.$route.query.id) // id = 111111
+   console.log(this.id) // id = ""
+   setTimeout(()=>{
+      console.log(this.id) // id = 111111
+   },0)
+   // 如果同步使用需要把任务滞后
+}
+
+watch: {
+  "$store.state.id"() {
+    this.id = this.$store.state.id;
+  },
+},
+```
+
+#### vuex与data数据独立使用
+- **缺点**：旧版本使用需要重新写入变量
+
+```ts
+// 独立获取，独立赋值；
+html使用vuex: {{$store.state.id}}
+html使用data: {{id}}
+js中使用vuex: this.$store.state.id;
+js中使用data: this.id;
+```
+
+#### 统一设置全局状态
+```ts
+// tools工具
+import store from '../store'
+
+/**
+ * 全局数据存储
+ * @param {object} query : 传入用户数据对象
+ * 用于vuex全局数据统一存储
+ */
+setUserStore(query){
+    if(query){
+        if(query.uid) localStorage.setItem("local_userid", query.uid);
+        if(query.token) localStorage.setItem("local_token", query.token);
+        if(query.id) store.commit('setId', query.id);
+        if(query.uid) store.commit('setUid', query.uid);
+        if(query.token) store.commit('setToken', query.token);
+        if(query.digest) store.commit('setDigest', query.digest);
+        if(query.phone) store.commit('setPhone', query.phone)
+        if(query.kp_signature) store.commit('setKp_signature', query.kp_signature)
+        if(query.product_type) store.commit('setProduct_type', query.product_type)
+    }
+},
+```
+
+```ts
+// 使用
+created() {
+  // 全部更新状态  
+  this.$tools.setUserStore(this.$route.query);
+  // 指定更新状态
+  this.$tools.setUserStore({
+      uid: res.data?.user_id,
+      token: res.data?.token,
+      digest: res.data?.digest,
+     phone: res.data?.phone,
+     product_type: res.data?.product_type,
+  });
+}
+```
+
+### vuex数据持久化：vuex-persistedstate
+#### 安装
+```shell
+npm install --save vuex-persistedstate
+```
+
+#### 引用并配置
+```ts
+import persistedState from 'vuex-persistedstate'
+
+export default new Vuex.Store({
+    
+  plugins: [
+      persistedState({
+        // 默认为localStorage
+        storage: window.sessionStorage,
+      })
+  ]
+
+})
+```
+
+
+
+## 十五、vue input输入联想实现
+- **问题**：input事件输入太快会造成发起请求太多的问题，并且可能上一个请求返回事件比最后一个请求返回事件还慢，导致联想到的数据不是最新的；
+- **解决方法**：使用防抖函数，控制接口请求频率；或者使用请求中断，只要发起新请求，上一个请求还没有完成的话，就中断上一个请求，保证列表反显的数据是最后一个请求返回的数据；
+
+![图片](/images/frontEnd/vue/img_5.png)
+
+### 利用防抖处理@Input请求联想接口
+- **缺点**：响应会有些慢，而且也能绝对保证数据没有延迟；
+
+```html
+<div class="form-box">
+  <input
+      type="text"
+      placeholder="请输入申请企业名称"
+      v-on:input="getCompanyList"
+      v-model="companyForm.company_name"
+  />
+  <div class="company-scroll" v-if="companyScrollFlag">
+    <div
+        v-for="item of bindSourceList"
+        @click="selectCompany(item.company_name)">
+        {{item.company_name}}
+    </div>
+  </div>
+</div>
+```
+
+```ts
+data() {
+  return {
+    companyForm:{ // 企业信息
+      company_name: '', // 企业名
+    },
+    bindSourceList: [], // 企业联想表单
+    timeout: null, // 防抖函数定时器
+    companyScrollFlag: false, // 企业联想框控制
+    cancel: null, // 取消请求
+  }
+},
+
+methods: {
+    /**
+     * 获取企业联想信息（调用防抖函数）
+     */
+    getCompanyList(){
+      this.debounce(()=>{
+        this.$http.get('/b-search', {
+          params: {
+            action: 'company_name_notice',
+            key: this.companyForm.company_name,
+          },
+        }).then(res => {
+          if (res && res.status === 0) {
+            this.companyScrollFlag = true;
+            this.bindSourceList = res.data?.company_list ?? [];
+          } else {
+            res.message && this.$toast(res.message)
+          }
+        })
+      }, 200)
+    },
+    
+    
+    /**
+     * 防抖函数
+     * @param fn 防抖处理的函数
+     * @param wait 防抖延迟时间 ms
+     */
+    debounce(fn, wait) {
+       // 只要定时器非空，就清掉定时器，重新创建一个新的重新倒计时 
+      if(this.timeout !== null) clearTimeout(this.timeout)
+      this.timeout = setTimeout(fn, wait)
+    },
+    
+    
+    /**
+     * 选中企业
+     */
+    selectCompany(company){
+      this.companyScrollFlag = false;
+      this.companyForm.company_name = company;
+    },
+}
+```
+
+### 使用请求中断中断上一个请求
+- **缺点**：仅使用请求中断，请求量还是过于频繁；
+- 红色的请求就是中断的请求
+
+![图片](/images/frontEnd/vue/img_6.png)
+
+```ts
+import axios from 'axios'
+const CancelToken = axios.CancelToken;
+
+/**
+ * 获取企业联想信息
+ */
+getCompanyList(){
+    if(typeof this.cancel ==='function'){
+      this.cancel();
+    }
+    let that = this;
+    this.$http.get('/b-search', {
+      params: {
+        action: 'company_name_notice',
+        key: this.companyForm.company_name,
+      },
+      cancelToken: new CancelToken(function executor(c) {
+        that.cancel = c;
+        console.log(c)
+        // c是一个函数
+        // cancel(message) {
+        //   if (token.reason) {
+        //     // Cancellation has already been requested
+        //     return;
+        //   }
+        //
+        //   token.reason = new Cancel(message);
+        //   resolvePromise(token.reason);
+        // }
+      })
+    }).then(res => {
+      if (res && res.status === 0) {
+        this.companyScrollFlag = true;
+        this.bindSourceList = res.data?.company_list ?? [];
+      } else {
+        res.message && this.$toast(res.message)
+      }
+    })
+},
+```
+
+### 最终方案： 防抖+过期请求中断
+```ts
+import axios from 'axios'
+const CancelToken = axios.CancelToken;
+
+data() {
+  return {
+    timeout: null, // 防抖函数定时器
+    companyScrollFlag: false, // 企业联想框控制
+    cancel: null, // 取消请求
+  }
+},
+
+
+methods: {
+    /**
+     * 获取企业联想信息
+     */
+    getCompanyList(){
+      this.debounce(()=>{
+        if(typeof this.cancel ==='function'){
+          this.cancel();
+        }
+        let that = this;
+        this.$http.get('/b-search', {
+          params: {
+            action: 'company_name_notice',
+            key: this.companyForm.company_name,
+          },
+          cancelToken: new CancelToken(function executor(c) {
+            that.cancel = c;
+          })
+        }).then(res => {
+          if (res && res.status === 0) {
+            this.companyScrollFlag = true;
+            this.bindSourceList = res.data?.company_list ?? [];
+          } else {
+            res.message && this.$toast(res.message)
+          }
+        })
+      }, 200)
+    },
+    
+    
+    /**
+     * 函数防抖
+     * @param fn 防抖处理的函数
+     * @param wait 防抖延迟时间 ms
+     */
+    debounce(fn, wait) {
+      // 只要定时器非空，就清掉定时器，重新创建一个新的重新倒计时 
+      if(this.timeout !== null) clearTimeout(this.timeout)
+      this.timeout = setTimeout(fn, wait)
+    },
+}
+```
