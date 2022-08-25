@@ -247,3 +247,40 @@ $ git log -p [file]
 # 查看某次提交具体修改内容
 $ git show [commit]
 ```
+
+
+## 三、gitHub配置SSH
+### 生成ssh秘钥
+- 打开git bash
+
+```shell
+ssh-keygen -t rsa
+```
+
+- 一路默认回车 然后进入用户目录的`.ssh`文件夹下，复制`rsa.pub`的内容 到`gitHub`的设置`ssh-key`
+
+![图片](/images/frontEnd/other/git/img.png)
+
+### 检查配置
+```shell
+ssh -T git@github.com
+```
+
+- 如果提示：`Hi defnngj You’ve successfully authenticated, but GitHub does not provide shell access`. 说明你连接成功了
+
+
+
+## 四、git配置忽略提交文件
+### git配置忽略文件
+- 根目录新建文件：.gitignore， 配置忽略文件
+
+```shell
+node_modules
+.temp
+.cache
+```
+
+### webstorm配置忽略提交文件
+- `file`——`setting`——`editor`——`File Types`——`Ignored Files and Folders`添加忽略文件
+
+![图片](/images/frontEnd/other/git/img_1.png)
