@@ -1225,9 +1225,11 @@ app.use(store)
 ```
 
 #### vuex绑定data数据同步方案
+::: tip 思路分析
 - **问题**：vuex和data数据都是响应式的，状态同步，但是vuex数据赋值到data中，vuex数据更新，data中的数据不会响应；
 - **解决方法**：使用watch监听vuex状态，然后赋值给data，从而data做出响应
 - **新的问题**：watch监听有延迟，修改vuex状态，data状态不会同步更新，获取data状态的任务需要排列到队列最后，才能取到数据更新后的状态，体验不佳；
+:::
 
 ```ts
 data() {
@@ -1328,10 +1330,110 @@ export default new Vuex.Store({
 ```
 
 
+#### 其他配置
+```ts
+ // 存储到 localStorege
+ plugins: [createPersistedState()]
+ // 或者
+  plugins: [createPersistedState({
+    storage:window.localStorege
+  })]
+ 
+
+// 存储到  sessionStorage
+plugins: [createPersistedState({
+  storage:window.sessionStorage
+})]
+
+// 缓存state下指定的部分数据
+ plugins: [createPersistedState({
+ storage:window.sessionStorage,
+     reducer(val)  {
+         return {
+             // 只储存state中的token
+             assessmentData: val.token,
+         }
+     }
+ })]
+```
+
+- 缓存Vuex多个模块下的指定某个模块的state，通过修改path配置来实现
+
+```ts
+/* user-module */
+export const user = {
+  state: {
+    token: '',
+    role: ''
+  }
+}
+/* profile-module */
+export const profile = {
+  state: {
+    name: '',
+    company: ''
+  }
+}
+/* modules目录下的index.js */
+import user from './user'
+import profile from './profile'
+export default {
+  user,
+  profile
+}
+
+/* store.js */
+import modules from './modules'
+let store = new Vuex.Store({
+    modules,
+     plugins: [
+    createPersistedState({
+      key: 'zdao',
+      paths: ['user'] // 这里便只会缓存user下的state值
+    })
+  ]
+}) 
+```
+
+### 手动在vuex中缓存全局数据
+- **缺点**：只能实现简单的缓存功能，需要利用`getter`来获取缓存数据
+
+```ts
+const state = () => {
+  return {
+    token: ''
+  }
+}
+const actions = {
+  async login ({ commit }, param) {
+    // 在这里获取用户的登录信息，返回值包含token，uid等信息
+    const userInfo = await userService.login(param)
+    commit('setUser', userInfo)
+    return userInfo
+  }
+}
+const mutations = {
+  setUser (state, data) {
+    state.token = data.token
+    // 在这里设置用户token, 同步存储数据
+    localStorage.setItem('user-token', data.token)
+  }
+}
+const getter= {
+  getUser () {
+    // 在这里获取用户token, 从缓存中
+    return localStorage.getItem('user-token')
+  }
+} 
+```
+
+
 
 ## 十五、vue input输入联想实现
+::: tip 分析
 - **问题**：input事件输入太快会造成发起请求太多的问题，并且可能上一个请求返回事件比最后一个请求返回事件还慢，导致联想到的数据不是最新的；
 - **解决方法**：使用防抖函数，控制接口请求频率；或者使用请求中断，只要发起新请求，上一个请求还没有完成的话，就中断上一个请求，保证列表反显的数据是最后一个请求返回的数据；
+:::
 
 ![图片](/images/frontEnd/vue/img_5.png)
 

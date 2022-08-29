@@ -2,6 +2,8 @@
 # 小程序开发案例
 [[toc]]
 
+
+
 ## 一、小程序登录状态管理（原生）
 
 ### 管家小程序登录流程分析
@@ -3485,4 +3487,72 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
     order_ids += item + ",";
   }
   this.setData({ order_ids: order_ids }) 
+```
+
+
+
+## 三十三、小程序使用canvas旋转图片
+::: tip 思路
+创建一个新的`canvas`画布，隐藏到屏幕外，做旋转处理；
+:::
+
+```html
+<canvas 
+      canvas-id="canvas" 
+      style="width:{{imageWidth}}px;height:{{imageHeight}}px;position:absolute;top:200%">
+</canvas>
+```
+
+```ts
+ /**
+   * base64图片旋转
+   * @param src 图片文件
+   * @param edg 图片旋转角度：必须是90的倍数
+   */
+  rotateBase64Img(src, edg) {
+    wx.getImageInfo({
+      src: src,
+      success:(res)=>{
+          let canvasContext = wx.createCanvasContext('canvas')
+          var width = res.width;
+          var height = res.height;
+          this.setData({
+            imageWidth: height,
+            imageHeight: width,
+          })
+          canvasContext.translate(height / 2, width / 2)                 
+          canvasContext.rotate(edg * Math.PI / 180)
+          canvasContext.drawImage(src, - width / 2, - height / 2, width, height);
+          canvasContext.draw()
+          this.drawImage()
+      }
+    })
+  },
+
+
+  /**
+   * 旋转后生成图片
+   */
+  drawImage() {
+    let that = this;
+    setTimeout(()=>{
+      wx.canvasToTempFilePath({
+        x: 0,
+        y: 0,
+        canvasId: 'canvas',
+        success(res) {
+          let shareImg = res.tempFilePath;
+          // 生成旋转后的图片文件
+          that.setData({
+            tmpPath: shareImg
+          })
+          // 上传图片
+          that.upImgs(shareImg, 0)
+        },
+        fail: function (res) {
+          console.error(res)
+        }
+      })
+    }, 100)
+  }
 ```
