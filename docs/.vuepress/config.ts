@@ -102,7 +102,13 @@ module.exports = {
             },
             {
                 text: '其他',
-                link: '/',
+                children: [
+                    {
+                        text: '前端分享会',
+                        link: '/other/share.md',
+                        activeMatch: '^/foo/',
+                    },
+                ],
             },
         ],
     }),
