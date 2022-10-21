@@ -352,7 +352,7 @@ import 'swiper/dist/css/swiper.css';  // 或者
 ### 应用
 ```html
 <!--轮播图组件-->
-<div class="swiper-container">
+<div class="swiper-container" v-show="true">
   <div class="swiper-wrapper">
     <div class="swiper-slide">
       <img
@@ -372,22 +372,37 @@ import 'swiper/dist/css/swiper.css';  // 或者
 </div>
 ```
 
+- 注： 如果展示隐藏轮播组件，使用`v-show`, 不能用`v-if`,
+- 使用`v-if` vue虚拟dom节点异常，索引覆盖
 ```ts
 /**
  * 初始化轮播图
  * js 请求数据完成后再初始化，否则或数据轮播时数据丢失
  */
-async function getPublicData(){
-  let p1 = this.getMapData();
-  let p2 = this.getCompanyInfo();
-  Promise.all([p1,p2]).then(()=>{
-    // 声明swiper组件
-    new Swiper ('.swiper-container', {
-      loop: true, // 循环模式选项
-      autoplay: true,//自动循环
+async getPublicData(){
+    let p1 = this.getMapData();
+    let p2 = this.getCompanyInfo();
+    Promise.all([p1,p2]).then(()=>{
+        // 声明swiper组件
+        // 动态数据获取完毕后配置轮播图，保证动态数据正常展示
+        this.swiper_container = new Swiper('.swiper-container', {
+            loop: true, // 循环模式选项
+            autoplay: true, //自动循环
+            observer: true, //修改swiper自己或子元素时，自动初始化swiper
+            observeParents:true, //修改swiper的父元素时，自动初始化swiper
+        })
+    }).catch()
+},
+
+// 如果依旧有数据丢失的情况，初始化可以嵌套空定时器
+settimeout(()=>{
+    this.swiper_container = new Swiper('.swiper-container', {
+        loop: true, // 循环模式选项
+        autoplay: true, //自动循环
+        observer: true, //修改swiper自己或子元素时，自动初始化swiper
+        observeParents:true, //修改swiper的父元素时，自动初始化swiper
     })
-  }).catch()
-}
+},0)
 ```
 
 
@@ -1914,3 +1929,614 @@ class PayModule {
 
 export default PayModule
 ```
+
+
+
+
+## 十七、可拖拽组件解决方案整理
+
+### 方案分析
+![图片](/images/frontEnd/vue/img_7.png)
+
+### 代码实现
+#### 滚动隐藏效果
+```ts
+    created() {
+      window.addEventListener('scroll', this.handleScroll) // 监听页面滚动
+    },
+    
+  /**
+   * 开始滚动
+   */
+  handleScroll() {
+      // 正在拖动中禁止使用
+    if(this.isDrag) { return }
+    // 防抖：滚动停止后恢复隐藏
+    this.timer && clearTimeout(this.timer)
+    this.timer = setTimeout(() => {
+      this.handleScrollEnd()
+    }, 300)
+    // 获取窗口滚动高度
+    this.currentTop = document.documentElement.scrollTop || document.body.scrollTop
+    // 控制左右贴边距离
+    if(this.left > this.clientWidth / 2) {
+      this.left = this.clientWidth + this.gapWidth / 2
+    } else {
+      this.left = - this.gapWidth / 2
+    }
+  },
+
+
+  /**
+   * 结束滚动，恢复按钮位置
+   */
+  handleScrollEnd(){
+    let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+    if(scrollTop === this.currentTop) {
+      if(this.left > this.clientWidth/2) {
+        this.left = this.clientWidth - this.itemWidth - this.gapWidth
+      } else {
+        this.left = this.gapWidth
+      }
+      clearTimeout(this.timer)
+    }
+  }
+},
+```
+
+#### 可拖拽组件
+- js实现拖拽吸附组件
+```ts
+mounted() {
+  this.$nextTick(() => {
+    this.itemHeight = this.$refs.floatButton.clientHeight;
+    this.itemWidth = this.$refs.floatButton.clientWidth;
+
+    const floatButton = this.$refs.floatButton
+    floatButton.addEventListener("touchstart", () => {
+      floatButton.style.transition = 'none'
+    })
+
+    // 在拖拽的过程中，组件应该跟随手指的移动而移动。
+    floatButton.addEventListener("touchmove", (e) => {
+      if(!this.isDrag){
+        let mo=function(e){e.preventDefault();};
+        document.body.style.overflow='hidden';
+        document.addEventListener("touchmove",mo,false)
+        this.isDrag = true;
+      }
+      if (e.targetTouches.length === 1) {  // 一根手指
+        let touch = e.targetTouches[0]
+        this.left = touch.clientX - this.itemWidth
+        this.top = touch.clientY - this.itemHeight
+      }
+    })
+
+    // 拖拽结束以后，吸附贴边并重新设置过度动画。
+    floatButton.addEventListener("touchend", () => {
+      if(this.isDrag){
+        let mo=function(e){e.preventDefault();};
+        document.body.style.overflow='';//出现滚动条
+        document.removeEventListener("touchmove",mo,false);
+        this.isDrag = false;
+      }
+
+      floatButton.style.transition = 'all 0.3s'
+      if(this.left > document.documentElement.clientWidth / 2) {
+        this.left = document.documentElement.clientWidth - this.itemWidth - this.gapWidth;
+      }else{
+        this.left = this.gapWidth;
+      }
+    })
+  })
+},
+```
+
+#### css实现可拖拽组件
+- 参考地址 [https://juejin.cn/post/6933016266365992974#heading-1](https://juejin.cn/post/6933016266365992974#heading-1)
+```html
+<div class="dragbox" id="dragbox">
+  <div class="dragcon">
+    <div class="ball" id="ball"></div>
+  </div>
+</div>
+```
+```css
+html,body{
+  margin: 0;
+}
+section{
+  padding: 10px;
+}
+.dragbox{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling:touch;
+}
+.dragbox.move{
+  overflow: hidden;
+  pointer-events: none;
+}
+.dragcon{
+  width: calc(200% - 50px);
+  height: calc(200% - 50px);
+}
+.ball{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: cornflowerblue;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: all;
+}
+```
+```js
+document.addEventListener('touchstart',(ev)=>{
+  if ( !ball.contains(ev.target) ) {
+    dragbox.classList.add('move');
+  }
+})
+document.addEventListener('touchend',()=>{
+  dragbox.classList.remove('move');
+})
+dragbox.scrollLeft = 50;
+dragbox.scrollTop = 50;
+```
+
+#### vue指令实现拖拽组件
+```html
+<div v-draggable>拖拽組件</div>
+```
+```ts
+Vue.directive('draggable', {
+  inserted: function (el,data) {
+    el.style.position = 'absolute';
+    el.style.cursor = 'move';
+    el.onmousedown = function(event){
+      let startX = event.clientX;
+      let startY = event.clientY;
+      let left = el.offsetLeft;
+      let top = el.offsetTop;
+      document.onmousemove = function(event){
+        let X = event.clientX - startX
+        let Y = event.clientY - startY;
+        el.style.left = `${X + left}px`;
+        el.style.top = `${Y + top}px`;
+      }
+      document.onmouseup = function(){
+        document.onmousemove = document.onmouseup = null;
+      };
+    }
+  }
+})
+```
+
+### 最终方案：滚动隐藏+可拖拽吸附
+```vue
+<!--
+  可拖拽吸附贴边组件，可滚动影藏
+  使用方法：
+  1.注入组件 并使用
+  2.说明：gapWidth： 传入移动元素 with/2 + 贴边的间距， coefficientHeight：从上到下距离比例
+  <dragLabel :gapWidth="58">
+      <div class="kefu" ref="kefu" @click="openCustomer">
+       <img src="../../assets/imgs/mobile/customer-img.png" alt=""/>
+      </div>
+  </dragLabel>
+-->
+
+
+<template>
+  <div class="float_button">
+    <div
+        @click="onBtnClicked"
+        ref="floatButton"
+        class="float_info"
+        :style="{
+          'width': itemWidth + 'px',
+          'height': itemHeight + 'px',
+          'left': left + 'px',
+          'top': top + 'px'
+        }">
+      <slot ref="floatButton2"></slot>
+    </div>
+  </div>
+</template>
+
+
+<script>
+export default {
+  data() {
+    return {
+      clientWidth: 0,
+      clientHeight: 0,
+      timer: null,
+      currentTop: 0,
+      left: 0,
+      top: 0,
+      isDrag: false, // 是否拖拽中
+    }
+  },
+
+
+  props: {
+    itemWidth: {  // 距离左右两边距离 暂时弃用
+      type: Number,
+      default: 0
+    },
+    itemHeight: {  // 距离左右两边距离 暂时弃用
+      type: Number,
+      default: 0
+    },
+    gapWidth: {  // 传入移动元素 with/2 + 贴边的间距
+      type: Number,
+      default: 50
+    },
+    coefficientHeight: {  // 从上到下距离比例
+      type: Number,
+      default: 0.65
+    }
+  },
+
+
+  created() {
+    this.clientWidth = document.documentElement.clientWidth;
+    this.clientHeight = document.documentElement.clientHeight;
+    this.left = this.clientWidth - this.itemWidth - this.gapWidth;
+    this.top = this.clientHeight * this.coefficientHeight;
+    window.addEventListener('scroll', this.handleScroll) // 监听页面滚动
+  },
+  
+  beforeDestroy(){
+      // 取消注册
+      window.removeEventListener('scroll', this.handleScroll);
+  },
+
+  methods: {
+    /**
+     * 防抖函数
+     * @param fn 防抖处理的函数
+     * @param wait 防抖延迟时间 ms
+     */
+    debounce(fn, wait) {
+      // 只要定时器非空，就清掉定时器，重新创建一个新的重新倒计时
+      if(this.timeout !== null) clearTimeout(this.timeout)
+      this.timeout = setTimeout(fn, wait)
+    },
+
+    /**
+     * 开始滚动
+     */
+    handleScroll() {
+      if(this.isDrag) { return }
+      this.timer && clearTimeout(this.timer)
+      this.timer = setTimeout(() => {
+        this.handleScrollEnd()
+      }, 300)
+      // 获取窗口滚动高度
+      this.currentTop = document.documentElement.scrollTop || document.body.scrollTop
+      if(this.left > this.clientWidth / 2) {
+        this.left = this.clientWidth + this.gapWidth / 2
+      } else {
+        this.left = - this.gapWidth / 2
+      }
+    },
+
+
+    /**
+     * 结束滚动
+     */
+    handleScrollEnd(){
+      let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if(scrollTop === this.currentTop) {
+        if(this.left > this.clientWidth/2) {
+          this.left = this.clientWidth - this.itemWidth - this.gapWidth
+        } else {
+          this.left = this.gapWidth
+        }
+        clearTimeout(this.timer)
+      }
+    }
+  },
+
+
+  mounted() {
+    this.$nextTick(() => {
+      this.itemHeight = this.$refs.floatButton.clientHeight;
+      this.itemWidth = this.$refs.floatButton.clientWidth;
+
+      const floatButton = this.$refs.floatButton
+      floatButton.addEventListener("touchstart", () => {
+        floatButton.style.transition = 'none'
+      })
+
+      // 在拖拽的过程中，组件应该跟随手指的移动而移动。
+      floatButton.addEventListener("touchmove", (e) => {
+        if(!this.isDrag){
+          let mo=function(e){e.preventDefault();};
+          document.body.style.overflow='hidden';
+          document.addEventListener("touchmove",mo,false)
+          this.isDrag = true;
+        }
+        if (e.targetTouches.length === 1) {  // 一根手指
+          let touch = e.targetTouches[0]
+          this.left = touch.clientX - this.itemWidth
+          this.top = touch.clientY - this.itemHeight
+        }
+      })
+
+      // 拖拽结束以后，吸附贴边并重新设置过度动画。
+      floatButton.addEventListener("touchend", () => {
+        if(this.isDrag){
+          let mo=function(e){e.preventDefault();};
+          document.body.style.overflow='';//出现滚动条
+          document.removeEventListener("touchmove",mo,false);
+          this.isDrag = false;
+        }
+
+        floatButton.style.transition = 'all 0.3s'
+        if(this.left > document.documentElement.clientWidth / 2) {
+          this.left = document.documentElement.clientWidth - this.itemWidth - this.gapWidth;
+        }else{
+          this.left = this.gapWidth;
+        }
+      })
+    })
+  },
+
+
+    /**
+     * 点击事件回调
+     */
+    onBtnClicked(){
+      this.$emit("onFloatBtnClicked")
+    },  
+
+}
+</script>
+
+
+<style lang="scss" scoped>
+.float_button {
+  .float_info{
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+    color: #666666;
+    transition: all 0.3s;
+    position: fixed;
+    bottom: 436px;
+    right: 0;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 14px;
+    cursor: pointer;
+  }
+}
+</style>
+```
+
+- 参考文章：
+- [https://blog.csdn.net/qq_41009742/article/details/101516232](https://blog.csdn.net/qq_41009742/article/details/101516232)
+- [https://juejin.cn/post/6933016266365992974#heading-1](https://juejin.cn/post/6933016266365992974#heading-1)
+- [https://mp.weixin.qq.com/s/wQec3dLJLkKOnwlNqJTSBg](https://mp.weixin.qq.com/s/wQec3dLJLkKOnwlNqJTSBg)
+
+
+
+
+## 十八、dev环境调试跨域问题解决
+
+### 配置devServer
+- vue.config.js
+```ts
+devServer: {
+    // 接口前缀
+    proxy: ['/debt-treatment','owner_danger_new','annual-reports']
+    .reduce((proxy, item) => {
+        proxy[item] = {
+            target: 'http://shuidi.test.pingansec.com',
+            ws: true,
+            changeOrigin: true,
+            pathRewrite:{
+            }
+        }
+        return proxy
+    }, {}),
+    overlay: {
+        warnings: false,
+        errors: false
+    },
+},
+```
+- 根目录配置vue.config.js 说明
+```ts
+module.exports = {
+  devServer: {
+   // 代理配置
+    proxy: {
+        // 这里的api 表示如果我们的请求地址有/api的时候,就出触发代理机制
+        // localhost:8888/api/abc  => 代理给另一个服务器
+        // 本地的前端  =》 本地的后端  =》 代理我们向另一个服务器发请求 （行得通）
+        // 本地的前端  =》 另外一个服务器发请求 （跨域 行不通）
+        '/api': {
+        target: 'www.baidu.com', // 我们要代理的地址---你的跨域服务器地址
+        changeOrigin: true, // 是否跨域 需要设置此值为true 才可以让本地服务代理我们发出请求
+         // 路径重写
+        pathRewrite: {
+            // 重新路由  localhost:8888/api/login  => www.baidu.com/api/login
+            // 把api替换为空字符
+            '^/api': '' // 假设我们想把 localhost:8888/api/login 变成www.baidu.com/login 就需要这么做 
+        }
+      },
+    }
+  }
+}
+```
+
+- 其他方法 [https://blog.51cto.com/u_15760318/5608153](https://blog.51cto.com/u_15760318/5608153  )
+
+
+
+## 十九、vue中使用微信开放标签调起小程序
+```html
+<template v-if="!wxBrowser">
+  <div class="button" @click="clickButton">使用权益</div>
+</template>
+<template v-else>
+  <div style="display: flex; justify-content: center;">
+    <wx-open-launch-weapp
+        id="launch-btn"
+        username="gh_c9ddc8b1ef39"
+        path="pages/index/index?code=tfoFEIqSPeVSZyfvp1Mpww%3D%3D"
+        @error="handleErrorFn"
+        @launch="handleLaunchFn"
+    >
+      <script type="text/wxtag-template">
+        <div class="button">使用权益</div>
+        <style>
+          .button {
+            width: 346px;
+            height: 50px;
+            background-image:
+                linear-gradient(1deg,
+                #f62810 0%,
+                #fa6e49 100%),
+                linear-gradient(
+                    #e31726,
+                    #e31726);
+            background-blend-mode: normal, normal;
+            border-radius: 25px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+            margin: 0 auto;
+          }
+          .button:active {
+            opacity: 0.6;
+          }
+        </style>
+      </script>
+    </wx-open-launch-weapp>
+  </div>
+</template>
+```
+```ts
+import wx from "weixin-js-sdk";
+
+created() {
+    this.$tools.batchRecord(this.id, '01')
+    this.jumpToMiniProgram()
+    let ua = navigator.userAgent.toLowerCase();
+    if (`${ua.match(/MicroMessenger/i)}` === "micromessenger") {
+        this.wxBrowser = true;
+    }
+},
+
+clickButton(){
+    this.$toast('请在微信中打开')
+},
+
+handleErrorFn(e) {
+    this.$tools.batchRecord(this.id, '02')
+    console.log("fail", e.detail)
+},
+
+handleLaunchFn(e) {
+    this.$tools.batchRecord(this.id, '02')
+    console.log("success")
+},
+
+
+jumpToMiniProgram() {
+    let jsApiList = [
+        "updateAppMessageShareData",
+        "updateTimelineShareData",
+        "onMenuShareTimeline",
+        "onMenuShareAppMessage",
+        "onMenuShareQQ",
+        "onMenuShareWeibo",
+        "onMenuShareQZone",
+        "startRecord",
+        "stopRecord",
+        "onVoiceRecordEnd",
+        "playVoice",
+        "pauseVoice",
+        "stopVoice",
+        "onVoicePlayEnd",
+        "uploadVoice",
+        "downloadVoice",
+        "chooseImage",
+        "previewImage",
+        "uploadImage",
+        "downloadImage",
+        "translateVoice",
+        "getNetworkType",
+        "openLocation",
+        "getLocation",
+        "hideOptionMenu",
+        "showOptionMenu",
+        "hideMenuItems",
+        "showMenuItems",
+        "hideAllNonBaseMenuItem",
+        "showAllNonBaseMenuItem",
+        "closeWindow",
+        "scanQRCode",
+        "chooseWXPay",
+        "openProductSpecificView",
+        "addCard",
+        "chooseCard",
+        "openCard",
+    ];
+    setTimeout((_) => {
+        this.$http
+            .get("/", {
+                params: {
+                    action: "get_wx_js_ticket",
+                    url: location.href,
+                },
+            })
+            .then((data) => {
+                const js_info = data.data;
+                wx.ready(function () {
+                    console.log("call");
+                });
+                wx.error(function (res) {
+                    console.log(res)
+                });
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来
+                    // 若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，
+                    // 仅在pc端时才会打印。
+                    appId: js_info["app_id"], // 必填，公众号的唯一标识
+                    timestamp: js_info["timestamp"], // 必填，生成签名的时间戳
+                    nonceStr: js_info["nonce"], // 必填，生成签名的随机串
+                    signature: js_info["signature"], // 必填，签名，见附录1
+                    jsApiList: jsApiList, //wxApiList, // 必填，需要使用的JS接口列表，
+                    // 所有JS接口列表见附录2
+                    openTagList: [
+                        "wx-open-subscribe",
+                        "wx-open-audio",
+                        "wx-open-launch-weapp",
+                    ],
+                });
+            });
+    }, 500);
+},
+```
+
+
+
+##

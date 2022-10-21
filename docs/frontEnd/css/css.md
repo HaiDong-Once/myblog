@@ -260,3 +260,28 @@ text-indent: -5em;
     vertical-align: middle; 
  }
 ```
+
+### fixed浮动置底按钮，遮挡底部元素问题解决
+```html
+<div class="page">
+    <div class="content">页面内容</div>
+    <div class="box">
+        <div>浮动按钮</div>
+    </div>
+</div>
+```
+
+```css
+.box {
+    position: relative;
+    z-index: 10;
+    height: 194px;
+}
+.box div{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 194px;
+}
+```

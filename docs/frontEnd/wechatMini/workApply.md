@@ -3556,3 +3556,41 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
     }, 100)
   }
 ```
+
+
+
+## 三十四、小程序调用微信企业客服
+### 小程序内直接使用
+- 必须用户点击才可以触发
+```ts
+wx.openCustomerServiceChat({
+  extInfo: {url: ''},
+  corpId: '',
+  success(res) {}
+})
+```
+
+### 小程序web-view页面使用
+- 因为需要用户点击，所以需要在小程序内新增一个客服中转页供用户点击
+- 跳转到小程序原生客服页，使用小程序内调用方法打开
+```shell
+npm install weixin-js-sdk --save
+```
+```ts
+//页面引入sdk
+import wx from "weixin-js-sdk";
+
+wx.miniProgram.redirectTo({
+  url: "/pages/customer/index?id=1", // id:所需参数
+  success: (res) => {
+    console.log(res); // 页面跳转成功的回调函数
+  },
+  fail: (err) => {
+    console.log(err); // 页面跳转失败的回调函数
+  },
+});
+```
+
+- 参考文档：
+- [https://developers.weixin.qq.com/miniprogram/dev/api/open-api/service-chat/wx.openCustomerServiceChat.html](https://developers.weixin.qq.com/miniprogram/dev/api/open-api/service-chat/wx.openCustomerServiceChat.html)
+- [https://developer.work.weixin.qq.com/document/path/94848](https://developer.work.weixin.qq.com/document/path/94848)
