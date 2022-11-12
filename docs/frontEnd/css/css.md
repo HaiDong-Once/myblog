@@ -285,3 +285,18 @@ text-indent: -5em;
     height: 194px;
 }
 ```
+
+
+### 设置letter-spacing后文字不能居中的解决方法
+
+::: tip 说明：
+- 原因：设置居中的时候，最后一个字的右间距也会包括其中，所以会出现不能居中的情况。
+- 解决：比较简单的一个方法是给文字设置 `text-indent` 首行文本的缩进，属性值和 `letter-spacing` 相同。
+:::
+```css
+{
+    text-align: center;
+    letter-spacing: 20px;
+    text-indent: 20px;
+}
+```

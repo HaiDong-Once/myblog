@@ -56,7 +56,7 @@ module.exports = {
                 ],
             },
             {
-                text: '前端周边',
+                text: '大前端',
                 children: [
                     {
                         text: '博客搭建',
@@ -76,6 +76,10 @@ module.exports = {
                     {
                         text: '代码规范',
                         link: '/frontEnd/other/codeStandard.md',
+                        activeMatch: '^/foo/',
+                    },{
+                        text: 'Webpack5',
+                        link: '/frontEnd/other/Webpack5.md',
                         activeMatch: '^/foo/',
                     },
                 ],
