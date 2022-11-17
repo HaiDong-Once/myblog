@@ -77,9 +77,15 @@ module.exports = {
                         text: '代码规范',
                         link: '/frontEnd/other/codeStandard.md',
                         activeMatch: '^/foo/',
-                    },{
+                    },
+                    {
                         text: 'Webpack5',
                         link: '/frontEnd/other/Webpack5.md',
+                        activeMatch: '^/foo/',
+                    },
+                    {
+                        text: '性能优化',
+                        link: '/frontEnd/other/performance.md',
                         activeMatch: '^/foo/',
                     },
                 ],
