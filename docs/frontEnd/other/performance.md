@@ -475,42 +475,73 @@ vue/cli5 升级到postCss8 需要更新postcss-loader  或者**更新postcss 8.0
 ![图片](/images/frontEnd/other/performance/img_16.png)
 
 #### 修改完postcss版本后，postcss-pxtorem 失效了，
-- 导致移动端适配无效，postcss-pxtorem这个插件需要低版本postcss，
-而webpack5 升级到了postcss8， postcss版本必须升级到8.0.0以上，
-- 解决方法：使用 `postcss-plugin-px2rem` 插件替代
-```shell
-npm install postcss-plugin-px2rem -D
-```
-vue.config.js配置
-```ts
-css: {
-  loaderOptions: {
-    postcss: {
-      postcssOptions: {
-        plugins: [
-          require('postcss-plugin-px2rem')({
-            rootValue: 108,      // 新版本的是这个值
-            mediaQuery: false, //（布尔值）允许在媒体查询中转换px。
-            minPixelValue: 3 //设置要替换的最小像素值(3px会被转rem)。 默认 0
-          }),
-        ]
-      },
-    }
-  },
+- 最终发现，因为我在 `package.json` 中配置了 `postcss` ,所以 `postcss.config.js` 就不会执行了
+- 需要关闭 `package.json` 和 `vue.config.js` 中的配置，只保留 `postcss.config.js` 才会生效
+```json
+// package.json 中删除这段配置
+"postcss": {
+   "plugins": {
+      "autoprefixer": {}
+   }
 },
 ```
-#### 在vue.config.js里如何获取文件包信息问题，
-比如原来postcss.config.js文件配置vant， 待解决
+- 配置完成后发现，`vant`, 和 `guanjia_page_` 的文件并没有生效，说明 `postcss.config.js` 中的判断无效，
 ```ts
- module.exports = ({ file }) => {
+const autoprefixer = require('autoprefixer')
+const pxtorem = require('postcss-pxtorem')
+
+module.exports = ({ file }) => {
+   console.log(666666666666666666666666666666, file)
    let rootValue
    if (file && file.basename && file.basename.indexOf('guanjia_page_') > -1) {
       rootValue = 37.5
    } else if (file && file.dirname && file.dirname.indexOf('vant') > -1) {
       rootValue = 37.5
+   } else {
+      rootValue = 108
    }
+   // .................
 }
 ```
+
+- 我们打印一下 file 这个传参，发现 webpack5 中 file 并非是一个对象，而是文件的绝对路径字符串
+```ts
+console.log(666666666666666666666666666666, file)
+6.666666666666666e+29 G:\persnal\web-php\app-shuidi\view\vue\node_modules\vant\es\popover\index.less
+6.666666666666666e+29 G:\persnal\web-php\app-shuidi\view\vue\node_modules\vant\es\divider\index.less
+6.666666666666666e+29 G:\persnal\web-php\app-shuidi\view\vue\src\components\common\auto-complete.vue
+6.666666666666666e+29 G:\persnal\web-php\app-shuidi\view\vue\src\components\risk\RiskNotice.vue
+6.666666666666666e+29 G:\persnal\web-php\app-shuidi\view\vue\src\components\maptree\maptree-structure.vue
+```
+
+- 所以，重新修改判读，取用 file 字符串判，移动端适配即可生效
+```ts
+const autoprefixer = require('autoprefixer')
+const pxtorem = require('postcss-pxtorem')
+
+module.exports = ({ file }) => {
+    let rootValue
+    if (file && file.indexOf('guanjia_page_') > -1) {
+        rootValue = 37.5
+    } else if (file && file.indexOf('vant') > -1) {
+        rootValue = 37.5
+    } else {
+        rootValue = 108
+    }
+    return {
+        plugins: [
+            autoprefixer(),
+            pxtorem({
+                rootValue: rootValue,
+                propList: ['*'],
+                minPixelValue: 2
+            })
+        ]
+    }
+}
+```
+
+
 再次测试环境打包:
 
 ![图片](/images/frontEnd/other/performance/img_17.png)
