@@ -95,7 +95,7 @@ module.exports = {
                 children: [
                     {
                         text: '摄影分享',
-                        link: '/',
+                        link: '/art/photo/personalShare.md',
                         activeMatch: '^/foo/',
                     },
                     {

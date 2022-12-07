@@ -581,6 +581,113 @@ css: {
 },
 ```
 
+#### **升级后其他人git pull项目后，安装依赖会对等依赖警告中断安装**
+```shell
+peerDependencies WARNING vue-pdf@4.3.0 › worker-loader@^2.0.0 requires a peer of webpack@^3.0.0 || ^4.0.0-alpha.0 || ^4.0.0 but webpack@5.75.0 was installed
+peerDependencies WARNING cytoscape-node-html-label@^1.2.0 requires a peer of @types/cytoscape@^3.1.0 but none was installed
+peerDependencies WARNING @vue/cli-service@5.0.8 › webpack-dev-server@4.11.1 › ws@^8.4.2 requires a peer of bufferutil@^4.0.1 but none was installed
+peerDependencies WARNING @vue/cli-service@5.0.8 › webpack-bundle-analyzer@4.7.0 › ws@^7.3.1 requires a peer of bufferutil@^4.0.1 but none was installed
+```
+**说明：**
+- 在NPM v7中，现在默认安装 `peerDependencies`。
+- 在很多情况下，这会导致版本冲突，从而中断安装过程。
+- `--legacy-peer-deps`标志是在v7中引入的，目的是绕过 `peerDependency` 自动安装；它告诉 NPM 忽略项目中引入的各个modules之间的相同modules但不同版本的问题并继续安装，
+保证各个引入的依赖之间对自身所使用的不同版本modules共存。<br>
+**解决方法：安装依赖使用`--legacy-peer-deps`标志**<br>
+```shell
+npm install --legacy-peer-deps
+```
+
+#### **Module not found 未找到core-js报错**
+```shell
+ error  in ./node_modules/vue-router/dist/vue-router.esm.js
+
+Module not found: Error: Can't resolve 'core-js/modules/es.array.push.js' in 'G:\wamp64\www\web-php\app-shuidi\view\vue\node_modules\vue-router\dist'
+
+ Failed to resolve loader: core-js/modules/es.array.push.js' in 'G:\wamp64\www\web-php\app-shuidi\view\vue\node_modules\vant\es\uploader
+You may need to install it.
+```
+**解决方法，删除依赖包，先npm install core-js --save,  再执行npm install**
+
+#### **启动页面报错：regeneratorRuntime 找不到，使用await问题**
+```shell
+shuidi.f5c3d64e.js:formatted:5473 Uncaught ReferenceError: regeneratorRuntime is not defined
+```
+**解决方法：安装配置：regeneratorRuntime**
+```shell
+npm install @babel/plugin-transform-runtime
+```
+```json
+/* babel.config.js */
+"plugins": [
+  "@babel/plugin-transform-runtime",
+]
+```
+
+#### **打包后代码未更新：静态资源git状态异常，重置git状态**
+**解决方法：检查静态文件git状态，或重新克隆静态文件仓库**
+
+#### **资源锁定：因为目录下启动了cmd,关闭即可**
+```shell
+(node:14508) UnhandledPromiseRejectionWarning: Error: EBUSY: resource busy or locked, rmdir 'G:\wamp64\www\static\shuidivue'
+```
+
+#### **core.js未指定警报： 需要在babel.config.js中指定版本**
+**core.js介绍：** [https://q.shanyue.tech/engineering/734.html](https://q.shanyue.tech/engineering/734.html)
+
+#### **打包部署node服务器出现net::ERR_ABORTED 404 (Not Found)问题解决**
+参考链接：[https://blog.51cto.com/u_15346041/3664766](https://blog.51cto.com/u_15346041/3664766)
+```ts
+module.exports = {
+    publicPath: "./"
+}
+```
+
+#### 弃用node-sass, 改用dart-sass替换
+```shell
+npm uninstall node-sass -D
+npm i sass -D
+```
+- 项目中样式有用 /deep/ ；如果使用 less 对 css 做出预处理的话，
+  使用 /deep/ 就可以完成样式穿透的行为；如果使用的 scss 对 css 做出的预处理，
+  ::v-deep 替换了 /deep/ 就解决这个问题。
+
+#### css热更新异常问题
+- extract配置导致， 删除配置，逐一解决警告
+```ts
+// vue.cofig.ts
+extract: {
+    ignoreOrder: true
+}
+```
+```
+// 语法过时
+background-image: linear-gradient(left, #f9dfc5, #dfab6e);
+替代为
+linear-gradient(to right, #f9dfc5, #dfab6e)
+
+// 空值警告 enterprise-change.vue
+background: url('') 
+
+// import语法
+import SwiperCore, { Autoplay , EffectCube } from "swiper";
+
+// v-for未加key键值
+<van-swipe-item v-for="item in datas.recommend">: 
+component lists rendered with v-for should have explicit keys
+替换为
+<van-swipe-item v-for="(item,index) in datas.recommend" :key="index">
+```
+
+#### 新增预发布环境，解决上线问题
+
+..........
+
+
+
+
+
+
 ### 打包结果
 
 ```json
