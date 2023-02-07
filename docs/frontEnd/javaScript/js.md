@@ -5,7 +5,7 @@
 
 
 
-## 一、promise.all
+## promise.all
 
 ::: tip 作用:
   获取多个接口回调状态
@@ -46,7 +46,7 @@ getHomeData(){
 
 
 
-## 二、浅拷贝与深拷贝
+## 浅拷贝与深拷贝
 
 ::: tip 说明:
 - 浅拷贝是创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，
@@ -329,3 +329,65 @@ var b = a;
 ```
 
 ![图片](/images/frontEnd/js/img_1.png)
+
+
+## 监听元素滚动事件及滚动位置距离
+
+### 滚动事件监听
+- 原生监听滚动事件：
+```js
+// 监听页面滚动
+window.addEventListener('scroll', function(e) {
+    // dosomething
+});
+
+// 使用 requestAnimationFrame 节流
+let ticking = false;
+window.addEventListener('scroll', function(e) {
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      // dosomething
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+```
+
+- vue监听滚动事件：
+```html
+<div @scroll="scroll"  // 滚动事件
+     @scroll.once="scroll2"  // 开始滚动
+     ref="resListRef">
+</div>
+```
+
+### 滚动位置
+```js
+// 原生获取位置
+window.addEventListener('scroll', function(e) {
+    e.target.scrollTop
+});
+document.querySelector("#scroller").scrollTop
+
+// vue
+// <div ref="resListRef"></div>
+let toTop = this.$refs.resListRef.scrollTop;
+```
+
+- `Element.scrollHeight`：元素内容高度
+- `Element.scrollLeft`：读取或设置元素滚动条到元素左边的距离
+- `Element.scrollTop`：获取或设置一个元素的内容垂直滚动的像素数
+- `Element.scrollWidth`：只读属性是元素内容宽度
+
+### onscrollend 新属性
+- 目前仅火狐支持：
+
+![图片](/images/frontEnd/js/img_2.png)
+
+```js
+this.$refs.scrollfather.onscrollend = function() {
+  console.log("scrolling");
+};
+```
+

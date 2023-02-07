@@ -707,7 +707,107 @@ components: {
 </script>
 ```
 
+### 自动滚动栏自定义方案完整版
+::: tip 说明：
+- 解决循环滚动+手动拖动停止松开继续滚动异常的问题
+- 注：监听div滚动事件 `@scroll`
+- 未解决问题：滚动卡顿问题，尝试使用 `requestAnimationFrame` 解决
+:::
 
+```html
+<div class="scroll-box" id="review_box" ref="resListRef"  @scroll=""
+     @touchstart="rollStop()" @touchend="rollStart(15)">
+  <div id="comment1" style="display: inherit;">
+    <img src="@guanjia/assets/imgs/activity/contract/scroll-card1.png" alt=""/>
+    <img src="@guanjia/assets/imgs/activity/contract/scroll-card2.png" alt=""/>
+    <img src="@guanjia/assets/imgs/activity/contract/scroll-card3.png" alt=""/>
+    <img src="@guanjia/assets/imgs/activity/contract/scroll-card4.png" alt=""/>
+    <img src="@guanjia/assets/imgs/activity/contract/scroll-card5.png" alt=""/>
+  </div>
+  <div id="comment2" style="display: inherit;"></div>
+</div>
+```
+
+```ts
+data() {
+  return {
+    timer: null, // 滚动动画定时器
+  }
+},
+
+mounted() {
+  this.roll(15)
+},
+
+beforeDestroy(){
+  if (this.timer) clearInterval(this.timer);
+},
+
+methods: {
+    /**
+     * 列表滚动初始化
+     * @param time: 滚动速度
+     */
+    roll(time) {
+      const review_box = document.getElementById("review_box");
+      const comment1 = document.getElementById("comment1");
+      const comment2 = document.getElementById("comment2");
+      comment2.innerHTML = comment1.innerHTML;
+      review_box.scrollLeft = 0;
+      this.rollStart(time);
+    },
+    
+    
+    /**
+     * 开始滚动
+     * @param time
+     */
+    rollStart(time) {
+      const comment1 = document.getElementById("comment1");
+      const review_box = document.getElementById("review_box");
+      this.rollStop();
+      this.timer = setInterval(()=>{
+        // 当滚动高度大于列表内容高度时恢复为0
+        if (review_box.scrollLeft >= comment1.scrollWidth) {
+          review_box.scrollLeft = 0;
+        } else {
+          review_box.scrollLeft++;
+        }
+      }, time);
+    },
+    
+    
+    /**
+     * 停止滚动
+     */
+    rollStop(){
+      const review_box = document.getElementById("review_box");
+      // 停止滚动时，保持当前滚动位置
+      // 获取滚动距离， this.$refs.resListRef.scrollLeft
+      review_box.scrollLeft = this.$refs.resListRef.scrollLeft ?? 0;
+      clearInterval(this.timer);
+    },
+}
+```
+
+```scss
+.scroll-box{
+  width: 100%;
+  height: 340px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  img{
+    width: 848px;
+    height: 293px;
+    margin-left: 25px;
+  }
+}
+/*隐藏滚动条样式*/
+.scroll-box::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+```
 
 
 ## 十、vue项目引用字体包和压缩
@@ -2538,5 +2638,134 @@ jumpToMiniProgram() {
 ```
 
 
+## vue模拟播放动画方案
 
-##
+### await+settimeout方案
+#### html： 使用v-transition动画
+```html
+<transition name="opacity">
+  <label v-show="flagObj.page1">
+    <div class="page1-box">
+      <img src="@/assets/imgs/box-search/animation/content-bg-1.png" alt=""/>
+      <img class="page1-tips" src="@/assets/imgs/box-search/animation/page1-tips.png" alt=""/>
+      <div class="box">
+        <div>{{company_name_typing}}</div><div>搜索</div>
+      </div>
+    </div>
+  </label>
+</transition>
+```
+
+#### css: 渐入渐出动画
+```scss
+.opacity-enter-active, .opacity-leave-active{
+  transition: all .5s;
+}
+.opacity-enter, .opacity-leave-to{
+  opacity: 0;
+}
+```
+
+#### js:await + settimeout 控制间隔时间
+```ts
+/**
+ * 启动动画
+ */
+async startAnimation(type){
+  if(type === 1) this.homeClick(10);
+  this.isStartAnimation = true;
+  this.flagObj.homeShow = false;
+  if(!this.isPlay){
+    this.$refs.audio.play();
+  }
+  this.isMuted = false;
+  await this.setTimeOut(500);
+  // 开始视频
+  this.flagObj.page1 = true;
+  // 搜索框打字效果
+  const data = this.company_name.split('')
+  let index = 0;
+  this.company_name_typing = "";
+  const timer = setInterval(()=>{
+    this.company_name_typing += data[index]
+    ++ index
+    if(index >= data.length){
+      clearInterval(timer)
+      this.flagObj.openFinger = true;
+    }
+  },200)
+  await this.setTimeOut(3000);
+  this.flagObj.page1 = false;
+  await this.setTimeOut(550);
+  this.flagObj.page2 = true;
+  await this.setTimeOut(2300);
+  this.flagObj.page2 = false;
+  // .........
+  this.isPlay = false;
+  !this.isPageDestroy && batchRecord(this.$route.query.id, '2')
+},
+
+
+setTimeOut(time){
+  return new Promise(resolve => {
+    setTimeout(()=>{
+      resolve()
+    }, time)
+  })
+},
+```
+
+### requestAnimationFrame 替代方案
+- requestAnimationFrame 控制时间间隔，更精准
+```ts
+let time = new Date().getTime();
+requestAnimationFrame(()=>{
+    let time1 = new Date().getTime();
+    let duration = time1 - time;
+})
+```
+
+
+## vue computed计算属性传参取值
+::: tip 说明：
+- 给 computed 值 return 一个可传参函数
+- 注：这种方法不可以传参空值用else取值，会报错
+:::
+
+### 实现
+```ts
+computed: {
+  /**
+   * 获取当前年月日（2022年6月24日）
+   * @returns {function(*): string}
+   * @使用说明 getTimeNow(type) all:完整日期, year:年, month:月, date:日 
+   * lastDate：当月最后一天
+   */
+  getTimeNow(){
+    return function (type){
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = now.getMonth();
+      const date = now.getDate() >= 10 ? now.getDate() : ('0' + now.getDate());
+      if(type === 'all'){
+        return +year + "年" + (month + 1) + "月" + date + "日 "
+      }else if(type === 'year'){
+        return year + ''
+      }else if(type === 'month'){
+        return (month + 1)  + ''
+      }else if(type === 'date'){
+        return date + ''
+      }else if(type === 'lastDate'){
+        const date1 = new Date(year, month, 0)
+        return date1.getDate()
+      }
+    }
+  },
+},
+```
+
+### 使用方法
+```html
+<div class="head-tips">截止日期 {{getTimeNow('month')}}月{{getTimeNow('lastDate')}}日 </div>
+```
+

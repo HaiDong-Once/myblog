@@ -300,3 +300,128 @@ text-indent: -5em;
     text-indent: 20px;
 }
 ```
+
+
+### div内宽度不定元素限制最大显示数量
+::: tip 方法：
+- 内部元素行级块元素，div限制宽高，溢出部分隐藏。
+:::
+
+![图片](/images/frontEnd/css/img_6.png)
+
+```html
+<div class="type" v-if="item.tag.length > 0">
+  <span v-for="(item2,index2) of item.tag" 
+      :key="index2" v-if="item2 !== '无'">{{item2}}
+  </span>
+</div>
+```
+```scss
+.type{
+  display: inline-block;
+  height: 66px;
+  width: 100%;
+  overflow: hidden;
+  span{
+    display: inline-block;
+    height: auto;
+    background-color: #eef6ff;
+    border-radius: 9px;
+    line-height: 54px;
+    padding: 0 6px;
+    font-size: 33px;
+    color: #1f81f8;
+    margin: 10px 20px 0 10px;
+    box-sizing: border-box;
+  }
+}
+```
+
+
+### 隐藏滚动条样式
+
+1. Firefox浏览器  将滚动条宽度设置为none：`scrollbar-width: none`
+2. IE浏览器  使用-ms-prefix属性定义滚动条样式： `-ms-overflow-style: none`
+3. Chrome和Safari浏览器  CSS滚动条选择器，然后使用display：none隐藏它: `::-webkit-scrollbar`
+4. 示例：
+
+```scss
+.demo {
+  scrollbar-width: none; /* firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.demo::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+```
+
+
+### 移动端小于12px字体解决方案
+
+::: tip 原因：
+- 因移动端限制最小12px字体，部分业务需求或ui有类似设计，比如一些模拟手机外形的小模块
+:::
+
+![图片](/images/frontEnd/css/img_7.png)
+
+#### 方案一、transform: scale(n)缩放
+- 放大字体倍数，再使用`transform: scale(n)`缩小,但是改变了元素占据的空间大小，四周有留白
+```scss
+.font9-scale{
+    font-size: 18px;
+    transform: scale(0.5);
+  }
+```
+- 解决留白问题：宽度两倍数，`margin-left` 向左折回 50%，或`transform-origin：left` 这种方法只适合定高元素
+```scss
+.font9-scale2{
+    font-size: 18px;
+    width: 200%;
+    transform: scale(0.5);
+    //margin-left: -50%;
+    transform-origin: left;
+  }
+```
+
+#### 方案二、zoom: 0.5
+- `zoom: 0.5` 不会改变了元素占据的空间大小，没有留白，但是zoom是非标准属性，有兼容问题
+```scss
+.font9-zoom{
+    font-size: 18px;
+    zoom: 0.5;
+  }
+```
+- 兼容性说明：火狐浏览器不兼容，ios设备实测也无法兼容 ，360浏览器无法兼容
+![图片](/images/frontEnd/css/img_8.png)
+
+#### 方案三、-webkit-text-size-adjust: none
+- 关闭依据设备自动调整字体大小，自从chrome 27之后，就取消了对这个属性的支持。同时，该属性只对英文、数字生效，对中文不生效；仅了解就好，不实用。
+```scss
+.font9-adjust{
+    font-size: 18px;
+    -webkit-text-size-adjust: none;
+  }  
+```
+
+
+### 禁止子元素滚动触发父元素滚动解决方案
+
+::: tip 原因：
+- 有些页面有内有可向下滚动的列表，经常会遇到滚动小模块到底部后，会带动父元素滚动，或者带动整个页面向下滚动，这样的感觉很混乱。
+  :::
+
+![图片](/images/frontEnd/css/img_9.png)
+
+#### 方案一、overscroll-behavior ：contain
+- 设置子元素的css属性 `overscroll-behavior ：contain`, 但是safari低版本 / ie不兼容
+- 兼容性说明：
+![图片](/images/frontEnd/css/img_10.png)
+
+#### 方案二、子元素滚动，监听 wheel 事件阻止自元素滚动触底之后父元素滚动
+
+#### 补充：弹窗组件防止滚动穿透解决方案类似
+- 显示弹窗时候，`body` 或父元素添加`overflow：hidden`样式
+- 子元素添加 `overscroll-behavior: contain`
+- 子元素添加 `pointer-events: none` ,阻止滚动穿透，但是不适合子元素本身是滚动元素

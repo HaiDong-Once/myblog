@@ -32,6 +32,11 @@ module.exports = {
                         text: '浏览器',
                         link: '/frontEnd/browser/bom.md',
                         activeMatch: '^/foo/',
+                    },
+                    {
+                        text: 'node.js',
+                        link: '/frontEnd/nodejs/node.md',
+                        activeMatch: '^/foo/',
                     }
                 ],
             },
