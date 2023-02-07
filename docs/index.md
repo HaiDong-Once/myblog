@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: welcome 咚咚咚 blog
-tagline: 想我所想，尽我所能;
+heroText: welcome ddd`s blog
+tagline: 
 actions:
 - text: 查看最近更新
   link: /frontEnd/vue/workApply.md

@@ -4,8 +4,8 @@ const { searchPlugin } = require('@vuepress/plugin-search')
 module.exports = {
     base: '/myblog/',
     lang: 'zh-CN',
-    title: '咚咚咚',
-    description: '咚咚咚的blog站点',
+    title: 'ddd`s blog',
+    description: 'ddd`s的blog站点',
     head: [['link', { rel: 'icon', href: 'https://vuejs.org/images/logo.png' }]],
     theme: defaultTheme({
         // 默认主题配置
