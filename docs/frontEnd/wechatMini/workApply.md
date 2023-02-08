@@ -1579,7 +1579,7 @@ wx.navigateToMiniProgram({
     sizeType="{{ compressed }}"
     fileList="{{ fileList }}" 
     controlled = "true"
-    url="https://upload.shuidi.cn/uploadimage" 
+    url=".........di.cn/uploadimage" 
     bind:change="onChange" 
     bind:success="onSuccess" 
     bind:fail="onFail" 
@@ -1597,7 +1597,7 @@ wx.navigateToMiniProgram({
     <wux-upload 
       fileList="{{ fileList }}" 
       controlled = "true"
-      url="https://upload.shuidi.cn/uploadimage" 
+      url=".........di.cn/uploadimage" 
       sizeType="{{compressed}}" 
       bind:change="onChange" 
       bind:success="onSuccess" 
@@ -1750,7 +1750,7 @@ wx.navigateToMiniProgram({
         //上传图片
         wx.uploadFile({
           //请求后台的路径
-          url: `https://upload.shuidi.cn/uploadimage`,
+          url: `..........di.cn/uploadimage`,
           //小程序本地的路径
           filePath: item,
           //后台获取我们图片的key
