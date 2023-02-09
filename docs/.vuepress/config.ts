@@ -23,11 +23,11 @@ module.exports = {
                         link: '/frontEnd/css/css.md',
                         activeMatch: '^/foo/',
                     },
-                    {
-                        text: 'html',
-                        link: '/',
-                        activeMatch: '^/foo/',
-                    },
+                    // {
+                    //     text: 'html',
+                    //     link: '/',
+                    //     activeMatch: '^/foo/',
+                    // },
                     {
                         text: '浏览器',
                         link: '/frontEnd/browser/bom.md',
@@ -53,11 +53,11 @@ module.exports = {
                         link: '/frontEnd/wechatMini/workApply.md',
                         activeMatch: '^/foo/',
                     },
-                    {
-                        text: 'php原生',
-                        link: '/',
-                        activeMatch: '^/foo/',
-                    },
+                    // {
+                    //     text: 'php原生',
+                    //     link: '/',
+                    //     activeMatch: '^/foo/',
+                    // },
                 ],
             },
             {
@@ -103,16 +103,16 @@ module.exports = {
                         link: '/art/photo/personalShare.md',
                         activeMatch: '^/foo/',
                     },
-                    {
-                        text: '摄像学习',
-                        link: '/',
-                        activeMatch: '^/foo/',
-                    },
-                    {
-                        text: '摄影后期',
-                        link: '/',
-                        activeMatch: '^/foo/',
-                    },
+                    // {
+                    //     text: '摄像学习',
+                    //     link: '/',
+                    //     activeMatch: '^/foo/',
+                    // },
+                    // {
+                    //     text: '摄影后期',
+                    //     link: '/',
+                    //     activeMatch: '^/foo/',
+                    // },
                 ],
             },
             {
