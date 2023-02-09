@@ -161,7 +161,7 @@ this.geo ='116.39, 39.9'
  */
 function initMap(){
   AMapLoader.load({
-    key:"46b438232abd32f4e5bc4a3dd8e8f85d", 
+    key:"46b4...........................", 
     // 申请好的Web端开发者Key，首次调用 load 时必填
     version:"2.0",      // 指定要加载的 JSAPI 的版本，缺省时默认为 1.4.15
     plugins:[''],       // 需要使用的的插件列表，如比例尺'AMap.Scale'等
@@ -207,12 +207,12 @@ const marker = new AMap.Marker({
  */
 function positionPicker() {
    window._AMapSecurityConfig = {
-  securityJsCode:'ef7ee93fe0ce14c3dae22a2d3e9ae843',
+  securityJsCode:'.......................................',
 }
   let that = this;
   // 加载地图js
   AMapLoader.load({
-    key: "010bac8f887bf63ff0d0d5c71b29e4bb",
+    key: "010ba...................,
     version:"2.0",
     plugins:[],
     AMapUI: {
@@ -233,7 +233,6 @@ function positionPicker() {
         center: [+that.location.split(',')[0], +that.location.split(',')[1]],
         iconStyle:{  // 自定义标注点样式
           url:'https://staticcdn.shuidi.cn/shuidi/images/map/location-icon2.png',//图片地址
-          // url:'http://static.test.pingansec.com/shuidi/images/map/location-icon2.png',//图片地址
           size:[50,50],  //要显示的点大小，将缩放图片
           ancher:[25,52],// 锚点的位置，即被size缩放之后，图片的什么位置作为选中的位置
         }
@@ -301,7 +300,7 @@ data:{
     return{
         mapUrl: '//m.amap.com/picker/?keywords=写字楼,' +
             '小区&zoom=15&center=116.470098,39.992838' +
-            '&radius=1000&total=20&key=d3f5d8b3b05231fa6a11375492310e3a&platform=mobile',
+            '&radius=1000&total=20&key=............&platform=mobile',
         geo: this.$route.query.geo ?? '', // 企业地址坐标
         address: this.$route.query.address ?? '', // 企业地址坐标
     }
