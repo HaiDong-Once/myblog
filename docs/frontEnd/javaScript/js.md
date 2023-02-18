@@ -391,3 +391,15 @@ this.$refs.scrollfather.onscrollend = function() {
 };
 ```
 
+
+## js截取指定字符串前后的字符
+```js
+// 截取指定字符串前的字符
+item.url = item.url.split('jpg')[0] + 'jpg';
+
+// 截取指定字符串后的字符
+item.url = item.url.split('/img/')[1];
+
+// js判断是否包含字符串 png
+item.url.match(RegExp(/png/))
+```

@@ -425,3 +425,127 @@ text-indent: -5em;
 - 显示弹窗时候，`body` 或父元素添加`overflow：hidden`样式
 - 子元素添加 `overscroll-behavior: contain`
 - 子元素添加 `pointer-events: none` ,阻止滚动穿透，但是不适合子元素本身是滚动元素
+
+
+
+### css 修改icon颜色
+::: tip 方法
+给icon添加一个指定颜色的投影，向右偏移，然后用overflow隐藏原icon
+:::
+![图片](/images/frontEnd/css/img_11.png)
+```scss
+.button-green{
+    overflow: hidden;
+}
+
+.button-green image{
+  width: 27rpx;
+  height: 31rpx;
+  filter: drop-shadow(80rpx 0 #000); 
+  position: relative;
+ left: -80rpx;
+}
+```
+
+
+### css 按钮点击波纹扩展动画效果
+![图片](/images/frontEnd/css/gif_1.gif)
+```html
+<div class="button-blue" @click="clickHomeButton">
+  立即创建百科
+  <div class="circleBox">
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+  </div>
+  <img 
+      id="finger-icon" 
+      src="@guanjia/assets/imgs/activity/companyWiki/finger-icon.png" 
+      alt=""/>
+</div>
+```
+```scss
+/* button按钮 */
+.button-blue {
+  width: 919px;
+  height: 135px;
+  background-color: #3e66e1;
+  box-shadow: 0 9px 30px 0 rgba(62, 102, 225, 0.4);
+  border-radius: 24px;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 135px;
+  color: #ffffff;
+  text-align: center;
+  margin: 40px auto 10px;
+  position: relative;
+
+   /* 手指动画 */
+  #finger-icon {
+    position: absolute;
+    right: 74px;
+    top: 55px;
+    width: 141px;
+    height: 130px;
+    animation: animation-name 1s linear infinite;
+  }
+}
+@keyframes animation-name {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30%, 20%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.button-blue:active {
+  opacity: 0.6;
+}
+
+/* 扩散动画 */
+.circleBox {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  right: 140px;
+  top: -10px;
+}
+.circle, .circle1, .circle2 , .circle3{
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 225,0.55);
+  border: 2px solid rgba(255, 255, 225,0.65);
+  border-radius: 999px;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+}
+.circle1, .circle2 , .circle3 {
+  animation-name: circleChange;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.circle1 {
+  animation-delay: 1s;
+}
+.circle2 {
+  animation-delay: 2s;
+}
+.circle3 {
+  animation-delay: 3s;
+}
+@keyframes circleChange{
+  0%{transform: scale(1);opacity: 0.95;}
+  25%{transform: scale(2);opacity: 0.75;}
+  50%{transform: scale(3);opacity: 0.5;}
+  75%{transform: scale(4);opacity: 0.25;}
+  100%{transform: scale(5);opacity: 0.05;}
+}
+```

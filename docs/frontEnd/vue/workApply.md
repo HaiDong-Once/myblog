@@ -257,6 +257,52 @@ function positionPicker() {
 }
 ```
 
+### 高德地图选点接口调用节流
+::: tip 背景
+因为业务需要，高德地图选点组件每个用户调用量达到20次以上，因为访问量大，需要开启企业年费才够用，20000元/年。
+实际测试拖拽过程中稍有停顿就会调用一次api,导致调用量特别大。
+:::
+::: tip 解决方法
+利用start()，和stop(),方法，初始化不调用start()方法；因为不调用strat方法，定位点不会打开，所以写一个模拟的定位点覆盖到组件定位点上方，
+拖拽完用户确认地址时，再调用start()方法触发回调获取当前选点信息，回调成功后调用stop()方法停止选点。这样理论上用户只有最后一次确认地址才会调用一次，
+拖拽过程中不会调用api,大大节省调用api次数。 调用量降低15倍。
+:::
+
+![图片](/images/frontEnd/vue/img_8.png)
+
+#### 代码实现
+```html
+<div id="container"></div> // 地图组件
+<div class="drag-icon-top"> // 模拟marker点
+  <img src="https://staticcdn.shuidi.cn/shuidi/images/map/location-icon2.png" alt="">
+</div>
+```
+```ts
+// 选点组件回调
+positionPicker.on("success", function(positionResult) {
+    // 获取标记点信息
+    positionPicker.stop();  // 关闭选点
+},
+    
+/**
+ * 确认标记地点
+ */
+openPop(type){
+    this.positionPicker.start(); // 打开标记获取标记点信息
+}
+```
+```scss
+.drag-icon-top{
+  position: absolute;
+  top: 546px;
+  left: 468px;
+  img{
+    width: 150px;
+    height: 150px;
+  }
+}
+```
+
 
 ## 四、高德地图选址组件iframe版本
 
