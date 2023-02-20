@@ -3,6 +3,171 @@
 [[toc]]
 
 
+## 小程序公共弹窗组件封装
+### 代码实现
+```html
+<!--
+  @description: 公共弹窗组件
+  @author: hhd (2023-02-13)
+  @update: 
+-->
+<wxs module="filter" src="../../app.wxs"></wxs>
+
+<view class="page-pop" wx:if="{{ common_box.show }}">
+  <view class="card-pop">
+    <view class="title-pop">提示</view>
+    <view class="icon-box-pop" wx:if="{{common_box.success === 1}}">
+      <image src="{{filter.buildStatic('/map/mapServe/success-red-icon.png')}}"></image>
+      <view>提交成功</view>
+    </view>
+    <view class="content-pop">{{ common_box.title }}</view>
+    <view class="button-pop" bindtap="confirmCommonBox">{{ common_box.confirm_text }}</view>
+  </view>
+</view>
+```
+```js
+Component({
+    data: {
+        common_box: {},
+    },
+  
+    /**
+     * 组件的方法列表
+     */
+    methods: {
+        showCommonBox(config) {
+            let close = config.close
+            if (close === false) {
+                close = false
+            } else {
+                close = true
+            }
+            let common_box = {
+                show: true,
+                title: config.title || '',
+                confirm_text: config.confirmText || '',
+                callback: config.callback || null,
+                success: config.success || '',
+                rightBottomText: config.rightBottomText || '',
+                rightBottomCallback: config.rightBottomCallback || null,
+                fontWeight: config.fontWeight || 'bold',
+                type: config.type || 1,
+                close
+            };
+            this.setData({
+                common_box
+            })
+        },
+        rightBottom() {
+            if (this.data.common_box.rightBottomCallback) {
+                this.data.common_box.rightBottomCallback();
+            }
+            this.data.rightBottomCallback = null;
+            this.closeCommonBox();
+        },
+        confirmCommonBox() {
+            this.closeCommonBox();
+            if (this.data.common_box.callback) {
+                this.data.common_box.callback();
+            }
+            this.data.callback = null;
+        },
+        closeCommonBox() {
+            this.data.common_box.show = false;
+            this.setData({
+                common_box: this.data.common_box
+            });
+        },
+      
+    }
+})
+```
+```css
+.page-pop{
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.page-pop .card-pop{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 670rpx;
+  min-height: 100rpx;
+  background-color: #ffffff;
+  border-radius: 15rpx;
+  box-sizing: border-box;
+  padding: 30rpx  ;
+  text-align: center;
+}
+.card-pop .title-pop{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 50rpx;
+}
+.card-pop .icon-box-pop{
+  height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #db343e;
+}
+.card-pop .icon-box-pop image{
+  display: block;
+  margin: 0 auto 12rpx;
+  width: 52rpx;
+  height: 52rpx;
+}
+.card-pop .content-pop{
+  margin-top: 35rpx;
+}
+.card-pop .button-pop{
+  width: 610rpx;
+  height: 90rpx;
+  background-color: #db343e;
+  border-radius: 15rpx;
+  margin: 35rpx auto 0;
+  font-size: 28rpx;
+  line-height: 90rpx;
+  color: #ffffff;
+  text-align: center;
+}
+```
+
+### 使用方法
+#### 组件引用
+```json
+"usingComponents": {
+    "dialog": "/mycomponents/dialog/index"
+},
+```
+#### 组件注入
+```html
+<!-- dialog组件 -->
+ <dialog id="dialog"></dialog>
+```
+```js
+this.dialog = this.selectComponent('#dialog');
+```
+#### 组件调用
+```js
+this.dialog.showCommonBox({
+  title: "提交成功，审核通过后3-5天同步到地图",
+  confirmText: "确定",
+  success: 1,
+  'callback': () => {
+    // 确认按钮回调
+  }
+})
+```
+
+
+
 
 ## 小程序map地图显示组件使用案例
 - 文档地址：[https://developers.weixin.qq.com/miniprogram/dev/component/map.html](https://developers.weixin.qq.com/miniprogram/dev/component/map.html)
@@ -1295,7 +1460,7 @@ var tool = {
    * @returns {boolean}
    */
   isTelMobile: function (value) {
-    let reg = /^((0\d{2,3}-?\d{7,8})|(1[3465789]\d{9}))$/;
+    let reg = /^1\d{10}$|^(0\d{2,3}-?|\(0\d{2,3}\))?[1-9]\d{4,7}(-\d{1,8})?$/;
     return reg.test(value);
   },
 

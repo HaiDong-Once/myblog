@@ -4,6 +4,81 @@
 [[toc]]
 
 
+## 防抖节流
+
+### 防抖函数
+::: tip 介绍
+- 特点：延迟执行
+- debounce 函数返回一个可执行函数。这个可执行函数的作用域链上保存了定时器变量。
+- 当重复执行的时候，会先清空掉上次生成的定时器，从而实现延迟执行的效果
+- 举例：电梯门感应，打开电梯有人进入，电梯门设置定时器，若10秒内没有人再进入，就关闭门，若有人再次进入则重新进入10秒倒计时；
+:::
+
+```ts
+debounce(func, wait) {
+  let timer = null;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, wait);
+  }
+}
+```
+
+### 节流函数
+::: tip 介绍
+- 特点：约定时间间隔执行一次
+- 原理与 防抖函数相同，通过 closure 存储上次执行的时间戳，
+- 当前时间戳和之前的时间戳相比较，如果超过约定时间，则执行一次函数。
+- 举例：鲸鱼每隔30分钟，上浮唤气一次，或者给某人发消息，某人只每天恢复一条
+:::
+
+```ts
+ throttle(func, interval) {
+  let lastTimeStamp = 0;
+  return function () {
+    let curDate = Date.now();
+    const diff = curDate - lastTimeStamp;
+    if (diff > interval) {
+      func.apply(this, arguments);
+      lastTimeStamp = curDate;
+    }
+  };
+}
+```
+
+### requestAnimationFrame 防抖
+- 由于RAF本身的机制，在使用RAF进行防抖时，我们需要记录上一次RAF回调函数的时间戳，
+- 然后在下一次RAF回调时检查当前时间戳是否大于某个特定的时间间隔，从而确定是否执行回调函数。
+- 这样会导致RAF的回调函数执行频率并不稳定，而是随着浏览器的渲染帧率而变化，这对于防抖并不是非常合适。
+
+### requestAnimationFrame 节流
+- RAF 会尽量以每秒60帧的频率执行回调函数，以确保最佳性能和流畅度。
+- 使用RAF做节流，可以在不阻塞UI线程的情况下限制函数调用的频率，以提高页面的性能和响应速度。
+- 也可以自适应浏览器的帧率。如果浏览器的帧率下降，RAF的频率也会相应下降，这样可以避免浪费过多的 CPU 时间和电量
+```ts
+/**
+ * 默认浏览器刷新率执行函数，
+ * @param func
+ * @returns {(function(...[*]): void)|*}
+ */
+rafThrottle(func) {
+  let lock = false;
+  return function (...args) {
+    if (lock) return;
+    lock = true;
+    window.requestAnimationFrame(() => {
+      func.apply(this, args);
+      lock = false;
+    });
+  };
+}
+```
+
+
+
+
 
 ## promise.all
 
