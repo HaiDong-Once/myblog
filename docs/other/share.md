@@ -1,3 +1,6 @@
+---
+title: My Blog Post
+---
 
 # 前端分享会 2022-10-08
 
@@ -280,6 +283,7 @@ const getter= {
 } 
 ```
 
+<!-- more -->
 
 ## 二、vue移动端项目支付模块封装
 
@@ -573,7 +577,7 @@ class PayModule {
 export default PayModule
 ```
 
-
+<!-- more -->
 
 ## 三、vue input输入联想实现
 ::: tip 分析
@@ -932,19 +936,478 @@ onMounted(initData);
 
 
 
-# 前端分享会 2023-01-05
+# 前端分享会 2023-02-23
 
-## 项目升级问题总结
-- **对升级后可能产生的问题研究整理，并对应准备好解决方案** <br>
-  （在升级前梳理了官方升级文档以及其他博主升级文档以及遇到的问题，仅对本地合测试环境遇到的问题查阅文档做了解决，没有梳理那些常见问题和方案作为预案）
-  - **扩大测试覆盖范围，项目抽样，机型，浏览器测试范围** <br>
-    （线上发布前，与测试人员沟通不够充分，只做了本地和测试环境较充分排查，只对平时常用机型和浏览器做了测试，上线后线上测试覆盖范围反而降低了。
-  - **增加开发人员各自环境测试量，排查更多本地环境导致的问题** <br>
-    （仅在我自己公司开发环境和家里的开发环境做了测试，还有山树的开发环境做了测试，没有在测试阶段逐一验证）
-  - **对webpack中升级和变更的loader，配置项和插件，提前充分的了解和认识** <br>
-    （仅在出现问题后再研究其作用和原理会导致线上问题遗留时间较长，不得及时发现问题原因并找到解决方案；）
-  - **文档准备** <br>
-    升级文档；可能涉及问题和预案文档；分析升级后变更的配置项作用和影响编写测试文档；升级过程记录文档（方便回溯和排查）；
+## 一、css样式问题
+
+### 移动端小于12px字体解决方案
+
+::: tip 原因：
+- 因移动端限制最小12px字体，部分业务需求或ui有类似设计，比如一些模拟手机外形的小模块
+  :::
+
+![图片](/images/frontEnd/css/img_7.png)
+
+#### 方案一、transform: scale(n)缩放
+- 放大字体倍数，再使用`transform: scale(n)`缩小,但是改变了元素占据的空间大小，四周有留白
+```scss
+.font9-scale{
+    font-size: 18px;
+    transform: scale(0.5);
+  }
+```
+- 解决留白问题：宽度两倍数，`margin-left` 向左折回 50%，或`transform-origin：left` 这种方法只适合定高元素
+```scss
+.font9-scale2{
+    font-size: 18px;
+    width: 200%;
+    transform: scale(0.5);
+    //margin-left: -50%;
+    transform-origin: left;
+  }
+```
+
+#### 方案二、zoom: 0.5
+- `zoom: 0.5` 不会改变了元素占据的空间大小，没有留白，但是zoom是非标准属性，有兼容问题
+```scss
+.font9-zoom{
+    font-size: 18px;
+    zoom: 0.5;
+  }
+```
+- 兼容性说明：火狐浏览器不兼容，ios设备实测也无法兼容 ，360浏览器无法兼容
+  ![图片](/images/frontEnd/css/img_8.png)
+
+#### 方案三、-webkit-text-size-adjust: none
+- 关闭依据设备自动调整字体大小，自从chrome 27之后，就取消了对这个属性的支持。同时，该属性只对英文、数字生效，对中文不生效；仅了解就好，不实用。
+```scss
+.font9-adjust{
+    font-size: 18px;
+    -webkit-text-size-adjust: none;
+  }  
+```
 
 
-## 
+### 禁止子元素滚动触发父元素滚动解决方案
+
+::: tip 原因：
+- 有些页面有内有可向下滚动的列表，经常会遇到滚动小模块到底部后，会带动父元素滚动，或者带动整个页面向下滚动，这样的感觉很混乱。
+  :::
+
+![图片](/images/frontEnd/css/img_9.png)
+
+#### 方案一、overscroll-behavior ：contain
+- 设置子元素的css属性 `overscroll-behavior ：contain`, 但是safari低版本 / ie不兼容
+- 兼容性说明：
+  ![图片](/images/frontEnd/css/img_10.png)
+
+#### 方案二、子元素滚动，监听 wheel 事件阻止自元素滚动触底之后父元素滚动
+
+#### 补充：弹窗组件防止滚动穿透解决方案类似
+- 显示弹窗时候，`body` 或父元素添加`overflow：hidden`样式
+- 子元素添加 `overscroll-behavior: contain`
+- 子元素添加 `pointer-events: none` ,阻止滚动穿透，但是不适合子元素本身是滚动元素
+
+
+
+### css 修改icon颜色
+::: tip 方法
+给icon添加一个指定颜色的投影，向右偏移，然后用overflow隐藏原icon
+:::
+![图片](/images/frontEnd/css/img_11.png)
+```scss
+.button-green{
+    overflow: hidden;
+}
+
+.button-green image{
+  width: 27rpx;
+  height: 31rpx;
+  filter: drop-shadow(80rpx 0 #000); 
+  position: relative;
+ left: -80rpx;
+}
+```
+
+
+### css 按钮点击波纹扩展动画效果
+![图片](/images/frontEnd/css/gif_1.gif)
+```html
+<div class="button-blue" @click="clickHomeButton">
+  立即创建百科
+  <div class="circleBox">
+    <div class="circle"></div>
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+  </div>
+  <img 
+      id="finger-icon" 
+      src="@guanjia/assets/imgs/activity/companyWiki/finger-icon.png" 
+      alt=""/>
+</div>
+```
+```scss
+/* button按钮 */
+.button-blue {
+  width: 919px;
+  height: 135px;
+  background-color: #3e66e1;
+  box-shadow: 0 9px 30px 0 rgba(62, 102, 225, 0.4);
+  border-radius: 24px;
+  font-size: 48px;
+  font-weight: bold;
+  line-height: 135px;
+  color: #ffffff;
+  text-align: center;
+  margin: 40px auto 10px;
+  position: relative;
+
+   /* 手指动画 */
+  #finger-icon {
+    position: absolute;
+    right: 74px;
+    top: 55px;
+    width: 141px;
+    height: 130px;
+    animation: animation-name 1s linear infinite;
+  }
+}
+@keyframes animation-name {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(30%, 20%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.button-blue:active {
+  opacity: 0.6;
+}
+
+/* 扩散动画 */
+.circleBox {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  right: 140px;
+  top: -10px;
+}
+.circle, .circle1, .circle2 , .circle3{
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 225,0.55);
+  border: 2px solid rgba(255, 255, 225,0.65);
+  border-radius: 999px;
+  position: absolute;
+  top: 50px;
+  left: 15px;
+}
+.circle1, .circle2 , .circle3 {
+  animation-name: circleChange;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+.circle1 {
+  animation-delay: 1s;
+}
+.circle2 {
+  animation-delay: 2s;
+}
+.circle3 {
+  animation-delay: 3s;
+}
+@keyframes circleChange{
+  0%{transform: scale(1);opacity: 0.95;}
+  25%{transform: scale(2);opacity: 0.75;}
+  50%{transform: scale(3);opacity: 0.5;}
+  75%{transform: scale(4);opacity: 0.25;}
+  100%{transform: scale(5);opacity: 0.05;}
+}
+```
+
+
+## 二、高德地图选点接口调用节流
+::: tip 背景
+因为业务需要，高德地图选点组件每个用户调用量达到20次以上，因为访问量大，需要开启企业年费才够用，20000元/年。
+实际测试拖拽过程中稍有停顿就会调用一次api,导致调用量特别大。
+:::
+::: tip 解决方法
+利用start()，和stop(),方法，初始化不调用start()方法；因为不调用strat方法，定位点不会打开，所以写一个模拟的定位点覆盖到组件定位点上方，
+拖拽完用户确认地址时，再调用start()方法触发回调获取当前选点信息，回调成功后调用stop()方法停止选点。这样理论上用户只有最后一次确认地址才会调用一次，
+拖拽过程中不会调用api,大大节省调用api次数。 调用量降低15倍。
+:::
+
+![图片](/images/frontEnd/vue/img_8.png)
+
+#### 代码实现
+```html
+<div id="container"></div> // 地图组件
+<div class="drag-icon-top"> // 模拟marker点
+  <img src="https://staticcdn.shuidi.cn/shuidi/images/map/location-icon2.png" alt="">
+</div>
+```
+```ts
+// 选点组件回调
+positionPicker.on("success", function(positionResult) {
+    // 获取标记点信息
+    positionPicker.stop();  // 关闭选点
+},
+    
+/**
+ * 确认标记地点
+ */
+openPop(type){
+    this.positionPicker.start(); // 打开标记获取标记点信息
+}
+```
+```scss
+.drag-icon-top{
+  position: absolute;
+  top: 546px;
+  left: 468px;
+  img{
+    width: 150px;
+    height: 150px;
+  }
+}
+```
+
+
+## 三、requestAnimationFrame节流优化
+
+### 1、requestAnimationFrame
+::: tip 背景
+由于JavaScript是单线程的，所以定时器的实现是在当前任务队列完成后再执行定时器的回调的，
+假如当前队列任务执行时间大于定时器设置的延迟时间，那么定时器就不是那么可靠了
+:::
+
+#### 异常示例
+```ts
+// 以下代码理想状态应该先执行打印 11111， 50毫秒后再执行 打印22222
+// 但是由于循环20000次阻塞线程，导致1637毫秒后才执行了定时器中的方法
+let startTime = new Date().getTime();
+setTimeout(()=>{
+let endTime = new Date().getTime();
+console.log(endTime - startTime,22222);  // 1637  22222（1.6s后才执行）
+},50)
+
+for(let i=0;i<20000;i++) {
+console.log(11111);  // 执行20000次后， 再执行setTimeout 50
+}
+```
+
+#### 应用示例
+::: tip 概述
+RAF 会尽量以每秒60帧的频率执行回调函数，以确保最佳性能和流畅度 正常执行时间为一帧执行一次，
+不阻塞UI线程的情况下提高准确度，也可以自适应浏览器的帧率减少卡顿和性能消耗，
+大部分情况，屏幕刷新率为 60HZ 的情况下, 即每过 1000/60 = 16.666... 毫秒渲染新一帧，
+可以简单的将 requestAnimationFrame 函数视为延迟为16ms 的 setTimeout 函数，
+:::
+```ts
+const div = document.getElementById('box');
+div.style.width = parseInt(div.style.width) + 1 + 'px';
+
+if (parseInt(div.style.width) < 200) {
+requestAnimationFrame(this.animationWidth)
+}
+```
+
+#### 低版本兼容
+```ts
+/**
+ * 低版本浏览器用setTimeout模拟requestAnimationFrame
+ */
+simulationAnimation(){
+  var lastTime = 0;
+  var vendors = ['webkit', 'moz'];
+  for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
+    window.cancelAnimationFrame =
+        window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
+  }
+  if (!window.requestAnimationFrame)
+    window.requestAnimationFrame = function(callback) {
+      var currTime = new Date().getTime();
+      var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+      var id = window.setTimeout(function() { callback(currTime + timeToCall); },
+          timeToCall);
+      lastTime = currTime + timeToCall;
+      return id;
+    };
+  if (!window.cancelAnimationFrame)
+    window.cancelAnimationFrame = function(id) {
+      clearTimeout(id);
+    };
+}
+```
+
+
+### 防抖函数
+::: tip 介绍
+- 特点：延迟执行
+- debounce 函数返回一个可执行函数。这个可执行函数的作用域链上保存了定时器变量。
+- 当重复执行的时候，会先清空掉上次生成的定时器，从而实现延迟执行的效果
+- 举例：电梯门感应，打开电梯有人进入，电梯门设置定时器，若10秒内没有人再进入，就关闭门，若有人再次进入则重新进入10秒倒计时；
+  :::
+
+```ts
+debounce(func, wait) {
+  let timer = null;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, wait);
+  }
+}
+```
+
+### 节流函数
+::: tip 介绍
+- 特点：约定时间间隔执行一次
+- 原理与 防抖函数相同，通过 closure 存储上次执行的时间戳，
+- 当前时间戳和之前的时间戳相比较，如果超过约定时间，则执行一次函数。
+- 举例：鲸鱼每隔30分钟，上浮唤气一次，或者给某人发消息，某人只每天恢复一条
+  :::
+
+```ts
+ throttle(func, interval) {
+  let lastTimeStamp = 0;
+  return function () {
+    let curDate = Date.now();
+    const diff = curDate - lastTimeStamp;
+    if (diff > interval) {
+      func.apply(this, arguments);
+      lastTimeStamp = curDate;
+    }
+  };
+}
+```
+
+### requestAnimationFrame 防抖
+- 由于RAF本身的机制，在使用RAF进行防抖时，我们需要记录上一次RAF回调函数的时间戳，
+- 然后在下一次RAF回调时检查当前时间戳是否大于某个特定的时间间隔，从而确定是否执行回调函数。
+- 这样会导致RAF的回调函数执行频率并不稳定，而是随着浏览器的渲染帧率而变化，这对于防抖并不是非常合适。
+
+### requestAnimationFrame 节流
+- RAF 会尽量以每秒60帧的频率执行回调函数，以确保最佳性能和流畅度。
+- 使用RAF做节流，可以在不阻塞UI线程的情况下限制函数调用的频率，以提高页面的性能和响应速度。
+- 也可以自适应浏览器的帧率。如果浏览器的帧率下降，RAF的频率也会相应下降，这样可以避免浪费过多的 CPU 时间和电量
+```ts
+/**
+ * 默认浏览器刷新率执行函数，
+ * @param func
+ * @returns {(function(...[*]): void)|*}
+ */
+rafThrottle(func) {
+  let lock = false;
+  return function (...args) {
+    if (lock) return;
+    lock = true;
+    window.requestAnimationFrame(() => {
+      func.apply(this, args);
+      lock = false;
+    });
+  };
+}
+```
+
+
+## 四、前端监控系统：稳定性监控
+### 稳定性
+- js报错监控
+- 资源加载错误监控
+- promise异常监控
+- 接口请求异常监控
+- 白屏监控
+
+### 用户体验
+- 页面加载性能
+- 性能指标
+- 卡顿问题
+
+### 业务分析依据
+- pv
+- uv
+- 用户页面停留时间
+
+### 数据模型
+```ts
+// 公共信息
+function getExtraData() {
+    return {
+        title: document.title, // 当前浏览器title
+        url: location.href,  // 访问路径
+        timestamp: Date.now(),  // 当前时间戳
+        userAgent: userAgent, // 浏览器信息
+        uid: store.state.uid ?? '',  // 当前用户id
+        // token ...
+    }
+}
+
+// 资源加载错误
+let errorLog = {
+  kind: 'stability', // 日志种类：稳定性指标
+  type: 'error', // 小类型 error错误
+  errorType: 'resourceError', // 资源加载错误
+  filename: event.target.src || event.target.href, // 报错文件
+  tagName: event.target.tagName, // 标签名
+  selector: getSelector(event.target)// 代表最后一个操作的元素
+}
+
+// js加载错误
+let errorLog = {
+  kind: 'stability', // 日志种类：稳定性指标
+  type: 'error', // 小类型 error错误
+  errorType: 'jsError', // js执行错误
+  message: event.message, // 报错信息
+  filename: event.filename, // 报错文件
+  position: `${event.lineno}:${event.colno}`, // 报错位置 行：列
+  stack: event.error && getLines(event.error.stack), // 堆栈信息 哪个方法调用哪一块儿
+  selector: lastEvent ? getSelector(lastEvent.path) : ""// 代表最后一个操作的元素
+}
+
+// promise 报错
+let errorLog = {
+  kind: 'stability', // 日志种类：稳定性指标
+  type: 'error', // 小类型 error错误
+  errorType: 'promiseError', // pomise错误
+  message: message, // 报错信息
+  filename: filename, // 报错文件
+  position: `${lineno}:${colno}`, // 报错位置 行：列
+  stack: stack, // 堆栈信息 哪个方法调用哪一块儿
+  selector: lastEvent ? getSelector(lastEvent.path) : ""// 最后一个操作的元素
+}
+
+// 白屏监控
+tracker.send({
+  kind: "stability", // 日志种类：稳定性指标
+  type: "blank", // 小类型 白屏检测
+  emptyPoints: emptyPoints + "", // 空白点数量（共18点）十字型
+  screen: window.screen.width + "X" + window.screen.height,  // 屏幕分辨率
+  viewPoint: window.innerWidth + "X" + window.innerHeight,  // 视口大小
+  selector: getSelector(centerElements[0]),  // 屏幕中心点选择器
+});
+
+// 接口请求监控
+tracker.send({
+  kind: "stability", // 日志种类：稳定性指标
+  type: "xhr", // 小类型 接口请求
+  eventType: type,  // load, error, abort 请求类型
+  pathname: this.logData.url, // 请求路径
+  status: status + "-" + statusText, // 状态码
+  duration, // 请求持续时间
+  response: this.response ? JSON.stringify(this.response) : "", // 响应体
+  params: body || "", // 入参
+});
+```
+
+  gitHub地址：[https://github.com/HaiDong-Once/personal-code/tree/main/myProject/monitorSystem/monitorSDK](https://github.com/HaiDong-Once/personal-code/tree/main/myProject/monitorSystem/monitorSDK)
+

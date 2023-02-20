@@ -1,12 +1,12 @@
-const { defaultTheme } = require('vuepress')
-const { searchPlugin } = require('@vuepress/plugin-search')
+const {defaultTheme} = require('vuepress')
+const {searchPlugin} = require('@vuepress/plugin-search')
 
 module.exports = {
     base: '/myblog/',
     lang: 'zh-CN',
     title: 'ddd`s blog',
     description: 'ddd`s的blog站点',
-    head: [['link', { rel: 'icon', href: 'https://vuejs.org/images/logo.png' }]],
+    head: [['link', {rel: 'icon', href: 'https://vuejs.org/images/logo.png'}]],
     theme: defaultTheme({
         // 默认主题配置
         navbar: [
