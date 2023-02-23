@@ -1256,7 +1256,37 @@ simulationAnimation(){
 - 当重复执行的时候，会先清空掉上次生成的定时器，从而实现延迟执行的效果
 - 举例：电梯门感应，打开电梯有人进入，电梯门设置定时器，若10秒内没有人再进入，就关闭门，若有人再次进入则重新进入10秒倒计时；
   :::
+::: tip 应用
+- 监听页面滚动位置，
+- 监听页面大小变化，
+- 输入框连续输入请求次数控制，
+- 防止表单多次提交等
+:::
+```ts
+const button = document.querySelector('input')
 
+function payMoney(){
+    console.log('already')  console.log(this); // 如果不改指向指向window
+}
+
+funciton debounce(func,delay){
+    // 用到闭包，因为作用域链的关系，
+    // 所有独立的执行函数都能访问到这个独立的timer
+    let timer; 
+    return funciton (){  // 独立的执行函数，无联系
+        clearTimeout(timer);
+        let concext = this;
+        let args = arguments; // 有可能传入参数给payMoeny使用的
+        timer = setTimeout(function(){
+            func(); // 如果不改payMoeny中this指向指向window
+            func().call(context); // 这时payMoeny中this指向指向input
+            func().apply(context, args ) // 使用apply传递参数
+       },delay)
+    }
+}
+
+button.addEventListener('click', debounce(payMoeny，1000));
+```
 ```ts
 debounce(func, wait) {
   let timer = null;
@@ -1276,6 +1306,54 @@ debounce(func, wait) {
 - 当前时间戳和之前的时间戳相比较，如果超过约定时间，则执行一次函数。
 - 举例：鲸鱼每隔30分钟，上浮唤气一次，或者给某人发消息，某人只每天恢复一条
   :::
+
+::: tip 应用
+- 统计用户改变屏幕大小相应定时变换颜色
+- 输入联想
+- 计算鼠标移动距离
+- canvas模拟画板功能
+:::
+
+```ts
+function coloring (){
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255);
+    document.body.style.background = `rgb(${r}, ${g}, ${b})`;
+}
+
+// 定时器法
+funciton throttle(func, delay) {
+    let timer;
+    if(timer){
+        return;
+    }
+    return function () {
+        timer = setTimeout(function(){
+            func();
+            timer = null; // 延迟函数执行后清空 timer
+        }, delay);
+    }
+}
+
+// 时间间隔法
+funciton throttle(func, delay) {
+    let pre = 0; // 上次函数执行时间
+    return function () {
+       let now = new Date(); // 当前函数时间
+       let concext = this;
+       let args = arguments;
+       if(now - pre > delay){ 
+           // 如果当前时间与上次时间间隔差大于时间间隔，
+           // 则执行函数
+           func.apply(context, args); 
+           pre = now; // 记录本次执行时间
+       }
+    }
+}
+
+window.addEventListener('resize',  throttle(coloring, 2000));
+```
 
 ```ts
  throttle(func, interval) {
