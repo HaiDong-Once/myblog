@@ -3,6 +3,76 @@
 [[toc]]
 
 
+## vue router back 传参
+
+### 方案一、利用eventBus非父子组件通信传参
+#### 1、声明一个 空的Vue模
+```ts
+import Vue from 'vue';
+// 定义空的vue实例
+var goBackEntity = new Vue({});
+export default goBackEntity;
+```
+
+#### 2、传参页面
+```ts
+import eventBus from '../../utils/goBackEntity.js';
+ 
+goBack(value){
+  eventBus.$emit('id',value);
+  this.$router.go(-1);
+}
+```
+
+#### 3、接收页面
+```ts
+import eventBus from '../../utils/goBackEntity.js';
+ 
+ activated(){
+  goBackEntity.$on('id', function(data){
+    console.log(data,"data");
+  }.bind(this));
+}
+```
+
+### 方案二、钩子函数 beforeRouteLeave (to, from, next)
+- 方法beforeRouteLeave离开路由之前执行的函数。to:router 即将要进入的路由对象 ,
+from:router  当前导航正要离开的路由,next()进行管道中的下一个钩子,要确保调用next方法，否则钩子不会被resolved
+
+#### 跳转前拿到上一页路由传参
+```ts
+ beforeRouteLeave (to, from, next) {
+      if (to.name === 'home') {
+        to.query.temp = '这里是参数，选中后的地址'
+      }
+      console.log(to)
+      console.log(from)
+      next()
+  },
+```
+
+#### 在home页面的mouted接收参数
+```ts
+mouted：{
+    this.$route.query.temp
+}
+```
+
+### 方案三、使用replace跳转
+- 它的作用类似于 router.push，唯一不同的是，它在导航时不会向 history 添加新记录，正如它的名字所暗示的那样——它取代了当前的条目。
+- 也可以直接在传递给 router.push 的 routeLocation 中增加一个属性 replace: true
+```ts
+router.push({ path: '/home', replace: true })
+// 相当于
+router.replace({ 
+    path: '/home',
+    query: {}
+})
+```
+
+### 方案四、使用vuex全局状态
+
+
 ## 一、实现六边形进度条环绕动画效果
 ![图片](/images/frontEnd/img_16.png)
 
@@ -555,140 +625,95 @@ const router = new VueRouter({
 
 
 ## 九、动态列表自动滚动实现
-
 ### 自定义方案
 
-- 效果预览
+::: tip 说明：
+  - 实现：自动向下滚动，可设定滚动速度，触摸暂停，松开继续滚动,可设置滚动倍速
+  - 注：监听div滚动事件 `@scroll`
+  - requestAnimationFrame的使用保证动画的流畅性，提升动画性能，避免卡顿
+:::
 
-![图片](/images/frontEnd/vue/img.png)
-
-- 实现：自动向下滚动，可设定滚动速度，触摸暂停，松开继续滚动
-- 问题：滚动真机会有些卡顿，不能循环滚动
-- 代码：
+- 代码实现
 ```html
-<div class="list-box">
-    <div class="title-box"><div>检测类型 共63类</div><div>检测时间</div><div>检测结果</div></div>
-    <div class="scroll"  id="review_box" @touchstart="rollStop()" @touchend="rollStart(30)">
-        <ul id="comment1">
-            <div class="list" v-for="item in titleList">
-                <div>{{item}}</div>
-                <div>{{getTimeNow2}}</div>
-                <div>未发现相关纠纷</div>
-            </div>
-        </ul>
+<div class="scroll-box" id="review_box" ref="resListRef"
+     @touchstart="rollStop()" @touchend="rollStart()">
+    <div id="comment1" style="display: inherit;">
+        <div>11111111111111111111111111111111111111111</div>
+        ......................
     </div>
+    <div id="comment2" style="display: inherit;"></div>
 </div>
 ```
 
 ```ts
+data(){
+    return{
+        timer: null, // 滚动动画定时器
+        speed: 1, // 滚动倍速 默认 1
+    }
+},
+
+mounted(){
+    this.roll(); // 列表滚动初始化
+},
+
 /**
  * 列表滚动初始化
- * @param time: 滚动速度
  */
-roll(time) {
-  const review_box = document.getElementById("review_box");
-  review_box.scrollTop = 0;
-  this.rollStart(time);
+roll() {
+    const review_box = document.getElementById("review_box");
+    const comment1 = document.getElementById("comment1");
+    const comment2 = document.getElementById("comment2");
+    comment2.innerHTML = comment1.innerHTML;
+    review_box.scrollLeft = 0;
+    this.rollStart();
 },
+
 
 /**
  * 开始滚动
- * @param time
  */
-rollStart(time) {
-  const comment1 = document.getElementById("comment1");
-  const review_box = document.getElementById("review_box");
-  this.rollStop();
-  this.timer = setInterval(()=>{
-    // 当滚动高度大于列表内容高度时恢复为0
-    if (review_box.scrollTop >= comment1.scrollHeight) {
-      review_box.scrollTop = 0;
+rollStart() {
+    const comment1 = document.getElementById("comment1");
+    const review_box = document.getElementById("review_box");
+    if (review_box.scrollLeft >= comment1.scrollWidth) {
+        review_box.scrollLeft = 0;
     } else {
-      review_box.scrollTop++;
+        review_box.scrollLeft += this.speed;
     }
-  }, time);
+    this.timer = requestAnimationFrame(this.rollStart)
 },
+
+
 
 /**
  * 停止滚动
+ * 停止滚动时， cancelAnimationFrame(this.timer)
+ * 保持当前滚动位置: 获取滚动距离， this.$refs.resListRef.scrollLeft
  */
 rollStop(){
-  const review_box = document.getElementById("review_box");
-  review_box.scrollTop = 0;
-  clearInterval(this.timer);
-},
-
-mounted() {
-  // 初始化触发滚动
-  this.roll(30);
-},
-
-
-beforeDestroy() {
-  // 销毁清掉滚动
-  if (this.timer) clearInterval(this.timer);
+    const review_box = document.getElementById("review_box");
+    review_box.scrollLeft = this.$refs.resListRef.scrollLeft ?? 0;
+    cancelAnimationFrame(this.timer)
 },
 ```
 
 ```sass
-.list-box{
-  width: 940px;
-  height: 364px;
-  background-color: #f8f6ee;
-  border-radius: 15px;
-  margin: 40px auto;
-  color: #999999;
-  box-sizing: border-box;
-
-  .title-box{
-    height: 88px;
-    font-size: 36px;
-    line-height: 88px;
-    color: #999999;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid #d8d7d3;
-    padding: 0 20px;
-    div{
-      width: 317px;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
-    }
-    div:nth-child(1){
-      width: 430px;
-    }
-    div:nth-child(2){
-      width: 265px;
-    }
-  }
-  .scroll{
-    overflow-y: scroll;
-    overflow-x: hidden;
-    height: 240px;
-    .list{
-      color: #333333;
-      height: 88px;
-      font-size: 36px;
-      line-height: 88px;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 2px solid #d8d7d3;
-      padding: 0 20px;
-      div{
-        width: 317px;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
-      }
-      div:nth-child(1){
-        width: 430px;
-      }
-      div:nth-child(2){
-        width: 265px;
-      }
-    }
-  }
+.scroll-box{
+  width: 100%;
+  height: 340px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+  img{
+    width: 848px;
+    height: 293px;
+    margin-left: 25px;
+}
+}
+/*隐藏滚动条样式*/
+.scroll-box::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
 }
 ```
 
@@ -750,108 +775,6 @@ components: {
              }
        }
 </script>
-```
-
-### 自动滚动栏自定义方案完整版
-::: tip 说明：
-- 解决循环滚动+手动拖动停止松开继续滚动异常的问题
-- 注：监听div滚动事件 `@scroll`
-- 未解决问题：滚动卡顿问题，尝试使用 `requestAnimationFrame` 解决
-:::
-
-```html
-<div class="scroll-box" id="review_box" ref="resListRef"  @scroll=""
-     @touchstart="rollStop()" @touchend="rollStart(15)">
-  <div id="comment1" style="display: inherit;">
-    <img src="@guanjia/assets/imgs/activity/contract/scroll-card1.png" alt=""/>
-    <img src="@guanjia/assets/imgs/activity/contract/scroll-card2.png" alt=""/>
-    <img src="@guanjia/assets/imgs/activity/contract/scroll-card3.png" alt=""/>
-    <img src="@guanjia/assets/imgs/activity/contract/scroll-card4.png" alt=""/>
-    <img src="@guanjia/assets/imgs/activity/contract/scroll-card5.png" alt=""/>
-  </div>
-  <div id="comment2" style="display: inherit;"></div>
-</div>
-```
-
-```ts
-data() {
-  return {
-    timer: null, // 滚动动画定时器
-  }
-},
-
-mounted() {
-  this.roll(15)
-},
-
-beforeDestroy(){
-  if (this.timer) clearInterval(this.timer);
-},
-
-methods: {
-    /**
-     * 列表滚动初始化
-     * @param time: 滚动速度
-     */
-    roll(time) {
-      const review_box = document.getElementById("review_box");
-      const comment1 = document.getElementById("comment1");
-      const comment2 = document.getElementById("comment2");
-      comment2.innerHTML = comment1.innerHTML;
-      review_box.scrollLeft = 0;
-      this.rollStart(time);
-    },
-    
-    
-    /**
-     * 开始滚动
-     * @param time
-     */
-    rollStart(time) {
-      const comment1 = document.getElementById("comment1");
-      const review_box = document.getElementById("review_box");
-      this.rollStop();
-      this.timer = setInterval(()=>{
-        // 当滚动高度大于列表内容高度时恢复为0
-        if (review_box.scrollLeft >= comment1.scrollWidth) {
-          review_box.scrollLeft = 0;
-        } else {
-          review_box.scrollLeft++;
-        }
-      }, time);
-    },
-    
-    
-    /**
-     * 停止滚动
-     */
-    rollStop(){
-      const review_box = document.getElementById("review_box");
-      // 停止滚动时，保持当前滚动位置
-      // 获取滚动距离， this.$refs.resListRef.scrollLeft
-      review_box.scrollLeft = this.$refs.resListRef.scrollLeft ?? 0;
-      clearInterval(this.timer);
-    },
-}
-```
-
-```scss
-.scroll-box{
-  width: 100%;
-  height: 340px;
-  overflow-y: hidden;
-  overflow-x: scroll;
-  display: flex;
-  img{
-    width: 848px;
-    height: 293px;
-    margin-left: 25px;
-  }
-}
-/*隐藏滚动条样式*/
-.scroll-box::-webkit-scrollbar {
-  display: none; /* Chrome Safari */
-}
 ```
 
 

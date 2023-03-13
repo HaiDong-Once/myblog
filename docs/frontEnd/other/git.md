@@ -284,3 +284,12 @@ node_modules
 - `file`——`setting`——`editor`——`File Types`——`Ignored Files and Folders`添加忽略文件
 
 ![图片](/images/frontEnd/other/git/img_1.png)
+
+
+
+## 五、github连接失败问题
+```shell
+#取消全局代理，再fetch或push
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```

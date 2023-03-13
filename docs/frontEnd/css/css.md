@@ -549,3 +549,13 @@ text-indent: -5em;
   100%{transform: scale(5);opacity: 0.05;}
 }
 ```
+
+
+## flex流式布局 flex-wrap: wrap;
+```scss
+div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+```

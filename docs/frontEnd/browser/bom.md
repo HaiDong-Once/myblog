@@ -145,33 +145,19 @@ if (isiOS) {
 
 
 ## 复制文本到剪切板
-```html
-<input 
-        id="copy_content" 
-        type="text" 
-        value="" 
-        style="position: absolute;top: 0;left: 0;opacity: 0;z-index: -10;"
-/>
-```
 ```ts
 /**
  * 复制信息到剪切板
- * @data: isCopy：是否复制成功
  */
 copyContent(){
-  const inputElement = document.getElementById("copy_content");
-  //给input框赋值
-  inputElement.value =
-  `我已成功支付经营异常移出服务，帮我移出异常名录。
-  订单号：${this.order_no}`;
-  //选中input框的内容
-  inputElement.select();
-  // 执行浏览器复制命令
-  document.execCommand("Copy");
-  // 阻止弹出手机的软键盘
-  input.blur();
-  this.isCopy = true;
-},
+    const input = document.createElement("input"); // 创建input对象
+    input.value = value; // 设置复制内容
+    document.body.appendChild(input); // 添加临时实例
+    input.select(); // 选择实例内容
+    document.execCommand("Copy"); // 执行复制
+    document.body.removeChild(input); // 删除临时实例
+    this.$toast('复制成功')
+}
 ```
 
 

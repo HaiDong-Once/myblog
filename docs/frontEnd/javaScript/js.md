@@ -478,3 +478,14 @@ item.url = item.url.split('/img/')[1];
 // js判断是否包含字符串 png
 item.url.match(RegExp(/png/))
 ```
+
+
+## 浏览器内点击平滑滚动到指定位置
+```ts
+toConfirm(){
+  window.scrollTo({
+    top: this.$refs.cardBottom.getBoundingClientRect().top + window.scrollY,
+    behavior: "smooth" // 平滑滚动
+  });
+}
+```
