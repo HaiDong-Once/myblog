@@ -122,6 +122,10 @@ module.exports = {
                         text: '前端分享会',
                         link: '/other/share.md',
                         activeMatch: '^/foo/',
+                    },{
+                        text: '前端分享会0406',
+                        link: '/other/share_2.md',
+                        activeMatch: '^/foo/',
                     },
                 ],
             },
