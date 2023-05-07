@@ -1,145 +1,7 @@
 
-
-
-# 前端分享会 2023-04-06
+# 代码逻辑复用研究
 
 [[toc]]
-## 前端监控系统后续分享
-### 监控效果
-项目异常情况：
-![图片](/images/other/share/img_2.png)
-
-有大量爬虫：
-![图片](/images/other/share/img_3.png)
-
-### 监控报警
-目前采用的是每分钟报错超过100次就触发钉钉报警，持续报警隔一分钟报警一次：
-![图片](/images/other/share/img_4.png)
-
-### 数据分析方式
-- 稳定性监控：如有报警马上查看当前url,看看是否有报错，白屏等异常情况；
-- 通过 Elastic 系统的筛选和统计功能，排除爬虫，分析系统稳定性情况
-- 筛选爬虫ip手动添加到黑名单
-- 问题：数据统计不准确，有延迟，数据范围越大统计越不准确
-
- 
-
-
-## 自动滚动栏组件
-### 介绍
-- 功能：自动向下滚动，可设定滚动速度，触摸暂停，松开继续滚动,可设置滚动倍速
-- 使用 `requestAnimationFrame` 的使用保证动画的流畅性，提升动画性能，避免卡顿
-- 使用 `<slot></slot>` 插槽实现组件可扩展性
-- 问题：手机动态刷新率，导致滚动时快时慢
-- 展示地址：[点击查看](http://shuidi.test.pingansec.com/guanjia.html#/mapBaidu_4/picture?digest=139bac2935cd90f3cac54a2e1012d517&mobile=11393060076&id=1390311400&company_type=res&short_domain=f8a.cn&product_type=176&custom_price=map_mark_29&check_filter=1&filter_black=1&kp_signature=d424718d2f8fa07278797a22295346cc)
-
-### 代码实现
-```vue
-<!--
-  @description: 自动滚动盒子组件
-  @author: hhd (2023-04-04-)
-  @说明：
-      rafSpeed: 滚动倍速
-  @使用方式：
-      import scrollBox from "@guanjia/components/scrollBox/index.vue"
-      components: {scrollBox}
-      <scrollBox :rafSpeed="2" class="scrollBox"></scrollBox>
--->
-
-
-<template>
-  <div>
-    <div id="review_box"
-         ref="resListRef"
-         @touchstart="rollStop()"
-         @touchend="rollStart()">
-      <div id="comment1" style="display: inherit;">
-        <slot></slot>
-      </div>
-      <div id="comment2" style="display: inherit;"></div>
-    </div>
-  </div>
-</template>
-
-<script>
-export default {
-  name: "index",
-
-  props:{
-    rafSpeed:{ // 滚动倍速
-      type: Number,
-      default: 1
-    },
-  },
-
-  data() {
-    return {
-      rafTimer: null, // 滚动动画定时器
-    };
-  },
-
-  mounted(){
-    this.roll(); // 列表滚动初始化
-  },
-
-  methods: {
-    /**
-     * 列表滚动初始化
-     */
-    roll() {
-      const review_box = document.getElementById("review_box");
-      const comment1 = document.getElementById("comment1");
-      const comment2 = document.getElementById("comment2");
-      comment2.innerHTML = comment1.innerHTML;
-      review_box.scrollLeft = 0;
-      this.rollStart();
-    },
-
-
-    /**
-     * 开始滚动
-     */
-    rollStart() {
-      const comment1 = document.getElementById("comment1");
-      const review_box = document.getElementById("review_box");
-      if (review_box.scrollLeft >= comment1.scrollWidth) {
-        review_box.scrollLeft = 0;
-      } else {
-        review_box.scrollLeft += this.rafSpeed;
-      }
-      this.rafTimer = requestAnimationFrame(this.rollStart)
-    },
-
-
-
-    /**
-     * 停止滚动
-     * 停止滚动时， cancelAnimationFrame(this.rafTimer)
-     * 保持当前滚动位置: 获取滚动距离， this.$refs.resListRef.scrollLeft
-     */
-    rollStop(){
-      const review_box = document.getElementById("review_box");
-      review_box.scrollLeft = this.$refs.resListRef.scrollLeft ?? 0;
-      cancelAnimationFrame(this.rafTimer)
-    },
-  }
-}
-</script>
-
-<style scoped lang="scss">
-  #review_box{
-    width: 100%;
-    min-height: 100px;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    display: flex;
-  }
-  /*隐藏滚动条样式*/
-  #review_box::-webkit-scrollbar {
-    display: none; /* Chrome Safari */
-  }
-</style>
-```
 
 
 ## 前端项目公共业务逻辑抽离解决方案
@@ -150,11 +12,12 @@ export default {
 - 但这样也带来了新的问题，代码造成了很大程度的冗余，出现了大量重复代码，而且哪个旧版本需要弃用，可以移除，产品那边也不明确，会造成长期的代码淤积。
 - 所以考虑一种适用于我们业务场景的代码抽离方案，将js层和视图层独立，再通过业务场景细分为全局抽离还是局部分离。
 - 考虑时间陈本因素，后续再考虑项目升级的方案；
-:::
+  :::
 
 ### 一、vue2中的 mixin 混入
 `Mixins` 是一种在多个 `Vue` 组件之间共享代码的方式。它们允许你定义一组方法、计算属性和生命周期钩子，并将它们合并到任何使用该 `mixin` 的组件中。
-`react` 旧版本中类组件也可以使用 `mixin`，现在已经基本弃用了。
+`[share.md](share.md)
+[share_2.md](share_2.md)react` 旧版本中类组件也可以使用 `mixin`，现在已经基本弃用了。
 
 ![图片](/images/other/share/img.png)
 
@@ -256,7 +119,7 @@ export default ({
 ### 二、函数式组件
 - 如：`vue3` 中的 `Composition（组合式） API`，`react` 中的 `hooks`；目前主流的组件编写方式；
 - 什么是`hooks`（或组合式api) ：谷歌翻译给的解释是，“钩子” “挂钩”； 比较常见的钩子有：
-`windows` 系统的钩子能监听到系统的各种事件，浏览器提供的 `onload` 或 `addEventListener` 能注册在浏览器各种时机被调用的方法。
+  `windows` 系统的钩子能监听到系统的各种事件，浏览器提供的 `onload` 或 `addEventListener` 能注册在浏览器各种时机被调用的方法。
 - `hooks` 总结：一系列方法，提供了一系列提供了组件复用、状态管理等开发能力的方法。
 
 #### 1、vue3中组合式api
@@ -438,13 +301,13 @@ export default {
 </script>
 ```
 
-### 三、代码复用解决方案
+### 三、mixin解决方案实践
 因为目前我们的H5项目使用的vue2.6版本，如果升级vue2.7需要一定的时间成本，升级vue3的成本则更高；
 所以目前js业务逻辑的复用稳定方案是mixin（局部组件）+全局模块化结合的方式；
 
 - **js局部组件逻辑抽离**: 使用 `mixin` 混入，在重复的同一类型的业务开发场景中使用 `mixin` 混入抽离公共逻辑；比如地图服务营销场景；将落地页，支付页，图片提交页，支付成功页<br/>
-**注意**：注入量最好不超两个，一个小类型，一个大类型，禁止使用全局 `mixin` )  定义变量 最好加上前缀，`mapPublic__`,  `mapPay___`, 以辨别来自哪个 `mixins` 文件，
-对应 `mixins` 文件 `publicmixins.js`  `homemixins.js`  `paymixins.js`，根据组件页面类型分类；
+  **注意**：注入量最好不超两个，一个小类型，一个大类型，禁止使用全局 `mixin` )  定义变量 最好加上前缀，`mapPublic__`,  `mapPay___`, 以辨别来自哪个 `mixins` 文件，
+  对应 `mixins` 文件 `publicmixins.js`  `homemixins.js`  `paymixins.js`，根据组件页面类型分类；
 - **js模块全局逻辑抽离** : 全局的工具库，公共接口，等使用js模块封装在全局使用，如打点统计模块，支付模块，函数工具库等；
 - **视图层——局部组件**：理论上超过两次使用的视图块，都要抽离成局部组件，保留数据入口，利用插槽等方式提高组件扩展性（最好不要将数据请求业务逻辑带入局部组件，尽量做到视图层和js逻辑层分离）
 - **视图层——全局公共组件**：使用与所有业务场景的组件，如：底部组件，统一的弹窗，按钮，图片展示组件，图片上传组件二次封装，

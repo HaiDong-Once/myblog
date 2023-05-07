@@ -1,5 +1,5 @@
 
-# vue开发案例
+# 实例
 [[toc]]
 
 
@@ -73,7 +73,7 @@ router.replace({
 ### 方案四、使用vuex全局状态
 
 
-## 一、实现六边形进度条环绕动画效果
+## 实现六边形进度条环绕动画效果
 ![图片](/images/frontEnd/img_16.png)
 
 ### clip-path属性实现六边形
@@ -155,7 +155,7 @@ router.replace({
 ```
 
 
-## 二、H5调起APP以及适配问题
+## H5调起APP以及适配问题
 ![图片](/images/frontEnd/img_17.png)
 
 ### 调起水滴APP代码示例
@@ -193,7 +193,7 @@ router.replace({
 ```
 
 
-## 三、vue高德地图js api 应用
+## vue高德地图js api 应用
 
 ### 引入方法
 ```html
@@ -374,7 +374,7 @@ openPop(type){
 ```
 
 
-## 四、高德地图选址组件iframe版本
+## 高德地图选址组件iframe版本
 
 ### 代码实现
 ```html
@@ -451,7 +451,7 @@ function loadIframe() {
 ```
 
 
-## 五、vue应用swiper轮播图
+## vue应用swiper轮播图
 ### swiper依赖安装
 ```shell
 npm install swiper --save
@@ -521,7 +521,7 @@ settimeout(()=>{
 ```
 
 
-## 六、vue环境监听手机键盘弹出事件
+## vue环境监听手机键盘弹出事件
 ```ts
 data: {    
 	return {        
@@ -558,7 +558,7 @@ function showHeight() {
 ```
 
 
-## 七、微信浏览器放大字体样式兼容
+## 微信浏览器放大字体样式兼容
 
 ### 产生原因
 - 安卓手动调整字体的话，会使根元素的字体变化，导致整个页面内的元素的一些属性变化，包括宽高字体等样式属性
@@ -595,7 +595,7 @@ body { -webkit-text-size-adjust:100%!important; }
 
 
 
-## 八、解决vue跳转新页面不置顶问题
+## 解决vue跳转新页面不置顶问题
 - router.js中配置路由
 ```ts
 // 方法一
@@ -624,7 +624,141 @@ const router = new VueRouter({
 
 
 
-## 九、动态列表自动滚动实现
+## 动态列表自动滚动实现
+### 自定义滚动box组件封装
+
+::: tip 说明：
+- 实现：自动向下滚动，可设定滚动速度，触摸暂停，松开继续滚动,可设置滚动倍速
+- 注：监听div滚动事件 `@scroll`
+- requestAnimationFrame的使用保证动画的流畅性，提升动画性能，避免卡顿
+- 动态id解决同页面多次复用组件id冲突问题
+- 使用 <slot></slot> 插槽实现组件可扩展性
+:::
+
+#### 代码实现
+```vue
+
+<!--
+  @description: 自动滚动盒子组件
+  @author: hhd (2023-04-04)
+  @说明：
+      rafSpeed: 滚动倍速
+  @使用方式：
+      import scrollBox from "@guanjia/components/scrollBox/index.vue"
+      components: {scrollBox}
+      <scrollBox :rafSpeed="2" class="scrollBox"></scrollBox>
+-->
+
+
+<template>
+  <div>
+    <div class="review_box"
+         :id="'review_box_' + uniqueId"
+         :ref="'resListRef_' + uniqueId"
+         @touchstart="rollStop()"
+         @touchend="rollStart()">
+      <div :id="'comment1_' + uniqueId" style="display: inherit;">
+        <slot></slot>
+      </div>
+      <div :id="'comment2_' + uniqueId" style="display: inherit;"></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "index",
+
+  props:{
+    rafSpeed:{ // 滚动倍速
+      type: Number,
+      default: 1
+    },
+  },
+
+  data() {
+    return {
+      uniqueId: 0, // 随机数,动态id,ref
+      rafTimer: null, // 滚动动画定时器
+    };
+  },
+
+
+
+  mounted(){
+    this.uniqueId = Math.floor(Math.random() * 1000);
+    this.$nextTick(()=>{
+      this.roll(); // 列表滚动初始化
+    })
+  },
+
+  methods: {
+    /**
+     * 列表滚动初始化
+     */
+    roll() {
+      // 防止立即跳转导致dom清除报错
+      let reviewBoxDom = document.querySelector('#review_box_' + this.uniqueId);
+      if(!reviewBoxDom){ return }
+
+      const review_box = document.getElementById("review_box_" + this.uniqueId);
+      const comment1 = document.getElementById("comment1_" + this.uniqueId);
+      const comment2 = document.getElementById("comment2_" + this.uniqueId);
+      comment2.innerHTML = comment1.innerHTML;
+      review_box.scrollLeft = 0;
+      this.rollStart();
+    },
+
+
+    /**
+     * 开始滚动
+     */
+    rollStart() {
+      let reviewBoxDom = document.querySelector('#review_box_' + this.uniqueId);
+      if(!reviewBoxDom){ return }
+      const comment1 = document.getElementById("comment1_" + this.uniqueId);
+      const review_box = document.getElementById("review_box_" + this.uniqueId);
+      if (review_box.scrollLeft >= comment1.scrollWidth) {
+        review_box.scrollLeft = 0;
+      } else {
+        review_box.scrollLeft += this.rafSpeed;
+      }
+      this.rafTimer = requestAnimationFrame(this.rollStart);
+    },
+
+
+
+    /**
+     * 停止滚动
+     * 停止滚动时， cancelAnimationFrame(this.rafTimer)
+     * 保持当前滚动位置: 获取滚动距离， this.$refs.resListRef.scrollLeft
+     */
+    rollStop(){
+      const review_box = document.getElementById("review_box_" + this.uniqueId);
+      review_box.scrollLeft = this.$refs['resListRef_'+ this.uniqueId].scrollLeft ?? 0;
+      cancelAnimationFrame(this.rafTimer)
+    },
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.review_box{
+  width: 100%;
+  min-height: 100px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  display: flex;
+}
+/*隐藏滚动条样式*/
+.review_box::-webkit-scrollbar {
+  display: none; /* Chrome Safari */
+}
+</style>
+```
+
+
+
 ### 自定义方案
 
 ::: tip 说明：
@@ -778,7 +912,7 @@ components: {
 ```
 
 
-## 十、vue项目引用字体包和压缩
+## vue项目引用字体包和压缩
 
 ### 字体包引用
 - 下载字体包
@@ -811,7 +945,7 @@ import  '@/public/style.css'
 
 
 
-## 十一、style中spcoed的问题
+## style中spcoed的问题
 
 ### 侵入组件问题
 - 加入scoped, 入侵组件class时会失败；
@@ -841,7 +975,7 @@ import  '@/public/style.css'
 
 
 
-## 十二、Vue中transition过渡动画组件
+## Vue中transition过渡动画组件
 
 ### 概述
 - Vue 提供了 `transition` 的封装组件，可以给任何元素和组件添加进入/离开过渡。
@@ -921,7 +1055,7 @@ transition: opacity 1s linear 2s;
 
 
 
-## 十三、vue手写签名插件vue-esign
+## vue手写签名插件vue-esign
 
 - 生成base64图片文件，自定义base64图片旋转函数
 - github地址 [https://github.com/JaimeCheng/vue-esign](https://github.com/JaimeCheng/vue-esign)
@@ -1233,7 +1367,7 @@ export default {
 ```
 
 
-## 十四、vuex数据持久化实现
+## vuex数据持久化实现
 
 ### vuex状态管理设计和实现
 #### 安装引用
@@ -1512,7 +1646,7 @@ const getter= {
 
 
 
-## 十五、vue input输入联想实现
+## vue input输入联想实现
 ::: tip 分析
 - **问题**：input事件输入太快会造成发起请求太多的问题，并且可能上一个请求返回事件比最后一个请求返回事件还慢，导致联想到的数据不是最新的；
 - **解决方法**：使用防抖函数，控制接口请求频率；或者使用请求中断，只要发起新请求，上一个请求还没有完成的话，就中断上一个请求，保证列表反显的数据是最后一个请求返回的数据；
@@ -1706,7 +1840,7 @@ methods: {
 
 
 
-## 十六、vue移动端项目支付模块封装
+## vue移动端项目支付模块封装
 
 ### 代码实现
 ```ts
@@ -2001,7 +2135,7 @@ export default PayModule
 
 
 
-## 十七、可拖拽组件解决方案整理
+## 可拖拽组件解决方案整理
 
 ### 方案分析
 ![图片](/images/frontEnd/vue/img_7.png)
@@ -2403,7 +2537,7 @@ export default {
 
 
 
-## 十八、dev环境调试跨域问题解决
+## dev环境调试跨域问题解决
 
 ### 配置devServer
 - vue.config.js
@@ -2456,7 +2590,7 @@ module.exports = {
 
 
 
-## 十九、vue中使用微信开放标签调起小程序
+## vue中使用微信开放标签调起小程序
 ```html
 <template v-if="!wxBrowser">
   <div class="button" @click="clickButton">使用权益</div>

@@ -288,8 +288,45 @@ node_modules
 
 
 ## 五、github连接失败问题
+
+### 报错内容
 ```shell
-#取消全局代理，再fetch或push
+fatal: unable to access 'https://github.com/HaiDong-Once/personal-code.git/'
+: Failed to connect to github.com port 443 after 21091 ms: Timed out
+```
+
+- 此情况网页可以正常打开Github，但是无法通过Git连接Github。而在电脑上运行了代理程序或使用了其他代理手段导致的。
+
+### 方法一：配置 http 代理
+- Windows 中 git 默认不会使用系统代理，所以即使连接代理或者打开代理软件，浏览器仍然可以访问 GitHub 或 Gitee；
+- 但是使用 git 命令行连接 GitHub 或 Gitee 远程仓库可能会出现无法访问的现象。通过为 git 配置代理解决出现的问题。
+```shell
+# 以下 host:port 指定是你当前代理使用的主机及端口号。例如：localhost:7890、127.0.0.1:7890 等
+
+# 配置socks5代理
+git config --global http.proxy socks5 host:port
+git config --global https.proxy socks5 host:port
+
+# 配置http代理
+git config --global http.proxy host:port
+git config --global https.proxy host:port
+```
+
+#### 注意事项：
+- 命令中的主机号(host)是使用的代理的主机号，如果代理软件运行在本机则填入127.0.0.1即可，否则填入代理主机 ip
+- 命令中的端口号为代理软件或代理主机的监听IP，可以从代理服务器配置中获得
+- socks5和http两种协议由使用的代理软件决定，不同软件对这两种协议的支持有差异，如果不确定可以都尝试一下
+
+#### 查看代理命令：
+```shell
+git config --global --get http.proxy
+git config --global --get https.proxy
+```
+
+#### 取消代理命令:
+```shell
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
+
+- 参考连接: [https://toflying.com/2022/07/03/2-git-connect-github-with-errors/](https://toflying.com/2022/07/03/2-git-connect-github-with-errors/)

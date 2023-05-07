@@ -28,20 +28,20 @@
 ::: tip 分析
 - 频次最多的构建为：热启动，热加载，测试环境打包；（热启动频次较多的原因是，热加载不稳定，会出现未启动加载，或者启动卡顿）<br>
 - 所以，优先级最高的优化，主要集中在热启动，热加载，和测试环境打包的方向。
-:::
+  :::
 
 ## 解决方案梳理
 1. **原版本构建优化配置（主要是webpack配置）：风险最低**
-   - 缓存
-   - 多进程
-   - 寻址优化
-   - 分模块构建打包
-   - 抽离拆封项目
-   - import优化
-   - 打包体积优化
-   - 图片压缩（有损）
-   - 代码压缩
-   - 使用cdn导入依赖
+    - 缓存
+    - 多进程
+    - 寻址优化
+    - 分模块构建打包
+    - 抽离拆封项目
+    - import优化
+    - 打包体积优化
+    - 图片压缩（有损）
+    - 代码压缩
+    - 使用cdn导入依赖
 
 2. **`vue/cli4——vue/cli5 (webpack4——webpack5)`：有一定风险**
 3. **`webpack4——vite` ：风险较高**
@@ -101,7 +101,7 @@ vue-cli-service build --report
 #or
 vue-cli-service build --report-json
 ```
-点击生成的连接，打开打包后的文件报告: 
+点击生成的连接，打开打包后的文件报告:
 
 ![图片](/images/frontEnd/other/performance/img.png)
 
@@ -119,7 +119,7 @@ vue inspect --mode production > output.js
 ![图片](/images/frontEnd/other/performance/img_2.png)
 
 
-### 开启构建缓存插件 
+### 开启构建缓存插件
 #### `cache-loader`（webpack配置）
 ```shell
 npm install cache-loader -D
@@ -186,7 +186,7 @@ module.exports = {
 - 再启动，虽然看到里`.cache`文件中新生成了一起缓存文件，但是进度条到94%就无法启动了，查到`HardSourceWebpackPlugin` `GitHub`文档发现，
   已经五年未更新过了，这个插件已经不在维护，无法使用了。
 - 虽然`vue/cli4`中默认添加了`vue,label`，两个 `loader` 的缓存，但是效果不是很理想，热启动，热加载时间依旧比较长。
-:::
+  :::
 
 
 ### 开启多线程
@@ -264,9 +264,9 @@ module.exports = {
 ```
 
 ### 图片压缩
-#### `image-webpack-plugin`  
+#### `image-webpack-plugin`
 - 对图片像素要求没很极致的，这个压缩还是可以使用的，压缩率肉眼看起来感觉是没太大区别。没有对svg进行压缩，
-原因是压缩的svg,再通过构建时被打包成base64时，生成的base64会有问题，无法访问。
+  原因是压缩的svg,再通过构建时被打包成base64时，生成的base64会有问题，无法访问。
 - `url-loader` 和 `image-webpack-loader` 不能一起使用，否则会导致图片出不来
 - 一定要先写 `‘file-loader’` 才能使用 `‘image-webpack-loader’`
 
@@ -335,7 +335,7 @@ module.exports = {
 ```
 #### 链式操作 (高级)
 - `Vue CLI` 内部的 `webpack` 配置是通过 `webpack-chain` 维护的。这个库提供了一个 `webpack` 原始配置的上层抽象，
-使其可以定义具名的 `loader` 规则和具名插件，并有机会在后期进入这些规则并对它们的选项进行修改。
+  使其可以定义具名的 `loader` 规则和具名插件，并有机会在后期进入这些规则并对它们的选项进行修改。
 - 它允许我们更细粒度的控制其内部配置。接下来有一些常见的在 `vue.config.js` 中的 `chainWebpack` 修改的例子。
 
 修改 Loader 选项
@@ -360,7 +360,7 @@ module.exports = {
 #### externals
 - `externals` 配置提供了不从 `bundle` 中引用依赖的方式。
 - 简单理解就是不通过npm下载的类库，在html文件中以script引入，
-然后在页面中使用import导入的这种方式，比如我们前面说道的CDN导入依赖的方式
+  然后在页面中使用import导入的这种方式，比如我们前面说道的CDN导入依赖的方式
 
 ```ts
 module.exports = {
@@ -377,24 +377,24 @@ module.exports = {
 }
 ```
 - 通过以上在vue/cli(webpack4中的配置），效果并不是很明显，大部分方式没有产生有效的作用，
-所以我们还是需要尝试使用升级项目脚手架以及其他依赖的方式，提升效果打包速度、项目性能，以及开发效率。
+  所以我们还是需要尝试使用升级项目脚手架以及其他依赖的方式，提升效果打包速度、项目性能，以及开发效率。
 
 
 ## 升级vue/cli5
 ### webpack5新特性
 
 - **持久化缓存的优化**<br>
-v4是根据代码的结构生成 **chunkhash**，现在v5根据完全内容生成 **chunkhash**，比如改了内容的注释或者变量则不会引起**chunkhash**的变化，让浏览器继续使用缓存。
+  v4是根据代码的结构生成 **chunkhash**，现在v5根据完全内容生成 **chunkhash**，比如改了内容的注释或者变量则不会引起**chunkhash**的变化，让浏览器继续使用缓存。
 
 - **剔除`npm`包里面针对`Node.js`模块自动引用的`Polyfills`**<br>
-v4编译引入npm包，有些npm包里面包含针对nodejs的**polyfills**，实际前端浏览器是不需要的，v5编译中，会出现`polyfill`添加提示，
-如果不需要**node polyfille**,按照提示 alias 设置为 false 即可
+  v4编译引入npm包，有些npm包里面包含针对nodejs的**polyfills**，实际前端浏览器是不需要的，v5编译中，会出现`polyfill`添加提示，
+  如果不需要**node polyfille**,按照提示 alias 设置为 false 即可
 
 - **`Tree Shaking`升级**<br>
-`tree shaking `的意思是，`webpack` 在打包的时候将会剔除掉被没有被使用到的代码达到减小报体积，缩短 http 请求时间，起到一定效果的页面优化。
+  `tree shaking `的意思是，`webpack` 在打包的时候将会剔除掉被没有被使用到的代码达到减小报体积，缩短 http 请求时间，起到一定效果的页面优化。
 
 - **代码分割`splitchunk`升级**<br>
-为了让我们的打出来的包体积更加小，颗粒度更加明确
+  为了让我们的打出来的包体积更加小，颗粒度更加明确
 
 ### 升级流程
 官网文档：[https://cli.vuejs.org/migrations/migrate-from-v4.html](https://cli.vuejs.org/migrations/migrate-from-v4.html)
@@ -410,7 +410,7 @@ vue -V  // 5.0.8
 vue upgrade
 ```
 ![图片](/images/frontEnd/other/performance/img_4.png)
-   
+
 升级后变更的依赖：
 
 ![图片](/images/frontEnd/other/performance/img_5.png)
@@ -550,7 +550,7 @@ module.exports = ({ file }) => {
 
 ![图片](/images/frontEnd/other/performance/img_18.png)
 
-**解决方法:** 
+**解决方法:**
 1. 修改 browserslist，一般在 package.json 中或者单独的 `.browserslistrc` 文件中，添加一个 not ie 11
 ```json
 "browserslist": [
@@ -592,8 +592,8 @@ peerDependencies WARNING @vue/cli-service@5.0.8 › webpack-bundle-analyzer@4.7.
 - 在NPM v7中，现在默认安装 `peerDependencies`。
 - 在很多情况下，这会导致版本冲突，从而中断安装过程。
 - `--legacy-peer-deps`标志是在v7中引入的，目的是绕过 `peerDependency` 自动安装；它告诉 NPM 忽略项目中引入的各个modules之间的相同modules但不同版本的问题并继续安装，
-保证各个引入的依赖之间对自身所使用的不同版本modules共存。<br>
-**解决方法：安装依赖使用`--legacy-peer-deps`标志**<br>
+  保证各个引入的依赖之间对自身所使用的不同版本modules共存。<br>
+  **解决方法：安装依赖使用`--legacy-peer-deps`标志**<br>
 ```shell
 npm install --legacy-peer-deps
 ```
