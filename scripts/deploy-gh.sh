@@ -2,6 +2,8 @@
 # 项目部署脚本配置
 #!/usr/bin/env sh
 
+# myblog下执行
+
 # 确保脚本抛出遇到的错误
 set -e
 
@@ -14,7 +16,7 @@ npm run build
 # 进入生成的文件夹
 #cd docs\\.vuepress\\dist
 
- cd ../
+# cd ../
  cd docs
  cd .vuepress
  cd dist

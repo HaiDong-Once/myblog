@@ -21,15 +21,16 @@ module.exports = {
             ],
             '/frontEnd/base/css': [
                 {
-                    text: 'css基础',
+                    text: 'css应用案例',
                     children: [
-                        '/frontEnd/base/css/css.md',
+                        '/frontEnd/base/css/css3.md',
+                        '/frontEnd/base/css/css2.md'
                     ],
                 },
                 {
-                    text: 'css应用案例',
+                    text: 'css基础',
                     children: [
-                        '/frontEnd/base/css/css2.md'
+                        '/frontEnd/base/css/css.md',
                     ],
                 },
             ],
@@ -61,7 +62,26 @@ module.exports = {
                 {
                     text: 'vue应用实例',
                     children: [
-                        '/frontEnd/frame/vue/workApply.md',
+                        '/frontEnd/frame/vue/workApply1.md',
+                        '/frontEnd/frame/vue/workApply2.md',
+                        '/frontEnd/frame/vue/workApply3.md',
+                        '/frontEnd/frame/vue/workApply4.md',
+                        '/frontEnd/frame/vue/workApply5.md',
+                        '/frontEnd/frame/vue/workApply6.md',
+                        '/frontEnd/frame/vue/workApply7.md',
+                        '/frontEnd/frame/vue/workApply8.md',
+                        '/frontEnd/frame/vue/workApply9.md',
+                        '/frontEnd/frame/vue/workApply10.md',
+                        '/frontEnd/frame/vue/workApply11.md',
+                        '/frontEnd/frame/vue/workApply12.md',
+                        '/frontEnd/frame/vue/workApply13.md',
+                        '/frontEnd/frame/vue/workApply14.md',
+                        '/frontEnd/frame/vue/workApply15.md',
+                        '/frontEnd/frame/vue/workApply16.md',
+                        '/frontEnd/frame/vue/workApply17.md',
+                        '/frontEnd/frame/vue/workApply18.md',
+                        '/frontEnd/frame/vue/workApply19.md',
+                        '/frontEnd/frame/vue/workApply20.md',
                     ],
                 }
             ],
@@ -127,6 +147,14 @@ module.exports = {
                     ],
                 }
             ],
+            '/frontEnd/performance/wechat': [
+                {
+                    text: '小程序优化',
+                    children: [
+                        '/frontEnd/performance/wechat/wechat.md',
+                    ],
+                }
+            ],
             '/frontEnd/tools/blog': [
                 {
                     text: 'vuepress',
@@ -148,6 +176,7 @@ module.exports = {
                     text: '个人代码库',
                     children: [
                         '/frontEnd/tools/code/monitor.md',
+                        '/frontEnd/tools/code/toolFun.md',
                     ],
                 }
             ],
@@ -186,7 +215,7 @@ module.exports = {
                         link: '/frontEnd/base/html/html.md'
                     },
                     {   text: 'css',
-                        link: '/frontEnd/base/css/css.md'
+                        link: '/frontEnd/base/css/css3.md'
                     },
                     {   text: 'javaScript',
                         link: '/frontEnd/base/javaScript/js.md'
@@ -202,7 +231,7 @@ module.exports = {
             {   text: '前端框架',
                 children: [
                     {   text: 'vue',
-                        link: '/frontEnd/frame/vue/workApply.md'
+                        link: '/frontEnd/frame/vue/workApply1.md'
                     },
                     {   text: '小程序',
                         link: '/frontEnd/frame/wechatMini/workApply.md'
@@ -233,6 +262,9 @@ module.exports = {
             },
             {   text: '性能优化',
                 children: [
+                    {   text: '小程序优化',
+                        link: '/frontEnd/performance/wechat/wechat.md'
+                    },
                     {   text: '图片优化',
                         link: '/frontEnd/performance/image/image.md'
                     }

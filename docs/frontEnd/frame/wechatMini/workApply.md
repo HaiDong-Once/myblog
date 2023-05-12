@@ -425,7 +425,7 @@ toMapSelect(){
 
 ```
 
-## 一、小程序登录状态管理（原生）
+## 小程序登录状态管理（原生）
 
 ### 管家小程序登录流程分析
 ![图片](/images/frontEnd/20220713222830.png)
@@ -718,7 +718,7 @@ module.exports = getData;
 ```
 
 
-## 二、小程序本地缓存二次封装（过期，续期，获取全部）
+## 小程序本地缓存二次封装（过期，续期，获取全部）
 ```ts
 /*
   @description: 本地缓存二次封装
@@ -863,7 +863,7 @@ module.exports = wxCache;
 ```
 
 
-## 三、小程序页面栈
+## 小程序页面栈
 
 ### 解决小程序返回按钮和物理返回跳转指定页面
 - A -> B
@@ -902,7 +902,7 @@ if (page.length > 1) {
 
 
 
-## 四、小程序性能优化
+## 小程序性能优化
 ![图片](/images/frontEnd/img_4.png)
 
 ### 图片优化
@@ -950,7 +950,7 @@ if (page.length > 1) {
 
 
 
-## 五、小程序体验优化
+## 小程序体验优化
 1.取消 :active使用，滑动页面时效果不清除
 - 用hover-class=""  代替
 
@@ -979,7 +979,7 @@ onUnload: function () {
 
 
 
-## 六、小程序canvas实现多边形雷达图，蜘蛛图
+## 小程序canvas实现多边形雷达图，蜘蛛图
 ![图片](/images/frontEnd/img_6.png)
 
 ```ts
@@ -1260,7 +1260,7 @@ module.exports = myCanvas;
 
 
 
-## 七、接口数据缓存方案
+## 接口数据缓存方案
 
 ### data数据缓存
 ```ts
@@ -1429,7 +1429,7 @@ actions.forEach(item => {
 
 
 
-## 八、小程序工具函数封装
+## 小程序工具函数封装
 ```ts
 /*
   @description: 工具函数模块
@@ -1608,7 +1608,7 @@ module.exports = tool;
 
 
 
-## 九、全局loading解决方案
+## 全局loading解决方案
 - 未解决同步请求闪烁问题
 - 可以用axios拦截器，或者函数工具封装
 ```ts
@@ -1650,7 +1650,7 @@ return new Promise(function (res, rej) {
 
 
 
-## 十、扫码进入小程序参数解析
+## 扫码进入小程序参数解析
 - 在`onLoad(options)`中获取`options.q`，q是转码后的url，（http://sjdk.com?dad=1&ds=2)
 - deCode解码url后，调用url获参函数，将url中的参数转为对象，重新复制给options
 
@@ -1658,7 +1658,7 @@ return new Promise(function (res, rej) {
 
 
 
-## 十一、小程序input双向绑定
+## 小程序input双向绑定
 - 模拟语法糖 绑定`bindinput`输入事件 绑定`value="{{}}"`中的变量
 ```html
 <input class="weui-input" 
@@ -1741,7 +1741,7 @@ getCredit(e){
 ```
 
 
-## 十二、小程序switchTab跳转传参和刷新页面解决方案
+## 小程序switchTab跳转传参和刷新页面解决方案
 
 ### 使用wx.reLaunch
 ```ts
@@ -1801,7 +1801,7 @@ wx.removeStorageSync('risk_data')  // 删除缓存
 
 
 
-## 十三、伪元素放大点击区域
+## 伪元素放大点击区域
 ```html
 <view class="fater">
     <view class="focus" bindtap="changeAgreeCheck">
@@ -1833,7 +1833,7 @@ wx.removeStorageSync('risk_data')  // 删除缓存
 
 
 
-## 十四、小程序规避审核方法
+## 小程序规避审核方法
 ### 问题分析
 - 贷款：添加贷款类目：需要相关资质 
 - 催债：不可发布相关内容
@@ -1856,7 +1856,7 @@ wx.removeStorageSync('risk_data')  // 删除缓存
 
 
 
-## 十五、小程序echart图表使用
+## 小程序echart图表使用
 - github下载地址: [echarts-for-weixin](https://github.com/ecomfe/echarts-for-weixin) 
 - 下载`ec-canvas`包在小程序内
 
@@ -1965,7 +1965,7 @@ getOption: function () {
 
 
 
-## 十六、小程序内跳转其他小程序
+## 小程序内跳转其他小程序
 ### navigateToMiniProgram api跳转
 ```ts
 // 打开水滴小程序
@@ -1991,7 +1991,7 @@ wx.navigateToMiniProgram({
 
 
 
-## 十七、小程序图片上传
+## 小程序图片上传
 ### wux-uploader组件
 ```html
 <view class="upload">
@@ -2219,7 +2219,7 @@ wx.navigateToMiniProgram({
 
 
 
-## 十八、小程序分享方案
+## 小程序分享方案
 ### button组件方案
 ```html
 <button data-name="shareBtn" open-type="share" class="share share2"></button>
@@ -2300,7 +2300,7 @@ wx.navigateToMiniProgram({
 
 
 
-## 十九、小程序数据监听封装 watch
+## 小程序数据监听封装 watch
 ### 监听基本数据类型
 - `app.js`文件
 ```ts
@@ -2449,7 +2449,7 @@ Page({
 
 
 
-## 二十、小程序返回上一页传参
+## 小程序返回上一页传参
 - A-B页面
 - A页面获取参数
 - 
@@ -2495,7 +2495,7 @@ onUnload(){
 
 
 
-## 二十一、进度球波浪动画组件
+## 进度球波浪动画组件
 ![图片](/images/frontEnd/img_9.png)
 
 ### canvas动画组
@@ -2955,7 +2955,7 @@ var interval;
 
 
 
-## 二十二、小程序消息订阅
+## 小程序消息订阅
 ```ts
 /**
  * 打开订阅消息
@@ -2982,7 +2982,7 @@ openSubscribe(){
 
 
 
-## 二十三、小程序弹窗淡入淡出
+## 小程序弹窗淡入淡出
 ```html
 <view class="pay-box" animation="{{ani}}"></view>
 ```
@@ -3054,7 +3054,7 @@ openAnimation(value){
 
 
 
-## 二十四、小程序弹页面自动滚动动画
+## 小程序弹页面自动滚动动画
 ```ts
 // 个人中心返回首页查信用状态,跳转到首页1/3位置
   if(options.toArchives == '1'){
@@ -3076,7 +3076,7 @@ openAnimation(value){
 
 
 
-## 二十五、小程序文件预览
+## 小程序文件预览
 - doc.pdf等文档预览
 ```ts
   /**
@@ -3120,7 +3120,7 @@ openAnimation(value){
 
 
 
-## 二十六、小程序分包加载
+## 小程序分包加载
 - `app.json`配置
 ```json
 "pages": [
@@ -3148,7 +3148,7 @@ openAnimation(value){
 
 
 
-## 二十七、小程序路由和传参
+## 小程序路由和传参
 ::: tip
 第一种：wx.navigateTo(); 有页面栈栈，根据累加路由栈或者组件父级路径跳转
 第二种：router.navigateTo();  无页面栈，绝对路径跳转；获得的路由器对象更好的基路径稳定性
@@ -3271,7 +3271,7 @@ onLoad: function (options) {
 
 
 
-## 二十八、小程序自定义组件和使用
+## 小程序自定义组件和使用
 ### 组件传参
 - 创建四个基础页面 json wxml wxss js 4个文件组成 
 - 首先需要在 json 文件中进行自定义组件声明（将 component 字段设为 true 可将这一组文件设为自定义组件）：
@@ -3388,7 +3388,7 @@ wx.navigateTo({
 
 
 
-## 二十九、input输入联想
+## input输入联想
 ![图片](/images/frontEnd/img_12.png)
 
 ```html
@@ -3494,7 +3494,7 @@ itemtap(event){
 
 
 
-## 三十、小程序自定义导航栏
+## 小程序自定义导航栏
 ### 导航栏分析
 - 导航栏整体的高度 = **（状态栏高度 + 导航栏高度）**
 - 状态栏高度可以通过 `wx.getSystemInfo()` 获取
@@ -3785,7 +3785,7 @@ Component({
 
 
 
-## 三十一、小程序复制文本到到粘贴板
+## 小程序复制文本到到粘贴板
 ```ts
 /**
  * 复制链接到粘贴板
@@ -3810,7 +3810,7 @@ copyHref(){
 
 
 
-## 三十二、小程序多选列表开发票组件
+## 小程序多选列表开发票组件
 ```html
 <checkbox-group  bindchange="checkboxChange" >
   <view class="list" wx:for="{{invoiceList}}" wx:key="{{item.order_no}}" >
@@ -3912,7 +3912,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
 
 
 
-## 三十三、小程序使用canvas旋转图片
+## 小程序使用canvas旋转图片
 ::: tip 思路
 创建一个新的`canvas`画布，隐藏到屏幕外，做旋转处理；
 :::
@@ -3980,7 +3980,7 @@ checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
 
 
 
-## 三十四、小程序调用微信企业客服
+## 小程序调用微信企业客服
 ### 小程序内直接使用
 - 必须用户点击才可以触发
 ```ts
