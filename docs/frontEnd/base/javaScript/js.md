@@ -489,3 +489,19 @@ toConfirm(){
   });
 }
 ```
+
+## 数组操作：多条件过滤数组 filter+includes
+```ts
+let pois = [
+    {type:'',id:1},
+    {type:'餐饮服务;餐饮相关场所;餐饮相关',id:2},
+]
+const data = [
+  "餐饮服务;餐饮相关场所;餐饮相关",
+  "餐饮服务;快餐厅;快餐厅",
+  "餐饮服务;中餐厅;中餐厅",
+  "公司企业;公司;公司",
+];
+pois = pois.filter((item) => !data.includes(item.type) )
+console.log(pois) // pois = [ {type:'',id:1} ]
+```

@@ -15,7 +15,9 @@ module.exports = {
                     text: '浏览器概念',
                     children: [
                         '/frontEnd/base/browser/bom.md',
-                        '/frontEnd/base/browser/bom2.md'
+                        '/frontEnd/base/browser/postMessage.md',
+                        '/frontEnd/base/browser/requestAnimationFrame.md',
+                        '/frontEnd/base/browser/bomView.md'
                     ],
                 },
             ],
@@ -82,6 +84,9 @@ module.exports = {
                         '/frontEnd/frame/vue/workApply18.md',
                         '/frontEnd/frame/vue/workApply19.md',
                         '/frontEnd/frame/vue/workApply20.md',
+                        '/frontEnd/frame/vue/workApply21.md',
+                        '/frontEnd/frame/vue/workApply23.md',
+                        '/frontEnd/frame/vue/workApply24.md',
                     ],
                 }
             ],
