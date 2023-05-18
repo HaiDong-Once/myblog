@@ -93,6 +93,7 @@ module.exports = {
                     text: 'vue学习笔记',
                     children: [
                         '/frontEnd/frame/vue/notes/vue2-7.md',
+                        '/frontEnd/frame/vue/notes/compositionApi.md',
                     ],
                 },
             ],
@@ -120,9 +121,10 @@ module.exports = {
                     ],
                 },
                 {
-                    text: 'webpack项目升级',
+                    text: 'webpack应用于实践',
                     children: [
-                        '/frontEnd/project/webpack/webpackCase.md'
+                        '/frontEnd/project/webpack/application/webpackCase.md',
+                        '/frontEnd/project/webpack/application/npmPrams.md'
                     ],
                 },
             ],
@@ -163,6 +165,16 @@ module.exports = {
                     text: '小程序优化',
                     children: [
                         '/frontEnd/performance/wechat/wechat.md',
+                    ],
+                }
+            ],
+            '/frontEnd/performance/application': [
+                {
+                    text: '性能优化实践',
+                    children: [
+                        '/frontEnd/performance/application/loseCode.md',
+                        '/frontEnd/performance/application/loseRely.md',
+                        '/frontEnd/performance/application/hotUpdate.md',
                     ],
                 }
             ],
@@ -275,6 +287,9 @@ module.exports = {
                 children: [
                     {   text: '小程序优化',
                         link: '/frontEnd/performance/wechat/wechat.md'
+                    },
+                    {   text: '性能优化实践',
+                        link: '/frontEnd/performance/application/loseCode.md'
                     },
                     {   text: '图片优化',
                         link: '/frontEnd/performance/image/image.md'
