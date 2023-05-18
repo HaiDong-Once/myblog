@@ -88,7 +88,13 @@ module.exports = {
                         '/frontEnd/frame/vue/workApply23.md',
                         '/frontEnd/frame/vue/workApply24.md',
                     ],
-                }
+                },
+                {
+                    text: 'vue学习笔记',
+                    children: [
+                        '/frontEnd/frame/vue/notes/vue2-7.md',
+                    ],
+                },
             ],
             '/frontEnd/frame/wechatMini': [
                 {
