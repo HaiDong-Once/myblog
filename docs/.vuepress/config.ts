@@ -225,6 +225,7 @@ module.exports = {
                     children: [
                         '/other/share/share.md',
                         '/other/share/share_2.md',
+                        '/other/share/share_3.md',
                     ],
                 }
             ],

@@ -55,3 +55,6 @@ new UselessFile({
 ```shell
 npm uninstall useless-files-webpack-plugin
 ```
+
+4.兼容webpack5版useless插件发布
+[https://www.npmjs.com/package/useless-files-webpack5-plugin](https://www.npmjs.com/package/useless-files-webpack5-plugin)
