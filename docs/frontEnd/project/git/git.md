@@ -330,3 +330,23 @@ git config --global --unset https.proxy
 ```
 
 - 参考连接: [https://toflying.com/2022/07/03/2-git-connect-github-with-errors/](https://toflying.com/2022/07/03/2-git-connect-github-with-errors/)
+
+## 六、gitHub提交验证过期
+### 报错
+```shell
+Support for password authentication was removed on August 13, 2021
+```
+### 解决方法
+使用gitToken 替换密码输入
+- gitHUb头像点击
+- 下拉列表： settings
+- 侧边栏：Developer settings
+- 侧边栏：person access tokens ——>> Tokens(classic)
+- 顶部栏：Generate new token ——>> Generate new token(classic)
+- 输入自定义note使用说明
+- 配置期限
+- 配置scopes
+- 点击 Generate token 按钮
+- 复制生成的 token 替换提交代码时输入的 password
+
+参考地址：[https://blog.51cto.com/u_15064643/4215363](https://blog.51cto.com/u_15064643/4215363)
