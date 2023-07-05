@@ -87,6 +87,7 @@ module.exports = {
                         '/frontEnd/frame/vue/workApply21.md',
                         '/frontEnd/frame/vue/workApply23.md',
                         '/frontEnd/frame/vue/workApply24.md',
+                        '/frontEnd/frame/vue/workApply25.md',
                     ],
                 },
                 {
@@ -102,6 +103,14 @@ module.exports = {
                     text: '小程序应用实例',
                     children: [
                         '/frontEnd/frame/wechatMini/workApply.md',
+                    ],
+                }
+            ],
+            '/frontEnd/frame/uniapp': [
+                {
+                    text: 'uniapp',
+                    children: [
+                        '/frontEnd/frame/uniapp/uniapp1.md',
                     ],
                 }
             ],
@@ -149,6 +158,16 @@ module.exports = {
                     text: '前端测试',
                     children: [
                         '/frontEnd/project/test/test.md',
+                    ],
+                }
+            ],
+            '/frontEnd/project/package': [
+                {
+                    text: '包管理工具',
+                    children: [
+                        '/frontEnd/project/package/package.md',
+                        '/frontEnd/project/package/package1.md',
+                        '/frontEnd/project/package/package2.md',
                     ],
                 }
             ],
@@ -200,6 +219,17 @@ module.exports = {
                     children: [
                         '/frontEnd/tools/code/monitor.md',
                         '/frontEnd/tools/code/toolFun.md',
+                    ],
+                }
+            ],
+            '/frontEnd/tools/chatGPT': [
+                {
+                    text: 'chatGPT',
+                    children: [
+                        '/frontEnd/tools/chatGPT/gpt1.md',
+                        '/frontEnd/tools/chatGPT/gpt2.md',
+                        '/frontEnd/tools/chatGPT/gpt3.md',
+                        '/frontEnd/tools/chatGPT/gpt4.md'
                     ],
                 }
             ],
@@ -263,6 +293,9 @@ module.exports = {
                     {   text: 'react',
                         link: '/frontEnd/frame/react/react.md'
                     },
+                    {   text: 'uniapp',
+                        link: '/frontEnd/frame/uniapp/uniapp1.md'
+                    },
                 ],
             },
             {   text: '前端工程化',
@@ -281,6 +314,9 @@ module.exports = {
                     },
                     {   text: '代码逻辑复用',
                         link: '/frontEnd/project/codeReuse/codeReuse.md'
+                    },
+                    {   text: '包管理工具',
+                        link: '/frontEnd/project/package/package.md'
                     },
                 ],
             },
@@ -307,6 +343,9 @@ module.exports = {
                     },
                     {   text: '个人代码库',
                         link: '/frontEnd/tools/code/monitor.md'
+                    },
+                    {   text: 'chatGPT',
+                        link: '/frontEnd/tools/chatGPT/gpt1.md'
                     }
                 ],
             },
