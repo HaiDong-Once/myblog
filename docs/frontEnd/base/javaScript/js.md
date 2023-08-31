@@ -1,6 +1,6 @@
 
 
-# javaScript
+# javaScript 应用
 [[toc]]
 
 

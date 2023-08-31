@@ -49,6 +49,7 @@ module.exports = {
                     text: 'javaScript',
                     children: [
                         '/frontEnd/base/javaScript/js.md',
+                        '/frontEnd/base/javaScript/map.md',
                     ],
                 }
             ],
@@ -103,6 +104,23 @@ module.exports = {
                     text: '小程序应用实例',
                     children: [
                         '/frontEnd/frame/wechatMini/workApply.md',
+                    ],
+                }
+            ],
+            '/frontEnd/frame/react': [
+                {
+                    text: 'react应用',
+                    children: [
+                        '/frontEnd/frame/nuxt/nuxt.md',
+                    ],
+                }
+            ],
+            '/frontEnd/frame/nuxt': [
+                {
+                    text: 'nuxt3应用',
+                    children: [
+                        '/frontEnd/frame/nuxt/nuxt1.md',
+                        '/frontEnd/frame/nuxt/nuxt2.md',
                     ],
                 }
             ],
@@ -210,6 +228,7 @@ module.exports = {
                     text: '开发工具',
                     children: [
                         '/frontEnd/tools/tool/tool.md',
+                        '/frontEnd/tools/tool/vercel.md',
                     ],
                 }
             ],
@@ -292,6 +311,9 @@ module.exports = {
                     },
                     {   text: 'react',
                         link: '/frontEnd/frame/react/react.md'
+                    },
+                    {   text: 'nuxt',
+                        link: '/frontEnd/frame/nuxt/nuxt1.md'
                     },
                     {   text: 'uniapp',
                         link: '/frontEnd/frame/uniapp/uniapp1.md'
