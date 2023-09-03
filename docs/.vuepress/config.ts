@@ -111,7 +111,7 @@ module.exports = {
                 {
                     text: 'react应用',
                     children: [
-                        '/frontEnd/frame/nuxt/nuxt.md',
+                        '/frontEnd/frame/react/react.md',
                     ],
                 }
             ],
