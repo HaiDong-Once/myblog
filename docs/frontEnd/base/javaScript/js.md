@@ -505,3 +505,26 @@ const data = [
 pois = pois.filter((item) => !data.includes(item.type) )
 console.log(pois) // pois = [ {type:'',id:1} ]
 ```
+
+## 判断对象内属性是否都为空
+```ts
+/**
+ * 对象内的属性是否为空
+ * @param obj
+ * @return {boolean}
+ */
+function isEmpty(obj) {
+    return Object.values(obj).every(x => [null, undefined, ''].includes(x));
+}
+```
+
+## 判断数组是否为空
+```ts
+let address =[1,2,3]
+Array.isArray(address)
+```
+
+## 嵌套解构对象
+```ts
+const { public: { apiBase } } = useRuntimeConfig();
+```

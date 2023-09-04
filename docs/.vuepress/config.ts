@@ -112,6 +112,7 @@ module.exports = {
                     text: 'react应用',
                     children: [
                         '/frontEnd/frame/react/react.md',
+                        '/frontEnd/frame/react/react2.md',
                     ],
                 }
             ],
@@ -121,6 +122,9 @@ module.exports = {
                     children: [
                         '/frontEnd/frame/nuxt/nuxt1.md',
                         '/frontEnd/frame/nuxt/nuxt2.md',
+                        '/frontEnd/frame/nuxt/fullpage.md',
+                        '/frontEnd/frame/nuxt/hook.md',
+                        '/frontEnd/frame/nuxt/nuxt3.md',
                     ],
                 }
             ],
