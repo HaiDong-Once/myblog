@@ -2,6 +2,10 @@
 # nuxt3项目搭建流程
 [[toc]]
 
+## 参考地址
+- nuxt3 官网：[https://nuxt.com/](https://nuxt.com/)
+- 掘金优质分享：[https://juejin.cn/post/7236635191379509308#heading-34](https://juejin.cn/post/7236635191379509308#heading-34)
+
 
 ## 项目安装
 ### 安装pnpm

@@ -26,7 +26,8 @@ module.exports = {
                     text: 'css应用案例',
                     children: [
                         '/frontEnd/base/css/css3.md',
-                        '/frontEnd/base/css/css2.md'
+                        '/frontEnd/base/css/css2.md',
+                        '/frontEnd/base/css/css4.md'
                     ],
                 },
                 {
@@ -113,6 +114,8 @@ module.exports = {
                     children: [
                         '/frontEnd/frame/react/react.md',
                         '/frontEnd/frame/react/react2.md',
+                        '/frontEnd/frame/react/react3.md',
+                        '/frontEnd/frame/react/react4.md',
                     ],
                 }
             ],
@@ -125,6 +128,7 @@ module.exports = {
                         '/frontEnd/frame/nuxt/fullpage.md',
                         '/frontEnd/frame/nuxt/hook.md',
                         '/frontEnd/frame/nuxt/nuxt3.md',
+                        '/frontEnd/frame/nuxt/nuxt4.md',
                     ],
                 }
             ],
@@ -216,6 +220,7 @@ module.exports = {
                         '/frontEnd/performance/application/loseCode.md',
                         '/frontEnd/performance/application/loseRely.md',
                         '/frontEnd/performance/application/hotUpdate.md',
+                        '/frontEnd/performance/application/pay.md',
                     ],
                 }
             ],
@@ -233,6 +238,7 @@ module.exports = {
                     children: [
                         '/frontEnd/tools/tool/tool.md',
                         '/frontEnd/tools/tool/vercel.md',
+                        '/frontEnd/tools/tool/macTool.md',
                     ],
                 }
             ],
@@ -242,6 +248,7 @@ module.exports = {
                     children: [
                         '/frontEnd/tools/code/monitor.md',
                         '/frontEnd/tools/code/toolFun.md',
+                        '/frontEnd/tools/code/code1.md',
                     ],
                 }
             ],
