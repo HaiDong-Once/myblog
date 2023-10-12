@@ -23,11 +23,17 @@ module.exports = {
             ],
             '/frontEnd/base/css': [
                 {
+                    text: 'scss',
+                    children: [
+                        '/frontEnd/base/css/scss.md',
+                    ],
+                },
+                {
                     text: 'css应用案例',
                     children: [
+                        '/frontEnd/base/css/css4.md',
                         '/frontEnd/base/css/css3.md',
                         '/frontEnd/base/css/css2.md',
-                        '/frontEnd/base/css/css4.md'
                     ],
                 },
                 {
