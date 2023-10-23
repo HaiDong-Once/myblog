@@ -110,6 +110,7 @@ module.exports = {
                 {
                     text: '小程序应用实例',
                     children: [
+                        '/frontEnd/frame/wechatMini/ciWechatMini.md',
                         '/frontEnd/frame/wechatMini/workApply.md',
                     ],
                 }
