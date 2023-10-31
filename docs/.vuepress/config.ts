@@ -120,6 +120,7 @@ module.exports = {
                     text: 'react应用',
                     children: [
                         '/frontEnd/frame/react/react.md',
+                        '/frontEnd/frame/react/react5.md',
                         '/frontEnd/frame/react/react2.md',
                         '/frontEnd/frame/react/react3.md',
                         '/frontEnd/frame/react/react4.md',
@@ -131,6 +132,7 @@ module.exports = {
                     text: 'nuxt3应用',
                     children: [
                         '/frontEnd/frame/nuxt/nuxt1.md',
+                        '/frontEnd/frame/nuxt/nuxt5.md',
                         '/frontEnd/frame/nuxt/nuxt2.md',
                         '/frontEnd/frame/nuxt/fullpage.md',
                         '/frontEnd/frame/nuxt/hook.md',
@@ -286,10 +288,30 @@ module.exports = {
                     ],
                 }
             ],
+            '/reader/classical': [
+                {
+                    text: '古典文学',
+                    children: [
+                        '/reader/classical/道德经.md',
+                        '/reader/classical/心学.md',
+                    ],
+                }
+            ],
+            '/reader/psychology': [
+                {
+                    text: '心理学',
+                    children: [
+                        '/reader/psychology/阿德勒.md',
+                        '/reader/psychology/社会心理学.md',
+                        '/reader/psychology/逆商.md',
+                    ],
+                }
+            ],
             '/other/share': [
                 {
                     text: '前端分享',
                     children: [
+                        '/other/share/share_4.md',
                         '/other/share/share.md',
                         '/other/share/share_2.md',
                         '/other/share/share_3.md',
@@ -306,7 +328,7 @@ module.exports = {
                         link: '/frontEnd/base/html/html.md'
                     },
                     {   text: 'css',
-                        link: '/frontEnd/base/css/css3.md'
+                        link: '/frontEnd/base/css/scss.md'
                     },
                     {   text: 'javaScript',
                         link: '/frontEnd/base/javaScript/js.md'
@@ -325,7 +347,7 @@ module.exports = {
                         link: '/frontEnd/frame/vue/workApply1.md'
                     },
                     {   text: '小程序',
-                        link: '/frontEnd/frame/wechatMini/workApply.md'
+                        link: '/frontEnd/frame/wechatMini/ciWechatMini.md'
                     },
                     {   text: 'react',
                         link: '/frontEnd/frame/react/react.md'
@@ -403,10 +425,20 @@ module.exports = {
                     }
                 ],
             },
+            {   text: '读书笔记',
+                children: [
+                    {   text: '古典文学',
+                        link: '/reader/classical/道德经.md'
+                    },
+                    {   text: '心理学',
+                        link: '/reader/psychology/阿德勒.md'
+                    }
+                ],
+            },
             {   text: '其他',
                 children: [
                     {   text: '前端分享',
-                        link: '/other/share/share.md'
+                        link: '/other/share/share_4.md'
                     }
                 ],
             },
