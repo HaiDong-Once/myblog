@@ -31,6 +31,8 @@ module.exports = {
                 {
                     text: 'css应用案例',
                     children: [
+                        '/frontEnd/base/css/css6.md',
+                        '/frontEnd/base/css/css5.md',
                         '/frontEnd/base/css/css4.md',
                         '/frontEnd/base/css/css3.md',
                         '/frontEnd/base/css/css2.md',
@@ -73,6 +75,8 @@ module.exports = {
                     text: 'vue应用实例',
                     children: [
                         '/frontEnd/frame/vue/workApply1.md',
+                        '/frontEnd/frame/vue/workApply27.md',
+                        '/frontEnd/frame/vue/workApply26.md',
                         '/frontEnd/frame/vue/workApply2.md',
                         '/frontEnd/frame/vue/workApply3.md',
                         '/frontEnd/frame/vue/workApply4.md',
@@ -120,6 +124,7 @@ module.exports = {
                     text: 'react应用',
                     children: [
                         '/frontEnd/frame/react/react.md',
+                        '/frontEnd/frame/react/react6.md',
                         '/frontEnd/frame/react/react5.md',
                         '/frontEnd/frame/react/react2.md',
                         '/frontEnd/frame/react/react3.md',
@@ -146,6 +151,8 @@ module.exports = {
                     text: 'uniapp',
                     children: [
                         '/frontEnd/frame/uniapp/uniapp1.md',
+                        '/frontEnd/frame/uniapp/uniapp2.md',
+                        '/frontEnd/frame/uniapp/uniapp3.md',
                     ],
                 }
             ],
