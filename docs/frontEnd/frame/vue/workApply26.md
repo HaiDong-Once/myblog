@@ -436,3 +436,222 @@ export default {
 import Directives from "./directives";
 Vue.use(Directives);
 ```
+
+html中使用指令
+```html
+<div class="card card2" v-exposure="{position: 111,}"> 目标曝光元素 </div>
+```
+
+补充方案：兼容目标元素大于视口高度的情况，展示超过50%及表示有效曝光，或者使用交叉算法分割0,0.1到1共11个阈值，更细粒度控制有效曝光
+```js
+// ie兼容  Intersection Observer polyfill
+// require('intersection-observer');
+
+/**
+ * 曝光埋点class类
+ */
+class Exposure {
+    constructor() {
+        this.timer = {}; // 增加定时器对象
+        this.exposureList = []; // 记录已经上报过的埋点信息
+        this.exposureTime = 1000, // 有效曝光时间
+
+        // 构造IntersectionObserver观察器 小于视口
+        this.observer = new IntersectionObserver(this.handleIntersection, {
+            root: null, // 默认浏览器视窗
+            threshold: 1 // 元素完全出现在浏览器视窗内才执行callback函数。
+        });
+
+        // 构造IntersectionObserver观察器 超出视口高度
+        this.observer2 = new IntersectionObserver(this.handleIntersection, {
+            root: null, // 默认浏览器视窗
+            threshold: 0.5 // 元素完全出现在浏览器视窗内才执行callback函数。
+        });
+
+
+        /*************** 备用方案 *****************/
+        // 如果目标元素超过视口高度，使用第三观察器, 设置0，0.1 ... 1, 11次曝光触发，用户自定义触发条件， 粒度更细
+        // 如传0.5表示模块在视口展示超过一半则 算作有效曝光
+        this.observer3 = new IntersectionObserver(this.handleIntersection2, {
+            root: null, // 默认浏览器视窗
+            threshold: Array.from({ length: 11 }, (_, i) => i * 0.1) // [0, 0.1, 0.2, ..., 1]
+        });
+        // 定义IntersectionObserver回调函数
+        this.handleIntersection2 = (entries) => {
+            entries.forEach(entry => {
+                const maxIntersectionRatio = 0.5; // 可用户通过传参自定义，默认0.5
+                // 获取元素和视口交叉的比例
+                const intersectionRatio = entry.intersectionRatio;
+                console.log('交叉比例:', intersectionRatio.toFixed(2));
+                if (intersectionRatio > maxIntersectionRatio){
+                    console.log('曝光成功')
+                    this.sendPosition({});
+                    this.observer3.unobserve(entry.target)
+                    return
+                }
+            });
+        };
+    }
+
+    /**
+     * IntersectionObserver callback
+     * @param entries
+     */
+    handleIntersection = (entries) => {
+        entries.forEach(entry => {
+            let exposureData = null;
+            let exposureType = null;
+            try {
+                exposureData = JSON.parse(
+                    entry.target.getAttribute('exposure-data')
+                );
+                exposureType = JSON.parse(
+                    entry.target.getAttribute('exposure-type')
+                );
+            } catch (e) {
+                exposureData = null;
+                console.error('埋点数据格式异常', e);
+            }
+
+            const {position} = exposureData ?? {}
+
+            // 没有埋点数据取消上报
+            if (!exposureData || !position) {
+                console.error('埋点数据格式异常');
+                if(exposureType === '2'){
+                    this.observer2.unobserve(entry.target);
+
+                }else{
+                    this.observer.unobserve(entry.target);
+                }
+                return;
+            }
+
+            // 曝光时间超过1秒为有效曝光
+            if (entry.isIntersecting) {
+                this.timer[position] = setTimeout(() => {
+                    // 上报埋点信息
+                    this.sendPosition(exposureData);
+
+                    // 上报后取消监听
+                    if(exposureType === '2'){
+                        this.observer2.unobserve(entry.target);
+                    }else{
+                        this.observer.unobserve(entry.target);
+                    }
+                    this.exposureList.push(position);
+                    this.timer[position] = null;
+                }, this.exposureTime);
+            } else {
+                if (this.timer[position]) {
+                    clearTimeout(this.timer[position]);
+                    this.timer[position] = null;
+                }
+            }
+        });
+    };
+
+
+    /**
+     * 上报曝光埋点数据
+     * @param exposureData
+     * @tips: 利用setTimeout将上报任务放到任务队列末尾，以免占用主进程资源
+     */
+    sendPosition(exposureData) {
+        setTimeout(()=>{
+            const { position } = exposureData ?? {};
+            console.log(position);
+        },0)
+    }
+
+
+    /**
+     * 添加监听
+     * @param ele
+     * @param prams
+     */
+    addDom = (ele, prams) => {
+        // 参数添加到dom中
+        if (prams) {
+            const exposureData = prams;
+            ele.setAttribute(
+                'exposure-data',
+                JSON.stringify(exposureData)
+            );
+            const { position } = exposureData ?? {};
+            if (this.exposureList.includes(position)) return;
+        }
+
+        // 待dom渲染结束
+        setTimeout(()=>{
+             //  超过视口高度元素使用配置2
+            if(ele.offsetHeight >= document.documentElement.clientHeight){
+                ele.setAttribute('exposure-type', '2');
+                this.observer2.observe(ele);
+            }else{
+                ele.setAttribute('exposure-type', '1');
+                this.observer.observe(ele)
+            }
+        })
+
+    };
+
+
+    /**
+     * 移除监听
+     * @param ele
+     */
+    removeDom = (ele) => {
+        // 移除监听
+        if(ele.offsetHeight >= window.innerHeigh){
+            this.observer2.unobserve(ele);
+        }else{
+            this.observer.unobserve(ele);
+        }
+    };
+}
+
+
+
+const exposure = new Exposure();
+
+// 创建vue指令
+const exposureDirective = {
+    bind(ele, binding) {
+        exposure.addDom(ele, binding.value)
+    },
+    unbind(ele){
+        exposure.removeDom(ele)
+    }
+}
+
+export default exposureDirective;
+```
+
+
+### 原生js使用方式示例
+给目标元素添加id
+```html
+<h3 id="exposure-target">测试曝光组件</h3>
+```
+
+导入实例化模块，在dom元素加载完成后，手动调用addDom方法标记曝光元素，并传入埋点参数
+```js
+  import Exposure from '../exposure.js';
+
+  // 实例化Exposure类
+  const exposureInstance = new Exposure();
+
+  // 页面加载完成后添加监听
+  document.addEventListener('DOMContentLoaded', () => {
+    // 获取需要监听的元素
+    const targetElement = document.getElementById('exposure-target');
+
+    // 调用addDom方法添加监听元素及其上报数据
+    exposureInstance.addDom(targetElement, { position: '12345' });
+  });
+```
+
+
+### react使用案例
+[react曝光埋点解决方案](https://haidong-once.github.io/myblog/frontEnd/frame/react/react6.html)
