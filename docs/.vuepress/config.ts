@@ -156,6 +156,15 @@ module.exports = {
                     ],
                 }
             ],
+            '/frontEnd/frame/harmony': [
+                {
+                    text: '鸿蒙开发',
+                    children: [
+                        '/frontEnd/frame/harmony/harmony.md',
+                        '/frontEnd/frame/harmony/harmony2.md',
+                    ],
+                },
+            ],
             '/frontEnd/project/git': [
                 {
                     text: 'git',
@@ -364,6 +373,9 @@ module.exports = {
                     },
                     {   text: 'uniapp',
                         link: '/frontEnd/frame/uniapp/uniapp1.md'
+                    },
+                    {   text: '鸿蒙开发',
+                        link: '/frontEnd/frame/harmony/harmony.md'
                     },
                 ],
             },
