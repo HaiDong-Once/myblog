@@ -72,45 +72,84 @@
 import web_webview from '@ohos.web.webview';
 import { plusObj } from './plus' // 重写plus方法集合到这个类中
 import { BusinessError } from '@kit.BasicServicesKit';
-
+import { promptAction } from '@kit.ArkUI';
 
 @Entry
 @Component
 struct WebComponent {
   webviewController: web_webview.WebviewController = new web_webview.WebviewController();
   plusObj = new plusObj(this.webviewController); // 鸿蒙端重写plus方法
+  @State private isPageEnd: boolean = false; // web组件是否加载完成  注：@State声明才能引起组件重绘（类似响应式）
+  @State private isErrorReceive: boolean = false; // web组件是否加载异常
+  private timeoutId: number | null = null; // 加载失败提示定时任务
   webUrlTest = 'test/index.html#/'; // 测试环境地址
   webUrlProduct = 'product/index.html#/';  // 线上环境地址
 
   build() {
     Column() {
+      // 启动图和加载失败提示逻辑
+      if (!this.isPageEnd) {
+        Column() {
+          Image($r('app.media.startPage'))
+                  .height('80%')
+        }
+      .width('100%')
+                .height('100%')
+                .backgroundColor('#dbe7ff') // 设置外框背景色
+                .alignItems(HorizontalAlign.End) // 图片居中对齐
+                .justifyContent(FlexAlign.Center) // 图片垂直居中对齐
+                .onAppear(()=>{
+                  // 加载失败提示
+                  this.timeoutId = setTimeout(() => {
+                    if(!this.isPageEnd){
+                      promptAction.showToast({ message: '加载异常，请检查网络' });
+                    }
+                  }, 3000);
+                })
+      }
+
+
       Web({ src: this.webUrlProduct, controller: this.webviewController})
-        .domStorageAccess(true) // vue或react代码必须打开允许存储开关，否则白屏
-        .javaScriptAccess(true)
-        // 鸿蒙端将方法挂载到H5端window对象
-        .javaScriptProxy({
-          object: this.plusObj,
-          name: "harmonyPlus", // window下对象命名，结构window.harmonyPlus.isImmersedStatusbar()
-          methodList: [ // 同步方法
-            "isImmersedStatusbar",
-            "setStatusBarStyle",
-            "getStatusbarHeight",
-            "scale",
-            "navigator",
-            "toAlipay",
-            "osName",
-            "getItem",
-            "lockOrientation",
-            "webviewOpen",
-            "harmonyCopyText",
-            "backward",
-            "showToast",
-            "quit",
-            "setWindowPrivacyMode"
-          ],
-          asyncMethodList: [""], // 异步方法
-          controller: this.webviewController,
-        })
+              .domStorageAccess(true) // vue或react代码必须打开允许存储开关，否则白屏
+              .javaScriptAccess(true)
+              // 鸿蒙端将方法挂载到H5端window对象
+              .javaScriptProxy({
+                object: this.plusObj,
+                name: "harmonyPlus", // window下对象命名，结构window.harmonyPlus.isImmersedStatusbar()
+                methodList: [ // 同步方法
+                  "isImmersedStatusbar",
+                  "setStatusBarStyle",
+                  "getStatusbarHeight",
+                  "scale",
+                  "navigator",
+                  "toAlipay",
+                  "osName",
+                  "getItem",
+                  "lockOrientation",
+                  "webviewOpen",
+                  "harmonyCopyText",
+                  "backward",
+                  "showToast",
+                  "quit",
+                  "setWindowPrivacyMode"
+                ],
+                asyncMethodList: [""], // 异步方法
+                controller: this.webviewController,
+              })
+              // 网络异常或加载异常回调
+              .onErrorReceive((event) => {
+                this.isErrorReceive = true
+              })
+              // 网页加载完成回调（成功和失败都会触发）
+              .onPageEnd((event)=>{
+                if(!this.isErrorReceive){
+                  this.isPageEnd = true
+                  if (this.timeoutId) {
+                    clearTimeout(this.timeoutId);
+                    this.timeoutId = null;
+                  }
+                }
+              })
     }
   }
 
@@ -123,15 +162,15 @@ struct WebComponent {
     // 触发H5内内自定义返回事件  h5端挂载window.harmonyBack
     try {
       this.webviewController.runJavaScript(
-        'harmonyBack()',
-        (error, result) => {
-          if (error) {
-            return;
-          }
-          if (result) {
-            return
-          }
-        });
+              'harmonyBack()',
+              (error, result) => {
+                if (error) {
+                  return;
+                }
+                if (result) {
+                  return
+                }
+              });
     } catch (error) {
       console.error(`Message: ${(error as BusinessError).message}`);
     }
