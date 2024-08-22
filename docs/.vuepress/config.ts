@@ -273,8 +273,8 @@ module.exports = {
                     children: [
                         '/frontEnd/tools/code/monitor.md',
                         '/frontEnd/tools/code/monitorSDK.md',
-                        '/frontEnd/tools/code/toolFun.md',
                         '/frontEnd/tools/code/code1.md',
+                        '/frontEnd/tools/code/toolFun.md',
                     ],
                 }
             ],

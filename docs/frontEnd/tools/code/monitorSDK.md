@@ -110,9 +110,9 @@ ddd-monitor-sdk/
 ### 公共数据
 ```js
 {
-  appId, // 项目的appId
-  userId, // 用户id
-  type, // 上报类型：error/action/visit/user
+  appId: '', // 项目的appId
+  userId: '', // 用户id
+  type: '', // 上报类型：error/action/visit/user
   title: '', // 当前页title
   url: '', // 当前页url
   timestamp: '', // 当前时间戳
@@ -167,7 +167,7 @@ ddd-monitor-sdk/
     type: 'error', // 上报类型
     message: '', // 异常信息
     error: '', // 异常标题
-    errorType: 'catchError'
+    errorType: 'catchError', // 错误类型，自定义
 }
 ```
 
@@ -179,7 +179,7 @@ ddd-monitor-sdk/
     eventType: '',  // load, error, abort 请求类型
     pathname: '', // 请求路径
     status: '', // 状态码
-    duration, // 持续时间
+    duration: '', // 持续时间
     response: '', // 响应体
     params:'', // 入参
 }
@@ -193,9 +193,9 @@ ddd-monitor-sdk/
     eventType: '', // 响应类型：loadError（连接错误），error（解析错误）
     pathname: '', // 请求地址url
     status: '', // 状态码
-    duration, // 耗时
+    duration: '', // 耗时
     response: '', // 响应体
-    method, // 请求方式
+    method: '', // 请求方式
     params: '', // 入参
 }
 ```
@@ -254,18 +254,19 @@ ddd-monitor-sdk/
 
 ### 性能指标监控
 #### 首次输入延迟
-```
+```js
 {
     type: 'firstInputDelay', // 上报类型
     kind: "experience", // 用户体验指标
     inputDelay:'', // 延迟的时间
     duration: '', // 处理的耗时
     startTime: '', // 开始处理的时间
-    selector: "", // 代表最后一个操作的元素路径
+    selector: : '', // 代表最后一个操作的元素路径
 }
 ```
 #### 时间指标
 ```js
+{
     type: 'timing', // 上报类型
     kind: "experience", // 用户体验指标
     connectTime: '', // TCP连接耗时
@@ -275,15 +276,19 @@ ddd-monitor-sdk/
     domContentLoadedTime: '', // DOMContentLoaded事件回调耗时
     timeToInteractive: '', // 首次可交互时间
     loadTime: '', // 完整的加载时间
+}
+
 ```
 #### 性能指标
 ```js
+{
     type: 'paint', // 上报类型
     kind: "experience", // 用户体验指标
     firstPaint: ', // 首次绘制时间
     firstContentPaint: '', // 首次内容绘制时间
     firstMeaningfulPaint: '', // 首次有意义绘制时间
     largestContentfulPaint: '', // 最大内容绘制时间
+}
 ```
 
 ### 长任务监控(卡顿)
