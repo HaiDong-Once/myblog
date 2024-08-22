@@ -58,7 +58,16 @@ module.exports = {
                     text: 'javaScript',
                     children: [
                         '/frontEnd/base/javaScript/js.md',
+                        '/frontEnd/base/javaScript/practice.md',
                         '/frontEnd/base/javaScript/map.md',
+                    ],
+                }
+            ],
+            '/frontEnd/base/typeScript': [
+                {
+                    text: 'typeScript学习笔记',
+                    children: [
+                        '/frontEnd/base/typeScript/notes.md',
                     ],
                 }
             ],
@@ -130,7 +139,13 @@ module.exports = {
                         '/frontEnd/frame/react/react3.md',
                         '/frontEnd/frame/react/react4.md',
                     ],
-                }
+                },
+                {
+                    text: 'react学习笔记',
+                    children: [
+                        '/frontEnd/frame/react/notes.md',
+                    ],
+                },
             ],
             '/frontEnd/frame/nuxt': [
                 {
@@ -164,6 +179,17 @@ module.exports = {
                         '/frontEnd/frame/harmony/harmony2.md',
                     ],
                 },
+            ],
+            '/frontEnd/project/SDK': [
+                {
+                    text: '前端方案实现',
+                    children: [
+                        '/frontEnd/project/SDK/monitor.md',
+                        '/frontEnd/project/SDK/monitorSDK.md',
+                        '/frontEnd/project/SDK/code1.md',
+                        '/frontEnd/project/SDK/code2.md',
+                    ],
+                }
             ],
             '/frontEnd/project/git': [
                 {
@@ -267,17 +293,6 @@ module.exports = {
                     ],
                 }
             ],
-            '/frontEnd/tools/code': [
-                {
-                    text: '个人代码库',
-                    children: [
-                        '/frontEnd/tools/code/monitor.md',
-                        '/frontEnd/tools/code/monitorSDK.md',
-                        '/frontEnd/tools/code/code1.md',
-                        '/frontEnd/tools/code/toolFun.md',
-                    ],
-                }
-            ],
             '/frontEnd/tools/chatGPT': [
                 {
                     text: 'chatGPT',
@@ -286,6 +301,14 @@ module.exports = {
                         '/frontEnd/tools/chatGPT/gpt2.md',
                         '/frontEnd/tools/chatGPT/gpt3.md',
                         '/frontEnd/tools/chatGPT/gpt4.md'
+                    ],
+                }
+            ],
+            '/frontEnd/tools/code': [
+                {
+                    text: '代码库',
+                    children: [
+                        '/frontEnd/tools/code/toolFun.md',
                     ],
                 }
             ],
@@ -328,6 +351,7 @@ module.exports = {
                 {
                     text: '前端分享',
                     children: [
+                        '/other/share/share_5.md',
                         '/other/share/share_4.md',
                         '/other/share/share.md',
                         '/other/share/share_2.md',
@@ -349,6 +373,9 @@ module.exports = {
                     },
                     {   text: 'javaScript',
                         link: '/frontEnd/base/javaScript/js.md'
+                    },
+                    {   text: 'typeScript',
+                        link: '/frontEnd/base/typeScript/notes.md'
                     },
                     {   text: 'nodejs',
                         link: '/frontEnd/base/nodejs/node.md'
@@ -382,7 +409,10 @@ module.exports = {
             },
             {   text: '前端工程化',
                 children: [
-                    {   text: 'git',
+                    {   text: '前端方案实现',
+                        link: '/frontEnd/project/SDK/monitor.md'
+                    },
+                    {   text: 'git相关',
                         link: '/frontEnd/project/git/git.md'
                     },
                     {   text: 'Webpack5',
@@ -423,11 +453,11 @@ module.exports = {
                     {   text: '开发工具',
                         link: '/frontEnd/tools/tool/tool.md'
                     },
-                    {   text: '个人代码库',
-                        link: '/frontEnd/tools/code/monitor.md'
-                    },
                     {   text: 'chatGPT',
                         link: '/frontEnd/tools/chatGPT/gpt1.md'
+                    },
+                    {   text: '代码库',
+                        link: '/frontEnd/tools/code/toolFun.md'
                     }
                 ],
             },
@@ -474,4 +504,4 @@ module.exports = {
         }),
     ],
 
-}
+};
