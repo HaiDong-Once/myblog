@@ -168,6 +168,7 @@ module.exports = {
                         '/frontEnd/frame/uniapp/uniapp1.md',
                         '/frontEnd/frame/uniapp/uniapp2.md',
                         '/frontEnd/frame/uniapp/uniapp3.md',
+                        '/frontEnd/frame/uniapp/uniapp4.md',
                     ],
                 }
             ],
