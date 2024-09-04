@@ -702,6 +702,21 @@ nav {
 .button {
   @include border-radius(5px);
 }
+
+@mixin button($bg-color, $text-color) {
+  background-color: $bg-color;
+  color: $text-color;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.button-primary {
+  @include button(#3498db, #fff);
+}
+
+.button-secondary {
+  @include button(#2ecc71, #fff);
+}
 ```
 
 - 继承：使用@extend指令继承其他选择器的样式，避免编写重复样式。
@@ -743,6 +758,17 @@ $primary-color: #3498db;
 @import "variables";
 body {
   background-color: $primary-color;
+}
+```
+
+- 计算：响应式布局或精确的像素控制
+```scss
+.container {
+  width: 100% - 20px;
+}
+
+.column {
+  width: 50% - 10px;
 }
 ```
 
@@ -818,4 +844,65 @@ window.addEventListener('resize', function () {
         document.documentElement.style.setProperty('--primary-color', '#3333ff');
     }
 });
+```
+
+### 主题色拓展色
+#### 直接定义变量
+```scss
+$color: #333333;
+$color-30-opacity: rgba($color, 0.3); // 30% 不透明度
+$color-60-opacity: rgba($color, 0.6); // 60% 不透明度
+
+.color-30-opacity {
+  background-color: $color-30-opacity;
+}
+
+.color-60-opacity {
+  background-color: $color-60-opacity;
+}
+```
+#### 直接使用变量+rgba
+```scss
+$color: #333333;
+
+.color-30-opacity {
+  background-color: rgba($color, 0.3); // 30% 不透明度，即 70% 透明度
+}
+
+.color-60-opacity {
+  background-color: rgba($color, 0.6); // 60% 不透明度，即 40% 透明度
+}
+```
+#### 使用mixin
+```scss
+$color: #333333;
+
+@mixin opacity-color($opacity) {
+  background-color: rgba($color, $opacity);
+}
+
+// 使用 mixin
+.color-30-opacity {
+  @include opacity-color(0.3); // 30% 不透明度
+}
+
+.color-60-opacity {
+  @include opacity-color(0.6); // 60% 不透明度
+}
+```
+#### 使用函数
+```scss
+$color: #333333;
+
+@function transparent($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// 使用函数
+.color-30-opacity {
+  background-color: transparent($color, 0.3); // 30% 不透明度
+}
+
+.color-60-opacity {
+  background-color: transparent($color, 0.6); // 60% 不透明度
 ```
