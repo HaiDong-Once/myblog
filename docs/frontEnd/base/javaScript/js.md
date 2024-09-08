@@ -26,6 +26,105 @@ debounce(func, wait) {
 }
 ```
 
+#### return function()作用
+1. **延迟执行**：
+  - 函数返回另一个函数时，返回的函数不会立即执行，而是可以在需要时再执行。这允许你定义函数行为的同时，不立即调用它，只有当条件满足时再执行。
+2. **形成闭包**：
+  - 返回的函数可以形成闭包，也就是说，这个函数可以访问创建它时的作用域中的变量和状态。闭包允许函数在定义的作用域之外，仍然能保持对该作用域中变量的访问。
+3. **参数预先绑定（柯里化）**：
+  - 通过返回一个函数，你可以预先绑定部分参数，允许你构建更加灵活和复用性强的函数（类似于柯里化）。
+4. **控制函数调用时机**：
+  - 返回的函数通常用于事件监听器、回调函数、异步操作等场景，使你能够精准控制函数的调用时机和行为。
+
+#### return function()优点
+1. **避免立即执行**：
+- 返回的函数不会立即执行，而是等待条件满足时再执行，这可以避免不必要的函数调用。
+- 示例：
+```js
+function sayHello() {
+  return function() {
+    console.log('Hello, World!');
+  };
+}
+const greet = sayHello();
+greet();  // 输出: "Hello, World!"
+```
+2. **闭包的好处**：
+- 返回的函数可以访问创建它时的作用域中的变量和状态，这可以用于保存状态、缓存结果等场景。
+- 示例：
+```js
+function counter() {
+  let count = 0;
+  return function() {
+    count++;
+    console.log(count);
+  };
+}
+const increment = counter();
+increment();  // 输出: 1
+increment();  // 输出: 2
+```
+3. **增强复用性（柯里化）**：
+- 返回的函数可以动态生成不同的行为，预先绑定部分参数，从而创建更加灵活和复用性强的函数。
+- 示例：
+```js
+function multiplyBy(factor) {
+  return function(number) {
+    return number * factor;
+  };
+}
+const double = multiplyBy(2);
+console.log(double(5));  // 输出: 10
+```
+4. **减少全局变量的使用**：
+- 返回的函数可以避免直接使用全局变量，从而减少全局作用域的污染和潜在的错误。这在复杂项目中有助于避免变量冲突和命名空间污染。
+
+#### 函数柯里化
+::: tip 定义：
+- **柯里化（Currying）** 是指将一个接收多个参数的函数转换为多个接收单个参数的函数链式调用的技术。
+每次调用返回一个新函数，等待下一个参数，直到所有参数被传递，最终返回结果。
+:::
+1. 简单实现
+```js
+function curry(fn) {
+  return function curried(...args) {
+    // 如果传入的参数数量大于等于原函数所需的参数数量
+    if (args.length >= fn.length) {
+      return fn.apply(this, args); // 立即执行原函数
+    } else {
+      return function(...nextArgs) {
+        return curried.apply(this, args.concat(nextArgs)); // 否则返回一个新函数，接收剩余参数
+      }
+    }
+  };
+}
+```
+2. 示例
+```js
+function add(a, b, c) {
+  return a + b + c;
+}
+
+const curriedAdd = curry(add);
+
+// 可以逐个传递参数
+console.log(curriedAdd(1)(2)(3)); // 输出: 6
+
+// 也可以一次性传递所有参数
+console.log(curriedAdd(1, 2, 3)); // 输出: 6
+
+// 或者传递部分参数
+const addOne = curriedAdd(1);
+const addOneAndTwo = addOne(2);
+console.log(addOneAndTwo(3)); // 输出: 6
+```
+3. 应用场景
+- **参数复用**：柯里化可以用于创建具有固定参数的函数，从而减少重复代码。
+- **延迟计算**：柯里化可以用于延迟计算，直到所有参数都被传递。
+- **函数组合**：柯里化可以用于创建函数组合，将多个函数组合成一个函数。
+- **函数缓存**：柯里化可以用于创建缓存函数，从而提高性能。
+
+
 ### 节流函数
 ::: tip 介绍
 - 特点：约定时间间隔执行一次

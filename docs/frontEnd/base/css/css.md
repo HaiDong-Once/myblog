@@ -327,6 +327,27 @@ text-indent: -5em;
 }
 ```
 
+#### mixin
+```scss
+// 通用的 icon 投影 mixin
+@mixin icon-shadow($width, $height, $shadow-color, $offset-factor: 0.3) {
+  $shadow-offset: $width * $offset-factor;  // 动态计算水平偏移量，基于图标宽度的比例
+  overflow: hidden;  // 隐藏溢出的部分
+  image {
+    width: $width;
+    height: $height;
+    filter: drop-shadow($shadow-offset 0 $shadow-color);  // 应用计算出的投影偏移量
+    position: relative;
+    left: -$shadow-offset;  // 将图标向左偏移相同的距离，隐藏原图标
+  }
+}
+
+// 使用 mixin 的示例
+.button-green {
+  @include icon-shadow(27rpx, 31rpx, #000);  // 默认按比例计算偏移量
+}
+```
+
 
 ### css 按钮点击波纹扩展动画效果
 ![图片](/images/frontEnd/css/gif_1.gif)

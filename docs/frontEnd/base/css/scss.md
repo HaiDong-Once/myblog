@@ -281,13 +281,58 @@ nav {
 - 使用@import可以导入另外的sass文件（在生成css文件时会把相关文件导入进来）。在被导入文件中定义的变量和混合器maxin等均可在导入文件中使用。
 - （1）Css中的@import规则，它允许在一个css文件中导入其他css文件。然而，后果是只有执行到@import时，浏览器才会去下载其他css文件，这导致页面加载起来特别慢。
 - （2）Scss中的@import规则，不同的是，scss的@import规则在生成css文件时就把相关文件导入进来。这意味着所有相关的样式被归纳到了同一个css文件中，而无需发起额外的下载请求。
-- 注：Sass官方目前已经开始打算用 @use 替代 @import 规则，因此鼓励使用 @use。但是，目前只有 Dart Sass 支持 @use，因此，现阶段主要还是使用 @import。
-- scss导入sidebar.scss文件，可以使用如下规则
+- 注：Sass官方目前已经开始打算用 @use 替代 @import 规则，因此鼓励使用 @use。但是，目前**只有 Dart Sass 支持 @use**，因此，现阶段主要还是使用 @import。
 
+#### @import导入
+@import 可以导入其他 SCSS 文件并将其内容插入到当前文件中。导入的文件可以带有或不带有 _ 前缀。如果带有 _ 前缀，SCSS 会将其视为部分文件（partial），不会编译成独立的 CSS 文件。
+- 在文件路径中，不需要指定 .scss 后缀。
+- 如果文件名前带有 _，SCSS 将其视为部分文件，并且不会单独编译这个文件。
 ```scss
-@import "sidebar";
-@import "sidebar.scss";
+// _variables.scss
+$primary-color: #3498db;
+
+// main.scss
+@import 'variables';
+// 或者
+@import 'variables.scss';
+
+body {
+  background-color: $primary-color;
+}
 ```
+
+#### 使用 @use 导入 SCSS 文件（推荐）
+- SCSS 官方推荐使用 @use 代替 @import，因为 **@use 会为导入的文件创建一个命名空间，避免变量、函数、混入等名称的冲突**。
+- 通过 variables.$primary-color 访问变量。相比 @import，这种方式明确了变量或函数的来源，避免命名冲突。
+```scss
+// _variables.scss
+$primary-color: #3498db;
+
+// main.scss
+@use 'variables';
+
+body {
+  background-color: variables.$primary-color;
+}
+```
+1. **命名空间**：默认情况下，@use 会为每个导入的文件创建命名空间，这意味着你需要通过模块名来访问导入的变量或混入。
+2. **重命名模块**：你可以使用 as 关键字为导入的模块创建别名。
+```scss
+@use 'variables' as var;
+
+body {
+  background-color: var.$primary-color;
+}
+```
+3. **加载所有内容到当前命名空间**：使用 * 可以将模块的所有内容加载到当前文件的命名空间中。
+```scss
+@use 'variables' as *;
+
+body {
+  background-color: $primary-color; // 不需要通过命名空间访问
+}
+```
+
 
 - 默认变量值： 通常情况下，在反复多次声明一个变量时，只有最后一个声明有效
 - sass通过!default标签可以实现定义一个默认值（类似css的!important标签对立），!default表示如果变量被声明赋值了则用新声明的值，否则用默认值。
@@ -460,7 +505,6 @@ $property: filter;
 @charset "UTF-8";
 span.emoji-women-holding-hands {
   font-family: IconFont;
-
   content: "👭";
 }
 ```
@@ -471,58 +515,42 @@ span.emoji-women-holding-hands {
 
 ```scss
 p {
-  　　　　 @if 1 + 1 == 2 {
-  border: 1px solid;
-} 　　　　 @if 5 < 3 {
-  border: 2px dotted;
-} 　　
+  　 @if 1 + 1 == 2 {
+      border: 1px solid;
+    } 
+    @if 5 < 3 {
+      border: 2px dotted;
+    }
 }
 
-　　
-
 @if lightness($color) > 30% {
-  　　　　background-color: #000;
-  　　
+  background-color: #000;
 } @else {
-  　　　　background-color: #fff;
-  　　
+  background-color: #fff;
 }
 ```
 
 ### 循环语句for, while,each
 
 ```scss
-　　
-
 @for $i from 1 to 10 {
-  　　　　.border-#{$i} {
-    　　　　　　border: #{$i}px solid blue;
-    　　　　
+  　.border-#{$i} {
+    　　border: #{$i}px solid blue;
   }
-  　　
 }
-
-　　
 
 $i: 6;
-　　
-
-@while $i > 0 {
-  　　　　.item-#{$i} {
+@while $i > 0 { 
+  .item-#{$i} {
     width: 2em * $i;
-  }
-  　　　　 $i: $i - 2;
-  　　
+  } 
+  $i: $i - 2;
 }
 
-　　
-
 @each $member in a, b, c, d {
-  　　　　.#{$member} {
-    　　　　　　background-image: url("/image/#{$member}.jpg");
-    　　　　
+  .#{$member} {
+    background-image: url("/image/#{$member}.jpg");
   }
-  　　
 }
 ```
 
@@ -585,10 +613,8 @@ p {
 
   &__inner {
     -webkit-appearance: none;
-    padding-left: #{$--input-height + 10
-   };
-    padding-right: #{$--input-height + 10
-   };
+    padding-left: #{$--input-height + 10};
+    padding-right: #{$--input-height + 10};
   }
 }
 ```
@@ -601,45 +627,21 @@ p {
 　
 
 @function double($n) {
-  　　　　 @return $n * 2;
-  　　
+  @return $n * 2;
 }
 
-　　#sidebar {
-  　　　　width: double(5px);
-  　　
+#sidebar {
+  width: double(5px);
 }
 ```
 
 ### 颜色函数
 
 ```scss
-　lighten
-(
-#cc3,
-
-10
-%)
-
-// #d6d65c
-　　darken
-(
-#cc3,
-
-10
-%)
-
-//  #a3a329
-　　grayscale
-(
-#cc3
-
-) // #808080
-　　complement
-(
-#cc3
-
-) // #33c
+lighten (#cc3, 10%) // #d6d65c
+darken (#cc3, 10%) //  #a3a329
+grayscale ( #cc3 ) // #808080
+complement( #cc3 ) // #33c
 ```
 
 ## 十二、SCSS 两种注释方式：
@@ -703,11 +705,14 @@ nav {
   @include border-radius(5px);
 }
 
-@mixin button($bg-color, $text-color) {
+@mixin button($bg-color, $text-color, $height: 30px) {
   background-color: $bg-color;
   color: $text-color;
-  padding: 10px;
   border-radius: 5px;
+  text-align: center;
+  font-size: 14px;
+  height: $height;
+  line-height: $height;
 }
 
 .button-primary {
@@ -758,6 +763,12 @@ $primary-color: #3498db;
 @import "variables";
 body {
   background-color: $primary-color;
+}
+
+// main.scss
+@use 'variables';
+body {
+  background-color: variables.$primary-color;
 }
 ```
 
