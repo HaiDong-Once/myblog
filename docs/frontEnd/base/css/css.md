@@ -114,7 +114,7 @@ padding-left: 5em;
 text-indent: -5em;   
 ```
 
-### 苹果浏览器工具类遮挡问题
+### 苹果浏览器工具栏遮挡问题
 在`ios`上使用`safari`浏览器时，
 有时候会发现不出现上下地址栏和工具栏时样式正常，
 但是出现地址栏和工具栏时，部分元素会被工具栏遮挡，
@@ -458,5 +458,54 @@ div{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+```
+
+
+## css将白色背景处理为透明
+::: tip 元素
+mix-blend-mode: multiply  正片叠底：
+描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。
+:::
+
+#### 使用
+```css
+mix-blend-mode: multiply;
+```
+
+#### 效果
+![图片](/images/frontEnd/css/img_4.png)
+![图片](/images/frontEnd/css/img_5.png)
+
+
+
+## 修改input placeholder字体颜色
+```css
+input::-webkit-input-placeholder {
+    color: #ccc;
+}
+input::-moz-input-placeholder {
+    color: #ccc;
+}
+input::-ms-input-placeholder {
+    color: #ccc;
+}
+```
+
+## 淡入滑动动画
+- `cubic-bezier(0.25, 0.1, 0.25, 1)`: 贝塞尔曲线（缓动函数，用于控制动画的速度曲线）
+- `forwards`: 动画结束后保持最后一帧的样式
+```css
+.pop{
+  animation: slideUp 2s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(100%) translateX(670px);
+  }
+  100% {
+    transform: translateY(0) translateX(670px);
+  }
 }
 ```

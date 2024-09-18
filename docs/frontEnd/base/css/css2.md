@@ -1,10 +1,10 @@
 
 
-# css 效果案例
+# css 兼容问题
 [[toc]]
 
 
-## 一、ios浏览器下拉刷新下滑滚动卡顿
+## ios浏览器下拉刷新下滑滚动卡顿
 
 ::: tip 原因
 -webkit-overflow-scrolling:touch 属性导致；
@@ -38,7 +38,7 @@ min-height: calc(100% + 1px)
 
 
 
-## 二、毛玻璃效果，ios，安卓适配问题
+## 毛玻璃效果，ios，安卓适配问题
 
 ::: tip 元素
 backdrop-filter blur()
@@ -82,39 +82,6 @@ color: transparent;
 text-shadow: #111 0 0 5px;
 ```
 
-
-
-## 三、css将白色背景处理为透明
-
-::: tip 元素
-mix-blend-mode: multiply  正片叠底：
-描述了元素的内容应该与元素的直系父元素的内容和元素的背景如何混合。
-:::
-
-### 使用
-```css
-mix-blend-mode: multiply;
-```
-
-### 效果
-![图片](/images/frontEnd/css/img_4.png)
-![图片](/images/frontEnd/css/img_5.png)
-
-
-
-
-## 四、修改input输入框placeholder字体颜色
-```css
-input::-webkit-input-placeholder {
-    color: #ccc;
-}
-input::-moz-input-placeholder {
-    color: #ccc;
-}
-input::-ms-input-placeholder {
-    color: #ccc;
-}
-```
 
 
 

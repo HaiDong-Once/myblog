@@ -369,6 +369,7 @@ class Exposure {
      */
     addDom = (ele, prams) => {
         // 参数添加到dom中
+        if(!ele) return
         if (prams) {
             const exposureData = prams;
             ele.setAttribute(
@@ -390,6 +391,7 @@ class Exposure {
      */
     removeDom = (ele) => {
         // 移除监听
+        if(!ele) return
         this.observer.unobserve(ele);
     };
 }
@@ -571,6 +573,7 @@ class Exposure {
      * @param prams
      */
     addDom = (ele, prams) => {
+        if(!ele) return
         // 参数添加到dom中
         if (prams) {
             const exposureData = prams;
@@ -602,6 +605,7 @@ class Exposure {
      * @param ele
      */
     removeDom = (ele) => {
+        if(!ele) return
         // 移除监听
         if(ele.offsetHeight >= window.innerHeigh){
             this.observer2.unobserve(ele);

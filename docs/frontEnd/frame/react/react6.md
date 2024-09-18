@@ -93,6 +93,7 @@ class Exposure {
      */
     addDom = (ele, prams) => {
         // 参数添加到dom中
+        if(!ele) return
         if (prams) {
             const exposureData = prams;
             ele.setAttribute(
@@ -114,6 +115,7 @@ class Exposure {
      */
     removeDom = (ele) => {
         // 移除监听
+        if(!ele) return
         this.observer.unobserve(ele);
     };
 }
