@@ -14,6 +14,8 @@
 - `v-leave-active`：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
 - `v-leave-to`：2.1.8 版及以上定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 v-leave 被删除)，在过渡/动画完成之后移除。
 
+**总结： `v-enter,v-enter-to, v-leave, v-leave-to`: 定义动画状态（关键点）； `v-enter-active, v-leave-active`: 定义动画行为（动画时间线）**
+
 ![图片](/images/frontEnd/vue/img_2.png)
 
 ### name属性

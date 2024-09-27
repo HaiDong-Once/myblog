@@ -7,6 +7,8 @@
 
 ## 使用案例
 ```js
+import Vue from 'vue';
+
 /**
  * util.js创建组件vue实例
  * EventBus组件通信

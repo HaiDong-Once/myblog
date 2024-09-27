@@ -7,29 +7,33 @@
 #### 1、声明一个 空的Vue模
 ```ts
 import Vue from 'vue';
-// 定义空的vue实例
-var goBackEntity = new Vue({});
-export default goBackEntity;
+
+/**
+ * util.js创建组件vue实例
+ * EventBus组件通信
+ */
+export const EventBus = new Vue();
 ```
 
 #### 2、传参页面
 ```ts
-import eventBus from '../../utils/goBackEntity.js';
+// 父组件：发布订阅
+import { EventBus } from "@/public/util";
  
 goBack(value){
-  eventBus.$emit('id',value);
+  EventBus.$emit('id',value);
   this.$router.go(-1);
 }
 ```
 
 #### 3、接收页面
 ```ts
-import eventBus from '../../utils/goBackEntity.js';
- 
+EventBus
+import { EventBus } from "@/public/util";
  activated(){
-  goBackEntity.$on('id', function(data){
+  EventBus.$on('id', (data) => {
     console.log(data,"data");
-  }.bind(this));
+  });
 }
 ```
 

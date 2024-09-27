@@ -8,8 +8,8 @@ npm install swiper --save
 ### 文件导入
 ```ts
 import Swiper from "swiper";
-import "../../../../public/swiper.css";  // 或者
-import 'swiper/dist/css/swiper.css';  // 或者
+import "../../../../public/swiper.css";
+// 或者 import 'swiper/dist/css/swiper.css';
 ```
 
 ### 应用

@@ -9,19 +9,21 @@
 router.beforeEach((to, from, next) => {
   document.body.scrollTop = 0; 
   document.documentElement.scrollTop = 0; 
-  window.pageYOffset = 0;
+  // window.pageYOffset = 0; 只读属性无需添加
   next();
 });
 
 // 方法二
 const router = new VueRouter({
     scrollBehavior(to, from,savedPosition) {
-        //if判断可加可不加、根据自己需求
-        //savedPosition当且仅当通过浏览器的前进/后退按钮触发时才可用
+        // savedPosition 如果存在，说明用户是通过浏览器的前进/后退按钮进行导航
+        // 此时返回 savedPosition，即滚动到上一个页面的保存位置。
         if (savedPosition) {
             return savedPosition
         }
+        // 如果 savedPosition 不存在（即用户是通过链接或其他方式进行的导航），则默认将页面滚动到顶部
         return {x: 0, y: 0}
     }
 })
 ```
+- savedPosition 当通过浏览器的前进/后退按钮触发时，包含前一个页面的滚动位置；如果不是通过这些按钮触发的，savedPosition 为 null。

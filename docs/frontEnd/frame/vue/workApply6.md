@@ -8,7 +8,7 @@
 ### 解决方法：禁止用户调整字体
 ```css
 /* ios 通过重写样式控制*/
-body { -webkit-text-size-adjust:100%!important; } 
+body { -webkit-text-size-adjust:100%!important; }   /* 禁用文本跟随缩放自动调整 */
 ```
 ```ts
 // android 通过重写事件控制
