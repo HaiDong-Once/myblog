@@ -917,3 +917,87 @@ $color: #333333;
 .color-60-opacity {
   background-color: transparent($color, 0.6); // 60% 不透明度
 ```
+
+### scss 基础应用
+```scss
+  // 创建颜色变量
+  $color-border: #f3f5fb;
+  $color-bg: #f8faff;
+  $color-text: #666666;
+  $color-text-gray: #999999;
+  $color-text-blue: #327bf9;
+  $color-text-black: #333333;
+
+  // 超出...
+  %line-ellipsis{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
+
+  // 毛玻璃效果
+  %backdrop-blur-box{
+    backdrop-filter: blur(4px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  // 公共按钮
+  %button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff;
+    width: 100px;
+    height: 30px;
+    background-image:
+            linear-gradient(90deg,
+                    #ffa72a 0%,
+                    #ff4d2a 100%),
+            linear-gradient(
+                            #ff552a,
+                            #ff552a);
+    background-blend-mode: normal, normal;
+    border-radius: 5px;
+    margin: 25px auto 0;
+    img{
+      width: 16px;
+      height: 15px;
+    }
+  }
+
+  // 动画效果抽离
+  $animation-duration: 1.5s;
+  $animation-cubic-bezier: cubic-bezier(0.25, 0.1, 0.25, 1);
+  @mixin createSlideUpAnimation($name, $translateX) {
+    @keyframes #{$name} {
+      0% {
+        transform: translateY(100%) translateX(#{$translateX}px);
+      }
+      100% {
+        transform: translateY(0) translateX(#{$translateX}px);
+      }
+    }
+  }
+  .floating-entry-consult-pop {
+    position: fixed;
+    bottom: 78px;
+    right: 50%;
+    transform: translateX(588px);
+    width: 615px;
+    height: 95px;
+    cursor: pointer;
+    z-index: 1000;
+    @include createSlideUpAnimation('slideUp-center-consult-pop-588', 588);
+    animation: slideUp-center-consult-pop-588 $animation-duration $animation-cubic-bezier forwards;
+  }
+```

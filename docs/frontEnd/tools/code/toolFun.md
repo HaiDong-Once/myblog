@@ -338,7 +338,19 @@ let Tools = {
      * @param mobile
      */
     hideMobile: function(mobile) {
-        return mobile.replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2")
+        if(!mobile) return '';
+        return mobile.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2');
+    },
+
+
+    /**
+     * 手机号中间四位变成*, 手机号隐藏
+     * @param {string,number} value
+     * @returns {string}
+     */
+    telFormat : function (value) {
+        let tel = String(value);
+        return tel.substr(0,3) + "****" + tel.substr(7);
     },
     
     

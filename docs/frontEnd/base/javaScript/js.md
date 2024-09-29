@@ -627,3 +627,44 @@ Array.isArray(address)
 ```ts
 const { public: { apiBase } } = useRuntimeConfig();
 ```
+
+## 将一维数组分割二位数组
+```js
+  /**
+   * 将数组分割二位数组
+   * @param arr 一维数组
+   * @param groupSize 每组个数
+   * @return [[]] 二位数组
+   */
+  const splitArrayIntoGroups = (arr, groupSize) => {
+    return Array.from({ length: Math.ceil(arr.length / groupSize) }, (_, index) =>
+        arr.slice(index * groupSize, index * groupSize + groupSize)
+    );
+  };
+```
+
+## 检测弹窗与某div是否重叠
+防止弹窗与底部黑色footer模块重叠，影响用户可见性
+```js
+/**
+ * 弹窗是否与footer重叠，重叠主动上调位置
+ * @param element
+ * @param className
+ */
+const checkAndSetBottomOnScroll = (element, className) => {
+    if(!element || !className) return;
+    // 获取元素左下角坐标
+    const rect = element.getBoundingClientRect();
+    const x = rect.left;
+    const y = rect.bottom;
+
+    // 获取左下角下方的所有元素
+    const elementsBelow = document.elementsFromPoint(x, y);
+
+    // 检查是否有包含class的元素
+    const hasClass = elementsBelow.some(el => el.classList.contains(className));
+    if (hasClass) {
+        element.style.bottom = '400px';
+    }
+}
+```

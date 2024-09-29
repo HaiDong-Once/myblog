@@ -138,6 +138,7 @@ module.exports = {
                         '/frontEnd/frame/react/react2.md',
                         '/frontEnd/frame/react/react3.md',
                         '/frontEnd/frame/react/react4.md',
+                        '/frontEnd/frame/react/react7.md',
                     ],
                 },
                 {
