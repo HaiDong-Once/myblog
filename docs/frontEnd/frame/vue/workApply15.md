@@ -76,12 +76,15 @@ class PayModule {
         // 获取页面域名和路径
         let index = window.location.href.indexOf('?')
         if(index !== -1){
+            // string.substring(indexStart（包含）, indexEnd（不包含）) 截取字符串开始索引到结束索引间的内容
             this.return_url = window.location.href.substring(0,index)
         }else{
             this.return_url = window.location.href
         }
         // 检测浏览器类型
         let ua = navigator.userAgent.toLowerCase();
+        // match(/.../i) i 是忽略大小写标志
+        // `${["MicroMessenger"]}` 输出：'micromessenger' 模板字符串将数组结果转换为字符串。
         if (`${ua.match(/MicroMessenger/i)}` === "micromessenger") {
             this.wxBrower = true;
         }

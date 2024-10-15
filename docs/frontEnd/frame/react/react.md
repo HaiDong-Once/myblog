@@ -108,7 +108,7 @@ const Message = ({ message, type = 'info', duration = 3000, style, onClose }) =>
         const timer = setTimeout(() => {
             onClose();
         }, duration);
-        return () => clearTimeout(timer);
+        return () => clearTimeout(timer); // 组件卸载时清除定时器
     }, []);
 
     const getIcon = () => {

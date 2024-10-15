@@ -94,7 +94,7 @@ export default {
     let p3 = this.getCompanyBaseInfo();
     Promise.all([p1,p2,p3]).then(()=>{
       this.$toast.clear()
-    }).catch(()=>{
+    }).finally(()=>{
       this.$toast.clear()
     })
   },
@@ -189,7 +189,7 @@ export default {
     let p3 = this.getAddressData();
     Promise.all([p1,p2,p3]).then(()=>{
       this.$toast.clear()
-    }).catch(()=>{
+    }).finally(()=>{
       this.$toast.clear()
     })
   },

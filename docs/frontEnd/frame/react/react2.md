@@ -39,7 +39,8 @@ import React, { useRef } from 'react';
 function MyComponent() {
   const myRef = useRef(null); // 使用 ref 来获取元素的引用
 
-  const handleClick = () => {
+  const handleClick = () => 
+      // scrollIntoView： 将某个具体的dom元素滚动到可视区域中
     myRef.current.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -64,7 +65,8 @@ const scrollToSection = (id) => {
 
   const element = document.querySelector('#section' + (id+1))
   const top = element.offsetTop ?? 0;
-
+  
+  // scrollTo: 将整个页面滚动到指定的坐标位置
   window.scrollTo({
     top: id && top + - 60,
     behavior: 'smooth'

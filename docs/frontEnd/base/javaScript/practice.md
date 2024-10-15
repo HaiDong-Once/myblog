@@ -49,11 +49,17 @@ const arr2 = []
 
 ### 冒泡排序
 ```js
-/*重复的排序，比较，顺序错误就替换位置*/
+    /*重复的排序，比较，顺序错误就替换位置*/
     /*外层循环次数： length - 1， 内层对比次数: length - i -1*/
     const arr5 = [1, 3, 4, 9, 2, 12, 19, 22, 5, 4, 7]
     // console.log(arr5)
+
+    // 冒泡排序每进行一轮，就能确保将当前未排序部分的最大值移动到正确的位置
+    // （即每轮会有一个元素被置于其最终位置），因此总共需要进行 arr.length - 1 轮。
     for(let i = 0; i < arr5.length - 1; i++){  // 确定整个循环次数，便利多少轮
+        
+        // 内层的 for 循环负责在每一轮中进行实际的比较和交换操作。
+	    // j 的范围从 0 到 arr.length - 1 - i。i 是当前已经排序好的元素数量，所以每一轮后，可以减少内层循环的次数。
         for(let j = 0; j < arr5.length - i - 1; j++){  // 依次对比
             if(arr5[j] > arr5[j + 1]){
                 const temp = arr5[j]
@@ -62,36 +68,10 @@ const arr2 = []
             }
         }
     }
+    
     // console.log(arr5)
     function bubbleSort ( arr ) {
-        let temp;
-        for(let i = 0; i < arr.length - 1; i++){
-            for(let j = 0; j < arr.length - 1 - i; j++){
-                if( arr[j] > arr[j + 1]){
-                    // 位置对调
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp
-                }
-            }
-        }
-        return arr
-    }/*重复的排序，比较，顺序错误就替换位置*/
-    /*外层循环次数： length - 1， 内层对比次数: length - i -1*/
-    const arr5 = [1, 3, 4, 9, 2, 12, 19, 22, 5, 4, 7]
-    // console.log(arr5)
-    for(let i = 0; i < arr5.length - 1; i++){  // 确定整个循环次数，便利多少轮
-        for(let j = 0; j < arr5.length - i - 1; j++){  // 依次对比
-            if(arr5[j] > arr5[j + 1]){
-                const temp = arr5[j]
-                arr5[j] = arr5[j + 1]
-                arr5[j + 1] = temp
-            }
-        }
-    }
-    // console.log(arr5)
-    function bubbleSort ( arr ) {
-        let temp;
+        let temp; // 用于在数组元素交换时存储其中一个元素的值。
         for(let i = 0; i < arr.length - 1; i++){
             for(let j = 0; j < arr.length - 1 - i; j++){
                 if( arr[j] > arr[j + 1]){
@@ -429,3 +409,5 @@ class Commitment {
         console.log(err)
     }
 ```
+
+### 检查屏幕刷新率

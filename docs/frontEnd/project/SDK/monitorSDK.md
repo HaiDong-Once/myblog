@@ -1084,7 +1084,15 @@ export function autoTracker() {
 - img标签上报（避免了跨域问题，但不适合大量数据上报，url长度限制）
 - sendBeacon（无需跨域，不会刷新丢失数据，有兼容问题）
 - sendBeacon上报和img标签上报结合的方式；
-注：以上四种上报方式配置可选，推荐最后一种方式。
+- 注：以上四种上报方式配置可选，推荐最后一种方式。
+
+#### sendBeacon 介绍：
+用于在页面卸载或关闭时，将少量的数据异步发送到服务器。它主要用于在用户离开页面时传递一些分析数据或日志，而不会影响页面的性能或用户体验。
+1.	**异步传输**：与其他的 AJAX 请求不同，sendBeacon 是异步的，不会阻塞页面的卸载操作或用户的下一步交互。
+2.	**在页面关闭时发送**：它非常适合在页面关闭或即将关闭（如页面刷新、导航离开页面等）时发送数据。传统的 AJAX 请求在这些场景下可能无法保证数据传输的成功，
+因为页面关闭可能会中断请求。而 sendBeacon 保证数据能够在页面关闭之前尽可能地发送。
+3.	**低开销的传输**：sendBeacon 的设计是为了尽量减少对资源的占用，适合传输小量数据，尤其是分析数据、事件跟踪、统计信息等。
+4.	**POST 请求**：sendBeacon 发送的是 HTTP POST 请求，发送的数据格式可以是字符串、FormData 或 Blob。
 
 #### 技术实现
 ```js
@@ -1124,6 +1132,8 @@ export function lazyReport(type = '', params = {}) {
         ...extraData, // 公共信息
         ...params, // 上报的数据
     };
+    
+    // 确保数据格式统一
     for (let key in logParams){
         if(typeof logParams[key] === 'number'){
             logParams[key] = `${logParams[key]}`;
@@ -1134,11 +1144,13 @@ export function lazyReport(type = '', params = {}) {
 
     const data = getCache();
 
+    // 立即上报
     if (delay === 0) { // delay=0相当于不做延迟上报
         report(data);
         return;
     }
 
+    // 阈值上报（避免单次上报数据过长）
     if (data.length > 10) {
         report(data);
         clearTimeout(timer);
@@ -1200,7 +1212,7 @@ export function report(data) {
 
     }
 
-        clearCache();
+    clearCache();
 }
 
 ```

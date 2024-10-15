@@ -290,6 +290,7 @@ export default {
       }, 300)
       // 获取窗口滚动高度
       this.currentTop = document.documentElement.scrollTop || document.body.scrollTop
+      // 控制向左贴边或向右侧贴边 中间线为分割点
       if(this.left > this.clientWidth / 2) {
         this.left = this.clientWidth + this.gapWidth / 2
       } else {
@@ -303,6 +304,7 @@ export default {
      */
     handleScrollEnd(){
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      // 停下在防抖间隔内没有再次滚动
       if(scrollTop === this.currentTop) {
         if(this.left > this.clientWidth/2) {
           this.left = this.clientWidth - this.itemWidth - this.gapWidth
@@ -328,13 +330,14 @@ export default {
       // 在拖拽的过程中，组件应该跟随手指的移动而移动。
       floatButton.addEventListener("touchmove", (e) => {
         if(!this.isDrag){
-          let mo=function(e){e.preventDefault();};
-          document.body.style.overflow='hidden';
-          document.addEventListener("touchmove",mo,false)
+          let mo=function(e){e.preventDefault();}; // 阻止 touchmove 事件的默认行为
+          document.body.style.overflow='hidden'; // 禁用页面滚动
+          document.addEventListener("touchmove",mo,false)  // 移除事件监听器
           this.isDrag = true;
         }
         if (e.targetTouches.length === 1) {  // 一根手指
           let touch = e.targetTouches[0]
+          // 获取触摸点相对于视口的水平和垂直坐标。
           this.left = touch.clientX - this.itemWidth
           this.top = touch.clientY - this.itemHeight
         }

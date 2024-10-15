@@ -24,8 +24,8 @@ handleUpload(e) {
   
   const { file } = e;
   this.validateImg(file).then(() => {
-    let data = new FormData();
-    data.append('file', file)
+    let data = new FormData(); // 创建 FormData 对象，用于封装上传数据
+    data.append('file', file) // 将文件对象添加到 FormData 中
     this.$http({
       method: 'POST',
       url: '//upload.........',

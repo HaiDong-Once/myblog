@@ -123,11 +123,53 @@ console.log(addOneAndTwo(3)); // 输出: 6
 - **延迟计算**：柯里化可以用于延迟计算，直到所有参数都被传递。
 - **函数组合**：柯里化可以用于创建函数组合，将多个函数组合成一个函数。
 - **函数缓存**：柯里化可以用于创建缓存函数，从而提高性能。
+```js
+// API请求配置
+function fetchWithConfig(method) {
+  return function(url) {
+    return function(body) {
+      return fetch(url, { method: method, body: JSON.stringify(body) });
+    };
+  };
+}
+
+const post = fetchWithConfig('POST');
+const postToAPI = post('https://api.example.com/data');
+
+postToAPI({ key: 'value' }).then(response => console.log('Posted successfully!'));
+
+
+// 条件逻辑工厂
+function discountCalculator(discount) {
+  return function(price) {
+    return price - (price * discount);
+  };
+}
+
+const tenPercentDiscount = discountCalculator(0.1);
+const twentyPercentDiscount = discountCalculator(0.2);
+
+console.log(tenPercentDiscount(100));  // Outputs: 90
+console.log(twentyPercentDiscount(100));  // Outputs: 80
+
+
+// 组件配置
+const ButtonWithColor = color => Component => props => (
+        <Component {...props} style={{ color: color }} />
+);
+
+const RedButton = ButtonWithColor('red')(Button);
+const GreenButton = ButtonWithColor('green')(Button);
+
+// Use in JSX
+<RedButton onClick={() => console.log("Clicked red button")} />
+<GreenButton onClick={() => console.log("Clicked green button")} />
+```
 
 
 ### 节流函数
 ::: tip 介绍
-- 特点：约定时间间隔执行一次
+- 特点：确保给定时间间隔内只能执行一次，限制最小执行间隔时间，减少高频调用
 - 原理与 防抖函数相同，通过 closure 存储上次执行的时间戳，
 - 当前时间戳和之前的时间戳相比较，如果超过约定时间，则执行一次函数。
 - 举例：鲸鱼每隔30分钟，上浮唤气一次，或者给某人发消息，某人只每天恢复一条
@@ -156,6 +198,7 @@ console.log(addOneAndTwo(3)); // 输出: 6
 - RAF 会尽量以每秒60帧的频率执行回调函数，以确保最佳性能和流畅度。
 - 使用RAF做节流，可以在不阻塞UI线程的情况下限制函数调用的频率，以提高页面的性能和响应速度。
 - 也可以自适应浏览器的帧率。如果浏览器的帧率下降，RAF的频率也会相应下降，这样可以避免浪费过多的 CPU 时间和电量
+- 确保 func 在下一次浏览器重绘前执行，每一帧只能执行一次，可以避免跳帧或性能瓶颈
 ```ts
 /**
  * 默认浏览器刷新率执行函数，
@@ -176,9 +219,6 @@ rafThrottle(func) {
 ```
 
 
-
-
-
 ## promise.all
 
 ::: tip 作用:
@@ -197,10 +237,12 @@ async getData(){
     let p4 = await this.getCompanyData()
     let p5 = this.getLicenseInfo()
     Promise.all([p1,p2,p3,p4,p5]).then(()=>{
-        this.setData({ loading: false })
+        
     }).catch(reason => {
       console.log(reason)
-    });
+    }).finally(() => {
+      this.setData({ loading: false })
+    })
 },
 
 
@@ -220,99 +262,46 @@ getHomeData(){
 
 
 
-## 浅拷贝与深拷贝
-
+## 赋值、浅拷贝、深拷贝
 ::: tip 说明:
-- 浅拷贝是创建一个新对象，这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，
+- 赋值：赋值只是将对象的引用复制给一个新的变量，不会创建新对象；
+- 浅拷贝**创建一个新对象**，但只拷贝对象的**最外层属性**。这个对象有着原始对象属性值的一份精确拷贝。如果属性是基本类型，拷贝的就是基本类型的值，
 **如果属性是引用类型，拷贝的就是内存地址 ，所以如果其中一个对象改变了这个地址，就会影响到另一个对象。**
 - 深拷贝是将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且**修改新对象不会影响原对象。**
 - 总而言之，浅拷贝只复制指向某个对象的指针，而不复制对象本身，**新旧对象还是共享同一块内存。**
 但深拷贝会另外创造一个一模一样的对象，**新对象跟原对象不共享内存**，修改新对象不会改到原对象。
 :::
 
+
+| 类型      | 是否创建新对象 | 修改新对象是否影响原对象 | 适用场景                                       |
+|----------|---------------|-------------------------|------------------------------------------------|
+| **赋值**   | 否             | 会影响                   | 简单的引用传递场景，通常不用于数据处理           |
+| **浅拷贝** | 是             | 嵌套对象会影响            | 当只需要复制对象的最外层，且嵌套对象无需修改时   |
+| **深拷贝** | 是             | 不会影响                 | 当需要完整独立的对象副本，并处理复杂嵌套结构时   |
+
+
 ```ts
-var a1 = {b: {c: {}};
-// 浅拷贝方法a2.b.c === a1.b.c // true 新旧对象还是共享同一块内存
-var a2 = shallowClone(a1); 
+// 赋值
+let obj1 = { a: 1, b: 2 };
+let obj2 = obj1;  // obj2 和 obj1 都指向同一个对象
+obj2.a = 10;
+console.log(obj1.a);  // 输出 10，因为 obj1 和 obj2 是同一个对象
+
+// 浅拷贝
+let obj1 = { a: 1, b: { c: 2 } };
+let obj2 = { ...obj1 };
+obj2.a = 10;
+console.log(obj1.a);  // 输出 1，最外层已拷贝
+obj2.b.c = 20;
+console.log(obj1.b.c);  // 输出 20，嵌套对象仍共享引用
+
+// 深拷贝
 // 深拷贝方法a3.b.c === a1.b.c // false 新对象跟原对象不共享内存
 var a3 = deepClone(a3); 
 ```
 
 ![图片](/images/frontEnd/js/img.png)
 
-### 赋值和深/浅拷贝的区别
-- 当我们把一个对象赋值给一个新的变量时，**赋的其实是该对象的在栈中的地址，而不是堆中的数据。**也就是两个对象指向的是同一个存储空间，
-无论哪个对象发生改变，其实都是改变的存储空间的内容，因此，两个对象是联动的。
-- 浅拷贝：重新在堆中创建内存，拷贝前后对象的基本数据类型互不影响，但拷贝前后对象的引用类型因共享同一块内存，会相互影响。
-- 深拷贝：从堆内存中开辟一个新的区域存放新对象，对对象中的子对象进行递归拷贝,拷贝前后的两个对象互不影响。
-
-```ts
-/*******************对象赋值********************/
-let obj1 = {
-    name : '浪里行舟',
-    arr : [1,[2,3],4],
-};
-let obj2 = obj1;
-obj2.name = "阿浪";
-obj2.arr[1] =[5,6,7] ;
-console.log('obj1',obj1) 
-// obj1 { name: '阿浪', arr: [ 1, [ 5, 6, 7 ], 4 ] }
-console.log('obj2',obj2) 
-// obj2 { name: '阿浪', arr: [ 1, [ 5, 6, 7 ], 4 ] }
-
-
-/*******************浅拷贝********************/
-let obj1 = {
-    name : '浪里行舟',
-    arr : [1,[2,3],4],
-};
-let obj3=shallowClone(obj1)
-obj3.name = "阿浪";
-obj3.arr[1] = [5,6,7] ; // 新旧对象还是共享同一块内存
-// 这是个浅拷贝的方法
-function shallowClone(source) {
-    var target = {};
-    for(var i in source) {
-        if (source.hasOwnProperty(i)) {
-            target[i] = source[i];
-        }
-    }
-    return target;
-}
-console.log('obj1',obj1) 
-// obj1 { name: '浪里行舟', arr: [ 1, [ 5, 6, 7 ], 4 ] }
-console.log('obj3',obj3) 
-// obj3 { name: '阿浪', arr: [ 1, [ 5, 6, 7 ], 4 ] }
-
-
-/*******************深拷贝********************/
-let obj1 = {
-    name : '浪里行舟',
-    arr : [1,[2,3],4],
-};
-let obj4=deepClone(obj1)
-obj4.name = "阿浪";
-obj4.arr[1] = [5,6,7] ; // 新对象跟原对象不共享内存
-// 这是个深拷贝的方法
-function deepClone(obj) {
-    if (obj === null) return obj; 
-    if (obj instanceof Date) return new Date(obj);
-    if (obj instanceof RegExp) return new RegExp(obj);
-    if (typeof obj !== "object") return obj;
-    let cloneObj = new obj.constructor();
-    for (let key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        // 实现一个递归拷贝
-        cloneObj[key] = deepClone(obj[key]);
-      }
-    }
-    return cloneObj;
-}
-console.log('obj1',obj1) 
-// obj1 { name: '浪里行舟', arr: [ 1, [ 2, 3 ], 4 ] }
-console.log('obj4',obj4) 
-// obj4 { name: '阿浪', arr: [ 1, [ 5, 6, 7 ], 4 ] }
-```
 
 ### 浅拷贝的方案
 #### 1、Array.prototype.concat(),   Array.prototype.slice()

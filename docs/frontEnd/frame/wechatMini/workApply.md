@@ -790,15 +790,14 @@ if (page.length > 1) {
 4.存在定时器未回收的问题，定时器是全局的，需要手动回收（未生效）
 - 跳转下一页是清除上一页定时器
 ```ts
-let interval1 = setInterval(_=>{
+let interval1 = null
+interval1 = setInterval(_=>{
       this.start2(++time2)
 },1000)  
-this.setData({
-      interval1: interval1,
-})
+
 onUnload: function () {
     // 清除定时器
-    this.data.interval1 && clearInterval(this.data.interval1)
+    interval1 && clearInterval(interval1)
 }
 ```
 
@@ -1438,6 +1437,8 @@ module.exports = tool;
 ## 全局loading解决方案
 - 未解决同步请求闪烁问题
 - 可以用axios拦截器，或者函数工具封装
+- 扩展：设置一个延迟关闭时间，设置 500 及loading至少展示半秒，防闪烁；或者使用防抖；
+- 扩展：或者只使用 loadingCount 控制，再给定一个超时关闭loading的时间。
 ```ts
 let loadingCount = 0 // 记录当前正在请求的数量
 let isLoading = false // 是否存着loading

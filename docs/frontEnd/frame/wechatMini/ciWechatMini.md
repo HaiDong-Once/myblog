@@ -9,7 +9,7 @@
 梳理了解决方案：
 1. wxs配置文件git远程禁止修改（服务端配置）
 2. 使用小程序ci命令打包上传代码
-3. 上传代码前使用`simle-git`检查当前代码中git是否有变更，防止本地忘记回复配置文件
+3. 上传代码前使用`simle-git`检查当前代码中git是否有变更，防止本地忘记恢复配置文件
 4. 配置小程序ci命令预览生成体验码，提高开发效率（因为小程序开发工具又卡有慢）
 5. 后期可实现`gitlab ci/cd`持续集成发布，无需手动上传
 6. 使用js配置静态资源环境变量取代wxs配置，自动判断当前环境（后续开发使用）
@@ -156,10 +156,11 @@ askMultipleQuestions().then(async (param) => {
 
 
 ## 配置小程序预览生成二维码文件
+扩展：生成二维码后，调用接口，自动上传并发送到钉钉群
 ```js
 // preview.js
-const ci = require('miniprogram-ci')
-;(async () => {
+const ci = require('miniprogram-ci');
+(async () => {
     //  创建项目对象
     console.log('########### 正在创建小程序预览二维码 ############')
     const project = new ci.Project({
@@ -283,6 +284,10 @@ npm install simple-git
 ```
 
 ### 重写page对象每一页设置cdnUrl变量
+扩展：重写 page 对象，新增一个 `buildStatic` 方法，保持以下原有使用方式和习惯
+```html
+<image src="{{filter.buildStatic('/map/mapServe/success-red-icon.png')}}"></image>
+```
 ```js
 // shuidi-page.js
 const app = getApp()
