@@ -353,6 +353,7 @@ module.exports = {
                 {
                     text: '前端分享',
                     children: [
+                        '/other/share/share_6.md',
                         '/other/share/share_5.md',
                         '/other/share/share_4.md',
                         '/other/share/share.md',
