@@ -480,7 +480,17 @@ mix-blend-mode: multiply;
 
 
 ## 修改input placeholder字体颜色
-```css
+```scss
+input {
+  &::placeholder {
+     color: #999;       
+     font-size: 14px;   
+     font-style: italic; 
+     font-weight: 300;
+   }
+}
+
+// css
 input::-webkit-input-placeholder {
     color: #ccc;
 }
@@ -506,6 +516,42 @@ input::-ms-input-placeholder {
   }
   100% {
     transform: translateY(0) translateX(670px);
+  }
+}
+```
+
+## 后代选择器和并列选择器
+- **后代选择器** <br>
+`.content .box`：选择 class 为 content 元素的后代中 class 为 box 的元素（嵌套结构）。
+```html
+<div class="content">
+  <div class="box">Example</div> <!-- 匹配 -->
+</div>
+```
+scss中写法
+```scss
+.content {
+  background-color: lightgray;
+  color: black;
+
+  .box {
+    background-color: darkgray;
+  }
+}
+```
+- **并列选择器** <br>
+`.content.box`：选择同时具有 content 和 box 两个 class 的同一个元素（同一个元素有两个类）。
+```html
+ 匹配：<div class="content box">Example</div>
+```
+scss中写法
+```scss
+.content {
+  background-color: lightgray;
+  color: black;
+
+  &.box {
+    background-color: darkgray;
   }
 }
 ```
