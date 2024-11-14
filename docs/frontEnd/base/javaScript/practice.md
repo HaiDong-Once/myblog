@@ -5,14 +5,18 @@
 
 ### 数组求最大值
 ```js
-    const arr =  [1, 22, 4, 9, 66, 0]
+function getMaxNumber(arr){
+    if(!arr || !Array.isArray(arr) || arr.length === 0){
+        return
+    }
     let maxNumber = arr[0]
-    for(let i = 1; i < arr.length; i++){
-        if(maxNumber < arr[i]){
-            maxNumber = arr[i]
+    for(let item of arr) {
+        if(item > maxNumber) {
+            maxNumber = item
         }
     }
-    // console.log(maxNumber)
+    return maxNumber
+}
 ```
 
 ### 数组新增
@@ -70,14 +74,15 @@ const arr2 = []
     }
     
     // console.log(arr5)
-    function bubbleSort ( arr ) {
-        let temp; // 用于在数组元素交换时存储其中一个元素的值。
+    function bubbleSort(arr) {
+        let temp = null
+        // 需要对比的次数：数组长度 - 1 （确定好n-1个值的位置，剩下最后一个也就确定了）
         for(let i = 0; i < arr.length - 1; i++){
+            // 实际比较交换的次数：外层对比次数(arr.length - 1) - 已经排序号的元素(i)
             for(let j = 0; j < arr.length - 1 - i; j++){
-                if( arr[j] > arr[j + 1]){
-                    // 位置对调
-                    temp = arr[j];
-                    arr[j] = arr[j + 1];
+                if(arr[j] > arr[j + 1]){
+                    temp = arr[j]
+                    arr[j] = arr[j + 1]
                     arr[j + 1] = temp
                 }
             }
@@ -177,7 +182,7 @@ const arr2 = []
     [a, b] = [b, a]
 ```
 
-### class创建内部变量合function
+### class创建内部变量和function
 ```js
 class Bullshit {
         static welcome_tips () {
@@ -239,7 +244,7 @@ class Bullshit {
 
 ### 函数柯里化
 ```js
-function uri( protocol, hostname, pathname ) {
+    function uri( protocol, hostname, pathname ) {
         return `${protocol}${hostname}${pathname}`
     }
     const uri1 = uri('https://', 'www.test.com', '/dir')

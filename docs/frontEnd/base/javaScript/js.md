@@ -5,6 +5,10 @@
 
 
 ## 防抖节流
+### 区别和共性
+- **防抖**：多次事件中只响应最后一次，适合处理需要等用户操作稳定后再进行的操作。例如搜索建议、调整窗口大小等。
+- **节流**：限制函数的执行频率，适合那些高频触发但不需要频繁响应的操作，例如页面滚动、按钮点击等。
+- 共性: 避免不必要的频繁调用，提升性能和用户体验
 
 ### 防抖函数
 ::: tip 介绍
@@ -18,7 +22,7 @@
 debounce(func, wait) {
   let timer = null;
   return function (...args) {
-    clearTimeout(timer);
+    timer && clearTimeout(timer); // es5兼容
     timer = setTimeout(() => {
       func.apply(this, args);
     }, wait);
@@ -26,15 +30,67 @@ debounce(func, wait) {
 }
 ```
 
+### 节流函数
+::: tip 介绍
+- 特点：确保给定时间间隔内只能执行一次，限制最小执行间隔时间，减少高频调用
+- 原理与 防抖函数相同，通过 closure 存储上次执行的时间戳，
+- 当前时间戳和之前的时间戳相比较，如果超过约定时间，则执行一次函数。
+- 举例：鲸鱼每隔30分钟，上浮唤气一次，或者给某人发消息，某人只每天恢复一条
+:::
+
+```ts
+ throttle(func, interval) {
+  let lastTimeStamp = 0;
+  return function () {
+    let curDate = Date.now();
+    const diff = curDate - lastTimeStamp;
+    if (diff > interval) {
+      func.apply(this, arguments);
+      lastTimeStamp = curDate;
+    }
+  };
+}
+```
+
+### requestAnimationFrame 防抖
+- 由于RAF本身的机制，在使用RAF进行防抖时，我们需要记录上一次RAF回调函数的时间戳，
+- 然后在下一次RAF回调时检查当前时间戳是否大于某个特定的时间间隔，从而确定是否执行回调函数。
+- 这样会导致RAF的回调函数执行频率并不稳定，而是随着浏览器的渲染帧率而变化，这对于防抖并不是非常合适。
+
+### requestAnimationFrame 节流
+- RAF 会尽量以每秒60帧的频率执行回调函数，以确保最佳性能和流畅度。
+- 使用RAF做节流，可以在**不阻塞UI线程**的情况下限制函数调用的频率，以提高页面的性能和响应速度。
+- 也可以自适应浏览器的帧率。如果浏览器的帧率下降，RAF的频率也会相应下降，这样可以避免浪费过多的 CPU 时间和电量
+- **确保 func 在下一次浏览器重绘前执行，每一帧只能执行一次，可以避免跳帧或性能瓶颈**
+```ts
+/**
+ * 默认浏览器刷新率执行函数，
+ * @param func
+ * @returns {(function(...[*]): void)|*}
+ */
+rafThrottle(func) {
+  let lock = false;
+  return function (...args) {
+    if (lock) return;
+    lock = true;
+    window.requestAnimationFrame(() => {
+      func.apply(this, args);
+      lock = false;
+    });
+  };
+}
+```
+
+## return function
 #### return function()作用
 1. **延迟执行**：
-  - 函数返回另一个函数时，返回的函数不会立即执行，而是可以在需要时再执行。这允许你定义函数行为的同时，不立即调用它，只有当条件满足时再执行。
+- 函数返回另一个函数时，返回的函数不会立即执行，而是可以在需要时再执行。这允许你定义函数行为的同时，不立即调用它，只有当条件满足时再执行。
 2. **形成闭包**：
-  - 返回的函数可以形成闭包，也就是说，这个函数可以访问创建它时的作用域中的变量和状态。闭包允许函数在定义的作用域之外，仍然能保持对该作用域中变量的访问。
+- 返回的函数可以形成闭包，也就是说，这个函数可以访问创建它时的作用域中的变量和状态。闭包允许函数在定义的作用域之外，仍然能保持对该作用域中变量的访问。
 3. **参数预先绑定（柯里化）**：
-  - 通过返回一个函数，你可以预先绑定部分参数，允许你构建更加灵活和复用性强的函数（类似于柯里化）。
+- 通过返回一个函数，你可以预先绑定部分参数，允许你构建更加灵活和复用性强的函数（类似于柯里化）。
 4. **控制函数调用时机**：
-  - 返回的函数通常用于事件监听器、回调函数、异步操作等场景，使你能够精准控制函数的调用时机和行为。
+- 返回的函数通常用于事件监听器、回调函数、异步操作等场景，使你能够精准控制函数的调用时机和行为。
 
 #### return function()优点
 1. **避免立即执行**：
@@ -79,11 +135,12 @@ console.log(double(5));  // 输出: 10
 4. **减少全局变量的使用**：
 - 返回的函数可以避免直接使用全局变量，从而减少全局作用域的污染和潜在的错误。这在复杂项目中有助于避免变量冲突和命名空间污染。
 
-#### 函数柯里化
+
+## 函数柯里化
 ::: tip 定义：
 - **柯里化（Currying）** 是指将一个接收多个参数的函数转换为多个接收单个参数的函数链式调用的技术。
-每次调用返回一个新函数，等待下一个参数，直到所有参数被传递，最终返回结果。
-:::
+  每次调用返回一个新函数，等待下一个参数，直到所有参数被传递，最终返回结果。
+  :::
 1. 简单实现
 ```js
 function curry(fn) {
@@ -92,8 +149,10 @@ function curry(fn) {
     if (args.length >= fn.length) {
       return fn.apply(this, args); // 立即执行原函数
     } else {
+      // 否则返回一个新函数，接收剩余参数
       return function(...nextArgs) {
-        return curried.apply(this, args.concat(nextArgs)); // 否则返回一个新函数，接收剩余参数
+        // 递归调用 curried，直到所有参数都收集齐全。
+        return curried.apply(this, args.concat(nextArgs)); 
       }
     }
   };
@@ -165,59 +224,6 @@ const GreenButton = ButtonWithColor('green')(Button);
 <RedButton onClick={() => console.log("Clicked red button")} />
 <GreenButton onClick={() => console.log("Clicked green button")} />
 ```
-
-
-### 节流函数
-::: tip 介绍
-- 特点：确保给定时间间隔内只能执行一次，限制最小执行间隔时间，减少高频调用
-- 原理与 防抖函数相同，通过 closure 存储上次执行的时间戳，
-- 当前时间戳和之前的时间戳相比较，如果超过约定时间，则执行一次函数。
-- 举例：鲸鱼每隔30分钟，上浮唤气一次，或者给某人发消息，某人只每天恢复一条
-:::
-
-```ts
- throttle(func, interval) {
-  let lastTimeStamp = 0;
-  return function () {
-    let curDate = Date.now();
-    const diff = curDate - lastTimeStamp;
-    if (diff > interval) {
-      func.apply(this, arguments);
-      lastTimeStamp = curDate;
-    }
-  };
-}
-```
-
-### requestAnimationFrame 防抖
-- 由于RAF本身的机制，在使用RAF进行防抖时，我们需要记录上一次RAF回调函数的时间戳，
-- 然后在下一次RAF回调时检查当前时间戳是否大于某个特定的时间间隔，从而确定是否执行回调函数。
-- 这样会导致RAF的回调函数执行频率并不稳定，而是随着浏览器的渲染帧率而变化，这对于防抖并不是非常合适。
-
-### requestAnimationFrame 节流
-- RAF 会尽量以每秒60帧的频率执行回调函数，以确保最佳性能和流畅度。
-- 使用RAF做节流，可以在不阻塞UI线程的情况下限制函数调用的频率，以提高页面的性能和响应速度。
-- 也可以自适应浏览器的帧率。如果浏览器的帧率下降，RAF的频率也会相应下降，这样可以避免浪费过多的 CPU 时间和电量
-- 确保 func 在下一次浏览器重绘前执行，每一帧只能执行一次，可以避免跳帧或性能瓶颈
-```ts
-/**
- * 默认浏览器刷新率执行函数，
- * @param func
- * @returns {(function(...[*]): void)|*}
- */
-rafThrottle(func) {
-  let lock = false;
-  return function (...args) {
-    if (lock) return;
-    lock = true;
-    window.requestAnimationFrame(() => {
-      func.apply(this, args);
-      lock = false;
-    });
-  };
-}
-```
-
 
 ## promise.all
 
@@ -369,7 +375,7 @@ console.log(newData)
 
 #### 4、通过for in实现
 ```ts
-function deepCopy1(obj) {
+function shallowCopy(obj) {
   let o = {}
   for(let key in obj) {
     o[key] = obj[key]
@@ -382,7 +388,7 @@ let obj = {
   b: undefined,
   c:function() {},
 }
-console.log(deepCopy1(obj))
+console.log(shallowCopy(obj))
 ```
 
 ### 深拷贝
@@ -419,24 +425,27 @@ function deepCopy(obj){
 
 #### 2、递归方法
 ```ts
-function deepClone1(obj) {
-  // 判断拷贝的要进行深拷贝的是数组还是对象，
-  // 是数组的话进行数组拷贝，对象的话进行对象拷贝
-  var objClone = Array.isArray(obj) ? [] : {};
-  //进行深拷贝的不能为空，并且是对象或者是
-  if (obj && typeof obj === "object") {
-    for (key in obj) {
-      if (obj.hasOwnProperty(key)) {
-        if (obj[key] && typeof obj[key] === "object") {
-          objClone[key] = deepClone1(obj[key]);
-        } else {
-          objClone[key] = obj[key];
-        }
+function deepClone(obj) {
+  if(!obj){
+    console.warn('参数异常')
+    return
+  }
+  if(typeof obj !== 'object'){
+    return obj
+  }
+
+  let objClone = Array.isArray(obj) ? [] : {}
+  for(let key in obj) {
+    if(obj.hasOwnProperty(key)) {
+      if(obj[key] && typeof obj[key] === 'object') {
+        objClone[key] = deepClone(obj[key])
+      }else{
+        objClone[key] = obj[key]
       }
     }
   }
-  return objClone;
-}  
+  return objClone
+}
 ```
 
 #### 3、structuredClone  API实现（性能更好），兼容性未完全开放
@@ -606,10 +615,17 @@ function isEmpty(obj) {
 }
 ```
 
-## 判断数组是否为空
+## 判断是否数组类型
 ```ts
 let address =[1,2,3]
 Array.isArray(address)
+```
+
+## 判断数组是否为空
+```ts
+function isArrayEmpty(arr) {
+    return Array.isArray(arr) && arr.length === 0
+}
 ```
 
 ## 嵌套解构对象
