@@ -1,0 +1,1 @@
+import{_ as t,o as a,c as r,a as e,d as c}from"./app.8430cabb.js";const o={},s=e("h1",{id:"html-\u57FA\u7840",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#html-\u57FA\u7840","aria-hidden":"true"},"#"),c(" html \u57FA\u7840")],-1),_=[s];function h(l,n){return a(),r("div",null,_)}var i=t(o,[["render",h],["__file","html.html.vue"]]);export{i as default};
