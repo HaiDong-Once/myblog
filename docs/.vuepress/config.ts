@@ -1,14 +1,16 @@
 const {defaultTheme} = require('vuepress')
 const {searchPlugin} = require('@vuepress/plugin-search')
+const path = require('path')
 
 module.exports = {
     base: '/myblog/',
     lang: 'zh-CN',
     title: 'ddd`s blog',
     description: 'ddd`s的blog站点',
-    head: [['link', {rel: 'icon', href: 'https://shuziren.fsh.bcebos.com/logo-my.png?authorization=bce-auth-v1/1224cab966e349de9a27cd0d3bbfa43b/2023-05-07T15%3A41%3A52Z/-1/host/e180ea4a66167e54a4858545b9f06b9f3339e15f820aafe3fc8e6eff8c58e101'}]],
+    head: [['link', {rel: 'icon', href: '/images/person/header-logo.png'}]],
+    
     theme: defaultTheme({
-        logo: 'https://shuziren.fsh.bcebos.com/logo-my.png?authorization=bce-auth-v1/1224cab966e349de9a27cd0d3bbfa43b/2023-05-07T15%3A41%3A52Z/-1/host/e180ea4a66167e54a4858545b9f06b9f3339e15f820aafe3fc8e6eff8c58e101',
+        logo: '/images/person/header-logo.png',
         sidebar: {
             '/frontEnd/base/browser': [
                 {
@@ -220,6 +222,7 @@ module.exports = {
                 {
                     text: '代码规范',
                     children: [
+                        '/frontEnd/project/standard/codeStandard2.md',
                         '/frontEnd/project/standard/codeStandard.md',
                     ],
                 }
@@ -362,7 +365,16 @@ module.exports = {
                     ],
                 }
             ],
-
+            '/AI': [
+                {
+                    text: 'Cursor',
+                    children: [
+                        '/AI/cursor/cursor-workflow1.md',
+                        '/AI/cursor/cursor-workflow3.md',
+                        '/AI/cursor/cursor-workflow2.md',
+                    ],
+                }
+            ],
         },
         // 默认主题配置
         navbar: [
@@ -422,7 +434,7 @@ module.exports = {
                         link: '/frontEnd/project/webpack/Webpack5.md'
                     },
                     {   text: '代码规范',
-                        link: '/frontEnd/project/standard/codeStandard.md'
+                        link: '/frontEnd/project/standard/codeStandard2.md'
                     },
                     {   text: '前端测试',
                         link: '/frontEnd/project/test/test.md'
@@ -433,6 +445,13 @@ module.exports = {
                     {   text: '包管理工具',
                         link: '/frontEnd/project/package/package.md'
                     },
+                ],
+            },
+            {   text: 'AI应用',
+                children: [
+                    {   text: 'Cursor',
+                        link: '/AI/cursor/cursor-workflow1.md'
+                    }
                 ],
             },
             {   text: '性能优化',

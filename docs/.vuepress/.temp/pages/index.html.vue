@@ -1,1 +1,2 @@
-<template><div></div></template>
+<template><div><LatestPosts />
+</div></template>
