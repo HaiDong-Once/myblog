@@ -50,6 +50,7 @@ export const pagesRoutes = [
   ["v-0c7cfd2d","/frontEnd/frame/react/react5.html",{"title":"百度地图api react应用案例"},["/frontEnd/frame/react/react5","/frontEnd/frame/react/react5.md"]],
   ["v-0e31d5cc","/frontEnd/frame/react/react6.html",{"title":"react曝光埋点解决方案"},["/frontEnd/frame/react/react6","/frontEnd/frame/react/react6.md"]],
   ["v-0fe6ae6b","/frontEnd/frame/react/react7.html",{"title":"react 父组件调用子组件方法"},["/frontEnd/frame/react/react7","/frontEnd/frame/react/react7.md"]],
+  ["v-119b870a","/frontEnd/frame/react/react8.html",{"title":"前端组件：pc端通用新手引导组件最佳实践"},["/frontEnd/frame/react/react8","/frontEnd/frame/react/react8.md"]],
   ["v-70fae711","/frontEnd/frame/uniapp/uniapp1.html",{"title":"创建vue3 + vite + Ts + sass +pinia + uniapp 项目"},["/frontEnd/frame/uniapp/uniapp1","/frontEnd/frame/uniapp/uniapp1.md"]],
   ["v-72afbfb0","/frontEnd/frame/uniapp/uniapp2.html",{"title":"js  mixin抽离公共方法和data字段等"},["/frontEnd/frame/uniapp/uniapp2","/frontEnd/frame/uniapp/uniapp2.md"]],
   ["v-7464984f","/frontEnd/frame/uniapp/uniapp3.html",{"title":"uniapp ucharts使用案例"},["/frontEnd/frame/uniapp/uniapp3","/frontEnd/frame/uniapp/uniapp3.md"]],

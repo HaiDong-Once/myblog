@@ -103,6 +103,8 @@ export const pagesComponents = {
   "v-0e31d5cc": defineAsyncComponent(() => import(/* webpackChunkName: "v-0e31d5cc" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/react/react6.html.vue")),
   // path: /frontEnd/frame/react/react7.html
   "v-0fe6ae6b": defineAsyncComponent(() => import(/* webpackChunkName: "v-0fe6ae6b" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/react/react7.html.vue")),
+  // path: /frontEnd/frame/react/react8.html
+  "v-119b870a": defineAsyncComponent(() => import(/* webpackChunkName: "v-119b870a" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/react/react8.html.vue")),
   // path: /frontEnd/frame/uniapp/uniapp1.html
   "v-70fae711": defineAsyncComponent(() => import(/* webpackChunkName: "v-70fae711" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/uniapp/uniapp1.html.vue")),
   // path: /frontEnd/frame/uniapp/uniapp2.html

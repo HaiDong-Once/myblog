@@ -134,6 +134,7 @@ module.exports = {
                 {
                     text: 'react应用',
                     children: [
+                        '/frontEnd/frame/react/react8.md',
                         '/frontEnd/frame/react/react.md',
                         '/frontEnd/frame/react/react6.md',
                         '/frontEnd/frame/react/react5.md',

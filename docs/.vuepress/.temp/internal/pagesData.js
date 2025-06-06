@@ -101,6 +101,8 @@ export const pagesData = {
   "v-0e31d5cc": () => import(/* webpackChunkName: "v-0e31d5cc" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/react/react6.html.js").then(({ data }) => data),
   // path: /frontEnd/frame/react/react7.html
   "v-0fe6ae6b": () => import(/* webpackChunkName: "v-0fe6ae6b" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/react/react7.html.js").then(({ data }) => data),
+  // path: /frontEnd/frame/react/react8.html
+  "v-119b870a": () => import(/* webpackChunkName: "v-119b870a" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/react/react8.html.js").then(({ data }) => data),
   // path: /frontEnd/frame/uniapp/uniapp1.html
   "v-70fae711": () => import(/* webpackChunkName: "v-70fae711" */"C:/personalCode/myblog/docs/.vuepress/.temp/pages/frontEnd/frame/uniapp/uniapp1.html.js").then(({ data }) => data),
   // path: /frontEnd/frame/uniapp/uniapp2.html

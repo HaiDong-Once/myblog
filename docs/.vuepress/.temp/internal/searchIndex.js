@@ -2790,6 +2790,214 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "前端组件：pc端通用新手引导组件最佳实践",
+    "headers": [
+      {
+        "level": 2,
+        "title": "组件功能背景",
+        "slug": "组件功能背景",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "组件功能介绍",
+        "slug": "组件功能介绍",
+        "children": [
+          {
+            "level": 3,
+            "title": "核心特性",
+            "slug": "核心特性",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "技术特点",
+            "slug": "技术特点",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "效果预览",
+        "slug": "效果预览",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "设计思路",
+        "slug": "设计思路",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 架构设计",
+            "slug": "_1-架构设计",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 核心算法",
+            "slug": "_2-核心算法",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 状态管理",
+            "slug": "_3-状态管理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "使用方法",
+        "slug": "使用方法",
+        "children": [
+          {
+            "level": 3,
+            "title": "基本使用",
+            "slug": "基本使用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "参数配置",
+            "slug": "参数配置",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "步骤配置说明",
+            "slug": "步骤配置说明",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "使用案例",
+        "slug": "使用案例",
+        "children": [
+          {
+            "level": 3,
+            "title": "案例1：新用户引导",
+            "slug": "案例1-新用户引导",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "案例2：功能更新引导",
+            "slug": "案例2-功能更新引导",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "技术要点分析",
+        "slug": "技术要点分析",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 高亮效果的实现",
+            "slug": "_1-高亮效果的实现",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 动态位置计算",
+            "slug": "_2-动态位置计算",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 边界处理",
+            "slug": "_3-边界处理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 内存泄漏防护",
+            "slug": "_4-内存泄漏防护",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "最佳实践",
+        "slug": "最佳实践",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 引导内容设计",
+            "slug": "_1-引导内容设计",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 性能优化",
+            "slug": "_2-性能优化",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 用户体验",
+            "slug": "_3-用户体验",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "扩展功能",
+        "slug": "扩展功能",
+        "children": [
+          {
+            "level": 3,
+            "title": "可配置主题",
+            "slug": "可配置主题",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "动画效果增强",
+            "slug": "动画效果增强",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "总结",
+        "slug": "总结",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "完整代码",
+        "slug": "完整代码",
+        "children": [
+          {
+            "level": 3,
+            "title": "index.jsx",
+            "slug": "index-jsx",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "index.scss",
+            "slug": "index-scss",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/frontEnd/frame/react/react8.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "创建vue3 + vite + Ts + sass +pinia + uniapp 项目",
     "headers": [
       {
