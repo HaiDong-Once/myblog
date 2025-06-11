@@ -196,6 +196,17 @@ module.exports = {
                     ],
                 }
             ],
+            '/frontEnd/project/microFrontend': [
+                {
+                    text: '微前端',
+                    children: [
+                        '/frontEnd/project/microFrontend/qiankun4.md',
+                        '/frontEnd/project/microFrontend/qiankun3.md',
+                        '/frontEnd/project/microFrontend/qiankun2.md',
+                        '/frontEnd/project/microFrontend/qiankun1.md',
+                    ],
+                }
+            ],
             '/frontEnd/project/git': [
                 {
                     text: 'git',
@@ -427,6 +438,9 @@ module.exports = {
                 children: [
                     {   text: '前端方案实现',
                         link: '/frontEnd/project/SDK/monitor.md'
+                    },
+                    {   text: '微前端',
+                        link: '/frontEnd/project/microFrontend/qiankun1.md'
                     },
                     {   text: 'git相关',
                         link: '/frontEnd/project/git/git.md'
