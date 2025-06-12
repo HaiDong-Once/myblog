@@ -30,6 +30,20 @@ export default {
     return {
       latestPosts: [
         {
+          title: 'Vue弹窗组件改造',
+          description: 'Vue弹窗组件改造，从模板调用到JS函数调用实现',
+          category: 'Vue框架',
+          path: '/frontEnd/frame/vue/workApply28.md',
+          lastUpdated: new Date('2025/6/12 18:00:05') 
+        },
+        {
+          title: 'SSE客户端封装',
+          description: 'SSE客户端封装，打造流畅的AI对话体验',
+          category: 'AI应用',
+          path: '/AI/apply/SSE.md',
+          lastUpdated: new Date('2025/6/12 17:50:05') 
+        },
+        {
           title: 'qiankun老项目渐进式升级方案',
           description: 'jQuery + React 老项目渐进式升级方案最佳实践',
           category: '微前端',

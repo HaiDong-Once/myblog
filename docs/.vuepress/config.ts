@@ -86,6 +86,7 @@ module.exports = {
                     text: 'vue应用实例',
                     children: [
                         '/frontEnd/frame/vue/workApply1.md',
+                        '/frontEnd/frame/vue/workApply28.md',
                         '/frontEnd/frame/vue/workApply27.md',
                         '/frontEnd/frame/vue/workApply26.md',
                         '/frontEnd/frame/vue/workApply2.md',
@@ -310,14 +311,15 @@ module.exports = {
                     ],
                 }
             ],
-            '/frontEnd/tools/chatGPT': [
+            '/AI/apply': [
                 {
-                    text: 'chatGPT',
+                    text: 'AI应用',
                     children: [
-                        '/frontEnd/tools/chatGPT/gpt1.md',
-                        '/frontEnd/tools/chatGPT/gpt2.md',
-                        '/frontEnd/tools/chatGPT/gpt3.md',
-                        '/frontEnd/tools/chatGPT/gpt4.md'
+                        '/AI/apply/gpt1.md',
+                        '/AI/apply/gpt2.md',
+                        '/AI/apply/gpt3.md',
+                        '/AI/apply/gpt4.md',
+                        '/AI/apply/SSE.md',
                     ],
                 }
             ],
@@ -392,9 +394,9 @@ module.exports = {
         navbar: [
             {   text: '前端基础',
                 children: [
-                    {   text: 'html',
-                        link: '/frontEnd/base/html/html.md'
-                    },
+                    // {   text: 'html',
+                    //     link: '/frontEnd/base/html/html.md'
+                    // },
                     {   text: 'css',
                         link: '/frontEnd/base/css/scss.md'
                     },
@@ -466,7 +468,10 @@ module.exports = {
                 children: [
                     {   text: 'Cursor',
                         link: '/AI/cursor/cursor-workflow1.md'
-                    }
+                    },
+                    {   text: 'AI应用',
+                        link: '/AI/apply/gpt1.md'
+                    },
                 ],
             },
             {   text: '性能优化',
@@ -489,9 +494,6 @@ module.exports = {
                     },
                     {   text: '开发工具',
                         link: '/frontEnd/tools/tool/tool.md'
-                    },
-                    {   text: 'chatGPT',
-                        link: '/frontEnd/tools/chatGPT/gpt1.md'
                     },
                     {   text: '代码库',
                         link: '/frontEnd/tools/code/toolFun.md'
