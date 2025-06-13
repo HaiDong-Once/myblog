@@ -39,7 +39,7 @@
 | Agent Requested | 规则可供AI使用，由AI决定是否纳入。必须提供描述 |
 | Manual          | 仅在明确提及使用时才包含@ruleName     |
 
-![image\_322.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/62ead0b3b6994d3084308f7da3863907~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637988&x-orig-sign=tzzPdTJNOptqYmkmaWu1KV3DaXU%3D)
+![image_322.png](/images/cursor/cursor-workflow2/image_322.png)
 
 ### **Rules示例：**
 
@@ -61,13 +61,13 @@
 
 设置，rules中选择add new rules，会自动穿件.cursor/rules文件
 
-![image\_338.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/d0e772fd61194aafb603a7c51329bbd9~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637988&x-orig-sign=KPD9RoHieRvKYxVwNINxubzVsAA%3D)
+![image_338.png](/images/cursor/cursor-workflow2/image_338.png)
 
 ### **生成rules**
 
 可以使用命令直接在对话中生成规则/Generate Cursor Rules; 会结合当前对话窗上下文生成响应多份rules可供选择和使用。
 
-![image\_343.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/cccdc42956d245ac80788c52795eb11e~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637988&x-orig-sign=8sQ8nTvckMhgAmU0QgqRuXqI1fQ%3D)
+![image_343.png](/images/cursor/cursor-workflow2/image_343.png)
 
 ### **Project Rules实践**
 
@@ -219,9 +219,9 @@
 
 **使用rules工作流打包支付宝线上包：**
 
-![image\_456.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/fcca9d7df58041fc95604677311c6869~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637988&x-orig-sign=w4OmNGHxyt455NtOKvjvn3V2HEM%3D)
+![image_456.png](/images/cursor/cursor-workflow2/image_456.png)
 
-![image\_458.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/983789e9c52549439755c046c84e5e99~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637988&x-orig-sign=rRTYccWhPEtyz%2F%2F4gm6VqpzRcLw%3D)
+![image_458.png](/images/cursor/cursor-workflow2/image_458.png)
 
 
 ### **Cursor Rules Idea:**

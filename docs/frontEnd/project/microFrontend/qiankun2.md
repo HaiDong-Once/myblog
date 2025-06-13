@@ -127,7 +127,18 @@ async handleRouteChange() {
 
 ## 🔄 系统工作流程
 
-![mermaid-2025611 112641.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/de75b31b9ede47a9a0bbdccb366dbda7~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749698812&x-orig-sign=Dh9DkTi3dogDLe3TSORpKgOT6ew%3D)
+```mermaid
+graph TD
+    A[用户访问URL] --> B[RouteManager匹配路由]
+    B --> C{是否需要微应用?}
+    C -->|是| D[动态加载qiankun]
+    C -->|否| E[显示静态页面]
+    D --> F[传递component参数]
+    F --> G[ComponentRouter渲染组件]
+    G --> H[业务组件展示]
+    E --> I[静态内容展示]
+```
+
 
 ### 详细步骤
 

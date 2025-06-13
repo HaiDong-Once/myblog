@@ -5,7 +5,7 @@
 
 ## **一、概要介绍**
 
-![image\_3.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/758cc60af3e4417585c3befad9dcaff2~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=dutl1N72j0KIXIFo6cuzCeX2rB0%3D)
+![image_3.png](/images/cursor/cursor-workflow1/image_3.png)
 
 
 ## **二、背景**
@@ -66,16 +66,16 @@
     自动修复代码错误。
 *   基于指令编辑：（实践发现使用中文注释也可以有指令的效果）
 
-![image\_50.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/9f351b8998344893ad83f2c0551da773~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=iQ5aIH6U2rQPHZyA%2F8H8m30vmRI%3D)
+![image_50.png](/images/cursor/cursor-workflow1/image_50.png)
 
-![image\_53.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b645e99600fa40bdad70aea436942780~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=HHBgYmCDgufASABW%2BkLcPKEmuWc%3D)
+![image_53.png](/images/cursor/cursor-workflow1/image_53.png)
 
 **内联编辑：ctrl + K**
 
 *   特点：可以选中代码片段快捷的调用问答，优化式编辑
 *   应用点：对选中的方法代码进行逻辑优化；简单报错处理；代码格式整理；注释生成；
 
-![image\_59.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/ad8bf0ccaaea471b974204429d658d9e~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=zlO4%2BVCoE1iS8q8gZo%2FdVl8lqnw%3D)
+![image_59.png](/images/cursor/cursor-workflow1/image_59.png)
 
 #### **chat功能**
 
@@ -86,7 +86,7 @@
 *   自动命令执行（需要授权确认）
 *   自动化工作流程（探索中）
 
-![image\_68.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/8b6b41038f144c548d307c195f831815~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=CVVs1kg%2FrM3n7ZRFPIzFgyfC2cM%3D)
+![image_68.png](/images/cursor/cursor-workflow1/image_68.png)
 
 **快捷键：ctrl + L**
 **模式：**
@@ -94,7 +94,7 @@
 
 *   工作流
 
-![image\_75.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/aa84d45e37504cf2bf4289dada1161ba~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=KjgTxOQwHv48JO9vZsSyTLi9tGQ%3D)
+![image_75.png](/images/cursor/cursor-workflow1/image_75.png)
 
 **ask：代码解答，方案规划**
 
@@ -108,7 +108,7 @@
     *   谨慎应用代码
     *   git提交代码前仔细核对有没有被意外修改的代码
 
-![image\_87.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/fa5ec39c3a5546549056ee238d5c03d3~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=13QoXBv6WeaQtibzj0%2BoBms1s9U%3D)
+![image_87.png](/images/cursor/cursor-workflow1/image_87.png)
 
 #### **上下文(语境）**
 
@@ -129,7 +129,7 @@
 
 修复代码库中的编译环节错误的一个便捷功能是使用聊天中的 AI 修复。为此，请将鼠标悬停在编辑器中的错误上，然后单击显示的蓝色 AI 修复按钮。此操作的键盘快捷键是Ctrl/⌘ + Shift + E
 
-![image\_105.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/20989fbf4a0d4a8ea7e43bcf3d32ecca~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=5XjjeWngtBjFv867mr77B2r%2Flgg%3D)
+![image_105.png](/images/cursor/cursor-workflow1/image_105.png)
 
 ### **服务价格**
 
@@ -138,11 +138,11 @@
 *   **低价方式：淘宝买插件或者其他网上攻略**
 *   **白漂bug: 半个月到期后注销账号，然后重新注册又会送14天pro版体验权限，目前还可以这样操作。**
 
-![image\_113.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/33938de1d82f4489b8441d9235452dfa~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=TKQoF5xAWOmdRrj%2FrbA1hGO%2BVO0%3D)
+![image_113.png](/images/cursor/cursor-workflow1/image_113.png)
 
-![image\_116.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/e18ae1a6be594d4dbd3595c31c884cfe~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=qbi2JwBhumlPcTi9GXupC6EtHtM%3D)
+![image_116.png](/images/cursor/cursor-workflow1/image_116.png)
 
-![image\_118.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/2b23cdb156f14f348c98dc58716059a9~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=j7N6OUJwcpq0tbsiD%2FhhUWnh83M%3D)
+![image_118.png](/images/cursor/cursor-workflow1/image_118.png)
 
 ### **cursor优势**
 
@@ -238,20 +238,20 @@
 *   提问：使用yarn安装项目依赖，启动项目
 *   结果：点击accept；执行命令正常完成依赖安装；自动启动项目；自动调启浏览器访问本地地址；
 
-![image\_185.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/7dd379798cbc4ea3af5eaddf526b844c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=0sjr280B%2FZeST38JhvsOi9QtV5E%3D)
+![image_185.png](/images/cursor/cursor-workflow1/image_185.png)
 
 提问：帮我将首页改造成一个个人博客官网，设计要求简约，有tab栏，最近博客历史，最近摄影作品
 结果：开始自动改造项目结构，修改app.js文件，新建组件，完成代码编写，同事自动运行项目，浏览器页面在不断更新变化
 
-![image\_190.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/27515f6ea7ae491588ed53c3df7dd3e1~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=3W6C6kNmJXlBjWNOgw6wR8wTXrQ%3D)
+![image_190.png](/images/cursor/cursor-workflow1/image_190.png)
 
 结果：完成思考后需要确认是否接受代码修改后的结果；点击accept 确认
 
-![image\_194.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/d80f45255461459a89cba226ef57f22d~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=VLuRulpJcptE1DRP0Ghuppm9jJE%3D)
+![image_194.png](/images/cursor/cursor-workflow1/image_194.png)
 
 第一版效果：
 
-![image\_198.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/76b00034c88d41d5845e8f9a5ce1ace2~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=TWjIBNWZiStrCL%2B59KO7iNk8rKk%3D)
+![image_198.png](/images/cursor/cursor-workflow1/image_198.png)
 
 提问：
 
@@ -259,37 +259,37 @@
 2.  项目中图片为正常显示，帮我找网络上的摄影图片暂时替换
 3.  我觉得ui设计过于单一，应该更加丰富，添加主题色
 
-![image\_205.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/87480e0807d84d5eb0831f483bda594b~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=EB30BlENIY%2B9xwvxwC9P5G8bnL4%3D)
+![image_205.png](/images/cursor/cursor-workflow1/image_205.png)
 
-![image\_208.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/7de7084dbd554269b6506209a7f93087~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=PjS3FWVVHKy4ImlayHh5SWwljL0%3D)
+![image_208.png](/images/cursor/cursor-workflow1/image_208.png)
 
 第二次效果：完成后的页面：不是纯静态，是有交互动画，跳转等功能逻辑，基本达到我预期的85%。
 
-![image\_212.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/baed7658733f4f1da72d240c45032181~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=3HUaSQ%2B2DerYYs3BiitFJ5le08g%3D)
+![image_212.png](/images/cursor/cursor-workflow1/image_212.png)
 
-![image\_215.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/2a91b25f48284e6894a84a5b1988719c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=Wi7hdM7DSGIHKM6WGgzwdf182vw%3D)
+![image_215.png](/images/cursor/cursor-workflow1/image_215.png)
 
 #### **问题集合：**
 
 仅仅提出四个问题就完成了一个简单个人博客的开发
 
-![image\_219.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/c7431d9fbbd74e2798a5868a0cf1587e~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=BmbG1uF6DnIa8W4PSQ47CiGp40U%3D)
+![image_219.png](/images/cursor/cursor-workflow1/image_219.png)
 
-![image\_221.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/28867b3b46844738a012ce9ec00855e4~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=ID61ezMD6hN18dnEIkb1TYYGT7s%3D)
+![image_221.png](/images/cursor/cursor-workflow1/image_221.png)
 
-![image\_223.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/1aec25d5b1c74cde9b65b1de376c5d3a~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=QBMuBDcr1FHpxya4%2Bcv9EcGqaFw%3D)
+![image_223.png](/images/cursor/cursor-workflow1/image_223.png)
 
-![image\_226.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/d152defc87de451c997a449500c90803~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=yulimojbSsABkYhwjjRKBt%2B7t10%3D)
+![image_226.png](/images/cursor/cursor-workflow1/image_226.png)
 
 #### **输出的代码：**
 
 代码简约、逻辑清晰，组件拆分合理
 
-![image\_231.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b75a90eec2754d86a2e543fbdeb3b158~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=SiQpMph0e7K%2BtefH2ZheKp65zpg%3D)
+![image_231.png](/images/cursor/cursor-workflow1/image_231.png)
 
-![image\_233.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/4dc0e0a776e9492982ecaf9e859fed46~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=G1ueDegMOb5tu43kTUZQYUZpKzI%3D)
+![image_233.png](/images/cursor/cursor-workflow1/image_233.png)
 
-![image\_235.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/91fa5fb6225b4295ae6136c6bea455e6~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=voX6MUpSIo0pzel8zk8fk5aNzDc%3D)
+![image_235.png](/images/cursor/cursor-workflow1/image_235.png)
 
 ## **六、工作流探索**
 
@@ -298,9 +298,9 @@
 **UI图生成代码**
 测试效果：可以完成基本的代码结构设计，细节和准确度不足，基本打车70%内容
 
-![image\_242.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/1360512bb14d45a283982a653a9683af~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=9xh%2Fas07BEokp8uatbrWa2HOdeI%3D)
+![image_242.png](/images/cursor/cursor-workflow1/image_242.png)
 
-![image\_245.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/160c66d6c29e472b9ad64a79b2277332~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=%2BWV4%2Ftfd9v4ryMzKlXu14X6HJIg%3D)
+![image_245.png](/images/cursor/cursor-workflow1/image_245.png)
 
 结构化UI提示词生成代码
 ```
@@ -327,24 +327,24 @@
 测试流程：
 **UI图示例：**
 
-![image\_269.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/a65c6868bd4d4fdd97f5062b398bcf82~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=72oroX2FBFepEpoJKOsgI3KXcog%3D)
+![image_269.png](/images/cursor/cursor-workflow1/image_269.png)
 
 **直接使用ui图+提示词生成结果**
 
-![image\_273.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/a7177405f3f3475889f1d6995b5293d3~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=9JjZeyELhm9n4Oq1f03pc134Ors%3D)
+![image_273.png](/images/cursor/cursor-workflow1/image_273.png)
 
 **结合MCP获取figama结构化内容测试：**
 **psd转figma文件：**
 
-![image\_279.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/d30c5a468de54e6fa103f47d08339fa5~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=4o%2FLuwwzRzTcXFH83kuHHGxpVM0%3D)
+![image_279.png](/images/cursor/cursor-workflow1/image_279.png)
 
 **转换后的figma效果：**
 
-![image\_283.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/f21be4dcb2924a4eb5f0057cb89f1763~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=N5J45joxKegtAdae1MDPpUIRUr0%3D)
+![image_283.png](/images/cursor/cursor-workflow1/image_283.png)
 
 **添加figma-MCP服务，添加自己figma api key**
 
-![image\_287.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/335540826564431eb8b6e2e59244b316~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=mSUiRyxLIWfhCYGuXkkRxyziRMk%3D)
+![image_287.png](/images/cursor/cursor-workflow1/image_287.png)
 
 **复制figma link，生成提示词：**
 在当前项目中新增一个页面和入口，实现figma UI设计稿的开发：
@@ -352,30 +352,30 @@
 
 **授权同意调用figma mcp**
 
-![image\_295.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/c2e2119d798248b1865ad81c0378e7b4~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=liaHoWckO0RxVXfYzDw4ehswvAI%3D)
+![image_295.png](/images/cursor/cursor-workflow1/image_295.png)
 
 **MCP报错：需要升级node版本到18以上, 并重启cursor，重新执行提示词**
 
-![image\_299.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/8121cdd009724266a7efdc523108f3a5~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=cZC2G%2Bs%2F6i86ejTRCB%2B60tI8d%2Bg%3D)
+![image_299.png](/images/cursor/cursor-workflow1/image_299.png)
 
-![image\_301.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/26eb0bae22144abb8a2ba8a2d448b467~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=5dhXRVodSoSKCPpGZ4%2FSIajIjfE%3D)
+![image_301.png](/images/cursor/cursor-workflow1/image_301.png)
 
 **输出效果：**
 
-![image\_305.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/bd383bac7609435e9e29dfafc421d319~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=yh8uOVlCFfjndHdOhWxME%2BEBykM%3D)
+![image_305.png](/images/cursor/cursor-workflow1/image_305.png)
 
 **发现结构化信息比较丰富，但是ui还原度并不高，重新给cursor发送以上ui截图，让他继续优化后的结果：**
 
-![image\_309.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/7ffcdc868a3d4b18acced42896ce1429~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=JtjoStxInZrn2wgDoxOSqDrwyrc%3D)
+![image_309.png](/images/cursor/cursor-workflow1/image_309.png)
 
 **使用v0生成页面，导入cursor继续开发**
 测试效果：准确度高于cursor 生成的效果，达到80%以上的还原度
 缺点，v0有限额也需要付费，多一步导入页面代码到cursor的步骤。
 输出对比：
 
-![image\_317.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/f8a5f55282394ce895830e6cc90e4e5d~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=IIKiM4D6rGx1jlEhYJYTy%2BUKF1g%3D)
+![image_317.png](/images/cursor/cursor-workflow1/image_317.png)
 
-![image\_319.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/7c2a64b709834a029761500eb5b2eb08~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=69P%2FbjeG1dGLTDrySLfoXAoHiRg%3D)
+![image_319.png](/images/cursor/cursor-workflow1/image_319.png)
 
 
 ## **七、cursor在其他领域思考和扩展**
@@ -428,25 +428,25 @@ html页面导入figma设计优化（需要部署生成线上url导入figma）
 ```
 **输出效果：**
 
-![image\_365.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/5995c404a1124f3eb075a1f8f6566876~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=ZGh9weCbyANLHhi2YBMWEgNTm7M%3D)
+![image_365.png](/images/cursor/cursor-workflow1/image_365.png)
 
 **案例2：生成coze工作流：**
 新增docs全局引用文档：远程链接和文档索引
 提示词：帮我设计一个传入新闻标题，就能生成一则推送文稿，同时配图排版，这样的工作流
 
-![image\_371.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b64781dd756f49f793425c07464f2184~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=l1TWeqrcME562qbEx%2FIHn4EeNEc%3D)
+![image_371.png](/images/cursor/cursor-workflow1/image_371.png)
 
-![image\_373.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/db7bd8c991b84381afb02370ce329192~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=ij0CLoRVjkS4JnOG3FPiQTXU7SI%3D)
+![image_373.png](/images/cursor/cursor-workflow1/image_373.png)
 
 再@两个dify的配置文件做参考，让他生成
 
-![image\_376.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/235abd8a6ef74958b97cee9644c5b476~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=VyygmeTz22YpqBDwgJ%2B5MdZRDV0%3D)
+![image_376.png](/images/cursor/cursor-workflow1/image_376.png)
 
 dify导入这个配置文件，自动生成工作流
 
-![image\_379.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/76029cc3e2e24aa397fc802429f20160~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=DvwthGpO7smQXykescOaoZFc%2BZc%3D)
+![image_379.png](/images/cursor/cursor-workflow1/image_379.png)
 
-![image\_381.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/4bb3d164f7da457d96d55ff72a39cfbc~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749635838&x-orig-sign=hTUlwgeV8Acf2%2BKMdv%2Fg1NVnB30%3D)
+![image_381.png](/images/cursor/cursor-workflow1/image_381.png)
 
 ## **八、提示词整理**
 

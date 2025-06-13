@@ -43,7 +43,25 @@
 
 ### 3.1 架构设计
 
-![image.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/d2b332fdbd1f49eaaaa321f919f5ba9d~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749808074&x-orig-sign=EdztBcVmUEjpU4ZsmER0bIIcC9w%3D)
+```mermaid
+graph TB
+    A[SSE Client 封装] --> B[连接管理器]
+    A --> C[重试机制]
+    A --> D[状态监控]
+    
+    B --> E[连接池 Map]
+    B --> F[唯一ID生成]
+    
+    C --> G[自动重连]
+    C --> H[超时控制]
+    
+    D --> I[连接状态]
+    D --> J[连接数量]
+    
+    E --> K[SseClient实例1]
+    E --> L[SseClient实例2]
+    E --> M[SseClient实例N]
+```
 
 ### 3.2 设计思路
 

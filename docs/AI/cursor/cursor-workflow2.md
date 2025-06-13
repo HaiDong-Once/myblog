@@ -62,7 +62,7 @@
 
 **好的编程工具应该通过行为预测，而不仅仅是自然语言，例如强大的 tab。**
 
-![image\_46.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/709cd6ff7b4f46038a4063d6e2afbe93~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=CZJ3hJyJOH%2Fqi0vuU%2FKkjCUU2wc%3D)
+![image_46.png](/images/cursor/cursor-workflow2/image_46.png)
 
 #### **以上观点趋势可能对开发者的影响**
 
@@ -76,20 +76,20 @@
 
 #### **cursor 带来新的开发模式：”聊天式”编程**
 
-![image\_60.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/9f2e1c47d5af4de090a18b9f5db6319d~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=GJDRKl47iKJLO0YHMASm7glfJSk%3D)
+![image_60.png](/images/cursor/cursor-workflow2/image_60.png)
 
 #### **通过“自然语言”写代码**
 
 从一开始的机器语言到汇编语言到现在的高级语言，计算机语言的演变本质上是从硬件到认知的不断抽象，Cursor的出现打开了高级语言迈向自然语言的大门。<br>
 Cursor 创始人所言：“我们不是在教 AI 写代码，而是让它成为人类创造力的延伸。”在这种新范式下，我们的注意力讲会从"如何写代码"转移到"解决什么问题"，AI 会逼迫你“想清楚、说清楚”。清晰的表达将会成为一种稀缺的生产力。
 
-![image\_65.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/68eb29b207624426a5393b58a17cd730~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=moE7BWInEyX1Xo7UiQiXn0ecHBk%3D)
+![image_65.png](/images/cursor/cursor-workflow2/image_65.png)
 
 #### **打破岗位边界**
 
 Cursor逐渐模糊掉产品经理，设计师，程序员之间的界限。可以预见将来也会改变这些岗位的设立逻辑和开发团队的组织方式。Cursor客观上磨平了各个角色之间的技术壁垒，让想法不再受限于某类资源，拉低了编程的技术门槛。
 
-![image\_70.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/6f230bf3ff5942a2a7c534a24bd93452~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=yGXo3ISQQx4HpHY3bM9xEGM2SHw%3D)
+![image_70.png](/images/cursor/cursor-workflow2/image_70.png)
 
 ### **新的编程范式**
 
@@ -100,13 +100,13 @@ Cursor逐渐模糊掉产品经理，设计师，程序员之间的界限。可�
 *   ask: 多文件问答，调研，思路梳理，方案确认
 *   agent: 自动执行大量的大范围的编码
 
-![image\_79.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/e44195042b994c36a464cb2224a95c1c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=xKLDviPdn%2BfV6A5fjR5G6SZubdc%3D)
+![image_79.png](/images/cursor/cursor-workflow2/image_79.png)
 
 #### **面对复杂任务执行步骤：**
 
 确认目标，确认方案，开发、验证
 
-![image\_84.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/a03d07f19db44d11abd3d29151d73084~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=MLnqpsdPGE%2Fy6EsR1dm6%2FO4Fl5U%3D)
+![image_84.png](/images/cursor/cursor-workflow2/image_84.png)
 
 #### **需求：从“想清楚”到“说清楚”**
 
@@ -118,7 +118,7 @@ Cursor逐渐模糊掉产品经理，设计师，程序员之间的界限。可�
 *   **让 AI 逼迫你思考：反向费曼学习法（疑点确认）**
     *   在使用 AI 时候，他往往倾向于直接满足你的表面需求，但可能会忽略一些深层需求内涵。所以好的模式不是你直接去提问，而是让 AI 引导你思考！那对于 AI 来说，当你提出了一个问题，想想：他真的懂了吗？让 AI 反述一遍，你听听如何？但是光这个就够了吗，不够，你还需要让 AI 具有质疑精神，让他对你的问题提出质疑，而不是全盘接受！反向逼迫你去思考什么是“真需求”让 AI 变成你思维的“延展”。我把这种模式称之为：反向费曼学习法。
 
-![image\_94.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/359bea3d01db4c31ba4ad778cb38b314~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=R80XUf%2Fq2XgRg7GSZ%2BKPibcSJdk%3D)
+![image_94.png](/images/cursor/cursor-workflow2/image_94.png)
 
 #### **方案确认：任务拆分，分而治之**
 
@@ -133,7 +133,7 @@ Cursor逐渐模糊掉产品经理，设计师，程序员之间的界限。可�
 （开发和验证）<br>
 在 Agent 模式执行的时候，我们需要按照直接的拆分任务并且逐步执行、逐步验证，切记不要一次生成几千行代码，再验证，不然可能会越改越乱。
 
-![image\_106.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/e849223aa80147249d1e2d9f0329d030~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=sjqbo6sn6GE0OIVyMkrREA4brH8%3D)
+![image_106.png](/images/cursor/cursor-workflow2/image_106.png)
 
 ### **Cursor使用技巧**
 
@@ -142,17 +142,17 @@ Cursor逐渐模糊掉产品经理，设计师，程序员之间的界限。可�
 无需记住linux命令，直接 command+k ，使用自然语言去描述命令行<br>
 （ps：你可以在本地开一个 Cursor 的项目专门操作本地终端）
 
-![image\_113.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/0e20ba44f7a9474c8d243001a6d3aa66~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=i87dTfM92cyLhigCV9MJxCya65M%3D)
+![image_113.png](/images/cursor/cursor-workflow2/image_113.png)
 
 #### **历史代码生产注释**
 
 使用 command+k，为历史代码快速生成注释。（ps：相比 Ask 模式速度极快）
 
-![image\_117.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/e3e43b41e4cb4af491bf94ec2d7729d8~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=mO62vuoB1bLH8PVSAJ87eOZTBWg%3D)
+![image_117.png](/images/cursor/cursor-workflow2/image_117.png)
 
 #### **一键生成commit message信息**
 
-![image\_120.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b47a9709a63449a1a858fb6fed2c4a7c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=fhgyHzAZ7Qf%2F5DFavYem8kplKNM%3D)
+![image_120.png](/images/cursor/cursor-workflow2/image_120.png)
 
 #### **接手项目，快速可视化了解项目架构**
 
@@ -163,21 +163,21 @@ Cursor逐渐模糊掉产品经理，设计师，程序员之间的界限。可�
 
 使用Notepad记录关键上下文，并使用@指定上下文
 
-![image\_127.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/2dad3d8c4c16483ab12adfc5186f13e8~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=R1cLeQvIn%2FzgFG%2FjGBH6uAo2BoU%3D)
+![image_127.png](/images/cursor/cursor-workflow2/image_127.png)
 
 #### **@git找到代码漏洞**
 
 遇到代码 MR 的时候可以先对比一下与主干代码的差异，检查是否有问题，或者当你 MR 后代码发生了问题，都可以使用 @Git。
 
-![image\_131.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/386664626127425da8fe43f808de91b5~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=ZtTb4LxRVreM66lMgTbi%2Fvf8f%2Fk%3D)
+![image_131.png](/images/cursor/cursor-workflow2/image_131.png)
 
 #### **使用 checkpoint 一键回滚**
 
-![image\_134.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/8521e931882841718c91c3330957945c~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=%2F2XfkRipW7qETWAywvfi8lAjFeA%3D)
+![image_134.png](/images/cursor/cursor-workflow2/image_134.png)
 
 #### **设置自己的专属提示词**
 
-![image\_137.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/cffdb841bf40495b8e61b51d512d14f0~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=JaqIRX4Xb5o8KLkea2BThtYGw1o%3D)
+![image_137.png](/images/cursor/cursor-workflow2/image_137.png)
 
 #### **拖拽式添加上下文**
 
@@ -202,7 +202,7 @@ ask和agent使用Claude3.7高性能模型处理复杂问题<br>
 *   **挑战与能力匹配**
     *   在任务执行过程中，AI可以帮助开发者更好的理解需求并处理底层复杂性，让开发者聚焦于创造性调整，避免因任务太简单而厌倦，又防止难度过高而太过焦虑，更容易进入心流的状态，达到最佳效能状态。（舒适区边缘）
 
-![image\_155.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/86d5d170fe0040acae41237ce3cc1c2d~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=uWRaec8wjnt1Sko6THna%2FvFGRGY%3D)
+![image_155.png](/images/cursor/cursor-workflow2/image_155.png)
 
 **软件价值的新定义：软件价值 =  创新  ×（需求清晰度 × AI 理解度）× 工程实现效率。**
 
@@ -220,11 +220,11 @@ ask和agent使用Claude3.7高性能模型处理复杂问题<br>
 
 简单的说，MCP（Model Context Protocol）就是 AI 与外部世界的“万能连接器”，让 AI 有了眼睛和手臂，网上有一张很经典的图，如下图：
 
-![image\_172.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/5355d7ddc1b54ca7a799390f31c50f56~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=MS99fcfqpGyg3c45OHZUvXAei8g%3D)
+![image_172.png](/images/cursor/cursor-workflow2/image_172.png)
 
 MCP之前已经有了访问外部资源，比如使用function call实现的外部数据库访问。而MCP真正的价值在于：统一了标准，不用再重复造轮子，大大降低了“外挂“工具的开发门槛。
 
-![image\_175.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b9606b12249043c58b638ee0c51c4232~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=BEEWoLIY1M6wWD%2FegeHu0B2cXps%3D)
+![image_175.png](/images/cursor/cursor-workflow2/image_175.png)
 
 ### **MCP能力**
 
@@ -233,7 +233,7 @@ MCP之前已经有了访问外部资源，比如使用function call实现的外�
     而有了 MCP 之后，交互模式发生了本质的变化，人不用再做“数据粘合剂”，各个数据孤单被 MCP 连接起来，AI 有了自动探索“上下文”的能力。
 *   **消除了人工手动整理prompt的过程**
 
-![image\_182.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/5f423c1a312246d5adcffb0a438de7c8~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=empVQiqLnGirebKgx72E5sb4RmY%3D)
+![image_182.png](/images/cursor/cursor-workflow2/image_182.png)
 
 **工具类产品提供 MCP 能力将成为趋势**
 AI 生态发展发展令人震惊，传统的工具类服务如果只停留在页面+API 的形式已经已经远远不够，应该把自身溶于到 AI 生态中，提供 MCP 能力将成为趋势。
@@ -282,9 +282,9 @@ AI 生态发展发展令人震惊，传统的工具类服务如果只停留在�
 *   **测试案例1：开发表单提交逻辑大模型自动触发MCP浏览器测试，并自动填写表单完成测试，结果显示操作浏览器速度较慢，待解决**
 *   **测试案例2：爬取网页数据进行数据分析，导出JSON文本或者其他格式文件**
 
-![image\_222.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/9eac7dd7832c454aaaf9d34d989f73fa~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=8BqDEew3U0BLrBUZvHNHe93uCtU%3D)
+![image_222.png](/images/cursor/cursor-workflow2/image_222.png)
 
-![image\_224.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/fa5e249b5ba84cb187dd23ea94b07ac6~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749637077&x-orig-sign=DzLN%2BnVoF8hD4JoQQ38gqpkB6G8%3D)
+![image_224.png](/images/cursor/cursor-workflow2/image_224.png)
 
 
 #### BrowserTools MCP

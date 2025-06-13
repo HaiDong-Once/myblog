@@ -1,6 +1,4 @@
----
-highlight: androidstudio
----
+
 
 # 基于 qiankun 的JQ老项目升级-组件级微前端扩展
 
@@ -8,15 +6,52 @@ highlight: androidstudio
 
 本扩展功能实现了在老项目（jQuery）页面中**动态嵌入React组件**的能力，支持：
 
-- ✅ **组件级动态加载**：在任意容器中加载React组件
-- ✅ **弹窗组件支持**：支持以弹窗形式显示React组件
-- ✅ **双向通信机制**：主子应用完整的状态和方法共享
-- ✅ **生命周期管理**：组件的创建、销毁和状态管理
-- ✅ **老项目集成**：无缝调用老项目的API、组件和状态
+*   ✅ **组件级动态加载**：在任意容器中加载React组件
+*   ✅ **弹窗组件支持**：支持以弹窗形式显示React组件
+*   ✅ **双向通信机制**：主子应用完整的状态和方法共享
+*   ✅ **生命周期管理**：组件的创建、销毁和状态管理
+*   ✅ **老项目集成**：无缝调用老项目的API、组件和状态
 
 全局概览：
 
-![mermaid-2025611 112005.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/870c052193e84d629539aed1e3698ae2~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749698502&x-orig-sign=d2U2une%2BxgeuloDD27puwTEV8Ho%3D)
+```mermaid
+graph TD
+    subgraph "老项目 (jQuery)"
+        A[主页面] --> B[RouteManager]
+        B --> C{组件类型}
+        C -->|页面级| D[loadMicroApp<br/>页面路由]
+        C -->|组件级| E[loadComponent<br/>容器嵌入]
+        C -->|弹窗级| F[showModalComponent<br/>弹窗显示]
+    end
+    
+    subgraph "微前端子应用 (React)"
+        G[ComponentRouter] --> H{组件选择}
+        H --> I[AnalyticsCard<br/>数据分析卡片]
+        H --> J[ChartWidget<br/>图表组件]
+        H --> K[PaymentWidget<br/>支付组件]
+        H --> L[DataMarketApp<br/>数据集市页面]
+    end
+    
+    subgraph "通信桥接"
+        M[globalBridge] --> N[legacyAPI<br/>老项目API]
+        M --> O[legacyComponents<br/>老项目组件]
+        M --> P[legacyState<br/>老项目状态]
+    end
+    
+    D --> G
+    E --> G
+    F --> G
+    
+    I --> M
+    J --> M
+    K --> M
+    
+    style A fill:#e1f5fe
+    style I fill:#f3e5f5
+    style J fill:#f3e5f5
+    style K fill:#f3e5f5
+    style M fill:#fff3e0
+```
 
 ## 🚀 核心功能
 
@@ -83,7 +118,8 @@ window.legacyBridge = {
 
 ### 在老项目页面中使用
 
-1. **嵌入数据分析卡片**：
+1.  **嵌入数据分析卡片**：
+
 ```html
 <!-- 老项目页面 -->
 <div id="analytics-container" style="width: 400px; height: 300px;"></div>
@@ -109,7 +145,8 @@ async function loadAnalyticsCard() {
 </script>
 ```
 
-2. **显示支付弹窗**：
+2.  **显示支付弹窗**：
+
 ```javascript
 // 在老项目的支付按钮点击事件中
 async function showPayment() {
@@ -127,7 +164,8 @@ async function showPayment() {
 }
 ```
 
-3. **批量管理组件**：
+3.  **批量管理组件**：
+
 ```javascript
 // 获取所有已加载的组件
 const instances = routeManager.getComponentInstances();
@@ -185,7 +223,8 @@ if (userHasPermission('analytics')) {
 
 ### 添加新的组件类型
 
-1. **创建React组件**：
+1.  **创建React组件**：
+
 ```jsx
 // react-app/src/components/MyCustomWidget.jsx
 import React from 'react';
@@ -198,7 +237,8 @@ const MyCustomWidget = ({ title, globalBridge, ...props }) => {
 export default MyCustomWidget;
 ```
 
-2. **注册到ComponentRouter**：
+2.  **注册到ComponentRouter**：
+
 ```jsx
 // react-app/src/ComponentRouter.jsx
 import MyCustomWidget from './components/MyCustomWidget';
@@ -214,7 +254,8 @@ const ComponentRouter = ({ component, ...props }) => {
 };
 ```
 
-3. **在老项目中使用**：
+3.  **在老项目中使用**：
+
 ```javascript
 const instance = await routeManager.loadComponent(
     '#my-container',
@@ -225,16 +266,33 @@ const instance = await routeManager.loadComponent(
 
 ## 📊 技术架构
 
-![mermaid-2025611 112334.png](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/1ee75f3c59b8431f879bbf6767706bb8~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZKa5ZKa5ZKaZGRk:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiMTY2NzMyMjM1MTcyMjAyMyJ9&rk3s=e9ecf3d6&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1749698627&x-orig-sign=wrQpxv0HNYX1sBVoCKPc4LFjCxs%3D)
+
+```mermaid
+graph TD
+    A[老项目jQuery] --> B[RouteManager]
+    B --> C[qiankun loadMicroApp]
+    C --> D[React子应用]
+    D --> E[ComponentRouter]
+    E --> F[具体组件]
+    
+    F --> G[AnalyticsCard]
+    F --> H[ChartWidget]
+    F --> I[PaymentWidget]
+    
+    J[globalBridge] --> F
+    J --> K[legacyAPI]
+    J --> L[legacyComponents]
+    J --> M[legacyState]
+```
 
 ## 🎉 总结
 
 通过这套组件级微前端扩展功能，可以：
 
-1. **渐进式升级**：在不重写整个老项目的情况下，逐步引入React组件
-2. **技术共存**：jQuery和React技术栈和谐共存
-3. **功能复用**：老项目的API、组件、状态完全可在React组件中使用
-4. **用户体验**：提供现代化的UI组件和交互体验
-5. **开发效率**：新功能使用React开发，老功能保持稳定
+1.  **渐进式升级**：在不重写整个老项目的情况下，逐步引入React组件
+2.  **技术共存**：jQuery和React技术栈和谐共存
+3.  **功能复用**：老项目的API、组件、状态完全可在React组件中使用
+4.  **用户体验**：提供现代化的UI组件和交互体验
+5.  **开发效率**：新功能使用React开发，老功能保持稳定
 
-**以上是这个渐进式微前端升级方案组件级改造**！ 
+**以上是这个渐进式微前端升级方案组件级改造**！

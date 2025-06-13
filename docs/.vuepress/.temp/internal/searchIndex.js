@@ -266,6 +266,365 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "搭建自用chatGPT教程",
+    "headers": [
+      {
+        "level": 2,
+        "title": "项目地址",
+        "slug": "项目地址",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "部署过程",
+        "slug": "部署过程",
+        "children": [
+          {
+            "level": 3,
+            "title": "获取 open-ai-key",
+            "slug": "获取-open-ai-key",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "开始构建",
+            "slug": "开始构建",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "使用",
+            "slug": "使用",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "配置自己的域名",
+        "slug": "配置自己的域名",
+        "children": [
+          {
+            "level": 3,
+            "title": "注册域名",
+            "slug": "注册域名",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "DNS域名解析",
+            "slug": "dns域名解析",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "配置",
+            "slug": "配置",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考地址",
+        "slug": "参考地址",
+        "children": []
+      }
+    ],
+    "path": "/AI/apply/gpt1.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "使用虚拟信用卡进行chatGPT支付",
+    "headers": [
+      {
+        "level": 2,
+        "title": "平台：www.vvacard.com",
+        "slug": "平台-www-vvacard-com",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "介绍",
+        "slug": "介绍",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "开卡流程",
+        "slug": "开卡流程",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "OpenAI付款设置",
+        "slug": "openai付款设置",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "开通plus 使用chatGPT4",
+        "slug": "开通plus-使用chatgpt4",
+        "children": []
+      }
+    ],
+    "path": "/AI/apply/gpt2.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "chatGPT应用整理",
+    "headers": [
+      {
+        "level": 2,
+        "title": "应用方向",
+        "slug": "应用方向",
+        "children": [
+          {
+            "level": 3,
+            "title": "前端开发方向",
+            "slug": "前端开发方向",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "办公方向",
+            "slug": "办公方向",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "chatGPT问题清淡整理",
+            "slug": "chatgpt问题清淡整理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "视频制作",
+            "slug": "视频制作",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "英语学习",
+            "slug": "英语学习",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "商业应用",
+            "slug": "商业应用",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "chatGPT工具",
+        "slug": "chatgpt工具",
+        "children": [
+          {
+            "level": 3,
+            "title": "poe",
+            "slug": "poe",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "new bing",
+            "slug": "new-bing",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "openAI注册流程",
+        "slug": "openai注册流程",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "chatGPT制作PPT",
+        "slug": "chatgpt制作ppt",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "chatppt: 指令生成PPT工具",
+        "slug": "chatppt-指令生成ppt工具",
+        "children": []
+      }
+    ],
+    "path": "/AI/apply/gpt3.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "chatGPT中连续推送数据流 SSE",
+    "headers": [
+      {
+        "level": 2,
+        "title": "http、sse、websocket区别",
+        "slug": "http、sse、websocket区别",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "概念",
+        "slug": "概念",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "工作原理",
+        "slug": "工作原理",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "介绍",
+        "slug": "介绍",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "SSE的特点",
+        "slug": "sse的特点",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "SSE的推送数据格式",
+        "slug": "sse的推送数据格式",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用案例1",
+        "slug": "使用案例1",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用案例2",
+        "slug": "使用案例2",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "参考地址",
+        "slug": "参考地址",
+        "children": []
+      }
+    ],
+    "path": "/AI/apply/gpt4.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "SSE客户端封装：打造流畅的AI对话体验",
+    "headers": [
+      {
+        "level": 2,
+        "title": "1. 功能背景",
+        "slug": "_1-功能背景",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "2. 功能介绍",
+        "slug": "_2-功能介绍",
+        "children": [
+          {
+            "level": 3,
+            "title": "2.1 核心特性",
+            "slug": "_2-1-核心特性",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2.2 API接口",
+            "slug": "_2-2-api接口",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "3. 设计思路",
+        "slug": "_3-设计思路",
+        "children": [
+          {
+            "level": 3,
+            "title": "3.1 架构设计",
+            "slug": "_3-1-架构设计",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3.2 设计思路",
+            "slug": "_3-2-设计思路",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3.3 关键要点",
+            "slug": "_3-3-关键要点",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "4. 使用方法案例",
+        "slug": "_4-使用方法案例",
+        "children": [
+          {
+            "level": 3,
+            "title": "4.1 基础使用",
+            "slug": "_4-1-基础使用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4.2 AI对话流式响应（实际项目案例）",
+            "slug": "_4-2-ai对话流式响应-实际项目案例",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4.3 高级配置使用",
+            "slug": "_4-3-高级配置使用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4.4 连接管理",
+            "slug": "_4-4-连接管理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "5. 完整代码",
+        "slug": "_5-完整代码",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "8. 注意事项",
+        "slug": "_8-注意事项",
+        "children": []
+      }
+    ],
+    "path": "/AI/apply/SSE.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "个人图虫摄影分享首页",
     "headers": [],
     "path": "/art/photo/personalShare.html",
@@ -3625,6 +3984,126 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "Vue弹窗组件改造：从模板调用到JS函数调用实现",
+    "headers": [
+      {
+        "level": 2,
+        "title": "前言",
+        "slug": "前言",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "核心实现解析",
+        "slug": "核心实现解析",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 基础弹窗组件 (MyDialog.vue)",
+            "slug": "_1-基础弹窗组件-mydialog-vue",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. JS调用工具函数 (dialog.js)",
+            "slug": "_2-js调用工具函数-dialog-js",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "核心技术要点",
+        "slug": "核心技术要点",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. Vue.extend() 动态创建组件",
+            "slug": "_1-vue-extend-动态创建组件",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. render函数实现灵活渲染",
+            "slug": "_2-render函数实现灵活渲染",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 回调机制控制弹窗关闭",
+            "slug": "_3-回调机制控制弹窗关闭",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 内存管理",
+            "slug": "_4-内存管理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "使用示例",
+        "slug": "使用示例",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 基础用法",
+            "slug": "_1-基础用法",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. HTML内容渲染",
+            "slug": "_2-html内容渲染",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 异步控制关闭",
+            "slug": "_3-异步控制关闭",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 阻止自动关闭",
+            "slug": "_4-阻止自动关闭",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "改造效果对比",
+        "slug": "改造效果对比",
+        "children": [
+          {
+            "level": 3,
+            "title": "改造前（模板方式）",
+            "slug": "改造前-模板方式",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "改造后（JS调用方式）",
+            "slug": "改造后-js调用方式",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "优化思考",
+        "slug": "优化思考",
+        "children": []
+      }
+    ],
+    "path": "/frontEnd/frame/vue/workApply28.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "高德地图选点组件应用",
     "headers": [
       {
@@ -4801,6 +5280,775 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "qiankun微前端快速上手指南",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📋 目录",
+        "slug": "📋-目录",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "什么是qiankun微前端",
+        "slug": "什么是qiankun微前端",
+        "children": [
+          {
+            "level": 3,
+            "title": "核心特性",
+            "slug": "核心特性",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "qiankun的主要能力",
+        "slug": "qiankun的主要能力",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 应用隔离能力",
+            "slug": "_1-应用隔离能力",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 应用通信能力",
+            "slug": "_2-应用通信能力",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 路由管理能力",
+            "slug": "_3-路由管理能力",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 生命周期管理",
+            "slug": "_4-生命周期管理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "适合解决的项目问题",
+        "slug": "适合解决的项目问题",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 大型单体应用拆分",
+            "slug": "_1-大型单体应用拆分",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 多技术栈共存",
+            "slug": "_2-多技术栈共存",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 团队协作问题",
+            "slug": "_3-团队协作问题",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 遗留系统改造",
+            "slug": "_4-遗留系统改造",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "核心概念",
+        "slug": "核心概念",
+        "children": [
+          {
+            "level": 3,
+            "title": "主应用 (Main App)",
+            "slug": "主应用-main-app",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "微应用 (Micro App)",
+            "slug": "微应用-micro-app",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "生命周期",
+            "slug": "生命周期",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "通信方式",
+        "slug": "通信方式",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. Props传递（父→子）",
+            "slug": "_1-props传递-父→子",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 全局状态（双向通信）",
+            "slug": "_2-全局状态-双向通信",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 事件总线（自定义实现）",
+            "slug": "_3-事件总线-自定义实现",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "路由管理",
+        "slug": "路由管理",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 基于路由的微应用加载",
+            "slug": "_1-基于路由的微应用加载",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 动态路由匹配",
+            "slug": "_2-动态路由匹配",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 路由守卫",
+            "slug": "_3-路由守卫",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "快速入门",
+        "slug": "快速入门",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 安装qiankun",
+            "slug": "_1-安装qiankun",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 主应用配置",
+            "slug": "_2-主应用配置",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 微应用配置",
+            "slug": "_3-微应用配置",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 打包配置",
+            "slug": "_4-打包配置",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "从零搭建微前端项目",
+        "slug": "从零搭建微前端项目",
+        "children": [
+          {
+            "level": 3,
+            "title": "项目结构设计",
+            "slug": "项目结构设计",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "搭建步骤",
+            "slug": "搭建步骤",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "实战案例：JQ主应用+React子应用",
+        "slug": "实战案例-jq主应用-react子应用",
+        "children": [
+          {
+            "level": 3,
+            "title": "主应用（jQuery）实现",
+            "slug": "主应用-jquery-实现",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "React子应用实现",
+            "slug": "react子应用实现",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "组件路由实现",
+            "slug": "组件路由实现",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "常见问题及解决方案",
+        "slug": "常见问题及解决方案",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 路由冲突问题",
+            "slug": "_1-路由冲突问题",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 样式隔离问题",
+            "slug": "_2-样式隔离问题",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 全局变量污染",
+            "slug": "_3-全局变量污染",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 资源加载问题",
+            "slug": "_4-资源加载问题",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "5. 通信问题",
+            "slug": "_5-通信问题",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6. 性能优化",
+            "slug": "_6-性能优化",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "最佳实践",
+        "slug": "最佳实践",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 应用拆分原则",
+            "slug": "_1-应用拆分原则",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 技术栈选择",
+            "slug": "_2-技术栈选择",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 状态管理",
+            "slug": "_3-状态管理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 样式规范",
+            "slug": "_4-样式规范",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "5. 部署策略",
+            "slug": "_5-部署策略",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "6. 监控和错误处理",
+            "slug": "_6-监控和错误处理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "7. 开发调试",
+            "slug": "_7-开发调试",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "总结",
+        "slug": "总结",
+        "children": []
+      }
+    ],
+    "path": "/frontEnd/project/microFrontend/qiankun1.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "基于 qiankun 的JQ老项目升级-基础方案",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📋 项目概述",
+        "slug": "📋-项目概述",
+        "children": [
+          {
+            "level": 3,
+            "title": "技术栈配置",
+            "slug": "技术栈配置",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔧 核心技术实现",
+        "slug": "🔧-核心技术实现",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 动态微应用加载机制",
+            "slug": "_1-动态微应用加载机制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. URL 路由与组件映射",
+            "slug": "_2-url-路由与组件映射",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 子应用组件路由器",
+            "slug": "_3-子应用组件路由器",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 路由驱动的应用管理",
+            "slug": "_4-路由驱动的应用管理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎯 架构创新点",
+        "slug": "🎯-架构创新点",
+        "children": [
+          {
+            "level": 3,
+            "title": "✨ 单子应用多组件模式",
+            "slug": "✨-单子应用多组件模式",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "⚡ 按需动态加载",
+            "slug": "⚡-按需动态加载",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "🚀 路由驱动管理",
+            "slug": "🚀-路由驱动管理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔄 系统工作流程",
+        "slug": "🔄-系统工作流程",
+        "children": [
+          {
+            "level": 3,
+            "title": "详细步骤",
+            "slug": "详细步骤",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📊 架构优势总结",
+        "slug": "📊-架构优势总结",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🔧 渐进式升级评估",
+        "slug": "🔧-渐进式升级评估",
+        "children": [
+          {
+            "level": 3,
+            "title": "✅ 完全支持的场景",
+            "slug": "✅-完全支持的场景",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "⚠️ 需要扩展的场景",
+            "slug": "⚠️-需要扩展的场景",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "💡 技术总结",
+        "slug": "💡-技术总结",
+        "children": []
+      }
+    ],
+    "path": "/frontEnd/project/microFrontend/qiankun2.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "基于 qiankun 的JQ老项目升级-组件级微前端扩展",
+    "headers": [
+      {
+        "level": 2,
+        "title": "🎯 功能概述",
+        "slug": "🎯-功能概述",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🚀 核心功能",
+        "slug": "🚀-核心功能",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 组件级动态加载",
+            "slug": "_1-组件级动态加载",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 弹窗组件支持",
+            "slug": "_2-弹窗组件支持",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 全局通信桥接",
+            "slug": "_3-全局通信桥接",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🛠 案例使用说明",
+        "slug": "🛠-案例使用说明",
+        "children": [
+          {
+            "level": 3,
+            "title": "在老项目页面中使用",
+            "slug": "在老项目页面中使用",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "💡 最佳实践",
+        "slug": "💡-最佳实践",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 组件生命周期管理",
+            "slug": "_1-组件生命周期管理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 错误处理",
+            "slug": "_2-错误处理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 性能优化",
+            "slug": "_3-性能优化",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔧 扩展开发",
+        "slug": "🔧-扩展开发",
+        "children": [
+          {
+            "level": 3,
+            "title": "添加新的组件类型",
+            "slug": "添加新的组件类型",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📊 技术架构",
+        "slug": "📊-技术架构",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "🎉 总结",
+        "slug": "🎉-总结",
+        "children": []
+      }
+    ],
+    "path": "/frontEnd/project/microFrontend/qiankun3.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "qiankun老项目渐进式升级方案（jQuery + React）",
+    "headers": [
+      {
+        "level": 2,
+        "title": "📋 方案概述",
+        "slug": "📋-方案概述",
+        "children": [
+          {
+            "level": 3,
+            "title": "🎯 核心价值",
+            "slug": "🎯-核心价值",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🏗 技术架构",
+        "slug": "🏗-技术架构",
+        "children": [
+          {
+            "level": 3,
+            "title": "整体架构图",
+            "slug": "整体架构图",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "技术栈选型",
+            "slug": "技术栈选型",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🚀 核心功能特性",
+        "slug": "🚀-核心功能特性",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 三种集成模式",
+            "slug": "_1-三种集成模式",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 双向通信机制",
+            "slug": "_2-双向通信机制",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📦 实施指南",
+        "slug": "📦-实施指南",
+        "children": [
+          {
+            "level": 3,
+            "title": "第一步：环境准备",
+            "slug": "第一步-环境准备",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "第二步：主应用改造",
+            "slug": "第二步-主应用改造",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "第三步：子应用改造",
+            "slug": "第三步-子应用改造",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "第四步：创建业务组件",
+            "slug": "第四步-创建业务组件",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "💡 使用场景示例",
+        "slug": "💡-使用场景示例",
+        "children": [
+          {
+            "level": 3,
+            "title": "场景1：老项目仪表盘增强",
+            "slug": "场景1-老项目仪表盘增强",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "场景2：老项目支付流程改造",
+            "slug": "场景2-老项目支付流程改造",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "场景3：老项目报表页面增强",
+            "slug": "场景3-老项目报表页面增强",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📈 实施流程",
+        "slug": "📈-实施流程",
+        "children": [
+          {
+            "level": 3,
+            "title": "阶段一：基础设施搭建（1-2周）",
+            "slug": "阶段一-基础设施搭建-1-2周",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "阶段二：核心功能迁移（2-4周）",
+            "slug": "阶段二-核心功能迁移-2-4周",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "阶段三：渐进式替换（持续进行）",
+            "slug": "阶段三-渐进式替换-持续进行",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎯 最佳实践",
+        "slug": "🎯-最佳实践",
+        "children": [
+          {
+            "level": 3,
+            "title": "1. 组件设计原则",
+            "slug": "_1-组件设计原则",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "2. 生命周期管理",
+            "slug": "_2-生命周期管理",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "3. 错误处理策略",
+            "slug": "_3-错误处理策略",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "4. 性能优化建议",
+            "slug": "_4-性能优化建议",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🔧 故障排除",
+        "slug": "🔧-故障排除",
+        "children": [
+          {
+            "level": 3,
+            "title": "常见问题及解决方案",
+            "slug": "常见问题及解决方案",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "📊 效果预期",
+        "slug": "📊-效果预期",
+        "children": [
+          {
+            "level": 3,
+            "title": "技术指标",
+            "slug": "技术指标",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "业务价值",
+            "slug": "业务价值",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "🎉 总结",
+        "slug": "🎉-总结",
+        "children": []
+      }
+    ],
+    "path": "/frontEnd/project/microFrontend/qiankun4.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "npm",
     "headers": [
       {
@@ -5912,264 +7160,6 @@ export const searchIndex = [
       }
     ],
     "path": "/frontEnd/tools/blog/vuepress.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "搭建自用chatGPT教程",
-    "headers": [
-      {
-        "level": 2,
-        "title": "项目地址",
-        "slug": "项目地址",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "部署过程",
-        "slug": "部署过程",
-        "children": [
-          {
-            "level": 3,
-            "title": "获取 open-ai-key",
-            "slug": "获取-open-ai-key",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "开始构建",
-            "slug": "开始构建",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "使用",
-            "slug": "使用",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "配置自己的域名",
-        "slug": "配置自己的域名",
-        "children": [
-          {
-            "level": 3,
-            "title": "注册域名",
-            "slug": "注册域名",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "DNS域名解析",
-            "slug": "dns域名解析",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "配置",
-            "slug": "配置",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考地址",
-        "slug": "参考地址",
-        "children": []
-      }
-    ],
-    "path": "/frontEnd/tools/chatGPT/gpt1.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "使用虚拟信用卡进行chatGPT支付",
-    "headers": [
-      {
-        "level": 2,
-        "title": "平台：www.vvacard.com",
-        "slug": "平台-www-vvacard-com",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "介绍",
-        "slug": "介绍",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "开卡流程",
-        "slug": "开卡流程",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "OpenAI付款设置",
-        "slug": "openai付款设置",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "开通plus 使用chatGPT4",
-        "slug": "开通plus-使用chatgpt4",
-        "children": []
-      }
-    ],
-    "path": "/frontEnd/tools/chatGPT/gpt2.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "chatGPT应用整理",
-    "headers": [
-      {
-        "level": 2,
-        "title": "应用方向",
-        "slug": "应用方向",
-        "children": [
-          {
-            "level": 3,
-            "title": "前端开发方向",
-            "slug": "前端开发方向",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "办公方向",
-            "slug": "办公方向",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "chatGPT问题清淡整理",
-            "slug": "chatgpt问题清淡整理",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "视频制作",
-            "slug": "视频制作",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "英语学习",
-            "slug": "英语学习",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "商业应用",
-            "slug": "商业应用",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "chatGPT工具",
-        "slug": "chatgpt工具",
-        "children": [
-          {
-            "level": 3,
-            "title": "poe",
-            "slug": "poe",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "new bing",
-            "slug": "new-bing",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "openAI注册流程",
-        "slug": "openai注册流程",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "chatGPT制作PPT",
-        "slug": "chatgpt制作ppt",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "chatppt: 指令生成PPT工具",
-        "slug": "chatppt-指令生成ppt工具",
-        "children": []
-      }
-    ],
-    "path": "/frontEnd/tools/chatGPT/gpt3.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "chatGPT中连续推送数据流 SSE",
-    "headers": [
-      {
-        "level": 2,
-        "title": "http、sse、websocket区别",
-        "slug": "http、sse、websocket区别",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "概念",
-        "slug": "概念",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "工作原理",
-        "slug": "工作原理",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "介绍",
-        "slug": "介绍",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "SSE的特点",
-        "slug": "sse的特点",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "SSE的推送数据格式",
-        "slug": "sse的推送数据格式",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "使用案例1",
-        "slug": "使用案例1",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "使用案例2",
-        "slug": "使用案例2",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "参考地址",
-        "slug": "参考地址",
-        "children": []
-      }
-    ],
-    "path": "/frontEnd/tools/chatGPT/gpt4.html",
     "pathLocale": "/",
     "extraFields": []
   },
