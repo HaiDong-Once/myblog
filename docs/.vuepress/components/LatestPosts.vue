@@ -30,6 +30,13 @@ export default {
     return {
       latestPosts: [
         {
+          title: 'app通知权限管理',
+          description: 'app跨端项目中使用plus api实现通知权限管理',
+          category: 'App',
+          path: '/frontEnd/frame/app/app.md',
+          lastUpdated: new Date('2025/6/19 16:24:05')
+        },
+        {
           title: 'Vue弹窗组件改造',
           description: 'Vue弹窗组件改造，从模板调用到JS函数调用实现',
           category: 'Vue框架',

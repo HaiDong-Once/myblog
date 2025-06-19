@@ -152,6 +152,14 @@ module.exports = {
                     ],
                 },
             ],
+            '/frontEnd/frame/app': [
+                {
+                    text: 'app',
+                    children: [
+                        '/frontEnd/frame/app/app.md'
+                    ],
+                }
+            ],
             '/frontEnd/frame/nuxt': [
                 {
                     text: 'nuxt3应用',
@@ -424,6 +432,9 @@ module.exports = {
                     },
                     {   text: 'react',
                         link: '/frontEnd/frame/react/react.md'
+                    },
+                    {   text: 'app',
+                        link: '/frontEnd/frame/app/app.md'
                     },
                     {   text: 'nuxt',
                         link: '/frontEnd/frame/nuxt/nuxt1.md'

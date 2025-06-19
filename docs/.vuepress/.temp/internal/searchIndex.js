@@ -7,265 +7,6 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "Cursor工作流探索第一篇：前端开发效率提升，从DTC到全流程AI赋能",
-    "headers": [
-      {
-        "level": 2,
-        "title": "一、概要介绍",
-        "slug": "一、概要介绍",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "二、背景",
-        "slug": "二、背景",
-        "children": [
-          {
-            "level": 3,
-            "title": "前端开发过程中主要痛点",
-            "slug": "前端开发过程中主要痛点",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "上一代ai辅助工具简介（cursor问世之前）",
-            "slug": "上一代ai辅助工具简介-cursor问世之前",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "三、cursor概要介绍",
-        "slug": "三、cursor概要介绍",
-        "children": [
-          {
-            "level": 3,
-            "title": "功能介绍",
-            "slug": "功能介绍",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "服务价格",
-            "slug": "服务价格",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "cursor优势",
-            "slug": "cursor优势",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "四、cursor在前端开发中的应用",
-        "slug": "四、cursor在前端开发中的应用",
-        "children": [
-          {
-            "level": 3,
-            "title": "助力前端痛点提效",
-            "slug": "助力前端痛点提效",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "五、测试案例",
-        "slug": "五、测试案例",
-        "children": [
-          {
-            "level": 3,
-            "title": "agent模式自动开发一个个人博客案例",
-            "slug": "agent模式自动开发一个个人博客案例",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "六、工作流探索",
-        "slug": "六、工作流探索",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "七、cursor在其他领域思考和扩展",
-        "slug": "七、cursor在其他领域思考和扩展",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "八、提示词整理",
-        "slug": "八、提示词整理",
-        "children": []
-      }
-    ],
-    "path": "/AI/cursor/cursor-workflow1.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Cursor工作流探索第二篇：概念理解到实践技巧",
-    "headers": [
-      {
-        "level": 2,
-        "title": "cursor概念和理解",
-        "slug": "cursor概念和理解",
-        "children": [
-          {
-            "level": 3,
-            "title": "Cursor开发团队观点和理念",
-            "slug": "cursor开发团队观点和理念",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "聊天式编程",
-            "slug": "聊天式编程",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "新的编程范式",
-            "slug": "新的编程范式",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Cursor使用技巧",
-            "slug": "cursor使用技巧",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Cursor与“心流”",
-            "slug": "cursor与-心流",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "重点利用领域思考",
-            "slug": "重点利用领域思考",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "MCP探索测试",
-        "slug": "mcp探索测试",
-        "children": [
-          {
-            "level": 3,
-            "title": "MCP是什么？",
-            "slug": "mcp是什么",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "MCP能力",
-            "slug": "mcp能力",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "MCP聚合网站",
-            "slug": "mcp聚合网站",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "MCP服务推荐和测试",
-            "slug": "mcp服务推荐和测试",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "参考文章",
-        "slug": "参考文章",
-        "children": []
-      }
-    ],
-    "path": "/AI/cursor/cursor-workflow2.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "Cursor工作流探索第三篇：Project Rules 团队项目应用实践",
-    "headers": [
-      {
-        "level": 2,
-        "title": "User Rules 配置",
-        "slug": "user-rules-配置",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "Project Rules 配置",
-        "slug": "project-rules-配置",
-        "children": [
-          {
-            "level": 3,
-            "title": "Rules 结构",
-            "slug": "rules-结构",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Rules示例：",
-            "slug": "rules示例",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "配置方法",
-            "slug": "配置方法",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "生成rules",
-            "slug": "生成rules",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Project Rules实践",
-            "slug": "project-rules实践",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "rules文件命名规范",
-            "slug": "rules文件命名规范",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "rules效果测试",
-            "slug": "rules效果测试",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Cursor Rules Idea:",
-            "slug": "cursor-rules-idea",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/AI/cursor/cursor-workflow3.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
     "title": "搭建自用chatGPT教程",
     "headers": [
       {
@@ -621,6 +362,265 @@ export const searchIndex = [
       }
     ],
     "path": "/AI/apply/SSE.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Cursor工作流探索第一篇：前端开发效率提升，从DTC到全流程AI赋能",
+    "headers": [
+      {
+        "level": 2,
+        "title": "一、概要介绍",
+        "slug": "一、概要介绍",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "二、背景",
+        "slug": "二、背景",
+        "children": [
+          {
+            "level": 3,
+            "title": "前端开发过程中主要痛点",
+            "slug": "前端开发过程中主要痛点",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "上一代ai辅助工具简介（cursor问世之前）",
+            "slug": "上一代ai辅助工具简介-cursor问世之前",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "三、cursor概要介绍",
+        "slug": "三、cursor概要介绍",
+        "children": [
+          {
+            "level": 3,
+            "title": "功能介绍",
+            "slug": "功能介绍",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "服务价格",
+            "slug": "服务价格",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "cursor优势",
+            "slug": "cursor优势",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "四、cursor在前端开发中的应用",
+        "slug": "四、cursor在前端开发中的应用",
+        "children": [
+          {
+            "level": 3,
+            "title": "助力前端痛点提效",
+            "slug": "助力前端痛点提效",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "五、测试案例",
+        "slug": "五、测试案例",
+        "children": [
+          {
+            "level": 3,
+            "title": "agent模式自动开发一个个人博客案例",
+            "slug": "agent模式自动开发一个个人博客案例",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "六、工作流探索",
+        "slug": "六、工作流探索",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "七、cursor在其他领域思考和扩展",
+        "slug": "七、cursor在其他领域思考和扩展",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "八、提示词整理",
+        "slug": "八、提示词整理",
+        "children": []
+      }
+    ],
+    "path": "/AI/cursor/cursor-workflow1.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Cursor工作流探索第二篇：概念理解到实践技巧",
+    "headers": [
+      {
+        "level": 2,
+        "title": "cursor概念和理解",
+        "slug": "cursor概念和理解",
+        "children": [
+          {
+            "level": 3,
+            "title": "Cursor开发团队观点和理念",
+            "slug": "cursor开发团队观点和理念",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "聊天式编程",
+            "slug": "聊天式编程",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "新的编程范式",
+            "slug": "新的编程范式",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Cursor使用技巧",
+            "slug": "cursor使用技巧",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Cursor与“心流”",
+            "slug": "cursor与-心流",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "重点利用领域思考",
+            "slug": "重点利用领域思考",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "MCP探索测试",
+        "slug": "mcp探索测试",
+        "children": [
+          {
+            "level": 3,
+            "title": "MCP是什么？",
+            "slug": "mcp是什么",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "MCP能力",
+            "slug": "mcp能力",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "MCP聚合网站",
+            "slug": "mcp聚合网站",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "MCP服务推荐和测试",
+            "slug": "mcp服务推荐和测试",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "参考文章",
+        "slug": "参考文章",
+        "children": []
+      }
+    ],
+    "path": "/AI/cursor/cursor-workflow2.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "Cursor工作流探索第三篇：Project Rules 团队项目应用实践",
+    "headers": [
+      {
+        "level": 2,
+        "title": "User Rules 配置",
+        "slug": "user-rules-配置",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "Project Rules 配置",
+        "slug": "project-rules-配置",
+        "children": [
+          {
+            "level": 3,
+            "title": "Rules 结构",
+            "slug": "rules-结构",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Rules示例：",
+            "slug": "rules示例",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "配置方法",
+            "slug": "配置方法",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "生成rules",
+            "slug": "生成rules",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Project Rules实践",
+            "slug": "project-rules实践",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "rules文件命名规范",
+            "slug": "rules文件命名规范",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "rules效果测试",
+            "slug": "rules效果测试",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Cursor Rules Idea:",
+            "slug": "cursor-rules-idea",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/AI/cursor/cursor-workflow3.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -2329,6 +2329,13 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "",
+    "headers": [],
+    "path": "/frontEnd/frame/app/app.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "水滴鸿蒙改造web组件方案",
     "headers": [
       {
@@ -3517,6 +3524,629 @@ export const searchIndex = [
     "extraFields": []
   },
   {
+    "title": "微信小程序ci发布",
+    "headers": [
+      {
+        "level": 2,
+        "title": "前言",
+        "slug": "前言",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序上传代码配置",
+        "slug": "小程序上传代码配置",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "配置小程序预览生成二维码文件",
+        "slug": "配置小程序预览生成二维码文件",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "配置npm脚本命令",
+        "slug": "配置npm脚本命令",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "使用效果",
+        "slug": "使用效果",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "优化静态资源环境变量配置",
+        "slug": "优化静态资源环境变量配置",
+        "children": [
+          {
+            "level": 3,
+            "title": "新增cdnUrl变量",
+            "slug": "新增cdnurl变量",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "重写page对象每一页设置cdnUrl变量",
+            "slug": "重写page对象每一页设置cdnurl变量",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "js静态资源环境变量使用",
+            "slug": "js静态资源环境变量使用",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/frontEnd/frame/wechatMini/ciWechatMini.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "小程序开发案例汇总",
+    "headers": [
+      {
+        "level": 2,
+        "title": "小程序公共弹窗组件封装",
+        "slug": "小程序公共弹窗组件封装",
+        "children": [
+          {
+            "level": 3,
+            "title": "代码实现",
+            "slug": "代码实现",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "使用方法",
+            "slug": "使用方法",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序map地图显示组件使用案例",
+        "slug": "小程序map地图显示组件使用案例",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序使用腾讯地图选点组件",
+        "slug": "小程序使用腾讯地图选点组件",
+        "children": [
+          {
+            "level": 3,
+            "title": "代码实现",
+            "slug": "代码实现-1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序登录状态管理（原生）",
+        "slug": "小程序登录状态管理-原生",
+        "children": [
+          {
+            "level": 3,
+            "title": "管家小程序登录流程分析",
+            "slug": "管家小程序登录流程分析",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "解决方案",
+            "slug": "解决方案",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序本地缓存二次封装（过期，续期，获取全部）",
+        "slug": "小程序本地缓存二次封装-过期-续期-获取全部",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序页面栈",
+        "slug": "小程序页面栈",
+        "children": [
+          {
+            "level": 3,
+            "title": "解决小程序返回按钮和物理返回跳转指定页面",
+            "slug": "解决小程序返回按钮和物理返回跳转指定页面",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "中转页方案（中转页——目标页）",
+            "slug": "中转页方案-中转页——目标页",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "页面栈详情",
+            "slug": "页面栈详情",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序性能优化",
+        "slug": "小程序性能优化",
+        "children": [
+          {
+            "level": 3,
+            "title": "图片优化",
+            "slug": "图片优化",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "未使用依赖清除",
+            "slug": "未使用依赖清除",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "减重后数据统计",
+            "slug": "减重后数据统计",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "打开小程序按需注入",
+            "slug": "打开小程序按需注入",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "使用分包加载",
+            "slug": "使用分包加载",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "数据预拉取",
+            "slug": "数据预拉取",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "数据持久化：全局数据和缓存的合理利用",
+            "slug": "数据持久化-全局数据和缓存的合理利用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "小程序状态管理",
+            "slug": "小程序状态管理",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序体验优化",
+        "slug": "小程序体验优化",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序canvas实现多边形雷达图，蜘蛛图",
+        "slug": "小程序canvas实现多边形雷达图-蜘蛛图",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "接口数据缓存方案",
+        "slug": "接口数据缓存方案",
+        "children": [
+          {
+            "level": 3,
+            "title": "data数据缓存",
+            "slug": "data数据缓存",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "接口缓存promise方案",
+            "slug": "接口缓存promise方案",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序工具函数封装",
+        "slug": "小程序工具函数封装",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "全局loading解决方案",
+        "slug": "全局loading解决方案",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "扫码进入小程序参数解析",
+        "slug": "扫码进入小程序参数解析",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序input双向绑定",
+        "slug": "小程序input双向绑定",
+        "children": [
+          {
+            "level": 3,
+            "title": "全表单双向绑定",
+            "slug": "全表单双向绑定",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序switchTab跳转传参和刷新页面解决方案",
+        "slug": "小程序switchtab跳转传参和刷新页面解决方案",
+        "children": [
+          {
+            "level": 3,
+            "title": "使用wx.reLaunch",
+            "slug": "使用wx-relaunch",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "调用页面栈刷新页面",
+            "slug": "调用页面栈刷新页面",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "使用全局变量和缓存",
+            "slug": "使用全局变量和缓存",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "伪元素放大点击区域",
+        "slug": "伪元素放大点击区域",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序规避审核方法",
+        "slug": "小程序规避审核方法",
+        "children": [
+          {
+            "level": 3,
+            "title": "问题分析",
+            "slug": "问题分析",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "审核机制",
+            "slug": "审核机制",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "方法总结",
+            "slug": "方法总结",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "解决方案",
+            "slug": "解决方案-1",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序echart图表使用",
+        "slug": "小程序echart图表使用",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序内跳转其他小程序",
+        "slug": "小程序内跳转其他小程序",
+        "children": [
+          {
+            "level": 3,
+            "title": "navigateToMiniProgram api跳转",
+            "slug": "navigatetominiprogram-api跳转",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "navigator标签跳转",
+            "slug": "navigator标签跳转",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "注意事项",
+            "slug": "注意事项",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序图片上传",
+        "slug": "小程序图片上传",
+        "children": [
+          {
+            "level": 3,
+            "title": "wux-uploader组件",
+            "slug": "wux-uploader组件",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "微信uploader组件",
+            "slug": "微信uploader组件",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序分享方案",
+        "slug": "小程序分享方案",
+        "children": [
+          {
+            "level": 3,
+            "title": "button组件方案",
+            "slug": "button组件方案",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "回调函数方案",
+            "slug": "回调函数方案",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "分享动态图片",
+            "slug": "分享动态图片",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序数据监听封装 watch",
+        "slug": "小程序数据监听封装-watch",
+        "children": [
+          {
+            "level": 3,
+            "title": "监听基本数据类型",
+            "slug": "监听基本数据类型",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "复杂类型监听",
+            "slug": "复杂类型监听",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序返回上一页传参",
+        "slug": "小程序返回上一页传参",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "进度球波浪动画组件",
+        "slug": "进度球波浪动画组件",
+        "children": [
+          {
+            "level": 3,
+            "title": "canvas动画组",
+            "slug": "canvas动画组",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "静态组件",
+            "slug": "静态组件",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "svg版本(小程序不支持)",
+            "slug": "svg版本-小程序不支持",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序消息订阅",
+        "slug": "小程序消息订阅",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序弹窗淡入淡出",
+        "slug": "小程序弹窗淡入淡出",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序弹页面自动滚动动画",
+        "slug": "小程序弹页面自动滚动动画",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序文件预览",
+        "slug": "小程序文件预览",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序分包加载",
+        "slug": "小程序分包加载",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序路由和传参",
+        "slug": "小程序路由和传参",
+        "children": [
+          {
+            "level": 3,
+            "title": "路由api",
+            "slug": "路由api",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "navigator组件",
+            "slug": "navigator组件",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "路由跳转传参",
+            "slug": "路由跳转传参",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序自定义组件和使用",
+        "slug": "小程序自定义组件和使用",
+        "children": [
+          {
+            "level": 3,
+            "title": "组件传参",
+            "slug": "组件传参",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "父子组件传值—父传子",
+            "slug": "父子组件传值—父传子",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "父子组件传值—子传父",
+            "slug": "父子组件传值—子传父",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "组件内路由跳转",
+            "slug": "组件内路由跳转",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "input输入联想",
+        "slug": "input输入联想",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序自定义导航栏",
+        "slug": "小程序自定义导航栏",
+        "children": [
+          {
+            "level": 3,
+            "title": "导航栏分析",
+            "slug": "导航栏分析",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "导航栏图解",
+            "slug": "导航栏图解",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "组件封装",
+            "slug": "组件封装",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "组件使用",
+            "slug": "组件使用",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "小程序复制文本到到粘贴板",
+        "slug": "小程序复制文本到到粘贴板",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序多选列表开发票组件",
+        "slug": "小程序多选列表开发票组件",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序使用canvas旋转图片",
+        "slug": "小程序使用canvas旋转图片",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "小程序调用微信企业客服",
+        "slug": "小程序调用微信企业客服",
+        "children": [
+          {
+            "level": 3,
+            "title": "小程序内直接使用",
+            "slug": "小程序内直接使用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "小程序web-view页面使用",
+            "slug": "小程序web-view页面使用",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/frontEnd/frame/wechatMini/workApply.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
     "title": "vue router back 传参",
     "headers": [
       {
@@ -4258,629 +4888,6 @@ export const searchIndex = [
       }
     ],
     "path": "/frontEnd/frame/vue/workApply9.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "微信小程序ci发布",
-    "headers": [
-      {
-        "level": 2,
-        "title": "前言",
-        "slug": "前言",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序上传代码配置",
-        "slug": "小程序上传代码配置",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "配置小程序预览生成二维码文件",
-        "slug": "配置小程序预览生成二维码文件",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "配置npm脚本命令",
-        "slug": "配置npm脚本命令",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "使用效果",
-        "slug": "使用效果",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "优化静态资源环境变量配置",
-        "slug": "优化静态资源环境变量配置",
-        "children": [
-          {
-            "level": 3,
-            "title": "新增cdnUrl变量",
-            "slug": "新增cdnurl变量",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "重写page对象每一页设置cdnUrl变量",
-            "slug": "重写page对象每一页设置cdnurl变量",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "js静态资源环境变量使用",
-            "slug": "js静态资源环境变量使用",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/frontEnd/frame/wechatMini/ciWechatMini.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "小程序开发案例汇总",
-    "headers": [
-      {
-        "level": 2,
-        "title": "小程序公共弹窗组件封装",
-        "slug": "小程序公共弹窗组件封装",
-        "children": [
-          {
-            "level": 3,
-            "title": "代码实现",
-            "slug": "代码实现",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "使用方法",
-            "slug": "使用方法",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序map地图显示组件使用案例",
-        "slug": "小程序map地图显示组件使用案例",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序使用腾讯地图选点组件",
-        "slug": "小程序使用腾讯地图选点组件",
-        "children": [
-          {
-            "level": 3,
-            "title": "代码实现",
-            "slug": "代码实现-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序登录状态管理（原生）",
-        "slug": "小程序登录状态管理-原生",
-        "children": [
-          {
-            "level": 3,
-            "title": "管家小程序登录流程分析",
-            "slug": "管家小程序登录流程分析",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "解决方案",
-            "slug": "解决方案",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序本地缓存二次封装（过期，续期，获取全部）",
-        "slug": "小程序本地缓存二次封装-过期-续期-获取全部",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序页面栈",
-        "slug": "小程序页面栈",
-        "children": [
-          {
-            "level": 3,
-            "title": "解决小程序返回按钮和物理返回跳转指定页面",
-            "slug": "解决小程序返回按钮和物理返回跳转指定页面",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "中转页方案（中转页——目标页）",
-            "slug": "中转页方案-中转页——目标页",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "页面栈详情",
-            "slug": "页面栈详情",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序性能优化",
-        "slug": "小程序性能优化",
-        "children": [
-          {
-            "level": 3,
-            "title": "图片优化",
-            "slug": "图片优化",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "未使用依赖清除",
-            "slug": "未使用依赖清除",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "减重后数据统计",
-            "slug": "减重后数据统计",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "打开小程序按需注入",
-            "slug": "打开小程序按需注入",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "使用分包加载",
-            "slug": "使用分包加载",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "数据预拉取",
-            "slug": "数据预拉取",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "数据持久化：全局数据和缓存的合理利用",
-            "slug": "数据持久化-全局数据和缓存的合理利用",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "小程序状态管理",
-            "slug": "小程序状态管理",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序体验优化",
-        "slug": "小程序体验优化",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序canvas实现多边形雷达图，蜘蛛图",
-        "slug": "小程序canvas实现多边形雷达图-蜘蛛图",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "接口数据缓存方案",
-        "slug": "接口数据缓存方案",
-        "children": [
-          {
-            "level": 3,
-            "title": "data数据缓存",
-            "slug": "data数据缓存",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "接口缓存promise方案",
-            "slug": "接口缓存promise方案",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序工具函数封装",
-        "slug": "小程序工具函数封装",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "全局loading解决方案",
-        "slug": "全局loading解决方案",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "扫码进入小程序参数解析",
-        "slug": "扫码进入小程序参数解析",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序input双向绑定",
-        "slug": "小程序input双向绑定",
-        "children": [
-          {
-            "level": 3,
-            "title": "全表单双向绑定",
-            "slug": "全表单双向绑定",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序switchTab跳转传参和刷新页面解决方案",
-        "slug": "小程序switchtab跳转传参和刷新页面解决方案",
-        "children": [
-          {
-            "level": 3,
-            "title": "使用wx.reLaunch",
-            "slug": "使用wx-relaunch",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "调用页面栈刷新页面",
-            "slug": "调用页面栈刷新页面",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "使用全局变量和缓存",
-            "slug": "使用全局变量和缓存",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "伪元素放大点击区域",
-        "slug": "伪元素放大点击区域",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序规避审核方法",
-        "slug": "小程序规避审核方法",
-        "children": [
-          {
-            "level": 3,
-            "title": "问题分析",
-            "slug": "问题分析",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "审核机制",
-            "slug": "审核机制",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "方法总结",
-            "slug": "方法总结",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "解决方案",
-            "slug": "解决方案-1",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序echart图表使用",
-        "slug": "小程序echart图表使用",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序内跳转其他小程序",
-        "slug": "小程序内跳转其他小程序",
-        "children": [
-          {
-            "level": 3,
-            "title": "navigateToMiniProgram api跳转",
-            "slug": "navigatetominiprogram-api跳转",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "navigator标签跳转",
-            "slug": "navigator标签跳转",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "注意事项",
-            "slug": "注意事项",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序图片上传",
-        "slug": "小程序图片上传",
-        "children": [
-          {
-            "level": 3,
-            "title": "wux-uploader组件",
-            "slug": "wux-uploader组件",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "微信uploader组件",
-            "slug": "微信uploader组件",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序分享方案",
-        "slug": "小程序分享方案",
-        "children": [
-          {
-            "level": 3,
-            "title": "button组件方案",
-            "slug": "button组件方案",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "回调函数方案",
-            "slug": "回调函数方案",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "分享动态图片",
-            "slug": "分享动态图片",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序数据监听封装 watch",
-        "slug": "小程序数据监听封装-watch",
-        "children": [
-          {
-            "level": 3,
-            "title": "监听基本数据类型",
-            "slug": "监听基本数据类型",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "复杂类型监听",
-            "slug": "复杂类型监听",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序返回上一页传参",
-        "slug": "小程序返回上一页传参",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "进度球波浪动画组件",
-        "slug": "进度球波浪动画组件",
-        "children": [
-          {
-            "level": 3,
-            "title": "canvas动画组",
-            "slug": "canvas动画组",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "静态组件",
-            "slug": "静态组件",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "svg版本(小程序不支持)",
-            "slug": "svg版本-小程序不支持",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序消息订阅",
-        "slug": "小程序消息订阅",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序弹窗淡入淡出",
-        "slug": "小程序弹窗淡入淡出",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序弹页面自动滚动动画",
-        "slug": "小程序弹页面自动滚动动画",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序文件预览",
-        "slug": "小程序文件预览",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序分包加载",
-        "slug": "小程序分包加载",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序路由和传参",
-        "slug": "小程序路由和传参",
-        "children": [
-          {
-            "level": 3,
-            "title": "路由api",
-            "slug": "路由api",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "navigator组件",
-            "slug": "navigator组件",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "路由跳转传参",
-            "slug": "路由跳转传参",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序自定义组件和使用",
-        "slug": "小程序自定义组件和使用",
-        "children": [
-          {
-            "level": 3,
-            "title": "组件传参",
-            "slug": "组件传参",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "父子组件传值—父传子",
-            "slug": "父子组件传值—父传子",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "父子组件传值—子传父",
-            "slug": "父子组件传值—子传父",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "组件内路由跳转",
-            "slug": "组件内路由跳转",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "input输入联想",
-        "slug": "input输入联想",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序自定义导航栏",
-        "slug": "小程序自定义导航栏",
-        "children": [
-          {
-            "level": 3,
-            "title": "导航栏分析",
-            "slug": "导航栏分析",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "导航栏图解",
-            "slug": "导航栏图解",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "组件封装",
-            "slug": "组件封装",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "组件使用",
-            "slug": "组件使用",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "小程序复制文本到到粘贴板",
-        "slug": "小程序复制文本到到粘贴板",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序多选列表开发票组件",
-        "slug": "小程序多选列表开发票组件",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序使用canvas旋转图片",
-        "slug": "小程序使用canvas旋转图片",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "小程序调用微信企业客服",
-        "slug": "小程序调用微信企业客服",
-        "children": [
-          {
-            "level": 3,
-            "title": "小程序内直接使用",
-            "slug": "小程序内直接使用",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "小程序web-view页面使用",
-            "slug": "小程序web-view页面使用",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/frontEnd/frame/wechatMini/workApply.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -7089,77 +7096,266 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "博客搭建",
+    "title": "mac 安装 Homebrew 安装教程",
     "headers": [
       {
         "level": 2,
-        "title": "vuepress搭建博客",
-        "slug": "vuepress搭建博客",
+        "title": "一、介绍",
+        "slug": "一、介绍",
+        "children": []
+      },
+      {
+        "level": 2,
+        "title": "二、Homebrow安装",
+        "slug": "二、homebrow安装",
         "children": [
           {
             "level": 3,
-            "title": "依赖环境",
-            "slug": "依赖环境",
+            "title": "官方安装教程",
+            "slug": "官方安装教程",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "homebrow使用",
+        "slug": "homebrow使用",
+        "children": []
+      }
+    ],
+    "path": "/frontEnd/tools/tool/macTool.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "开发工具",
+    "headers": [
+      {
+        "level": 2,
+        "title": "windows环境下charles配置抓包",
+        "slug": "windows环境下charles配置抓包",
+        "children": [
+          {
+            "level": 3,
+            "title": "下载charles",
+            "slug": "下载charles",
             "children": []
           },
           {
             "level": 3,
-            "title": "手动安装",
-            "slug": "手动安装",
+            "title": "证书安装",
+            "slug": "证书安装",
             "children": []
           },
           {
             "level": 3,
-            "title": "配置文件目录",
-            "slug": "配置文件目录",
+            "title": "勾选windows proxy",
+            "slug": "勾选windows-proxy",
             "children": []
           },
           {
             "level": 3,
-            "title": "在config.js中添加配置",
-            "slug": "在config-js中添加配置",
+            "title": "配置proxy",
+            "slug": "配置proxy",
             "children": []
           },
           {
             "level": 3,
-            "title": "配置首页样式",
-            "slug": "配置首页样式",
+            "title": "手机安装证书",
+            "slug": "手机安装证书",
             "children": []
           },
           {
             "level": 3,
-            "title": "配置自动部署脚本",
-            "slug": "配置自动部署脚本",
+            "title": "ios端手机网络配置",
+            "slug": "ios端手机网络配置",
             "children": []
           },
           {
             "level": 3,
-            "title": "配置执行部署脚本",
-            "slug": "配置执行部署脚本",
+            "title": "Android端手机网络配置",
+            "slug": "android端手机网络配置",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "CodeFun：前端开发ui代码自动生成工具",
+        "slug": "codefun-前端开发ui代码自动生成工具",
+        "children": [
+          {
+            "level": 3,
+            "title": "CodeFun介绍：",
+            "slug": "codefun介绍",
             "children": []
           },
           {
             "level": 3,
-            "title": "执行部署命令",
-            "slug": "执行部署命令",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "配置github page",
-            "slug": "配置github-page",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "最终效果",
-            "slug": "最终效果",
+            "title": "实测过程：",
+            "slug": "实测过程",
             "children": []
           }
         ]
       }
     ],
-    "path": "/frontEnd/tools/blog/vuepress.html",
+    "path": "/frontEnd/tools/tool/tool.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "vercel",
+    "headers": [
+      {
+        "level": 2,
+        "title": "vercel 免费部署服务器流程",
+        "slug": "vercel-免费部署服务器流程",
+        "children": [
+          {
+            "level": 3,
+            "title": "vercel地址",
+            "slug": "vercel地址",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "提供了以下模板支持：",
+            "slug": "提供了以下模板支持",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "选择模板可视化部署：",
+            "slug": "选择模板可视化部署",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "项目内命令部署：",
+            "slug": "项目内命令部署",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/frontEnd/tools/tool/vercel.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "组合式api Composition API",
+    "headers": [
+      {
+        "level": 2,
+        "title": "组合式api使用逻辑复用实践",
+        "slug": "组合式api使用逻辑复用实践",
+        "children": [
+          {
+            "level": 3,
+            "title": "支付页逻辑复用",
+            "slug": "支付页逻辑复用",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "数据初始化逻辑复用",
+            "slug": "数据初始化逻辑复用",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/frontEnd/frame/vue/notes/compositionApi.html",
+    "pathLocale": "/",
+    "extraFields": []
+  },
+  {
+    "title": "vue2.7升级文档及说明",
+    "headers": [
+      {
+        "level": 2,
+        "title": "迁移介绍",
+        "slug": "迁移介绍",
+        "children": [
+          {
+            "level": 3,
+            "title": "来自vue3的特性",
+            "slug": "来自vue3的特性",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "支持以下api",
+            "slug": "支持以下api",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "注意事项",
+            "slug": "注意事项",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "与 Vue 3 的行为差异",
+            "slug": "与-vue-3-的行为差异",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "升级指南",
+        "slug": "升级指南",
+        "children": [
+          {
+            "level": 3,
+            "title": "Vue CLI / webpack",
+            "slug": "vue-cli-webpack",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Vite",
+            "slug": "vite",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "Volar 兼容性",
+            "slug": "volar-兼容性",
+            "children": []
+          }
+        ]
+      },
+      {
+        "level": 2,
+        "title": "升级过程",
+        "slug": "升级过程",
+        "children": [
+          {
+            "level": 3,
+            "title": "升级前版本",
+            "slug": "升级前版本",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "升级步骤",
+            "slug": "升级步骤",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "注意事项",
+            "slug": "注意事项-1",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "path": "/frontEnd/frame/vue/notes/vue2-7.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -7478,266 +7674,77 @@ export const searchIndex = [
     "extraFields": []
   },
   {
-    "title": "mac 安装 Homebrew 安装教程",
+    "title": "博客搭建",
     "headers": [
       {
         "level": 2,
-        "title": "一、介绍",
-        "slug": "一、介绍",
-        "children": []
-      },
-      {
-        "level": 2,
-        "title": "二、Homebrow安装",
-        "slug": "二、homebrow安装",
+        "title": "vuepress搭建博客",
+        "slug": "vuepress搭建博客",
         "children": [
           {
             "level": 3,
-            "title": "官方安装教程",
-            "slug": "官方安装教程",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "homebrow使用",
-        "slug": "homebrow使用",
-        "children": []
-      }
-    ],
-    "path": "/frontEnd/tools/tool/macTool.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "开发工具",
-    "headers": [
-      {
-        "level": 2,
-        "title": "windows环境下charles配置抓包",
-        "slug": "windows环境下charles配置抓包",
-        "children": [
-          {
-            "level": 3,
-            "title": "下载charles",
-            "slug": "下载charles",
+            "title": "依赖环境",
+            "slug": "依赖环境",
             "children": []
           },
           {
             "level": 3,
-            "title": "证书安装",
-            "slug": "证书安装",
+            "title": "手动安装",
+            "slug": "手动安装",
             "children": []
           },
           {
             "level": 3,
-            "title": "勾选windows proxy",
-            "slug": "勾选windows-proxy",
+            "title": "配置文件目录",
+            "slug": "配置文件目录",
             "children": []
           },
           {
             "level": 3,
-            "title": "配置proxy",
-            "slug": "配置proxy",
+            "title": "在config.js中添加配置",
+            "slug": "在config-js中添加配置",
             "children": []
           },
           {
             "level": 3,
-            "title": "手机安装证书",
-            "slug": "手机安装证书",
+            "title": "配置首页样式",
+            "slug": "配置首页样式",
             "children": []
           },
           {
             "level": 3,
-            "title": "ios端手机网络配置",
-            "slug": "ios端手机网络配置",
+            "title": "配置自动部署脚本",
+            "slug": "配置自动部署脚本",
             "children": []
           },
           {
             "level": 3,
-            "title": "Android端手机网络配置",
-            "slug": "android端手机网络配置",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "CodeFun：前端开发ui代码自动生成工具",
-        "slug": "codefun-前端开发ui代码自动生成工具",
-        "children": [
-          {
-            "level": 3,
-            "title": "CodeFun介绍：",
-            "slug": "codefun介绍",
+            "title": "配置执行部署脚本",
+            "slug": "配置执行部署脚本",
             "children": []
           },
           {
             "level": 3,
-            "title": "实测过程：",
-            "slug": "实测过程",
+            "title": "执行部署命令",
+            "slug": "执行部署命令",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "配置github page",
+            "slug": "配置github-page",
+            "children": []
+          },
+          {
+            "level": 3,
+            "title": "最终效果",
+            "slug": "最终效果",
             "children": []
           }
         ]
       }
     ],
-    "path": "/frontEnd/tools/tool/tool.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "vercel",
-    "headers": [
-      {
-        "level": 2,
-        "title": "vercel 免费部署服务器流程",
-        "slug": "vercel-免费部署服务器流程",
-        "children": [
-          {
-            "level": 3,
-            "title": "vercel地址",
-            "slug": "vercel地址",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "提供了以下模板支持：",
-            "slug": "提供了以下模板支持",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "选择模板可视化部署：",
-            "slug": "选择模板可视化部署",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "项目内命令部署：",
-            "slug": "项目内命令部署",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/frontEnd/tools/tool/vercel.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "组合式api Composition API",
-    "headers": [
-      {
-        "level": 2,
-        "title": "组合式api使用逻辑复用实践",
-        "slug": "组合式api使用逻辑复用实践",
-        "children": [
-          {
-            "level": 3,
-            "title": "支付页逻辑复用",
-            "slug": "支付页逻辑复用",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "数据初始化逻辑复用",
-            "slug": "数据初始化逻辑复用",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/frontEnd/frame/vue/notes/compositionApi.html",
-    "pathLocale": "/",
-    "extraFields": []
-  },
-  {
-    "title": "vue2.7升级文档及说明",
-    "headers": [
-      {
-        "level": 2,
-        "title": "迁移介绍",
-        "slug": "迁移介绍",
-        "children": [
-          {
-            "level": 3,
-            "title": "来自vue3的特性",
-            "slug": "来自vue3的特性",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "支持以下api",
-            "slug": "支持以下api",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "注意事项",
-            "slug": "注意事项",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "与 Vue 3 的行为差异",
-            "slug": "与-vue-3-的行为差异",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "升级指南",
-        "slug": "升级指南",
-        "children": [
-          {
-            "level": 3,
-            "title": "Vue CLI / webpack",
-            "slug": "vue-cli-webpack",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Vite",
-            "slug": "vite",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "Volar 兼容性",
-            "slug": "volar-兼容性",
-            "children": []
-          }
-        ]
-      },
-      {
-        "level": 2,
-        "title": "升级过程",
-        "slug": "升级过程",
-        "children": [
-          {
-            "level": 3,
-            "title": "升级前版本",
-            "slug": "升级前版本",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "升级步骤",
-            "slug": "升级步骤",
-            "children": []
-          },
-          {
-            "level": 3,
-            "title": "注意事项",
-            "slug": "注意事项-1",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "path": "/frontEnd/frame/vue/notes/vue2-7.html",
+    "path": "/frontEnd/tools/blog/vuepress.html",
     "pathLocale": "/",
     "extraFields": []
   },
@@ -7941,3 +7948,16 @@ export const searchIndex = [
     "extraFields": []
   }
 ]
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updateSearchIndex) {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ searchIndex }) => {
+    __VUE_HMR_RUNTIME__.updateSearchIndex(searchIndex)
+  })
+}
