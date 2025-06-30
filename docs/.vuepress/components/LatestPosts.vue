@@ -30,6 +30,20 @@ export default {
     return {
       latestPosts: [
         {
+          title: '前端弹窗中心化管理方案',
+          description: '解决弹窗管理混乱问题，支持优先级控制、状态机管理、数据耦合等',
+          category: '前端方案',
+          path: '/frontEnd/project/SDK/code3.md',
+          lastUpdated: new Date('2025/6/30 12:24:05')
+        },
+        {
+          title: '微前端事件总线通信方案',
+          description: '支持事件监听、事件发送、状态管理、生命周期管理等',
+          category: '微前端',
+          path: '/frontEnd/project/microFrontend/qiankun5.md',
+          lastUpdated: new Date('2025/6/30 12:24:05')
+        },
+        {
           title: 'app通知权限管理',
           description: 'app跨端项目中使用plus api实现通知权限管理',
           category: 'App',

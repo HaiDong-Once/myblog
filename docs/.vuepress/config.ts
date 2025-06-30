@@ -200,6 +200,7 @@ module.exports = {
                     children: [
                         '/frontEnd/project/SDK/monitor.md',
                         '/frontEnd/project/SDK/monitorSDK.md',
+                        '/frontEnd/project/SDK/code3.md',
                         '/frontEnd/project/SDK/code1.md',
                         '/frontEnd/project/SDK/code2.md',
                     ],
@@ -209,6 +210,7 @@ module.exports = {
                 {
                     text: '微前端',
                     children: [
+                        '/frontEnd/project/microFrontend/qiankun5.md',
                         '/frontEnd/project/microFrontend/qiankun4.md',
                         '/frontEnd/project/microFrontend/qiankun3.md',
                         '/frontEnd/project/microFrontend/qiankun2.md',
