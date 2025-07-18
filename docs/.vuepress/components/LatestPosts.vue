@@ -30,6 +30,27 @@ export default {
     return {
       latestPosts: [
         {
+          title: '搭建跨端聊天系统：Vue 2 + WebSocket + 小程序适配实战',
+          description: '基于小程序技术栈webview，开发供需集市聊天窗口系统web页面，支持企业与用户之间的实时沟通交流。',
+          category: '前端方案',
+          path: '/frontEnd/project/SDK/chatWebview.md',
+          lastUpdated: new Date('2025/7/18 16:24:05')
+        },
+        {
+          title: 'WebView Bridge 跨平台方案：统一 API 实现多端小程序通信',
+          description: '提供了统一的 API 接口来实现 Web 页面与各种小程序宿主环境的通信。',
+          category: '小程序',
+          path: '/frontEnd/frame/wechatMini/webviewBridge.md',
+          lastUpdated: new Date('2025/7/18 16:24:05')
+        },
+        {
+          title: '移动端适配方案： PostCSS px to viewport',
+          description: '使用 `postcss-px-to-viewport` 插件自动将px转换为vw单位，实现移动端适配。',
+          category: 'webpack',
+          path: '/frontEnd/project/webpack/application/pxtoviewport.md',
+          lastUpdated: new Date('2025/7/18 12:24:05')
+        },
+        {
           title: '前端弹窗中心化管理方案',
           description: '解决弹窗管理混乱问题，支持优先级控制、状态机管理、数据耦合等',
           category: '前端方案',

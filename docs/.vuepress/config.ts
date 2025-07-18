@@ -127,6 +127,7 @@ module.exports = {
                     text: '小程序应用实例',
                     children: [
                         '/frontEnd/frame/wechatMini/ciWechatMini.md',
+                        '/frontEnd/frame/wechatMini/webviewBridge.md',
                         '/frontEnd/frame/wechatMini/workApply.md',
                     ],
                 }
@@ -200,6 +201,7 @@ module.exports = {
                     children: [
                         '/frontEnd/project/SDK/monitor.md',
                         '/frontEnd/project/SDK/monitorSDK.md',
+                        '/frontEnd/project/SDK/chatWebview.md',
                         '/frontEnd/project/SDK/code3.md',
                         '/frontEnd/project/SDK/code1.md',
                         '/frontEnd/project/SDK/code2.md',
@@ -237,7 +239,8 @@ module.exports = {
                     text: 'webpack应用于实践',
                     children: [
                         '/frontEnd/project/webpack/application/webpackCase.md',
-                        '/frontEnd/project/webpack/application/npmPrams.md'
+                        '/frontEnd/project/webpack/application/npmPrams.md',
+                        '/frontEnd/project/webpack/application/pxtoviewport.md'
                     ],
                 },
             ],
