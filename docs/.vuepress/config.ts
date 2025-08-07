@@ -333,6 +333,7 @@ module.exports = {
                         '/AI/apply/gpt3.md',
                         '/AI/apply/gpt4.md',
                         '/AI/apply/SSE.md',
+                        '/AI/apply/aiRead.md',
                     ],
                 }
             ],

@@ -30,6 +30,13 @@ export default {
     return {
       latestPosts: [
         {
+          title: '吴恩达：AI创业的核心要素与未来趋势',
+          description: '吴恩达在YC AI Startup School的演讲中，明确指出AI最大的机会存在于应用层，而非备受追捧的基础模型层',
+          category: 'AI应用',
+          path: '/AI/apply/aiRead.md',
+          lastUpdated: new Date('2025/8/7 12:00:00')
+        },
+        {
           title: '搭建跨端聊天系统：Vue 2 + WebSocket + 小程序适配实战',
           description: '基于小程序技术栈webview，开发供需集市聊天窗口系统web页面，支持企业与用户之间的实时沟通交流。',
           category: '前端方案',
