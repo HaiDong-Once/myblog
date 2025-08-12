@@ -1,0 +1,1 @@
+import{_ as t,r as o,o as s,c as n,a}from"./app.4c8b15c1.js";const c={};function r(_,l){const e=o("LatestPosts");return s(),n("div",null,[a(e)])}var d=t(c,[["render",r],["__file","index.html.vue"]]);export{d as default};

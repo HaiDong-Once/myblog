@@ -1,0 +1,40 @@
+import{_ as e,r as t,o as p,c as o,b as n,a as c,e as i,d as s}from"./app.4c8b15c1.js";const l={},r=i(`<h1 id="dev\u73AF\u5883\u8C03\u8BD5\u8DE8\u57DF\u95EE\u9898\u89E3\u51B3" tabindex="-1"><a class="header-anchor" href="#dev\u73AF\u5883\u8C03\u8BD5\u8DE8\u57DF\u95EE\u9898\u89E3\u51B3" aria-hidden="true">#</a> dev\u73AF\u5883\u8C03\u8BD5\u8DE8\u57DF\u95EE\u9898\u89E3\u51B3</h1><h3 id="\u914D\u7F6Edevserver" tabindex="-1"><a class="header-anchor" href="#\u914D\u7F6Edevserver" aria-hidden="true">#</a> \u914D\u7F6EdevServer</h3><ul><li>vue.config.js</li></ul><div class="language-typescript ext-ts line-numbers-mode"><pre class="language-typescript"><code>devServer<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// \u63A5\u53E3\u524D\u7F00</span>
+    proxy<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&#39;/debt-treatment&#39;</span><span class="token punctuation">,</span><span class="token string">&#39;owner_danger_new&#39;</span><span class="token punctuation">,</span><span class="token string">&#39;annual-reports&#39;</span><span class="token punctuation">]</span>
+    <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>proxy<span class="token punctuation">,</span> item<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        proxy<span class="token punctuation">[</span>item<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            target<span class="token operator">:</span> <span class="token string">&#39;http://shuidi.test.pingansec.com&#39;</span><span class="token punctuation">,</span>
+            ws<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            pathRewrite<span class="token operator">:</span><span class="token punctuation">{</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> proxy
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    overlay<span class="token operator">:</span> <span class="token punctuation">{</span>
+        warnings<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+        errors<span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><ul><li>\u6839\u76EE\u5F55\u914D\u7F6Evue.config.js \u8BF4\u660E</li></ul><div class="language-typescript ext-ts line-numbers-mode"><pre class="language-typescript"><code>module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  devServer<span class="token operator">:</span> <span class="token punctuation">{</span>
+   <span class="token comment">// \u4EE3\u7406\u914D\u7F6E</span>
+    proxy<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token comment">// \u8FD9\u91CC\u7684api \u8868\u793A\u5982\u679C\u6211\u4EEC\u7684\u8BF7\u6C42\u5730\u5740\u6709/api\u7684\u65F6\u5019,\u5C31\u51FA\u89E6\u53D1\u4EE3\u7406\u673A\u5236</span>
+        <span class="token comment">// localhost:8888/api/abc  =&gt; \u4EE3\u7406\u7ED9\u53E6\u4E00\u4E2A\u670D\u52A1\u5668</span>
+        <span class="token comment">// \u672C\u5730\u7684\u524D\u7AEF  =\u300B \u672C\u5730\u7684\u540E\u7AEF  =\u300B \u4EE3\u7406\u6211\u4EEC\u5411\u53E6\u4E00\u4E2A\u670D\u52A1\u5668\u53D1\u8BF7\u6C42 \uFF08\u884C\u5F97\u901A\uFF09</span>
+        <span class="token comment">// \u672C\u5730\u7684\u524D\u7AEF  =\u300B \u53E6\u5916\u4E00\u4E2A\u670D\u52A1\u5668\u53D1\u8BF7\u6C42 \uFF08\u8DE8\u57DF \u884C\u4E0D\u901A\uFF09</span>
+        <span class="token string-property property">&#39;/api&#39;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        target<span class="token operator">:</span> <span class="token string">&#39;www.baidu.com&#39;</span><span class="token punctuation">,</span> <span class="token comment">// \u6211\u4EEC\u8981\u4EE3\u7406\u7684\u5730\u5740---\u4F60\u7684\u8DE8\u57DF\u670D\u52A1\u5668\u5730\u5740</span>
+        changeOrigin<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> <span class="token comment">// \u662F\u5426\u8DE8\u57DF \u9700\u8981\u8BBE\u7F6E\u6B64\u503C\u4E3Atrue \u624D\u53EF\u4EE5\u8BA9\u672C\u5730\u670D\u52A1\u4EE3\u7406\u6211\u4EEC\u53D1\u51FA\u8BF7\u6C42</span>
+         <span class="token comment">// \u8DEF\u5F84\u91CD\u5199</span>
+        pathRewrite<span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token comment">// \u91CD\u65B0\u8DEF\u7531  localhost:8888/api/login  =&gt; www.baidu.com/api/login</span>
+            <span class="token comment">// \u628Aapi\u66FF\u6362\u4E3A\u7A7A\u5B57\u7B26</span>
+            <span class="token string-property property">&#39;^/api&#39;</span><span class="token operator">:</span> <span class="token string">&#39;&#39;</span> <span class="token comment">// \u5047\u8BBE\u6211\u4EEC\u60F3\u628A localhost:8888/api/login \u53D8\u6210www.baidu.com/login \u5C31\u9700\u8981\u8FD9\u4E48\u505A </span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,6),u=s("\u5176\u4ED6\u65B9\u6CD5 "),d={href:"https://blog.51cto.com/u_15760318/5608153",target:"_blank",rel:"noopener noreferrer"},v=s("https://blog.51cto.com/u_15760318/5608153");function k(m,b){const a=t("ExternalLinkIcon");return p(),o("div",null,[r,n("ul",null,[n("li",null,[u,n("a",d,[v,c(a)])])])])}var h=e(l,[["render",k],["__file","workApply17.html.vue"]]);export{h as default};
