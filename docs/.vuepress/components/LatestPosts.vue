@@ -30,6 +30,48 @@ export default {
     return {
       latestPosts: [
         {
+          title: 'AI工具开发：用 MCP 协议打通 Chrome 与 Cursor 的数据通道',
+          description: '打通 Chrome 浏览器与 AI Agent IDE 的桥梁 — 点击网页元素，AI 助手直接获取完整信息。',
+          category: 'AI应用',
+          path: '/AI/apply/agent4.md',
+          lastUpdated: new Date('2026/3/3 12:00:00')
+        },
+        {
+          title: 'Vue Keep-Alive 对 Iframe 内部页面留存无效问题分析',
+          description: '在使用 Vue 的 keep-alive 功能时， iframe 内部的页面导航状态无法保留',
+          category: 'Vue框架',
+          path: '/frontEnd/frame/vue/workApply29.md',
+          lastUpdated: new Date('2026/1/4 12:00:00')
+        },
+        {
+          title: 'AI 应用开发：知识库助手前端设计 - mock先行模式',
+          description: 'AI 应用开发：个人知识库助手前端设计 - mock先行模式',
+          category: 'AI应用',
+          path: '/AI/apply/agent3.md',
+          lastUpdated: new Date('2025/12/25 12:00:00')
+        },
+        {
+          title: 'Agent @在线文档功能 - 前端交互与代码设计方案',
+          description: 'Agent @在线文档功能允许用户在输入框中通过输入 `@` 符号触发文件选择',
+          category: 'AI应用',
+          path: '/AI/apply/agent2.md',
+          lastUpdated: new Date('2025/12/24 12:00:00')
+        },
+        {
+          title: 'Android WebView 离线/在线双模式方案设计',
+          description: '由于涉及会场演示，需考虑网络不稳定的情况，设计双模式运行机制：',
+          category: '跨端开发',
+          path: '/frontEnd/frame/app/app2.md',
+          lastUpdated: new Date('2025/12/22 12:00:00')
+        },
+        {
+          title: 'Agentic AI 系统前端设计文档',
+          description: 'Agentic AI 系统前端设计文档，包括系统架构、核心流程、状态管理、数据流转、UI交互等各个方面的设计细节',
+          category: 'AI应用',
+          path: '/AI/apply/agent1.md',
+          lastUpdated: new Date('2025/12/8 12:00:00')
+        },
+        {
           title: '吴恩达：AI创业的核心要素与未来趋势',
           description: '吴恩达在YC AI Startup School的演讲中，明确指出AI最大的机会存在于应用层，而非备受追捧的基础模型层',
           category: 'AI应用',
@@ -245,7 +287,7 @@ export default {
     // 按更新时间排序，最新的在前面
     this.latestPosts.sort((a, b) => b.lastUpdated - a.lastUpdated)
     // 只保留最新的10条
-    this.latestPosts = this.latestPosts.slice(0, 20)
+    this.latestPosts = this.latestPosts.slice(0, 200)
   }
 }
 </script>

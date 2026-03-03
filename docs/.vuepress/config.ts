@@ -112,6 +112,7 @@ module.exports = {
                         '/frontEnd/frame/vue/workApply23.md',
                         '/frontEnd/frame/vue/workApply24.md',
                         '/frontEnd/frame/vue/workApply25.md',
+                        '/frontEnd/frame/vue/workApply29.md',
                     ],
                 },
                 {
@@ -157,7 +158,8 @@ module.exports = {
                 {
                     text: 'app',
                     children: [
-                        '/frontEnd/frame/app/app.md'
+                        '/frontEnd/frame/app/app.md',
+                        '/frontEnd/frame/app/app2.md',
                     ],
                 }
             ],
@@ -334,6 +336,10 @@ module.exports = {
                         '/AI/apply/gpt4.md',
                         '/AI/apply/SSE.md',
                         '/AI/apply/aiRead.md',
+                        '/AI/apply/agent1.md',
+                        '/AI/apply/agent2.md',
+                        '/AI/apply/agent3.md',
+                        '/AI/apply/agent4.md',
                     ],
                 }
             ],
@@ -548,6 +554,10 @@ module.exports = {
                     }
                 ],
             },
+            {
+                text: 'GitHub',
+                link: 'https://github.com/HaiDong-Once'
+            }
         ],
     }),
     logo: 'https://vuejs.org/images/logo.png',
