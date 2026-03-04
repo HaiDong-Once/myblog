@@ -35,6 +35,8 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 
 # 把上面的 <USERNAME> 换成你自己的 Github 用户名，<REPO> 换成仓库名，
- git push -f git@github.com:HaiDong-Once/myblog.git main:gh-pages
+# 使用 HEAD:gh-pages 避免 dist 内新 init 的仓库默认分支名(master/main)不一致
+# 使用 HTTPS 避免 SSH 密钥问题；如需 SSH 可改回 git@github.com:HaiDong-Once/myblog.git
+ git push -f https://github.com/HaiDong-Once/myblog.git HEAD:gh-pages
 
 cd -
